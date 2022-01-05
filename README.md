@@ -1,5 +1,5 @@
 Builds:  
-[![Build Status](https://github.com/Magenic/MAQS/actions/workflows/build.yml/badge.svg?event=schedule)](https://github.com/Magenic/MAQS/actions/workflows/build.yml)
+[![Build Status](https://github.com/CognizantOpenSource/maqs-dotnet/actions/workflows/build.yml/badge.svg?event=schedule)](https://github.com/CognizantOpenSource/maqs-dotnet/actions/workflows/build.yml)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=MAQS&metric=alert_status)](https://sonarcloud.io/dashboard?id=MAQS) [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=MAQS&metric=coverage)](https://sonarcloud.io/dashboard?id=MAQS) [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=MAQS&metric=bugs)](https://sonarcloud.io/dashboard?id=MAQS) [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=MAQS&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=MAQS)  
 
 Releases:  
@@ -7,13 +7,13 @@ Releases:
 [![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/vs-publisher-1465771.MAQSOpenFramework.svg?label=Visual%20Studio%20Extension)](https://marketplace.visualstudio.com/items?itemName=vs-publisher-1465771.MAQSOpenFramework)  
 
 License:  
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://raw.githubusercontent.com/Magenic/MAQS/master/LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://raw.githubusercontent.com/CognizantOpenSource/maqs-dotnet/master/LICENSE)
 
 # MAQS
 
 ## Introduction
 
-MAQS stands for Magenic's automation quick start.
+MAQS stands for Modular automation quick start.
 
 It …
 
@@ -25,8 +25,8 @@ The main idea behind MAQS is to avoid **reinventing the wheel**. Most automation
 
 ## Help files
 
-- [MAQS 6](https://magenic.github.io/MAQS/#/MAQS_6/Introduction)
-- [MAQS 7](https://magenic.github.io/MAQS/#/MAQS_7/Introduction)
+- [MAQS 6](https://cognizantopensource.github.io/maqs-dotnet/#/MAQS_6/Introduction)
+- [MAQS 7](https://cognizantopensource.github.io/maqs-dotnet/#/MAQS_7/Introduction)
 
 ## Powered By
 
@@ -37,7 +37,7 @@ The main idea behind MAQS is to avoid **reinventing the wheel**. Most automation
 ## License
 
 The MIT License (MIT)
-Copyright (c) 2021 Magenic
+Copyright (c) 2022 Cognizant
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
