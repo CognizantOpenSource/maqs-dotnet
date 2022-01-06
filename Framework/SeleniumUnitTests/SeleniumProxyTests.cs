@@ -78,7 +78,7 @@ namespace SeleniumUnitTests
             string url = Path.Combine(SeleniumConfig.GetWebSiteBase().Replace("https://", "http://"), "Employees");
             this.WebDriver.Navigate().GoToUrl(url);
 
-            bool proxyUsed = RequestsHistory.Values.Any(r => r.RequestUri.ToString().Contains("GlobalAutomation.azurewebsites.net/Employees"));
+            bool proxyUsed = RequestsHistory.Values.Any(r => r.RequestUri.ToString().Contains("magenicautomation.azurewebsites.net/Employees"));
             Assert.IsTrue(proxyUsed, "Failed to assert the proxy was used by the web driver.");
         }
 
