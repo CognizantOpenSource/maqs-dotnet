@@ -104,11 +104,11 @@ namespace CompositeUnitTests
         public void SeparateInteractions()
         {
             SeleniumDriverManager newDriver = new SeleniumDriverManager(() => WebDriverFactory.GetBrowserWithDefaultConfiguration(BrowserType.HeadlessChrome), this.TestObject);
-            newDriver.GetWebDriver().Navigate().GoToUrl("https://GlobalAutomation.azurewebsites.net/");
+            newDriver.GetWebDriver().Navigate().GoToUrl("https://magenicautomation.azurewebsites.net/");
 
             this.ManagerStore.Add("test", newDriver);
 
-            this.TestObject.WebDriver.Navigate().GoToUrl("https://GlobalAutomation.azurewebsites.net/Automation");
+            this.TestObject.WebDriver.Navigate().GoToUrl("https://magenicautomation.azurewebsites.net/Automation");
 
             Assert.AreNotEqual(this.TestObject.WebDriver.Url, this.ManagerStore.GetManager<SeleniumDriverManager>("test").GetWebDriver().Url);
         }
@@ -120,10 +120,10 @@ namespace CompositeUnitTests
         public void SeparateLazyElementInteractions()
         {
             SeleniumDriverManager newDriver = new SeleniumDriverManager(() => WebDriverFactory.GetBrowserWithDefaultConfiguration(BrowserType.HeadlessChrome), this.TestObject);
-            newDriver.GetWebDriver().Navigate().GoToUrl("https://GlobalAutomation.azurewebsites.net/");
+            newDriver.GetWebDriver().Navigate().GoToUrl("https://magenicautomation.azurewebsites.net/");
             this.ManagerStore.Add("test", newDriver);
 
-            this.TestObject.WebDriver.Navigate().GoToUrl("https://GlobalAutomation.azurewebsites.net/Automation");
+            this.TestObject.WebDriver.Navigate().GoToUrl("https://magenicautomation.azurewebsites.net/Automation");
 
             LazyElement topNew = new LazyElement(this.TestObject, newDriver.GetWebDriver(), By.CssSelector("*"));
             LazyElement topDefault = new LazyElement(this.TestObject, By.CssSelector("*"));

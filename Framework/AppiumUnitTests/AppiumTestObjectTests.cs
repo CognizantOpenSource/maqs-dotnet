@@ -75,10 +75,10 @@ namespace AppiumUnitTests
         public void SeparateLazyElementInteractions()
         {
             AppiumDriverManager newDriver = new AppiumDriverManager(() => AppiumDriverFactory.GetDefaultMobileDriver(), this.TestObject);
-            newDriver.GetAppiumDriver().Navigate().GoToUrl("https://GlobalAutomation.azurewebsites.net/");
+            newDriver.GetAppiumDriver().Navigate().GoToUrl("https://magenicautomation.azurewebsites.net/");
             this.ManagerStore.Add("test", newDriver);
 
-            this.TestObject.AppiumDriver.Navigate().GoToUrl("https://GlobalAutomation.azurewebsites.net/Automation");
+            this.TestObject.AppiumDriver.Navigate().GoToUrl("https://magenicautomation.azurewebsites.net/Automation");
 
             LazyMobileElement topNew = new LazyMobileElement(this.TestObject, newDriver.GetAppiumDriver(), By.CssSelector("*"));
             LazyMobileElement topDefault = new LazyMobileElement(this.TestObject, By.CssSelector("*"));
