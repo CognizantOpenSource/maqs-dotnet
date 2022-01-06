@@ -1,13 +1,13 @@
 ﻿//--------------------------------------------------
-// <copyright file="PerfTimer.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="PerfTimer.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Performance Timer Class</summary>
 //--------------------------------------------------
 using System;
 using System.Xml.Serialization;
 
-namespace Magenic.Maqs.Utilities.Performance
+namespace CognizantSoftvision.Maqs.Utilities.Performance
 {
     /// <summary>
     /// Response timer class - holds a single response timer

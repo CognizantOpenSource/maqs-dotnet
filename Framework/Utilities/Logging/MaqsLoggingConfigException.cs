@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace Magenic.Maqs.Utilities.Helper
+namespace CognizantSoftvision.Maqs.Utilities.Helper
 {
     /// <summary>
     /// Definition of exceptions which will be thrown when there is a problem with loading elements of the MAQS app.config

@@ -1,12 +1,12 @@
 ﻿//--------------------------------------------------
-// <copyright file="ClientFactory.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="ClientFactory.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Factory for getting email client connections</summary>
 //--------------------------------------------------
 using MailKit.Net.Imap;
 
-namespace Magenic.Maqs.BaseEmailTest
+namespace CognizantSoftvision.Maqs.BaseEmailTest
 {
     /// <summary>
     /// Email client factory

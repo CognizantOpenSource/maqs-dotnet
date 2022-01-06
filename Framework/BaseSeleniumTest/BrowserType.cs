@@ -1,10 +1,10 @@
 ﻿//--------------------------------------------------
-// <copyright file="BrowserType.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="BrowserType.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Known browser types</summary>
 //--------------------------------------------------
-namespace Magenic.Maqs.BaseSeleniumTest
+namespace CognizantSoftvision.Maqs.BaseSeleniumTest
 {
     /// <summary>
     /// Known browser types

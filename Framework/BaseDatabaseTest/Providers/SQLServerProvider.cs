@@ -1,13 +1,13 @@
 ﻿//--------------------------------------------------
-// <copyright file="SQLServerProvider.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="SQLServerProvider.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>SQLServerProvider class</summary>
 //--------------------------------------------------
 
 using System.Data.SqlClient;
 
-namespace Magenic.Maqs.BaseDatabaseTest.Providers
+namespace CognizantSoftvision.Maqs.BaseDatabaseTest.Providers
 {
     /// <summary>
     /// The SQL server provider.

@@ -1,14 +1,14 @@
 ﻿//--------------------------------------------------
-// <copyright file="ActionBuilder.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="ActionBuilder.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Helper class for getting selenium specific configuration values</summary>
 //--------------------------------------------------
-using Magenic.Maqs.BaseSeleniumTest.Extensions;
+using CognizantSoftvision.Maqs.BaseSeleniumTest.Extensions;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 
-namespace Magenic.Maqs.BaseSeleniumTest
+namespace CognizantSoftvision.Maqs.BaseSeleniumTest
 {
     /// <summary>
     /// Contains methods for interactions using selenium Actions class

@@ -1,15 +1,15 @@
 ﻿//--------------------------------------------------
-// <copyright file="DatabaseConfig.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="DatabaseConfig.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Helper class for getting database specific configuration values</summary>
 //--------------------------------------------------
-using Magenic.Maqs.BaseDatabaseTest.Providers;
-using Magenic.Maqs.Utilities.Helper;
+using CognizantSoftvision.Maqs.BaseDatabaseTest.Providers;
+using CognizantSoftvision.Maqs.Utilities.Helper;
 using System.Collections.Generic;
 using System.Data;
 
-namespace Magenic.Maqs.BaseDatabaseTest
+namespace CognizantSoftvision.Maqs.BaseDatabaseTest
 {
     /// <summary>
     /// Config class

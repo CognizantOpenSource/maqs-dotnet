@@ -1,7 +1,7 @@
 <StyleCopSettings Version="105">
   <GlobalSettings>
     <CollectionProperty Name="RecognizedWords">
-      <Value>Magenic</Value>
+      <Value>CognizantSoftvision</Value>
       <Value>Maqs</Value>
       <Value>css</Value>
       <Value>xml</Value>
@@ -44,8 +44,8 @@
     </Analyzer>
     <Analyzer AnalyzerId="StyleCop.CSharp.DocumentationRules">
       <AnalyzerSettings>
-        <StringProperty Name="CompanyName">Magenic</StringProperty>
-        <StringProperty Name="Copyright">Copyright 2021 Magenic, All rights Reserved</StringProperty>
+        <StringProperty Name="CompanyName">CognizantSoftvision</StringProperty>
+        <StringProperty Name="Copyright">Copyright 2022 Cognizant, All rights Reserved</StringProperty>
       </AnalyzerSettings>
     </Analyzer>
     <Analyzer AnalyzerId="StyleCop.CSharp.ReadabilityRules">

@@ -12,9 +12,9 @@
   </MSTest>
   <TestRunParameters>
     <Parameter name="SeleniumMaqs:Adding" value="SAMPLE" />
-    <Parameter name="MagenicMaqs:SectionOverrideCore" value="ANOTHERSAMPLE" />
-    <Parameter name="Magenicmaqs:Grog" value="YetAnother" />
-    <Parameter name="Magenicmaqs:SectionOverride" value="SAMPLEGen" />
+    <Parameter name="GlobalMaqs:SectionOverrideCore" value="ANOTHERSAMPLE" />
+    <Parameter name="Globalmaqs:Grog" value="YetAnother" />
+    <Parameter name="Globalmaqs:SectionOverride" value="SAMPLEGen" />
     <Parameter name="Appiummaqs:SectionOverride" value="SAMPLEApp" />
     <Parameter name="AppiumCaPsMaqs:SectionOverride" value="SAMPLEAppCap" />
     <Parameter name="DatabasEMaqs:SectionOverride" value="SAMPLEDatabase" />
@@ -22,7 +22,7 @@
     <Parameter name="SeleniumMAqs:SectionOverride" value="SAMPLESel" />
     <Parameter name="RemoteseleniumCapsMaqs:SectionOverride" value="SAMPLESelCap" />
     <Parameter name="WebServiceMaqs:SectionOverride" value="SAMPLEWeb" />
-    <Parameter name="magenicMaqs:SectionAdd" value="SAMPLEGenz" />
+    <Parameter name="globalMaqs:SectionAdd" value="SAMPLEGenz" />
     <Parameter name="appiummaqs:SectionAdd" value="SAMPLEAppz" />
     <Parameter name="appiumCapsMaqs:SectionAdd" value="SAMPLEAppCapz" />
     <Parameter name="Databasemaqs:SectionAdd" value="SAMPLEDatabasez" />
@@ -31,9 +31,9 @@
     <Parameter name="RemoteseleniumCapsMaqs:SectionAdd" value="SAMPLESelCapz" />
     <Parameter name="webServiceMaqs:SectionAdd" value="SAMPLEWebz" />
     <Parameter name="SeleniumMaqs:RetryRefused" value="Yes" />
-    <Parameter name="Magenicmaqs:ConfigJsonEnvRunOverride" value="RUN" />
-    <Parameter name="Magenicmaqs:ConfigJsonEnvRun" value="RUN" />
-    <Parameter name="Magenicmaqs:RunOnly" value="RUN" />
+    <Parameter name="Globalmaqs:ConfigJsonEnvRunOverride" value="RUN" />
+    <Parameter name="Globalmaqs:ConfigJsonEnvRun" value="RUN" />
+    <Parameter name="Globalmaqs:RunOnly" value="RUN" />
   </TestRunParameters>
   <DataCollectionRunSettings>
     <DataCollectors>

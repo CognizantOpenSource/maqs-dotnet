@@ -1,11 +1,11 @@
 //--------------------------------------------------
-// <copyright file="TestResultType.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="TestResultType.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Test result type enumeration</summary>
 //--------------------------------------------------
 
-namespace Magenic.Maqs.Utilities.Logging
+namespace CognizantSoftvision.Maqs.Utilities.Logging
 {
     /// <summary>
     /// The type of result

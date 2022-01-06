@@ -1,17 +1,17 @@
 ﻿//--------------------------------------------------
-// <copyright file="AppiumUtilities.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="AppiumUtilities.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>This is the Appium utilities class</summary>
 //--------------------------------------------------
-using Magenic.Maqs.Utilities.Logging;
+using CognizantSoftvision.Maqs.Utilities.Logging;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Appium;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.IO;
 
-namespace Magenic.Maqs.BaseAppiumTest
+namespace CognizantSoftvision.Maqs.BaseAppiumTest
 {
     /// <summary>
     /// Static class for the appium utilities

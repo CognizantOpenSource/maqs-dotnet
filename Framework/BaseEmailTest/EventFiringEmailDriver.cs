@@ -1,6 +1,6 @@
 ﻿//--------------------------------------------------
-// <copyright file="EventFiringEmailDriver.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="EventFiringEmailDriver.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>The basic database interactions</summary>
 //--------------------------------------------------
@@ -11,7 +11,7 @@ using MimeKit;
 using System;
 using System.Collections.Generic;
 
-namespace Magenic.Maqs.BaseEmailTest
+namespace CognizantSoftvision.Maqs.BaseEmailTest
 {
     /// <summary>
     /// Wraps the basic database interactions

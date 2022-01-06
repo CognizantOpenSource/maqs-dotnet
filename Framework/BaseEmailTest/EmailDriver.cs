@@ -1,11 +1,11 @@
 ﻿//--------------------------------------------------
-// <copyright file="EmailDriver.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="EmailDriver.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>The basic email interactions</summary>
 //--------------------------------------------------
-using Magenic.Maqs.Utilities.Data;
-using Magenic.Maqs.Utilities.Helper;
+using CognizantSoftvision.Maqs.Utilities.Data;
+using CognizantSoftvision.Maqs.Utilities.Helper;
 using MailKit;
 using MailKit.Net.Imap;
 using MailKit.Search;
@@ -16,7 +16,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace Magenic.Maqs.BaseEmailTest
+namespace CognizantSoftvision.Maqs.BaseEmailTest
 {
     /// <summary>
     /// Wraps the basic email interactions

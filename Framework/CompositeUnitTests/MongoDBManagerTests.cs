@@ -1,11 +1,11 @@
 ﻿//--------------------------------------------------
-// <copyright file="MongoDBManagerTests.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="MongoDBManagerTests.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Unit test class for the MongoDB driver</summary>
 //--------------------------------------------------
-using Magenic.Maqs.BaseMongoTest;
-using Magenic.Maqs.Utilities.Helper;
+using CognizantSoftvision.Maqs.BaseMongoTest;
+using CognizantSoftvision.Maqs.Utilities.Helper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MongoDB.Bson;
 using MongoDB.Driver;

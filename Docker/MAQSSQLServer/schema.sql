@@ -1,6 +1,6 @@
-CREATE DATABASE MagenicAutomation;
+CREATE DATABASE GlobalAutomation;
 GO
-USE MagenicAutomation;
+USE GlobalAutomation;
 GO
 CREATE TABLE [dbo].[States](
 	[StateID] [int] PRIMARY KEY IDENTITY(1,1) NOT NULL,

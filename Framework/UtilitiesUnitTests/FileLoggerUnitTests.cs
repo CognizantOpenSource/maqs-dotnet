@@ -1,14 +1,14 @@
 ﻿//-----------------------------------------------------
-// <copyright file="FileLoggerUnitTests.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="FileLoggerUnitTests.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Test the file logger</summary>
 //-----------------------------------------------------
 using BaseTestUnitTests;
-using Magenic.Maqs.BaseTest;
-using Magenic.Maqs.Utilities.Data;
-using Magenic.Maqs.Utilities.Helper;
-using Magenic.Maqs.Utilities.Logging;
+using CognizantSoftvision.Maqs.BaseTest;
+using CognizantSoftvision.Maqs.Utilities.Data;
+using CognizantSoftvision.Maqs.Utilities.Helper;
+using CognizantSoftvision.Maqs.Utilities.Logging;
 using NUnit.Framework;
 using System;
 using System.Collections;

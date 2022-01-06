@@ -1,12 +1,12 @@
 ﻿//--------------------------------------------------
-// <copyright file="Base.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="Base.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Core Base unit tests</summary>
 //--------------------------------------------------
-using Magenic.Maqs.BaseTest;
-using Magenic.Maqs.Utilities.Helper;
-using Magenic.Maqs.Utilities.Logging;
+using CognizantSoftvision.Maqs.BaseTest;
+using CognizantSoftvision.Maqs.Utilities.Helper;
+using CognizantSoftvision.Maqs.Utilities.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
@@ -57,7 +57,7 @@ namespace FrameworkUnitTests
         [TestCategory(TestCategories.UtilitiesCore)]
         public void TestRunSettingOverrideSection()
         {
-            Assert.AreEqual("ANOTHERSAMPLE", Config.GetValueForSection("Magenicmaqs", "SectionOverrideCore"));
+            Assert.AreEqual("ANOTHERSAMPLE", Config.GetValueForSection("Globalmaqs", "SectionOverrideCore"));
         }
 
         /// <summary>

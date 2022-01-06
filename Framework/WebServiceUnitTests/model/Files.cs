@@ -1,6 +1,6 @@
 ﻿//--------------------------------------------------
-// <copyright file="Files.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="Files.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Employee model</summary>
 //--------------------------------------------------

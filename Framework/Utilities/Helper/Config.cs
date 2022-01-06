@@ -1,6 +1,6 @@
 ﻿//--------------------------------------------------
-// <copyright file="Config.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="Config.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Helper class for getting application configuration values</summary>
 //--------------------------------------------------
@@ -16,7 +16,7 @@ using System.Text;
 using System.Xml.Linq;
 using VSTestContext = Microsoft.VisualStudio.TestTools.UnitTesting.TestContext;
 
-namespace Magenic.Maqs.Utilities.Helper
+namespace CognizantSoftvision.Maqs.Utilities.Helper
 {
     /// <summary>
     /// Config class
@@ -32,7 +32,7 @@ namespace Magenic.Maqs.Utilities.Helper
         /// <summary>
         /// The default MAQS session
         /// </summary>
-        private const ConfigSection DEFAULTMAQSSECTION = ConfigSection.MagenicMaqs;
+        private const ConfigSection DEFAULTMAQSSECTION = ConfigSection.GlobalMaqs;
 
         /// <summary>
         /// Configuration mappings from configuration files and environment variables
@@ -281,7 +281,7 @@ namespace Magenic.Maqs.Utilities.Helper
         }
 
         /// <summary>
-        /// Get value from the general (MAGENICMAQS) section of the config file
+        /// Get value from the general (GLOBALMAQS) section of the config file
         /// </summary>
         /// <param name="key">Config file key</param>
         /// <param name="defaultValue">The default value</param>
@@ -338,7 +338,7 @@ namespace Magenic.Maqs.Utilities.Helper
 
             if (TryGetSectionValue(section, key, out string value))
             {
-                // Return MagenicMaqs specific app.config value
+                // Return GlobalMaqs specific app.config value
                 return value;
             }
 
@@ -347,14 +347,14 @@ namespace Magenic.Maqs.Utilities.Helper
         }
 
         /// <summary>
-        /// Does the configuration key exist under the Magenic MAQS section
+        /// Does the configuration key exist under the global MAQS section
         /// </summary>
         /// <param name="key">Config file key</param>
         /// <returns>True if the key exists</returns>
         [Browsable(false)]
         public static bool DoesGeneralKeyExist(string key)
         {
-            return DoesKeyExist(ConfigSection.MagenicMaqs.ToString(), key);
+            return DoesKeyExist(ConfigSection.GlobalMaqs.ToString(), key);
         }
 
         /// <summary>

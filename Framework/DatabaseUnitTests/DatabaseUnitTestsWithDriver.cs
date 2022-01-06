@@ -1,13 +1,13 @@
 ﻿//--------------------------------------------------
-// <copyright file="DatabaseUnitTestsWithDriver.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="DatabaseUnitTestsWithDriver.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Database base test unit tests</summary>
 //--------------------------------------------------
 
 using DatabaseUnitTests.Models;
-using Magenic.Maqs.BaseDatabaseTest;
-using Magenic.Maqs.Utilities.Helper;
+using CognizantSoftvision.Maqs.BaseDatabaseTest;
+using CognizantSoftvision.Maqs.Utilities.Helper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Data;
 using System.Diagnostics.CodeAnalysis;

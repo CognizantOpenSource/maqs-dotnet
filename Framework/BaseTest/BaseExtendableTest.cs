@@ -1,14 +1,14 @@
 ﻿//--------------------------------------------------
-// <copyright file="BaseExtendableTest.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="BaseExtendableTest.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Base code for test classes that setup test objects like web drivers or database connections</summary>
 //--------------------------------------------------
-using Magenic.Maqs.Utilities.Logging;
+using CognizantSoftvision.Maqs.Utilities.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NUnit.Framework;
 
-namespace Magenic.Maqs.BaseTest
+namespace CognizantSoftvision.Maqs.BaseTest
 {
     /// <summary>
     /// Base code for test classes that setup test objects like web drivers or database connections

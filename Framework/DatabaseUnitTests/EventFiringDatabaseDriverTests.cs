@@ -1,12 +1,12 @@
 ﻿//--------------------------------------------------
-// <copyright file="EventFiringDatabaseDriverTests.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="EventFiringDatabaseDriverTests.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Database base Eventfiring driver test unit tests</summary>
 //--------------------------------------------------
 
-using Magenic.Maqs.BaseDatabaseTest;
-using Magenic.Maqs.Utilities.Helper;
+using CognizantSoftvision.Maqs.BaseDatabaseTest;
+using CognizantSoftvision.Maqs.Utilities.Helper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Data;
@@ -16,7 +16,7 @@ using System.Diagnostics.CodeAnalysis;
 namespace DatabaseUnitTests
 {
     using global::DatabaseUnitTests.Models;
-    using Magenic.Maqs.Utilities.Data;
+    using CognizantSoftvision.Maqs.Utilities.Data;
     using System.Linq;
 
     /// <summary>

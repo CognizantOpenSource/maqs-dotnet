@@ -1,5 +1,5 @@
-﻿using Magenic.Maqs.Utilities.Helper;
-using Magenic.Maqs.Utilities.Logging;
+﻿using CognizantSoftvision.Maqs.Utilities.Helper;
+using CognizantSoftvision.Maqs.Utilities.Logging;
 
 namespace BaseTestUnitTests
 {

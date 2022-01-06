@@ -4,9 +4,9 @@ on:
     - cron: "13 23 * * *"
   push:
     branches:
-      - master
+      - main
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
   workflow_dispatch:
     inputs:
       override:
@@ -53,7 +53,7 @@ jobs:
     needs: waitOld
     runs-on: ubuntu-latest
     steps:
-      # Drafts your next Release notes as Pull Requests are merged into "master"
+      # Drafts your next Release notes as Pull Requests are merged into "main"
       - uses: release-drafter/release-drafter@v5
         if: github.event_name == 'push'
         env:
@@ -94,10 +94,10 @@ jobs:
       - uses: actions/checkout@v2
       - id: builder
         env:
-          MagenicMaqs:ConfigJsonEnvRunOverride: ENV
-          MagenicMaqs:ConfigJsonEnvRun: ENV
-          MagenicMaqs:ConfigJsonEnv: ENV
-          MagenicMaqs:EnvOnly: ENV
+          GlobalMaqs:ConfigJsonEnvRunOverride: ENV
+          GlobalMaqs:ConfigJsonEnvRun: ENV
+          GlobalMaqs:ConfigJsonEnv: ENV
+          GlobalMaqs:EnvOnly: ENV
         uses: ./.github/workflows/buildtest-action
         with:
           bt-param: 'Framework/UtilitiesUnitTests/UtilitiesUnitTests.csproj --settings Framework/Parallel.RunSettings  --logger trx --results-directory "${{github.workspace}}/artifactTests/untils/testResults/" /p:CoverletOutput="${{github.workspace}}/artifactTests/untils/" /p:CollectCoverage=true /p:CoverletOutputFormat=opencover'
@@ -200,7 +200,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build the docker-compose stack
-        run: docker-compose -f Docker/MAQSMongoDB/docker-compose.yml -p Magenic/MAQS up -d
+        run: docker-compose -f Docker/MAQSMongoDB/docker-compose.yml -p CognizantOpenSource/maqs-dotnet up -d
       - id: builder
         uses: ./.github/workflows/buildtest-action
         with:
@@ -222,7 +222,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build the docker-compose stack
-        run: docker-compose -f Docker/MAQSSQLServer/docker-compose.yml -p Magenic/MAQS up -d
+        run: docker-compose -f Docker/MAQSSQLServer/docker-compose.yml -p CognizantOpenSource/maqs-dotnet up -d
       - id: builder
         uses: ./.github/workflows/buildtest-action
         with:
@@ -244,7 +244,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build the docker-compose stack
-        run: docker-compose -f Docker/MAQSEmail/docker-compose.yml -p Magenic/MAQS up -d
+        run: docker-compose -f Docker/MAQSEmail/docker-compose.yml -p CognizantOpenSource/maqs-dotnet up -d
       - id: builder
         uses: ./.github/workflows/buildtest-action
         with:
@@ -320,9 +320,9 @@ jobs:
       - id: browserupdate
         uses: ./.github/workflows/setuplinbrowser-action
       - name: Build the docker-compose mongo stack
-        run: docker-compose -f Docker/MAQSMongoDB/docker-compose.yml -p Magenic/MAQS up -d
+        run: docker-compose -f Docker/MAQSMongoDB/docker-compose.yml -p CognizantOpenSource/maqs-dotnet up -d
       - name: Build the docker-compose email stack
-        run: docker-compose -f Docker/MAQSEmail/docker-compose.yml -p Magenic/MAQS up -d
+        run: docker-compose -f Docker/MAQSEmail/docker-compose.yml -p CognizantOpenSource/maqs-dotnet up -d
       - id: builder
         uses: ./.github/workflows/buildtest-action
         with:
@@ -507,7 +507,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         shell: powershell
         run: |
-          .\.sonar\scanner\dotnet-sonarscanner begin /k:"MAQS" /o:"magenic" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:projectVersion="${{ needs.getVersion.outputs.buildNumber }}"  /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.opencover.reportsPaths=${{ github.workspace }}\Results\**\coverage*.opencover.xml  /d:sonar.cs.dotcover.reportsPaths=${{ github.workspace }}\Results\**\*.coverage
+          .\.sonar\scanner\dotnet-sonarscanner begin /k:"CognizantOpenSource_maqs-dotnet" /o:"cognizantopensource" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:projectVersion="${{ needs.getVersion.outputs.buildNumber }}"  /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.opencover.reportsPaths=${{ github.workspace }}\Results\**\coverage*.opencover.xml  /d:sonar.cs.dotcover.reportsPaths=${{ github.workspace }}\Results\**\*.coverage
           dotnet build Framework/Base.sln -p:Version=${{ needs.getVersion.outputs.buildNumber }}
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
  

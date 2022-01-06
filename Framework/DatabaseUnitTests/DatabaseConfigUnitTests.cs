@@ -1,12 +1,12 @@
 ﻿//--------------------------------------------------
-// <copyright file="DatabaseConfigUnitTests.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="DatabaseConfigUnitTests.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Unit test database configuration test</summary>
 //--------------------------------------------------
 using Dapper;
-using Magenic.Maqs.BaseDatabaseTest;
-using Magenic.Maqs.Utilities.Helper;
+using CognizantSoftvision.Maqs.BaseDatabaseTest;
+using CognizantSoftvision.Maqs.Utilities.Helper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
@@ -28,7 +28,7 @@ namespace DatabaseUnitTests
         public void GetDatabaseConnectionStringTest()
         {
             string connection = DatabaseConfig.GetConnectionString();
-            Assert.AreEqual("Data Source=localhost;Initial Catalog=MagenicAutomation;Persist Security Info=True;User ID=sa;Password=magenicMAQS2;Connection Timeout=30", connection);
+            Assert.AreEqual("Data Source=localhost;Initial Catalog=GlobalAutomation;Persist Security Info=True;User ID=sa;Password=globalMAQS2;Connection Timeout=30", connection);
         }
 
         /// <summary>

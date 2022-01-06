@@ -1,6 +1,6 @@
 ﻿//--------------------------------------------------
-// <copyright file="ListProcessor.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="ListProcessor.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Helper class for getting selenium specific configuration values</summary>
 //--------------------------------------------------
@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Magenic.Maqs.Utilities.Data
+namespace CognizantSoftvision.Maqs.Utilities.Data
 {
     /// <summary>
     /// Contains methods for processing lists

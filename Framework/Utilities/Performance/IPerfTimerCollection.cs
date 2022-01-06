@@ -1,13 +1,13 @@
 ﻿//--------------------------------------------------
-// <copyright file="IPerfTimerCollection.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="IPerfTimerCollection.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Interface for performance timer collection</summary>
 //--------------------------------------------------
-using Magenic.Maqs.Utilities.Logging;
+using CognizantSoftvision.Maqs.Utilities.Logging;
 using System.Collections.Generic;
 
-namespace Magenic.Maqs.Utilities.Performance
+namespace CognizantSoftvision.Maqs.Utilities.Performance
 {
     /// <summary>
     /// Performance timer collection interface

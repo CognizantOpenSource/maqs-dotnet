@@ -1,11 +1,11 @@
 ﻿//--------------------------------------------------
-// <copyright file="EmailUnitWithDriver.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="EmailUnitWithDriver.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Unit test email driver with base email test</summary>
 //--------------------------------------------------
-using Magenic.Maqs.BaseEmailTest;
-using Magenic.Maqs.Utilities.Helper;
+using CognizantSoftvision.Maqs.BaseEmailTest;
+using CognizantSoftvision.Maqs.Utilities.Helper;
 using MailKit;
 using MailKit.Search;
 using Microsoft.VisualStudio.TestTools.UnitTesting;

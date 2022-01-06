@@ -1,11 +1,11 @@
 ﻿//-----------------------------------------------------
-// <copyright file="SeleniumCustomConfigUnitTest.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="SeleniumCustomConfigUnitTest.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Test the selenium framework with a custom configuration</summary>
 //-----------------------------------------------------
-using Magenic.Maqs.BaseSeleniumTest;
-using Magenic.Maqs.Utilities.Helper;
+using CognizantSoftvision.Maqs.BaseSeleniumTest;
+using CognizantSoftvision.Maqs.Utilities.Helper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using System.Diagnostics.CodeAnalysis;
@@ -23,7 +23,7 @@ namespace SeleniumUnitTests
         /// <summary>
         /// Google URL
         /// </summary>
-        private readonly string urlToNavigate = "https://github.com/Magenic/MAQS";
+        private readonly string urlToNavigate = "https://github.com/CognizantOpenSource/maqs-dotnet";
 
         /// <summary>
         /// Verify WaitForAbsentElement wait works

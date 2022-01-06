@@ -1,16 +1,16 @@
 ﻿//--------------------------------------------------
-// <copyright file="FileLogger.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="FileLogger.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Writes event logs to plain text file</summary>
 //--------------------------------------------------
-using Magenic.Maqs.Utilities.Data;
+using CognizantSoftvision.Maqs.Utilities.Data;
 using System;
 using System.Globalization;
 using System.IO;
 using System.Text.RegularExpressions;
 
-namespace Magenic.Maqs.Utilities.Logging
+namespace CognizantSoftvision.Maqs.Utilities.Logging
 {
     /// <summary>
     ///  Helper class for adding logs to a plain text file. Allows configurable file path.

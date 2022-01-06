@@ -1,11 +1,11 @@
 ﻿//--------------------------------------------------
-// <copyright file="WebServiceDriverNUnitConfig.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="WebServiceDriverNUnitConfig.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Configuration override tests for NUnit</summary>
 //--------------------------------------------------
-using Magenic.Maqs.BaseWebServiceTest;
-using Magenic.Maqs.Utilities.Helper;
+using CognizantSoftvision.Maqs.BaseWebServiceTest;
+using CognizantSoftvision.Maqs.Utilities.Helper;
 using NUnit.Framework;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
@@ -27,8 +27,8 @@ namespace WebServiceTesterUnitTesting
         {
             // Set overrides
             MethodInfo dynMethod = NUnit.Framework.TestContext.Parameters.GetType().GetMethod("Add", BindingFlags.NonPublic | BindingFlags.Instance);
-            dynMethod.Invoke(NUnit.Framework.TestContext.Parameters, new object[] { "MagenicMaqs:OverrideNUnitTest", "Value" });
-            dynMethod.Invoke(NUnit.Framework.TestContext.Parameters, new object[] { "magenicmaqs:OverrideNUnitTestNew", "Value2" });
+            dynMethod.Invoke(NUnit.Framework.TestContext.Parameters, new object[] { "GlobalMaqs:OverrideNUnitTest", "Value" });
+            dynMethod.Invoke(NUnit.Framework.TestContext.Parameters, new object[] { "globalmaqs:OverrideNUnitTestNew", "Value2" });
 
             Config.UpdateWithNUnitTestParameters(NUnit.Framework.TestContext.Parameters);
         }

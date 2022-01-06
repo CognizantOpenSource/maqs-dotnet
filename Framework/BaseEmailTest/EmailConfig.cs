@@ -1,17 +1,17 @@
 ﻿//--------------------------------------------------
-// <copyright file="EmailConfig.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="EmailConfig.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Helper class for getting email specific configuration values</summary>
 //--------------------------------------------------
-using Magenic.Maqs.Utilities.Data;
-using Magenic.Maqs.Utilities.Helper;
+using CognizantSoftvision.Maqs.Utilities.Data;
+using CognizantSoftvision.Maqs.Utilities.Helper;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 
-namespace Magenic.Maqs.BaseEmailTest
+namespace CognizantSoftvision.Maqs.BaseEmailTest
 {
     /// <summary>
     /// Email configuration class

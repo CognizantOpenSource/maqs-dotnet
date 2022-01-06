@@ -1,11 +1,11 @@
 ﻿//--------------------------------------------------
-// <copyright file="TestCategories.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="TestCategories.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Test category constants</summary>
 //--------------------------------------------------
 
-namespace Magenic.Maqs.Utilities.Helper
+namespace CognizantSoftvision.Maqs.Utilities.Helper
 {
     /// <summary>
     ///  Test category constants

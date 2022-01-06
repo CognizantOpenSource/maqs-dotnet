@@ -1,11 +1,11 @@
 ﻿//--------------------------------------------------
-// <copyright file="AppiumUnitTestSteps.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="AppiumUnitTestSteps.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>TestSteps class that inherits from BaseAppiumTestSteps</summary>
 //--------------------------------------------------
-using Magenic.Maqs.BaseAppiumTest;
-using Magenic.Maqs.SpecFlow.TestSteps;
+using CognizantSoftvision.Maqs.BaseAppiumTest;
+using CognizantSoftvision.Maqs.SpecFlow.TestSteps;
 using NUnit.Framework;
 using OpenQA.Selenium.Appium;
 using TechTalk.SpecFlow;

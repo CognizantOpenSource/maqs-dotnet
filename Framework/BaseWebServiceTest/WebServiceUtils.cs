@@ -1,10 +1,10 @@
 ﻿//--------------------------------------------------
-// <copyright file="WebServiceUtils.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="WebServiceUtils.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Web service utilities</summary>
 //--------------------------------------------------
-using Magenic.Maqs.Utilities.Data;
+using CognizantSoftvision.Maqs.Utilities.Data;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -16,7 +16,7 @@ using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
 
-namespace Magenic.Maqs.BaseWebServiceTest
+namespace CognizantSoftvision.Maqs.BaseWebServiceTest
 {
     /// <summary>
     /// Web service utilities

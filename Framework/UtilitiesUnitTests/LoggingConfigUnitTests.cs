@@ -1,6 +1,6 @@
-﻿using Magenic.Maqs.Utilities.Data;
-using Magenic.Maqs.Utilities.Helper;
-using Magenic.Maqs.Utilities.Logging;
+﻿using CognizantSoftvision.Maqs.Utilities.Data;
+using CognizantSoftvision.Maqs.Utilities.Helper;
+using CognizantSoftvision.Maqs.Utilities.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -21,7 +21,7 @@ namespace UtilitiesUnitTesting
         [TestInitialize]
         public void SetUp()
         {
-            general = Config.GetSectionDictionary(ConfigSection.MagenicMaqs);
+            general = Config.GetSectionDictionary(ConfigSection.GlobalMaqs);
         }
 
         /// <summary>
@@ -30,7 +30,7 @@ namespace UtilitiesUnitTesting
         [TestCleanup]
         public void CleanUp()
         {
-            Config.AddTestSettingValues(general, ConfigSection.MagenicMaqs);
+            Config.AddTestSettingValues(general, ConfigSection.GlobalMaqs);
         }
 
         /// <summary>
@@ -55,7 +55,7 @@ namespace UtilitiesUnitTesting
 
             for (int i = 0; i < loggingEnableds.Length; i++)
             {
-                Config.AddTestSettingValues("Log", loggingEnableds[i].ToString(), "MagenicMaqs");
+                Config.AddTestSettingValues("Log", loggingEnableds[i].ToString(), "GlobalMaqs");
                 Assert.AreEqual(loggingEnableds[i], LoggingConfig.GetLoggingEnabledSetting());
             }
         }
@@ -68,7 +68,7 @@ namespace UtilitiesUnitTesting
         [ExpectedException(typeof(MaqsLoggingConfigException))]
         public void GetLoggingEnabledSettingsDefault()
         {
-            Config.AddTestSettingValues("Log", "Default", "MagenicMaqs");
+            Config.AddTestSettingValues("Log", "Default", "GlobalMaqs");
             LoggingConfig.GetLoggingEnabledSetting();
         }
 
@@ -83,7 +83,7 @@ namespace UtilitiesUnitTesting
 
             for (int i = 0; i < messageTypes.Length; i++)
             {
-                Config.AddTestSettingValues("LogLevel", messageTypes[i].ToString(), "MagenicMaqs");
+                Config.AddTestSettingValues("LogLevel", messageTypes[i].ToString(), "GlobalMaqs");
                 Assert.AreEqual(messageTypes[i], LoggingConfig.GetLoggingLevelSetting());
             }
         }
@@ -96,7 +96,7 @@ namespace UtilitiesUnitTesting
         [ExpectedException(typeof(MaqsLoggingConfigException))]
         public void GetLoggingLevelSettingsDefault()
         {
-            Config.AddTestSettingValues("LogLevel", "Default", "MagenicMaqs");
+            Config.AddTestSettingValues("LogLevel", "Default", "GlobalMaqs");
             LoggingConfig.GetLoggingLevelSetting();
         }
 
@@ -108,13 +108,13 @@ namespace UtilitiesUnitTesting
         public void GetConsoleLogger()
         {
             LoggingEnabled[] loggingEnableds = (LoggingEnabled[])Enum.GetValues(typeof(LoggingEnabled));
-            Config.AddTestSettingValues("LogType", "CONSOLE", "MagenicMaqs");
+            Config.AddTestSettingValues("LogType", "CONSOLE", "GlobalMaqs");
 
             for (int i = 0; i < loggingEnableds.Length; i++)
             {
                 if (loggingEnableds[i] != LoggingEnabled.ONFAIL)
                 {
-                    Config.AddTestSettingValues("Log", loggingEnableds[i].ToString(), "MagenicMaqs");
+                    Config.AddTestSettingValues("Log", loggingEnableds[i].ToString(), "GlobalMaqs");
                     var logger = LoggerFactory.GetLogger(StringProcessor.SafeFormatter(
                     "{0} - {1}",
                     "Test",
@@ -131,9 +131,9 @@ namespace UtilitiesUnitTesting
         [TestCategory(TestCategories.Utilities)]
         public void GetFileLogger()
         {
-            Config.AddTestSettingValues("LogLevel", MessageType.VERBOSE.ToString(), "MagenicMaqs");
-            Config.AddTestSettingValues("Log", LoggingEnabled.YES.ToString(), "MagenicMaqs");
-            Config.AddTestSettingValues("LogType", "TXT", "MagenicMaqs");
+            Config.AddTestSettingValues("LogLevel", MessageType.VERBOSE.ToString(), "GlobalMaqs");
+            Config.AddTestSettingValues("Log", LoggingEnabled.YES.ToString(), "GlobalMaqs");
+            Config.AddTestSettingValues("LogType", "TXT", "GlobalMaqs");
             var logger = LoggerFactory.GetLogger(StringProcessor.SafeFormatter(
                     "{0} - {1}",
                     "Test",
@@ -149,12 +149,12 @@ namespace UtilitiesUnitTesting
         public void GetHTMLLogger()
         {
             string[] loggerType = { "HTML", "HTM" };
-            Config.AddTestSettingValues("LogLevel", MessageType.VERBOSE.ToString(), "MagenicMaqs");
-            Config.AddTestSettingValues("Log", LoggingEnabled.YES.ToString(), "MagenicMaqs");
+            Config.AddTestSettingValues("LogLevel", MessageType.VERBOSE.ToString(), "GlobalMaqs");
+            Config.AddTestSettingValues("Log", LoggingEnabled.YES.ToString(), "GlobalMaqs");
 
             for (int i = 0; i < loggerType.Length; i++)
             {
-                Config.AddTestSettingValues("LogType", loggerType[i], "MagenicMaqs");
+                Config.AddTestSettingValues("LogType", loggerType[i], "GlobalMaqs");
                 var logger = LoggerFactory.GetLogger(StringProcessor.SafeFormatter(
                         "{0} - {1}",
                         "Test",
@@ -171,8 +171,8 @@ namespace UtilitiesUnitTesting
         [ExpectedException(typeof(MaqsLoggingConfigException))]
         public void GetLoggerDefault()
         {
-            Config.AddTestSettingValues("Log", LoggingEnabled.YES.ToString(), "MagenicMaqs");
-            Config.AddTestSettingValues("LogType", "Default", "MagenicMaqs");
+            Config.AddTestSettingValues("Log", LoggingEnabled.YES.ToString(), "GlobalMaqs");
+            Config.AddTestSettingValues("LogType", "Default", "GlobalMaqs");
             LoggerFactory.GetLogger(StringProcessor.SafeFormatter(
                     "{0} - {1}",
                     "Test",

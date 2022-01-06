@@ -1,11 +1,11 @@
 //--------------------------------------------------
-// <copyright file="ConfigSection.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="ConfigSection.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Configuration sections</summary>
 //--------------------------------------------------
 
-namespace Magenic.Maqs.Utilities.Helper
+namespace CognizantSoftvision.Maqs.Utilities.Helper
 {
     /// <summary>
     /// The configuration sections
@@ -15,7 +15,7 @@ namespace Magenic.Maqs.Utilities.Helper
         /// <summary>
         /// General MAQS section
         /// </summary>
-        MagenicMaqs,
+        GlobalMaqs,
 
         /// <summary>
         /// Appium section

@@ -1,13 +1,13 @@
 ﻿//--------------------------------------------------
-// <copyright file="MongoDBConfig.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="MongoDBConfig.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Helper class for getting MongoDB specific configuration values</summary>
 //--------------------------------------------------
-using Magenic.Maqs.Utilities.Helper;
+using CognizantSoftvision.Maqs.Utilities.Helper;
 using System.Collections.Generic;
 
-namespace Magenic.Maqs.BaseMongoTest
+namespace CognizantSoftvision.Maqs.BaseMongoTest
 {
     /// <summary>
     /// Config class

@@ -1,12 +1,12 @@
 ﻿//--------------------------------------------------
-// <copyright file="LoggerFactory.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="LoggerFactory.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Logger factory</summary>
 //--------------------------------------------------
-using Magenic.Maqs.Utilities.Helper;
+using CognizantSoftvision.Maqs.Utilities.Helper;
 
-namespace Magenic.Maqs.Utilities.Logging
+namespace CognizantSoftvision.Maqs.Utilities.Logging
 {
     /// <summary>
     /// Logger factory

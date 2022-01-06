@@ -1,11 +1,11 @@
 ﻿//--------------------------------------------------
-// <copyright file="Base.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="Base.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Core Base unit tests</summary>
 //--------------------------------------------------
-using Magenic.Maqs.BaseTest;
-using Magenic.Maqs.Utilities.Helper;
+using CognizantSoftvision.Maqs.BaseTest;
+using CognizantSoftvision.Maqs.Utilities.Helper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CompositeUnitTests
@@ -24,7 +24,7 @@ namespace CompositeUnitTests
         [TestCategory(TestCategories.Utilities)]
         public void ConfigSections()
         {
-            var keysAndValues = Config.GetSectionDictionary("MagenicMaqS");
+            var keysAndValues = Config.GetSectionDictionary("GlobalMaqS");
             SoftAssert.Assert(() => Assert.AreEqual("TXT", keysAndValues["LogType"], "Base configuration not respected"), "2");
             SoftAssert.Assert(() => Assert.AreEqual("SAMPLEGen", keysAndValues["SectionOverride"], "Override not respected"), "3");
             SoftAssert.Assert(() => Assert.AreEqual("SAMPLEGenz", keysAndValues["SectionAdd"], "Run settings addition not respected"), "4");
@@ -37,7 +37,7 @@ namespace CompositeUnitTests
         [TestCategory(TestCategories.Utilities)]
         public void EmptyConfigSections()
         {
-            var keysAndValues = Config.GetSectionDictionary("MagenicMaqSZZZ");
+            var keysAndValues = Config.GetSectionDictionary("GlobalMaqSZZZ");
             SoftAssert.Assert(() => Assert.AreEqual(0, keysAndValues.Count, "Expected no matching configuration key value pairs."), "1");
         }
 
@@ -79,7 +79,7 @@ namespace CompositeUnitTests
         [TestCategory(TestCategories.UtilitiesCore)]
         public void TestRunSettingOverrideSection()
         {
-            Assert.AreEqual("SAMPLEGen", Config.GetValueForSection("Magenicmaqs", "SectionOverride"));
+            Assert.AreEqual("SAMPLEGen", Config.GetValueForSection("Globalmaqs", "SectionOverride"));
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿//--------------------------------------------------
-// <copyright file="ProductJson.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="ProductJson.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Product definition for Json</summary>
 //--------------------------------------------------

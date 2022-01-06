@@ -1,12 +1,12 @@
 ﻿//--------------------------------------------------
-// <copyright file="AbstractLazyIWebElement.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="AbstractLazyIWebElement.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>This is the abstract LazyElement class</summary>
 //--------------------------------------------------
-using Magenic.Maqs.BaseTest;
-using Magenic.Maqs.Utilities.Helper;
-using Magenic.Maqs.Utilities.Logging;
+using CognizantSoftvision.Maqs.BaseTest;
+using CognizantSoftvision.Maqs.Utilities.Helper;
+using CognizantSoftvision.Maqs.Utilities.Logging;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
@@ -18,7 +18,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 
-namespace Magenic.Maqs.BaseSeleniumTest.Extensions
+namespace CognizantSoftvision.Maqs.BaseSeleniumTest.Extensions
 {
     /// <summary>
     /// Abstract structure for dynamically finding and interacting with elements

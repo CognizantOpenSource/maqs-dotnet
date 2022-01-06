@@ -1,14 +1,14 @@
 ﻿//--------------------------------------------------
-// <copyright file="IWebServiceTestObject.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="IWebServiceTestObject.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Web service test object interface</summary>
 //--------------------------------------------------
-using Magenic.Maqs.BaseTest;
+using CognizantSoftvision.Maqs.BaseTest;
 using System;
 using System.Net.Http;
 
-namespace Magenic.Maqs.BaseWebServiceTest
+namespace CognizantSoftvision.Maqs.BaseWebServiceTest
 {
     /// <summary>
     /// Web service test object interface

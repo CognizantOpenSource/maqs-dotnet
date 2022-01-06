@@ -1,12 +1,12 @@
 ﻿//--------------------------------------------------
-// <copyright file="ILogger.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="ILogger.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Logger interface</summary>
 //--------------------------------------------------
 using System;
 
-namespace Magenic.Maqs.Utilities.Logging
+namespace CognizantSoftvision.Maqs.Utilities.Logging
 {
     /// <summary>
     /// Base interface for loggers 

@@ -1,15 +1,15 @@
 ﻿//--------------------------------------------------
-// <copyright file="HtmlFileLogger.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="HtmlFileLogger.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Writes event logs to HTML file</summary>
 //--------------------------------------------------
-using Magenic.Maqs.Utilities.Data;
+using CognizantSoftvision.Maqs.Utilities.Data;
 using System;
 using System.IO;
 using System.Web;
 
-namespace Magenic.Maqs.Utilities.Logging
+namespace CognizantSoftvision.Maqs.Utilities.Logging
 {
     /// <summary>
     /// Helper class for adding logs to an HTML file. Allows configurable file path.
