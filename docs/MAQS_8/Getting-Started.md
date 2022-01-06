@@ -33,7 +33,7 @@ It can be downloaded from the [Microsoft Marketplace](https://marketplace.visual
 1. Go To File > New > Project  
 ![New Project](resources/NewProject1.png)  
 
-2. Under Templates in the side panel, select "Magenic's Open Test" 
+2. Under Templates in the side panel, select "Cognizant Softvision's Open Test" 
 ![New Project](resources/NewProject2.png)  
 
 3. Finally, name the solution whatever you'd like and click "ok".
@@ -43,7 +43,7 @@ To add a new Page Model from a template
 1. Right click PageModel project.
 2. Click "Add>New Item". This will open a list of templates.  
 ![New Page Model](resources/NewPageModel1.png)  
-3. Under "Magenic's Open Test" select the "MAQS Selenium Page Model Class"
+3. Under "Cognizant Softvision's Open Test" select the "MAQS Selenium Page Model Class"
 3. Name your page model class
 4. Click the "Add" Button  
 ![New Page Model](resources/NewPageModel2.png)  
@@ -55,7 +55,7 @@ This will add a template for a Page Object Model.  The template is filled with s
 1. Right click PageModel project.
 2. Click "Add>New Item". This will open a list of templates.  
 ![New Test](resources/NewTest1.png)  
-3. Under "Magenic's Open Test" select the "MAQS Selenium VS Test Class"
+3. Under "Cognizant Softvision's Open Test" select the "MAQS Selenium VS Test Class"
 4. Name your test class
 5. Click the "Add" Button  
 ![New Test](resources/NewTest2.png)  
@@ -65,7 +65,7 @@ The VSTest class will generate a template for a VSTest TestClass and include a s
 1. Right click PageModel project.
 2. Click "Add>New Item". This will open a list of templates.  
 ![New NUnit](resources/NewTest1.png)
-3. Expand the "Magenic's Open Test"
+3. Expand the "Cognizant Softvision's Open Test"
 4. Select "Maqs Selenium NUnit Test Class"
 5. Name your test class
 6. Click the "Add" Button  

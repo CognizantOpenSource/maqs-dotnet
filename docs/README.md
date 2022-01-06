@@ -2,7 +2,7 @@
 
 ### Version - Select the Version of MAQS
 
-* [MAQS 7](MAQS_7/Introduction.md)
+* [MAQS 7](https://magenic.github.io/MAQS/#/MAQS_7/Introduction)
 * [MAQS 8](MAQS_8/Introduction.md)
 
 ![MAQS](resources/maqsfull.jpg)
