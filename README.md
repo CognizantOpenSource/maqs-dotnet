@@ -1,13 +1,13 @@
 Builds:  
 [![Build Status](https://github.com/CognizantOpenSource/maqs-dotnet/actions/workflows/build.yml/badge.svg?event=schedule)](https://github.com/CognizantOpenSource/maqs-dotnet/actions/workflows/build.yml)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=MAQS&metric=alert_status)](https://sonarcloud.io/dashboard?id=MAQS) [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=MAQS&metric=coverage)](https://sonarcloud.io/dashboard?id=MAQS) [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=MAQS&metric=bugs)](https://sonarcloud.io/dashboard?id=MAQS) [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=MAQS&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=MAQS)  
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=CognizantOpenSource_maqs-dotnet&metric=alert_status)](https://sonarcloud.io/dashboard?id=CognizantOpenSource_maqs-dotnet) [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=CognizantOpenSource_maqs-dotnet&metric=coverage)](https://sonarcloud.io/dashboard?id=CognizantOpenSource_maqs-dotnet) [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=CognizantOpenSource_maqs-dotnet&metric=bugs)](https://sonarcloud.io/dashboard?id=CognizantOpenSource_maqs-dotnet) [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=CognizantOpenSource_maqs-dotnet&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=CognizantOpenSource_maqs-dotnet)  
 
 Releases:  
 [![Nuget](https://img.shields.io/nuget/v/Magenic.Maqs.svg?label=Nuget%20Package)](https://www.nuget.org/packages/Magenic.Maqs/)  [![NuGet package download counter](https://img.shields.io/nuget/dt/Magenic.Maqs.svg?label=Downloads)](https://www.nuget.org/packages/Magenic.Maqs/)   
 [![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/vs-publisher-1465771.MAQSOpenFramework.svg?label=Visual%20Studio%20Extension)](https://marketplace.visualstudio.com/items?itemName=vs-publisher-1465771.MAQSOpenFramework)  
 
 License:  
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://raw.githubusercontent.com/CognizantOpenSource/maqs-dotnet/master/LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://raw.githubusercontent.com/CognizantOpenSource/maqs-dotnet/main/LICENSE)
 
 # MAQS
 
@@ -25,14 +25,15 @@ The main idea behind MAQS is to avoid **reinventing the wheel**. Most automation
 
 ## Help files
 
-- [MAQS 7](https://magenic.github.io/MAQS/#/MAQS_7/Introduction) *This version will no loger get feature updates
-- [MAQS 8](https://cognizantopensource.github.io/maqs-dotnet/#/MAQS_7/Introduction)
+- [MAQS 8](https://cognizantopensource.github.io/maqs-dotnet/#/MAQS_8/Introduction)
+- [MAQS 7](https://magenic.github.io/MAQS/#/MAQS_7/Introduction) 
+  *Version 7 will no longer get feature updates
 
 ## Powered By
 
 [![Testing Powered By SauceLabs](https://opensource.saucelabs.com/images/opensauce/powered-by-saucelabs-badge-white.png?sanitize=true "Testing Powered By SauceLabs")](https://saucelabs.com)
 
-[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/dashboard?id=MAQS)
+[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/dashboard?id=CognizantOpenSource_maqs-dotnet)
 
 ## License
 
