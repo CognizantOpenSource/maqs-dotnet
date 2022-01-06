@@ -98,7 +98,7 @@ namespace WebServiceTesterUnitTesting
         /// <returns>The base web service url</returns>
         protected override Uri GetBaseWebServiceUri()
         {
-            return new Uri(this.GetBaseWebServiceUrl() + "/MAQS");
+            return new Uri(this.GetBaseWebServiceUrl() + "/maqs-dotnet");
         }
 
         /// <summary>

@@ -621,7 +621,7 @@ namespace SeleniumUnitTests
         public void SeleniumSoftAssertTest()
         {
             WebDriver.Navigate().GoToUrl(TestSiteAutomationUrl);
-            SoftAssert.Assert(() => Assert.AreEqual("Automation - Cognizant Automation Test Site", WebDriver.Title, "Title Test", "Title is incorrect"));
+            SoftAssert.Assert(() => Assert.AreEqual("Automation - Magenic Automation Test Site", WebDriver.Title, "Title Test", "Title is incorrect"));
             SoftAssert.FailTestIfAssertFailed();
         }
 

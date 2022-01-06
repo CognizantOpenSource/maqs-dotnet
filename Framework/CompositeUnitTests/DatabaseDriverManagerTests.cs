@@ -109,7 +109,7 @@ namespace CompositeUnitTests
         public void Intialized()
         {
             // Do something so we initialize the driver
-            this.DatabaseDriver.Execute("Select * from Sys.Databases");
+            this.DatabaseDriver.Execute("SELECT name FROM sqlite_master");
 
             DatabaseDriverManager driverDriver = this.ManagerStore.GetManager<DatabaseDriverManager>();
             Assert.IsTrue(driverDriver.IsDriverIntialized(), "The driver should have been initialized");
