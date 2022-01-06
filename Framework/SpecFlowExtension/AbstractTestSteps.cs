@@ -1,14 +1,14 @@
 ﻿//--------------------------------------------------
-// <copyright file="AbstractTestSteps.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="AbstractTestSteps.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Abstract class with TestSteps functions</summary>
 //--------------------------------------------------
-using Magenic.Maqs.BaseTest;
+using CognizantSoftvision.Maqs.BaseTest;
 using System;
 using TechTalk.SpecFlow;
 
-namespace Magenic.Maqs.SpecFlow
+namespace CognizantSoftvision.Maqs.SpecFlow
 {
     /// <summary>
     /// The abstract TestSteps class definition

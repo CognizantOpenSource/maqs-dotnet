@@ -1,6 +1,6 @@
 ﻿//--------------------------------------------------
-// <copyright file="EventFiringWebServiceDriver.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="EventFiringWebServiceDriver.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>The event firing basic http client interactions</summary>
 //--------------------------------------------------
@@ -9,7 +9,7 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 
-namespace Magenic.Maqs.BaseWebServiceTest
+namespace CognizantSoftvision.Maqs.BaseWebServiceTest
 {
     /// <summary>
     /// Wrap basic http client interactions

@@ -1,13 +1,13 @@
 ﻿//--------------------------------------------------
-// <copyright file="SeleniumDriverManagerTests.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="SeleniumDriverManagerTests.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Selenium driver store tests</summary>
 //--------------------------------------------------
-using Magenic.Maqs.BaseSeleniumTest;
-using Magenic.Maqs.BaseSeleniumTest.Extensions;
-using Magenic.Maqs.BaseWebServiceTest;
-using Magenic.Maqs.Utilities.Helper;
+using CognizantSoftvision.Maqs.BaseSeleniumTest;
+using CognizantSoftvision.Maqs.BaseSeleniumTest.Extensions;
+using CognizantSoftvision.Maqs.BaseWebServiceTest;
+using CognizantSoftvision.Maqs.Utilities.Helper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using System.Net.Http;
@@ -104,11 +104,11 @@ namespace CompositeUnitTests
         public void SeparateInteractions()
         {
             SeleniumDriverManager newDriver = new SeleniumDriverManager(() => WebDriverFactory.GetBrowserWithDefaultConfiguration(BrowserType.HeadlessChrome), this.TestObject);
-            newDriver.GetWebDriver().Navigate().GoToUrl("https://magenicautomation.azurewebsites.net/");
+            newDriver.GetWebDriver().Navigate().GoToUrl("https://GlobalAutomation.azurewebsites.net/");
 
             this.ManagerStore.Add("test", newDriver);
 
-            this.TestObject.WebDriver.Navigate().GoToUrl("https://magenicautomation.azurewebsites.net/Automation");
+            this.TestObject.WebDriver.Navigate().GoToUrl("https://GlobalAutomation.azurewebsites.net/Automation");
 
             Assert.AreNotEqual(this.TestObject.WebDriver.Url, this.ManagerStore.GetManager<SeleniumDriverManager>("test").GetWebDriver().Url);
         }
@@ -120,10 +120,10 @@ namespace CompositeUnitTests
         public void SeparateLazyElementInteractions()
         {
             SeleniumDriverManager newDriver = new SeleniumDriverManager(() => WebDriverFactory.GetBrowserWithDefaultConfiguration(BrowserType.HeadlessChrome), this.TestObject);
-            newDriver.GetWebDriver().Navigate().GoToUrl("https://magenicautomation.azurewebsites.net/");
+            newDriver.GetWebDriver().Navigate().GoToUrl("https://GlobalAutomation.azurewebsites.net/");
             this.ManagerStore.Add("test", newDriver);
 
-            this.TestObject.WebDriver.Navigate().GoToUrl("https://magenicautomation.azurewebsites.net/Automation");
+            this.TestObject.WebDriver.Navigate().GoToUrl("https://GlobalAutomation.azurewebsites.net/Automation");
 
             LazyElement topNew = new LazyElement(this.TestObject, newDriver.GetWebDriver(), By.CssSelector("*"));
             LazyElement topDefault = new LazyElement(this.TestObject, By.CssSelector("*"));

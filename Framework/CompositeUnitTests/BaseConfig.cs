@@ -1,11 +1,11 @@
 ﻿//--------------------------------------------------
-// <copyright file="BaseConfig.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="BaseConfig.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Base configuration unit tests</summary>
 //--------------------------------------------------
-using Magenic.Maqs.BaseTest;
-using Magenic.Maqs.Utilities.Helper;
+using CognizantSoftvision.Maqs.BaseTest;
+using CognizantSoftvision.Maqs.Utilities.Helper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CompositeUnitTests
@@ -33,7 +33,7 @@ namespace CompositeUnitTests
         [TestCategory(TestCategories.Utilities)]
         public void SectionOverrides()
         {
-            Assert.AreEqual("SAMPLEGen", Config.GetValueForSection("MagenicMaqs", "SectionOverride"));
+            Assert.AreEqual("SAMPLEGen", Config.GetValueForSection("GlobalMaqs", "SectionOverride"));
             Assert.AreEqual("SAMPLEApp", Config.GetValueForSection("AppiumMaqs", "SectionOverride"));
             Assert.AreEqual("SAMPLEAppCap", Config.GetValueForSection("AppiumCapsMaqs", "SectionOverride"));
             Assert.AreEqual("SAMPLEDatabase", Config.GetValueForSection("DatabaseMaqs", "SectionOverride"));
@@ -50,7 +50,7 @@ namespace CompositeUnitTests
         [TestCategory(TestCategories.Utilities)]
         public void SectionAdds()
         {
-            Assert.AreEqual("SAMPLEGenz", Config.GetValueForSection(ConfigSection.MagenicMaqs, "SectionAdd"));
+            Assert.AreEqual("SAMPLEGenz", Config.GetValueForSection(ConfigSection.GlobalMaqs, "SectionAdd"));
             Assert.AreEqual("SAMPLEGen", Config.GetGeneralValue("SectionOverride"));
             Assert.AreEqual("SAMPLEAppz", Config.GetValueForSection(ConfigSection.AppiumMaqs, "SectionAdd"));
             Assert.AreEqual("SAMPLEAppCapz", Config.GetValueForSection(ConfigSection.AppiumCapsMaqs, "SectionAdd"));

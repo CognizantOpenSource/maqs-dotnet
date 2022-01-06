@@ -35,7 +35,7 @@ this.TestObject.Log.LogMessage("I am testing with MAQS");
 
 ## Sample code
 ```csharp
-using Magenic.Maqs.BaseWebServiceTest;
+using Cognizant.Maqs.BaseWebServiceTest;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Models.WebService;
 

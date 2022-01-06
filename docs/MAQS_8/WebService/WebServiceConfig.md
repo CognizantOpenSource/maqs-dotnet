@@ -44,7 +44,7 @@ string clientVersion = WebServiceConfig.GetHttpClientVersion();
 <?xml version="1.0" encoding="utf-8" ?>
 <configuration>
   <configSections>
-    <section name="MagenicMaqs" type="System.Configuration.NameValueSectionHandler"/>
+    <section name="GlobalMaqs" type="System.Configuration.NameValueSectionHandler"/>
     <section name="WebServiceMaqs" type="System.Configuration.NameValueSectionHandler"/>
   </configSections>
   <WebServiceMaqs>
@@ -58,7 +58,7 @@ string clientVersion = WebServiceConfig.GetHttpClientVersion();
     <add key="UseProxy" value="No" />
     <add key="ProxyAddress" value="127.0.0.1:8080" />
   </WebServiceMaqs>
-  <MagenicMaqs>
+  <GlobalMaqs>
     <!-- Wait time in milliseconds - AKA how long do you wait for rechecking something -->
     <add key="WaitTime" value="100"/>
 
@@ -89,7 +89,7 @@ string clientVersion = WebServiceConfig.GetHttpClientVersion();
     <!-- Log file path - Defaults to build location if no value is defined
     <add key="FileLoggerPath" value="C:\Frameworks\"/>-->
 
-  </MagenicMaqs>
+  </GlobalMaqs>
 </configuration>
 
 ```
@@ -102,7 +102,7 @@ string clientVersion = WebServiceConfig.GetHttpClientVersion();
     "UseProxy": "NO",
     "ProxyAddress": "127.0.0.1:8080"
   },
-  "MagenicMaqs": {
+  "GlobalMaqs": {
     "WaitTime": "100",
     "Timeout": "10000",
     "Log": "OnFail",

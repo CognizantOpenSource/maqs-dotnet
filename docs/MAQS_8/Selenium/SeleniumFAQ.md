@@ -17,7 +17,7 @@ Find the configuration of browsers within the app.config file and define one and
 ## How do I fix common user errors?
 
 ### My code can't find the config class  
-- Make sure you've imported the Full namespace such as Magenic.Maqs.Utilities.Helper.Config
+- Make sure you've imported the Full namespace such as Cognizant.Maqs.Utilities.Helper.Config
 ### Test can't find the page element for a test, errors indicate something is wrong with Selenium  
 - Kill the existing Chrome processes spawned and orphaned from the test kick off then update Browser and start fresh
 ### Test fails on driver, such as Chrome  
@@ -31,9 +31,6 @@ Find the configuration of browsers within the app.config file and define one and
 
 ## Configuration Errors from Platform
 - right-click the Solution and select Properties then locate the Configuration Properties and set Platform to Any CPU for all Projects such as Tests and WebServiceModel (in this case the solution would be a WebService)
-
-## Errors trying to locate Enterprise when restoring NuGet packages
-- right-click the Solution and select Properties > Options > NuGet Package Manager > Package Sources  here you will find Available package sources and Machine-wide package sources.  A mapping to the internal Magenic package storage url (for internal use only) or an external reference such as and internal NuGet repository or file share.
 
 ## What Integrations exist?
 
@@ -72,20 +69,3 @@ Find the configuration of browsers within the app.config file and define one and
   </RemoteSeleniumCapsMaqs>
   ```
     ```
-
-  ## Cannot find chromedriver
-  ```
-  The chromedriver.exe file does not exist in the current directory or in a directory on the PATH environment variable. The driver can be downloaded at http://chromedriver.storage.googleapis.com/index.html.
-  ```
-  In MAQS we are assuming the proper PATHs in the system are setup for selenium to find chromedriver.  You can override the GetBrowser method and provide a path
-
-  ``` csharp
-[TestClass]
-public class SeleniumTestsVSUnit : BaseSeleniumTest
-{
-    protected override IWebDriver GetBrowser()
-    {
-        IWebDriver driver = new ChromeDriver(GetDriverLocation("chromedriver.exe"), WebDriverFactory.GetDefaultChromeOptions(), SeleniumConfig.GetCommandTimeout());
-        return driver;
-    }
-  ```

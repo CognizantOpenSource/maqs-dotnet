@@ -1,13 +1,13 @@
 ﻿//--------------------------------------------------
-// <copyright file="ManagerDictionary.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="ManagerDictionary.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Dictionary for handling driver managers</summary>
 //--------------------------------------------------
 using System;
 using System.Collections.Generic;
 
-namespace Magenic.Maqs.BaseTest
+namespace CognizantSoftvision.Maqs.BaseTest
 {
     /// <summary>
     /// Driver manager dictionary

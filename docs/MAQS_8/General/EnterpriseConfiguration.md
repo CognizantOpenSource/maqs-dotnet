@@ -9,7 +9,7 @@ The **app.config** file includes configurations for each project solution, as we
 *The .Net Core version of MAQS leverages a JSON version of this file called **appsettings.json**.  
 The XML and JSON versions of the configuration files follow a very similar format.*
 
-### MagenicMaqs - General Test Configurations
+### GlobalMaqs - General Test Configurations
 General test configurations are included in every project template. They control wait time, time-out, and log levels.
 #### Wait Time
 Polling time (how long the code waits between retries) used for generic waits in milliseconds.
@@ -116,7 +116,7 @@ Primarily uses with the .Net Framework implementation of MAQS.
 <?xml version="1.0" encoding="utf-8"?>
 <configuration>
   <configSections>
-    <section name="MagenicMaqs" type="System.Configuration.NameValueSectionHandler" />
+    <section name="GlobalMaqs" type="System.Configuration.NameValueSectionHandler" />
     <section name="AppiumMaqs" type="System.Configuration.NameValueSectionHandler"/>
     <section name="AppiumCapsMaqs" type="System.Configuration.NameValueSectionHandler"/>
     <section name="DatabaseMaqs" type="System.Configuration.NameValueSectionHandler" />
@@ -125,7 +125,7 @@ Primarily uses with the .Net Framework implementation of MAQS.
     <section name="RemoteSeleniumCapsMaqs" type="System.Configuration.NameValueSectionHandler"/>
     <section name="WebServiceMaqs" type="System.Configuration.NameValueSectionHandler"/>
   </configSections>
-  <MagenicMaqs>
+  <GlobalMaqs>
     <!-- Generic wait time in milliseconds - AKA how long do you wait for rechecking something -->
     <add key="WaitTime" value="1000" />
 
@@ -163,7 +163,7 @@ Primarily uses with the .Net Framework implementation of MAQS.
      <!-- Should the configuration validation be skipped
     <add key="SkipConfigValidation" value="YES"/>
     <add key="SkipConfigValidation" value="NO"/>-->
-  </MagenicMaqs>
+  </GlobalMaqs>
   <AppiumMaqs>
     <!--Device platform
     <add key="PlatformName" value="ANDROID"/>
@@ -216,8 +216,8 @@ Primarily uses with the .Net Framework implementation of MAQS.
   <AppiumCapsMaqs>
     <!-- Remote settings -->
     <add key="sauce:options" value="{username:'S_NAME', accessKey:'S_KEY', appiumVersion:'1.20.2' }"  />
-    <add key="appActivity" value="com.magenic.appiumtesting.maqsregistrydemo.LoginPage" />
-    <add key="appPackage" value="com.magenic.appiumtesting.maqsregistrydemo" /> 
+    <add key="appActivity" value="com.Cognizant.appiumtesting.maqsregistrydemo.LoginPage" />
+    <add key="appPackage" value="com.Cognizant.appiumtesting.maqsregistrydemo" /> 
   </AppiumCapsMaqs>
   <DatabaseMaqs>
     <!--<add key="DataBaseProviderType" value="SQLSERVER" />
@@ -328,7 +328,7 @@ Primarily uses with the .Net Framework implementation of MAQS.
 Primarily uses with the .Net Core implementation of MAQS.
 ```json
 {
-  "MagenicMaqs": {
+  "GlobalMaqs": {
     "WaitTime": "100",
     "Timeout": "10000",
     "Log": "OnFail",

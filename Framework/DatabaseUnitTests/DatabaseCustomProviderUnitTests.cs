@@ -1,12 +1,12 @@
 ﻿//--------------------------------------------------
-// <copyright file="DatabaseCustomProviderUnitTests.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="DatabaseCustomProviderUnitTests.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Database base test unit tests</summary>
 //--------------------------------------------------
 
-using Magenic.Maqs.BaseDatabaseTest;
-using Magenic.Maqs.Utilities.Helper;
+using CognizantSoftvision.Maqs.BaseDatabaseTest;
+using CognizantSoftvision.Maqs.Utilities.Helper;
 using NUnit.Framework;
 using System.Data;
 using System.Diagnostics.CodeAnalysis;

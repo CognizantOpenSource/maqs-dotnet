@@ -1,11 +1,11 @@
 ﻿//--------------------------------------------------
-// <copyright file="EmailUnitTestSteps.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="EmailUnitTestSteps.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>TestSteps class that inherits from BaseEmailTestSteps</summary>
 //--------------------------------------------------
-using Magenic.Maqs.BaseEmailTest;
-using Magenic.Maqs.SpecFlow.TestSteps;
+using CognizantSoftvision.Maqs.BaseEmailTest;
+using CognizantSoftvision.Maqs.SpecFlow.TestSteps;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TechTalk.SpecFlow;
 

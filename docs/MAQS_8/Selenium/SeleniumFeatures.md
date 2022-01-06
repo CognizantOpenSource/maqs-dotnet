@@ -64,7 +64,7 @@ Contains functions for interacting with IWebElement objects
 
 ## Sample code
 ```csharp
-using Magenic.Maqs.BaseSeleniumTest;
+using Cognizant.Maqs.BaseSeleniumTest;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Tests

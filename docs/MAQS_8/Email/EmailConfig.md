@@ -63,10 +63,10 @@ TimeSpan timeout = EmailConfig.GetTimeout();
 <?xml version="1.0" encoding="utf-8"?>
 <configuration>
   <configSections>
-    <section name="MagenicMaqs" type="System.Configuration.NameValueSectionHandler" />
+    <section name="GlobalMaqs" type="System.Configuration.NameValueSectionHandler" />
     <section name="EmailMaqs" type="System.Configuration.NameValueSectionHandler" />
   </configSections>
-  <MagenicMaqs>
+  <GlobalMaqs>
     <!-- Do you want to create logs for your tests
     <add key="Log" value="YES"/>
     <add key="Log" value="NO"/>
@@ -94,12 +94,12 @@ TimeSpan timeout = EmailConfig.GetTimeout();
     <!--Retry and overall timeout in milliseconds-->
     <add key="WaitTime" value="1000" />
     <add key="Timeout" value="10000" />
-  </MagenicMaqs>
+  </GlobalMaqs>
   <EmailMaqs>
     <!--IMAP connection settings-->
     <add key="EmailHost" value="imap.gmail.com" />
     <add key="EmailUserName" value="maqsfakeemailtest@gmail.com" />
-    <add key="EmailPassword" value="Magenic3" />
+    <add key="EmailPassword" value="COG123" />
     <add key="EmailPort" value="993" />
     <add key="ConnectViaSSL" value="Yes" />
     <add key="SkipSslValidation" value="Yes" />
@@ -111,7 +111,7 @@ TimeSpan timeout = EmailConfig.GetTimeout();
     <add key="EmailTimeout" value="10000" />
   </EmailMaqs>
 </configuration>
-  </MagenicMaqs>
+  </GlobalMaqs>
 </configuration>
 
 ```
@@ -121,13 +121,13 @@ TimeSpan timeout = EmailConfig.GetTimeout();
   "EmailMaqs": {
     "EmailHost": "imap.gmail.com",
     "EmailUserName": "maqsfakeemailtest@gmail.com",
-    "EmailPassword": "Magenic3",
+    "EmailPassword": "COG123",
     "EmailPort": "993"
     "ConnectViaSSL": "Yes"
     "SkipSslValidation": "Yes"
     "AttachmentDownloadPath": "C:\Frameworks\downloads"
   },
-  "MagenicMaqs": {
+  "GlobalMaqs": {
     "WaitTime": "100",
     "Timeout": "10000",
     "Log": "OnFail",

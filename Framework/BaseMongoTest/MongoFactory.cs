@@ -1,12 +1,12 @@
 ﻿//--------------------------------------------------
-// <copyright file="MongoFactory.cs" company="Magenic">
-//  Copyright 2019 Magenic, All rights Reserved
+// <copyright file="MongoFactory.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Mongo database driver factory</summary>
 //--------------------------------------------------
 using MongoDB.Driver;
 
-namespace Magenic.Maqs.BaseMongoTest
+namespace CognizantSoftvision.Maqs.BaseMongoTest
 {
     /// <summary>
     /// Mongo database factory

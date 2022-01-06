@@ -1,10 +1,10 @@
 ﻿//--------------------------------------------------
-// <copyright file="IHtmlFileLogger.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="IHtmlFileLogger.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>HTML file logger interface</summary>
 //--------------------------------------------------
-namespace Magenic.Maqs.Utilities.Logging
+namespace CognizantSoftvision.Maqs.Utilities.Logging
 {
     /// <summary>
     /// Inteface for HTML file logger

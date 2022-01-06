@@ -1,10 +1,10 @@
 ﻿//--------------------------------------------------
-// <copyright file="ConfigUnitTests.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="ConfigUnitTests.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Unit test configuration tests</summary>
 //--------------------------------------------------
-using Magenic.Maqs.Utilities.Helper;
+using CognizantSoftvision.Maqs.Utilities.Helper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -28,10 +28,10 @@ namespace UtilitiesUnitTesting
         public static void AssemblyInit(TestContext context)
         {
             // Add environment settings
-            Environment.SetEnvironmentVariable("MagenicMaqs:ConfigJsonEnvRunOverride", "ENV");
-            Environment.SetEnvironmentVariable("MagenicMaqs:ConfigJsonEnvRun", "ENV");
-            Environment.SetEnvironmentVariable("MagenicMaqs:ConfigJsonEnv", "ENV");
-            Environment.SetEnvironmentVariable("MagenicMaqs:EnvOnly", "ENV");
+            Environment.SetEnvironmentVariable("GlobalMaqs:ConfigJsonEnvRunOverride", "ENV");
+            Environment.SetEnvironmentVariable("GlobalMaqs:ConfigJsonEnvRun", "ENV");
+            Environment.SetEnvironmentVariable("GlobalMaqs:ConfigJsonEnv", "ENV");
+            Environment.SetEnvironmentVariable("GlobalMaqs:EnvOnly", "ENV");
 
             // Add runtime settings
             Config.UpdateWithVSTestContext(context);
@@ -117,7 +117,7 @@ namespace UtilitiesUnitTesting
         [TestCategory(TestCategories.Utilities)]
         public void DoesKeyExistInSection()
         {
-            bool value = Config.DoesKeyExist(ConfigSection.MagenicMaqs, "Log");
+            bool value = Config.DoesKeyExist(ConfigSection.GlobalMaqs, "Log");
             Assert.AreEqual(true, value);
         }
 
@@ -196,7 +196,7 @@ namespace UtilitiesUnitTesting
             string overrideValue = baseValue + "_Override";
 
             // Override the configuration
-            Config.AddTestSettingValue(key, overrideValue, ConfigSection.MagenicMaqs);
+            Config.AddTestSettingValue(key, overrideValue, ConfigSection.GlobalMaqs);
 
             // Make sure it worked
             Assert.AreEqual(overrideValue, Config.GetGeneralValue(key));
@@ -215,7 +215,7 @@ namespace UtilitiesUnitTesting
             string overrideValue = baseValue + "_Override";
 
             // Override the configuration
-            Config.AddTestSettingValues(key, overrideValue, ConfigSection.MagenicMaqs.ToString());
+            Config.AddTestSettingValues(key, overrideValue, ConfigSection.GlobalMaqs.ToString());
 
             // Make sure it worked
             Assert.AreEqual(overrideValue, Config.GetGeneralValue(key));
@@ -306,7 +306,7 @@ namespace UtilitiesUnitTesting
                 RequiredFields = new List<string>()
             };
 
-            Config.Validate(ConfigSection.MagenicMaqs, configValidation);
+            Config.Validate(ConfigSection.GlobalMaqs, configValidation);
         }
 
         /// <summary>
@@ -399,7 +399,7 @@ namespace UtilitiesUnitTesting
         [DataRow("compound:key:lower", "compoundEvenLower")]
         public void MultilevelSectionKeys(string key, string expected)
         {
-            var value = Config.GetSectionDictionary("MagenicMaqs");
+            var value = Config.GetSectionDictionary("GlobalMaqs");
             Assert.AreEqual(expected, value[key]);
         }
 

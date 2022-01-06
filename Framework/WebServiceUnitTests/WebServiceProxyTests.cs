@@ -1,10 +1,10 @@
 ﻿//--------------------------------------------------
-// <copyright file="WebServiceProxyTests.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="WebServiceProxyTests.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Web Service Proxy Tests</summary>
 //--------------------------------------------------
-using Magenic.Maqs.BaseWebServiceTest;
+using CognizantSoftvision.Maqs.BaseWebServiceTest;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Concurrent;

@@ -1,15 +1,15 @@
 //--------------------------------------------------
-// <copyright file="AppiumConfig.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="AppiumConfig.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>This is the Appium Configuration class</summary>
 //--------------------------------------------------
-using Magenic.Maqs.Utilities.Helper;
+using CognizantSoftvision.Maqs.Utilities.Helper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Magenic.Maqs.BaseAppiumTest
+namespace CognizantSoftvision.Maqs.BaseAppiumTest
 {
     /// <summary>
     /// Appium Configuration class

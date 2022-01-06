@@ -1,11 +1,11 @@
 ﻿//--------------------------------------------------
-// <copyright file="AppiumConfigTests.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="AppiumConfigTests.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Test class for config files</summary>
 //--------------------------------------------------
-using Magenic.Maqs.BaseAppiumTest;
-using Magenic.Maqs.Utilities.Helper;
+using CognizantSoftvision.Maqs.BaseAppiumTest;
+using CognizantSoftvision.Maqs.Utilities.Helper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium.Appium;
 using OpenQA.Selenium.Support.UI;

@@ -1,32 +1,32 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<VersionPrefix>7.0.0</VersionPrefix>
+		<VersionPrefix>8.0.0</VersionPrefix>
 		<VersionSuffix>alpha.1</VersionSuffix>
 	</PropertyGroup>
 
 	<PropertyGroup>
 		<TargetFrameworks>net471;netstandard2.0;netstandard2.1</TargetFrameworks>
-		<PackageId>Magenic.Maqs.WebService</PackageId>
-		<Product>Magenic.Maqs.Base</Product>
-		<AssemblyName>Magenic.Maqs.BaseWebServiceTest</AssemblyName>
-		<RootNamespace>Magenic.Maqs.BaseWebServiceTest</RootNamespace>
+		<PackageId>CognizantSoftvision.Maqs.WebService</PackageId>
+		<Product>CognizantSoftvision.Maqs.Base</Product>
+		<AssemblyName>CognizantSoftvision.Maqs.BaseWebServiceTest</AssemblyName>
+		<RootNamespace>CognizantSoftvision.Maqs.BaseWebServiceTest</RootNamespace>
 		<ApplicationIcon>MAQS.ico</ApplicationIcon>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-		<Authors>Magenic</Authors>
-		<Company>Magenic</Company>
-		<Description>Web Service extension for Magenic's automation quick start framework</Description>
-		<Copyright>Copyright © Magenic $([System.DateTime]::Now.Year)</Copyright>
+		<Authors>CognizantSoftvision</Authors>
+		<Company>CognizantSoftvision</Company>
+		<Description>Web Service extension for Cognizant Softvision's modular automation quick start</Description>
+		<Copyright>Copyright © Cognizant $([System.DateTime]::Now.Year)</Copyright>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageIcon>MAQS.jpg</PackageIcon>
-		<PackageProjectUrl>https://github.com/Magenic/MAQS</PackageProjectUrl>
+		<PackageProjectUrl>https://github.com/CognizantOpenSource/maqs-dotnet</PackageProjectUrl>
 		<PackageTags>test Web service http client automation NUnit MSTest TestFramework</PackageTags>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
-		<RepositoryUrl>https://github.com/Magenic/MAQS</RepositoryUrl>
+		<RepositoryUrl>https://github.com/CognizantOpenSource/maqs-dotnet</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<PackageReleaseNotes>
-			Release Notes can be found at https://github.com/Magenic/MAQS/releases
+			Release Notes can be found at https://github.com/CognizantOpenSource/maqs-dotnet/releases
 		</PackageReleaseNotes>
 		<DebugSymbols>true</DebugSymbols>
 		<IncludeSymbols>true</IncludeSymbols>

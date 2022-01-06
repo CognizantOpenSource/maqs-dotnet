@@ -1,6 +1,6 @@
 ﻿//--------------------------------------------------
-// <copyright file="FilesUploaded.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="FilesUploaded.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>FilesUploaded model</summary>
 //--------------------------------------------------

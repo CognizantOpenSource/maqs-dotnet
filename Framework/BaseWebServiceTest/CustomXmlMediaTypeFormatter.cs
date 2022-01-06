@@ -1,6 +1,6 @@
 ﻿//--------------------------------------------------
-// <copyright file="CustomXmlMediaTypeFormatter.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="CustomXmlMediaTypeFormatter.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Custom XML formatter</summary>
 //--------------------------------------------------
@@ -11,7 +11,7 @@ using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
 using System.Xml.Serialization;
 
-namespace Magenic.Maqs.BaseWebServiceTest
+namespace CognizantSoftvision.Maqs.BaseWebServiceTest
 {
     /// <summary>
     /// Create a custom xml media type formatter

@@ -1,13 +1,13 @@
 //--------------------------------------------------
-// <copyright file="ConsoleLogger.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="ConsoleLogger.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Helper class for console logging</summary>
 //--------------------------------------------------
-using Magenic.Maqs.Utilities.Data;
+using CognizantSoftvision.Maqs.Utilities.Data;
 using System;
 
-namespace Magenic.Maqs.Utilities.Logging
+namespace CognizantSoftvision.Maqs.Utilities.Logging
 {
     /// <summary>
     /// Helper class for logging to the console

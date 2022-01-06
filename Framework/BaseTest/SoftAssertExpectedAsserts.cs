@@ -1,4 +1,4 @@
-﻿namespace Magenic.Maqs.BaseTest
+﻿namespace CognizantSoftvision.Maqs.BaseTest
 {
     /// <summary>
     /// Expected assert keys for a <see cref="SoftAssert"/> instance.

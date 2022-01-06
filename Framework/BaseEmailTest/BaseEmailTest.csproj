@@ -1,30 +1,30 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<VersionPrefix>7.0.0</VersionPrefix>
+		<VersionPrefix>8.0.0</VersionPrefix>
 		<VersionSuffix>alpha.1</VersionSuffix>
 	</PropertyGroup>
 
 	<PropertyGroup>
 		<TargetFrameworks>net471;netstandard2.0;netstandard2.1</TargetFrameworks>
-		<PackageId>Magenic.Maqs.Email</PackageId>
-		<AssemblyName>Magenic.Maqs.BaseEmailTest</AssemblyName>
-		<RootNamespace>Magenic.Maqs.BaseEmailTest</RootNamespace>
+		<PackageId>CognizantSoftvision.Maqs.Email</PackageId>
+		<AssemblyName>CognizantSoftvision.Maqs.BaseEmailTest</AssemblyName>
+		<RootNamespace>CognizantSoftvision.Maqs.BaseEmailTest</RootNamespace>
 		<ApplicationIcon>MAQS.ico</ApplicationIcon>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-		<Authors>Magenic</Authors>
-		<Description>Email extension for Magenic's automation quick start framework</Description>
-		<Copyright>Copyright © Magenic $([System.DateTime]::Now.Year)</Copyright>
+		<Authors>CognizantSoftvision</Authors>
+		<Description>Email extension for Cognizant Softvision's modular automation quick start</Description>
+		<Copyright>Copyright © Cognizant $([System.DateTime]::Now.Year)</Copyright>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageIcon>MAQS.jpg</PackageIcon>
-		<PackageProjectUrl>https://github.com/Magenic/MAQS</PackageProjectUrl>
+		<PackageProjectUrl>https://github.com/CognizantOpenSource/maqs-dotnet</PackageProjectUrl>
 		<PackageTags>test email automation NUnit MSTest TestFramework</PackageTags>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
-		<RepositoryUrl>https://github.com/Magenic/MAQS</RepositoryUrl>
+		<RepositoryUrl>https://github.com/CognizantOpenSource/maqs-dotnet</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<PackageReleaseNotes>
-			Release Notes can be found at https://github.com/Magenic/MAQS/releases
+			Release Notes can be found at https://github.com/CognizantOpenSource/maqs-dotnet/releases
 		</PackageReleaseNotes>
 		<DebugSymbols>true</DebugSymbols>
 		<IncludeSymbols>true</IncludeSymbols>

@@ -1,12 +1,12 @@
-﻿// <copyright file="MongoDBDriver.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+﻿// <copyright file="MongoDBDriver.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>This is the driver for the mongo collection object</summary>
 //--------------------------------------------------
 using MongoDB.Driver;
 using System.Collections.Generic;
 
-namespace Magenic.Maqs.BaseMongoTest
+namespace CognizantSoftvision.Maqs.BaseMongoTest
 {
     /// <summary>
     /// Class to wrap the IMongoCollection and related helper functions

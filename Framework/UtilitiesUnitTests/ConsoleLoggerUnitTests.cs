@@ -1,11 +1,11 @@
 ﻿//-----------------------------------------------------
-// <copyright file="ConsoleLoggerUnitTests.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="ConsoleLoggerUnitTests.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Test the file logger</summary>
 //-----------------------------------------------------
-using Magenic.Maqs.Utilities.Helper;
-using Magenic.Maqs.Utilities.Logging;
+using CognizantSoftvision.Maqs.Utilities.Helper;
+using CognizantSoftvision.Maqs.Utilities.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Diagnostics.CodeAnalysis;
 

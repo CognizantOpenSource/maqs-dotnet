@@ -1,13 +1,13 @@
 ﻿//--------------------------------------------------
-// <copyright file="PerformanceUnitTests.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="PerformanceUnitTests.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>PerformanceTests class</summary>
 //--------------------------------------------------
-using Magenic.Maqs.BaseTest;
-using Magenic.Maqs.Utilities.Helper;
-using Magenic.Maqs.Utilities.Logging;
-using Magenic.Maqs.Utilities.Performance;
+using CognizantSoftvision.Maqs.BaseTest;
+using CognizantSoftvision.Maqs.Utilities.Helper;
+using CognizantSoftvision.Maqs.Utilities.Logging;
+using CognizantSoftvision.Maqs.Utilities.Performance;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
 using System;

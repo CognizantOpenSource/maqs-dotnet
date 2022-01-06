@@ -1,14 +1,14 @@
 ﻿//--------------------------------------------------
-// <copyright file="ElementHandlerUnitTests.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="ElementHandlerUnitTests.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Helper class for getting selenium specific configuration values</summary>
 //--------------------------------------------------
-using Magenic.Maqs.BaseSeleniumTest;
-using Magenic.Maqs.BaseSeleniumTest.Extensions;
-using Magenic.Maqs.Utilities.Data;
-using Magenic.Maqs.Utilities.Helper;
-using Magenic.Maqs.Utilities.Logging;
+using CognizantSoftvision.Maqs.BaseSeleniumTest;
+using CognizantSoftvision.Maqs.BaseSeleniumTest.Extensions;
+using CognizantSoftvision.Maqs.Utilities.Data;
+using CognizantSoftvision.Maqs.Utilities.Helper;
+using CognizantSoftvision.Maqs.Utilities.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using System;
@@ -209,7 +209,7 @@ namespace SeleniumUnitTests
         [TestCategory(TestCategories.Selenium)]
         public void GetElementAttributeTest()
         {
-            string expectedText = "https://magenicautomation.azurewebsites.net/Swagger";
+            string expectedText = "https://GlobalAutomation.azurewebsites.net/Swagger";
             NavigateToUrl();
             string actualText = WebDriver.GetElementAttribute(swaggerLinkBy, "href");
             VerifyText(actualText, expectedText);

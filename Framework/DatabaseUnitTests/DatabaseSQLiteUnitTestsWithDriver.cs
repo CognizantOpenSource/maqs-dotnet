@@ -1,14 +1,14 @@
 ﻿//--------------------------------------------------
-// <copyright file="DatabaseSQLiteUnitTestsWithDriver.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="DatabaseSQLiteUnitTestsWithDriver.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Unit tests for SQLITE provider</summary>
 //--------------------------------------------------
 
 using Dapper;
 using DatabaseUnitTests.Models;
-using Magenic.Maqs.BaseDatabaseTest;
-using Magenic.Maqs.Utilities.Helper;
+using CognizantSoftvision.Maqs.BaseDatabaseTest;
+using CognizantSoftvision.Maqs.Utilities.Helper;
 using Microsoft.Data.Sqlite;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;

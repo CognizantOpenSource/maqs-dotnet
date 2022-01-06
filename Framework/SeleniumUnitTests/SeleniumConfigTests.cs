@@ -1,11 +1,11 @@
 ﻿//--------------------------------------------------
-// <copyright file="SeleniumConfigTests.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="SeleniumConfigTests.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Test class for config files</summary>
 //--------------------------------------------------
-using Magenic.Maqs.BaseSeleniumTest;
-using Magenic.Maqs.Utilities.Helper;
+using CognizantSoftvision.Maqs.BaseSeleniumTest;
+using CognizantSoftvision.Maqs.Utilities.Helper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
@@ -212,7 +212,7 @@ namespace SeleniumUnitTests
         {
             string website = SeleniumConfig.GetWebSiteBase();
 
-            Assert.IsTrue(website.Equals("https://magenicautomation.azurewebsites.net/", StringComparison.InvariantCultureIgnoreCase));
+            Assert.IsTrue(website.Equals("https://GlobalAutomation.azurewebsites.net/", StringComparison.InvariantCultureIgnoreCase));
         }
 
         /// <summary>
@@ -271,7 +271,7 @@ namespace SeleniumUnitTests
             {
                 Config.AddTestSettingValues(new Dictionary<string, string> { ["username"] = "Sauce_Labs_Username" }, ConfigSection.RemoteSeleniumCapsMaqs);
                 driver = WebDriverFactory.GetBrowserWithDefaultConfiguration(BrowserType.Remote);
-                driver.Navigate().GoToUrl("https://magenic.com/");
+                driver.Navigate().GoToUrl("https://www.cognizantsoftvision.com/");
             }
             catch (Exception e)
             {

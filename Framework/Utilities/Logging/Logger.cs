@@ -1,13 +1,13 @@
 //--------------------------------------------------
-// <copyright file="Logger.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="Logger.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Abstract logger</summary>
 //--------------------------------------------------
 using System;
 using System.Globalization;
 
-namespace Magenic.Maqs.Utilities.Logging
+namespace CognizantSoftvision.Maqs.Utilities.Logging
 {
     /// <summary>
     /// Abstract logger base class

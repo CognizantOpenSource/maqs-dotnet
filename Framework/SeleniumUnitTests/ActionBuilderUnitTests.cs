@@ -1,12 +1,12 @@
 ﻿//--------------------------------------------------
-// <copyright file="ActionBuilderUnitTests.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="ActionBuilderUnitTests.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Helper class for getting selenium specific configuration values</summary>
 //--------------------------------------------------
-using Magenic.Maqs.BaseSeleniumTest;
-using Magenic.Maqs.BaseSeleniumTest.Extensions;
-using Magenic.Maqs.Utilities.Helper;
+using CognizantSoftvision.Maqs.BaseSeleniumTest;
+using CognizantSoftvision.Maqs.BaseSeleniumTest.Extensions;
+using CognizantSoftvision.Maqs.Utilities.Helper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using System.Diagnostics.CodeAnalysis;

@@ -1,15 +1,15 @@
 ﻿//--------------------------------------------------
-// <copyright file="BaseWebServiceTest.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="BaseWebServiceTest.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>This is the base web service test class</summary>
 //--------------------------------------------------
-using Magenic.Maqs.BaseTest;
-using Magenic.Maqs.Utilities.Logging;
+using CognizantSoftvision.Maqs.BaseTest;
+using CognizantSoftvision.Maqs.Utilities.Logging;
 using System;
 using System.Net.Http;
 
-namespace Magenic.Maqs.BaseWebServiceTest
+namespace CognizantSoftvision.Maqs.BaseWebServiceTest
 {
     /// <summary>
     /// Generic base web service test class

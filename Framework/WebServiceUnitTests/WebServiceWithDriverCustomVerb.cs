@@ -1,12 +1,12 @@
 ﻿//--------------------------------------------------
-// <copyright file="WebServiceWithDriverCustomVerb.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="WebServiceWithDriverCustomVerb.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>HTTP Request Custom Verb unit tests</summary>
 //--------------------------------------------------
 
-using Magenic.Maqs.BaseWebServiceTest;
-using Magenic.Maqs.Utilities.Helper;
+using CognizantSoftvision.Maqs.BaseWebServiceTest;
+using CognizantSoftvision.Maqs.Utilities.Helper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Diagnostics.CodeAnalysis;

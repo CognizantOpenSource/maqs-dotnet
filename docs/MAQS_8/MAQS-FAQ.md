@@ -8,7 +8,7 @@ There are no longer separate open source and enterprise versions.
 Templates can be found in the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=vs-publisher-1465771.MAQSOpenFramework) or  Visual Studio Tools -> Extensions and Updates.
 
 ## Template types
-- DotNet Framework project templates - These templates are available to Magenic clients
+- DotNet Framework project templates
    - Appium (with tests and page object models) 
    - Base
    - Composite (mix and match all MAQS capabilities)  
@@ -25,7 +25,7 @@ Templates can be found in the [Visual Studio Marketplace](https://marketplace.vi
    - Selenium tests (Visual Studio and NUnit versions)
    - Selenium page object model
    - Web Service tests (Visual Studio and NUnit versions)
-- DotNet Core project templates - https://www.nuget.org/packages/Magenic.Maqs.Templates 
+- DotNet Core project templates - https://www.nuget.org/packages/Cognizant.Maqs.Templates 
    - Appium (with tests and page object models) 
    - Base
    - Composite (mix and match all MAQS capabilities)  
@@ -59,7 +59,7 @@ Suspended mode will result in no information written to the log.
 - Human readable and requires a Name, Embedded Perf tests to start at different times, Basically it tells how long the data collection took using this as a stop watch
 
 ## TestObject
-- Holds test specific objects and available in all Magenic MAQS flavors
+- Holds test specific objects and available in all MAQS flavors
 
 ## Waits
 - GenericWait.WaitFor waits until exceptions are no longer thrown (calls the function N number of times) or GenericWait.WaitUntil  responds with true / false

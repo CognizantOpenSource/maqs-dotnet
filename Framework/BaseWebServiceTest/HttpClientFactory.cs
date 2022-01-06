@@ -1,6 +1,6 @@
 ﻿//--------------------------------------------------
-// <copyright file="HttpClientFactory.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="HttpClientFactory.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Factory for creating HTTP clients</summary>
 //--------------------------------------------------
@@ -9,7 +9,7 @@ using System;
 using System.Net;
 using System.Net.Http;
 
-namespace Magenic.Maqs.BaseWebServiceTest
+namespace CognizantSoftvision.Maqs.BaseWebServiceTest
 {
     /// <summary>
     /// Http client factory

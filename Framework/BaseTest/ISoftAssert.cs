@@ -1,14 +1,14 @@
 ﻿//--------------------------------------------------
-// <copyright file="ISoftAssert.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="ISoftAssert.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Soft assert interface</summary>
 //--------------------------------------------------
-using Magenic.Maqs.Utilities.Logging;
+using CognizantSoftvision.Maqs.Utilities.Logging;
 using System;
 using System.Reflection;
 
-namespace Magenic.Maqs.BaseTest
+namespace CognizantSoftvision.Maqs.BaseTest
 {
     /// <summary>
     /// Interface for soft assert

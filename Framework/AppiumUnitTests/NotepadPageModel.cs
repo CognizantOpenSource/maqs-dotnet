@@ -1,12 +1,12 @@
 ﻿//-----------------------------------------------------
-// <copyright file="SeleniumPageModel.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="SeleniumPageModel.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>A test selenium page object model</summary>
 //-----------------------------------------------------
-using Magenic.Maqs.BaseAppiumTest;
-using Magenic.Maqs.Utilities.Logging;
-using Magenic.Maqs.Utilities.Performance;
+using CognizantSoftvision.Maqs.BaseAppiumTest;
+using CognizantSoftvision.Maqs.Utilities.Logging;
+using CognizantSoftvision.Maqs.Utilities.Performance;
 using OpenQA.Selenium.Appium;
 
 namespace AppiumUnitTests

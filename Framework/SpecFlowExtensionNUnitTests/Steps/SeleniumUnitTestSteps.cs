@@ -1,11 +1,11 @@
 ﻿//--------------------------------------------------
-// <copyright file="SeleniumUnitTestSteps.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="SeleniumUnitTestSteps.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>TestSteps class that inherits from BaseSeleniumTestSteps</summary>
 //--------------------------------------------------
-using Magenic.Maqs.BaseSeleniumTest;
-using Magenic.Maqs.SpecFlow.TestSteps;
+using CognizantSoftvision.Maqs.BaseSeleniumTest;
+using CognizantSoftvision.Maqs.SpecFlow.TestSteps;
 using NUnit.Framework;
 using OpenQA.Selenium.Support.Events;
 using TechTalk.SpecFlow;

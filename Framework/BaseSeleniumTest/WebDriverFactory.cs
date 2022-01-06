@@ -1,6 +1,6 @@
 ﻿//--------------------------------------------------
-// <copyright file="WebDriverFactory.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="WebDriverFactory.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Web driver factory</summary>
 //--------------------------------------------------
@@ -22,7 +22,7 @@ using System.Threading;
 using WebDriverManager;
 using WebDriverManager.DriverConfigs.Impl;
 
-namespace Magenic.Maqs.BaseSeleniumTest
+namespace CognizantSoftvision.Maqs.BaseSeleniumTest
 {
     /// <summary>
     /// Static web driver factory

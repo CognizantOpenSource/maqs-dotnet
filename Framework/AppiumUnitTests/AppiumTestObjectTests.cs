@@ -1,11 +1,11 @@
 ﻿//--------------------------------------------------
-// <copyright file="AppiumTestObjectTests.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="AppiumTestObjectTests.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Test class for appium test object files</summary>
 //--------------------------------------------------
-using Magenic.Maqs.BaseAppiumTest;
-using Magenic.Maqs.Utilities.Helper;
+using CognizantSoftvision.Maqs.BaseAppiumTest;
+using CognizantSoftvision.Maqs.Utilities.Helper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Appium;
@@ -75,10 +75,10 @@ namespace AppiumUnitTests
         public void SeparateLazyElementInteractions()
         {
             AppiumDriverManager newDriver = new AppiumDriverManager(() => AppiumDriverFactory.GetDefaultMobileDriver(), this.TestObject);
-            newDriver.GetAppiumDriver().Navigate().GoToUrl("https://magenicautomation.azurewebsites.net/");
+            newDriver.GetAppiumDriver().Navigate().GoToUrl("https://GlobalAutomation.azurewebsites.net/");
             this.ManagerStore.Add("test", newDriver);
 
-            this.TestObject.AppiumDriver.Navigate().GoToUrl("https://magenicautomation.azurewebsites.net/Automation");
+            this.TestObject.AppiumDriver.Navigate().GoToUrl("https://GlobalAutomation.azurewebsites.net/Automation");
 
             LazyMobileElement topNew = new LazyMobileElement(this.TestObject, newDriver.GetAppiumDriver(), By.CssSelector("*"));
             LazyMobileElement topDefault = new LazyMobileElement(this.TestObject, By.CssSelector("*"));

@@ -1,11 +1,11 @@
 //--------------------------------------------------
-// <copyright file="LoggingEnabled.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="LoggingEnabled.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>When to enable logging enumeration</summary>
 //--------------------------------------------------
 
-namespace Magenic.Maqs.Utilities.Logging
+namespace CognizantSoftvision.Maqs.Utilities.Logging
 {
     /// <summary>
     /// The type of message

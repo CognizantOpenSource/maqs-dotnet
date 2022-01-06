@@ -6,7 +6,7 @@
     while [ $not_ready != 0 ]
     do
         # Wait for the return code of the following statement to be zero
-        /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P magenicMAQS2 -d master -Q "SELECT TOP 1 message_id FROM sys.messages"
+        /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P globalMAQS2 -d master -Q "SELECT TOP 1 message_id FROM sys.messages"
         not_ready=$?
 
         if [ $not_ready != 0 ]
@@ -18,15 +18,15 @@
 
     echo "Started initializing database"
     # Set up the schema and stored procedures
-    /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P magenicMAQS2 -d master -i `dirname $0`/schema.sql
-    /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P magenicMAQS2 -d master -i `dirname $0`/stored_procedures.sql
+    /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P globalMAQS2 -d master -i `dirname $0`/schema.sql
+    /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P globalMAQS2 -d master -i `dirname $0`/stored_procedures.sql
     # Use BCP to import test data
-    /opt/mssql-tools/bin/bcp MagenicAutomation.dbo.States in "`dirname $0`/SeedData/MagenicAutomation/States.bcp" \
-        -n -S localhost -U sa -P magenicMAQS2
-    /opt/mssql-tools/bin/bcp MagenicAutomation.dbo.Cities in "`dirname $0`/SeedData/MagenicAutomation/Cities.bcp" \
-        -n -S localhost -U sa -P magenicMAQS2
-    /opt/mssql-tools/bin/bcp MagenicAutomation.dbo.Datatype in "`dirname $0`/SeedData/MagenicAutomation/Datatype.bcp" \
-        -n -S localhost -U sa -P magenicMAQS2
+    /opt/mssql-tools/bin/bcp GlobalAutomation.dbo.States in "`dirname $0`/SeedData/GlobalAutomation/States.bcp" \
+        -n -S localhost -U sa -P globalMAQS2
+    /opt/mssql-tools/bin/bcp GlobalAutomation.dbo.Cities in "`dirname $0`/SeedData/GlobalAutomation/Cities.bcp" \
+        -n -S localhost -U sa -P globalMAQS2
+    /opt/mssql-tools/bin/bcp GlobalAutomation.dbo.Datatype in "`dirname $0`/SeedData/GlobalAutomation/Datatype.bcp" \
+        -n -S localhost -U sa -P globalMAQS2
     echo "Finished initializing database"
 }&
 

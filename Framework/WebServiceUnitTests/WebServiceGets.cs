@@ -1,11 +1,11 @@
 ﻿//--------------------------------------------------
-// <copyright file="WebServiceGets.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="WebServiceGets.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Web service get unit tests</summary>
 //--------------------------------------------------
-using Magenic.Maqs.BaseWebServiceTest;
-using Magenic.Maqs.Utilities.Helper;
+using CognizantSoftvision.Maqs.BaseWebServiceTest;
+using CognizantSoftvision.Maqs.Utilities.Helper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -42,7 +42,7 @@ namespace WebServiceTesterUnitTesting
 
             try
             {
-                WebServiceDriver client = new WebServiceDriver(new Uri("https://magenicautomation.azurewebsites.net"));
+                WebServiceDriver client = new WebServiceDriver(new Uri("https://GlobalAutomation.azurewebsites.net"));
                 client.Get("/api/String/1", "text/plain", false);
             }
             catch
@@ -84,7 +84,7 @@ namespace WebServiceTesterUnitTesting
         [TestCategory(TestCategories.WebService)]
         public void GetString()
         {
-            WebServiceDriver client = new WebServiceDriver(new Uri("https://magenicautomation.azurewebsites.net"));
+            WebServiceDriver client = new WebServiceDriver(new Uri("https://GlobalAutomation.azurewebsites.net"));
             string result = client.Get("/api/String/1", "text/plain", false);
 
             Assert.IsTrue(result.Contains("Tomato Soup"), "Was expecting a result with Tomato Soup but instead got - " + result);

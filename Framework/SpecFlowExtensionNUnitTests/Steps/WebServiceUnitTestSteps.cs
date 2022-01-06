@@ -1,11 +1,11 @@
 ﻿//--------------------------------------------------
-// <copyright file="WebServiceUnitTestSteps.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="WebServiceUnitTestSteps.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>TestSteps class that inherits from BaseWebServiceTestSteps</summary>
 //--------------------------------------------------
-using Magenic.Maqs.BaseWebServiceTest;
-using Magenic.Maqs.SpecFlow.TestSteps;
+using CognizantSoftvision.Maqs.BaseWebServiceTest;
+using CognizantSoftvision.Maqs.SpecFlow.TestSteps;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
 

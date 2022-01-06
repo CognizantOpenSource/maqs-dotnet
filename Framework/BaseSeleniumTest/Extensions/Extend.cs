@@ -1,6 +1,6 @@
 ﻿//--------------------------------------------------
-// <copyright file="Extend.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="Extend.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Web driver and element extension</summary>
 //--------------------------------------------------
@@ -9,7 +9,7 @@ using OpenQA.Selenium.Support.Events;
 using OpenQA.Selenium.Support.UI;
 using System.Collections.Concurrent;
 
-namespace Magenic.Maqs.BaseSeleniumTest.Extensions
+namespace CognizantSoftvision.Maqs.BaseSeleniumTest.Extensions
 {
     /// <summary>
     /// Web driver and element extensions

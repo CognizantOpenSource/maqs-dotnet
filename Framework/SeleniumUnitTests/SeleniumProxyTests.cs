@@ -1,11 +1,11 @@
 ﻿//--------------------------------------------------
-// <copyright file="SeleniumProxyTests.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="SeleniumProxyTests.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Selenium Proxy Tests</summary>
 //--------------------------------------------------
-using Magenic.Maqs.BaseSeleniumTest;
-using Magenic.Maqs.Utilities.Helper;
+using CognizantSoftvision.Maqs.BaseSeleniumTest;
+using CognizantSoftvision.Maqs.Utilities.Helper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -78,7 +78,7 @@ namespace SeleniumUnitTests
             string url = Path.Combine(SeleniumConfig.GetWebSiteBase().Replace("https://", "http://"), "Employees");
             this.WebDriver.Navigate().GoToUrl(url);
 
-            bool proxyUsed = RequestsHistory.Values.Any(r => r.RequestUri.ToString().Contains("magenicautomation.azurewebsites.net/Employees"));
+            bool proxyUsed = RequestsHistory.Values.Any(r => r.RequestUri.ToString().Contains("GlobalAutomation.azurewebsites.net/Employees"));
             Assert.IsTrue(proxyUsed, "Failed to assert the proxy was used by the web driver.");
         }
 

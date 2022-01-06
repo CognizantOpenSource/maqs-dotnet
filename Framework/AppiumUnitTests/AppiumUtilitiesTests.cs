@@ -1,12 +1,12 @@
 ﻿//--------------------------------------------------
-// <copyright file="AppiumUtilitiesTests.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="AppiumUtilitiesTests.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Test class for utility files</summary>
 //--------------------------------------------------
-using Magenic.Maqs.BaseAppiumTest;
-using Magenic.Maqs.Utilities.Helper;
-using Magenic.Maqs.Utilities.Logging;
+using CognizantSoftvision.Maqs.BaseAppiumTest;
+using CognizantSoftvision.Maqs.Utilities.Helper;
+using CognizantSoftvision.Maqs.Utilities.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;

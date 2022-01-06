@@ -1,11 +1,11 @@
 ﻿//--------------------------------------------------
-// <copyright file="WebServiceDriver.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="WebServiceDriver.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>The basic http client interactions</summary>
 //--------------------------------------------------
 
-using Magenic.Maqs.Utilities.Data;
+using CognizantSoftvision.Maqs.Utilities.Data;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -16,7 +16,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Magenic.Maqs.BaseWebServiceTest
+namespace CognizantSoftvision.Maqs.BaseWebServiceTest
 {
     /// <summary>
     /// Wrap basic http client interactions

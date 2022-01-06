@@ -1,14 +1,14 @@
 ﻿//--------------------------------------------------
-// <copyright file="IEmailTestObject.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="IEmailTestObject.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Holds email test object interface</summary>
 //--------------------------------------------------
-using Magenic.Maqs.BaseTest;
+using CognizantSoftvision.Maqs.BaseTest;
 using MailKit.Net.Imap;
 using System;
 
-namespace Magenic.Maqs.BaseEmailTest
+namespace CognizantSoftvision.Maqs.BaseEmailTest
 {
     /// <summary>
     /// Email test object interface

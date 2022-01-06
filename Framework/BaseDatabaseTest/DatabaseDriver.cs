@@ -1,6 +1,6 @@
 ﻿//--------------------------------------------------
-// <copyright file="DatabaseDriver.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="DatabaseDriver.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>The basic database interactions</summary>
 //--------------------------------------------------
@@ -10,7 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 
-namespace Magenic.Maqs.BaseDatabaseTest
+namespace CognizantSoftvision.Maqs.BaseDatabaseTest
 {
     /// <summary>
     /// Wraps the basic database interactions

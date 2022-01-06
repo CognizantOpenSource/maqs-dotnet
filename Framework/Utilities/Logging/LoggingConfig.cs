@@ -1,15 +1,15 @@
 ﻿//--------------------------------------------------
-// <copyright file="LoggingConfig.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="LoggingConfig.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Logging related configuration</summary>
 //--------------------------------------------------
-using Magenic.Maqs.Utilities.Helper;
+using CognizantSoftvision.Maqs.Utilities.Helper;
 using System;
 using System.IO;
 using System.Reflection;
 
-namespace Magenic.Maqs.Utilities.Logging
+namespace CognizantSoftvision.Maqs.Utilities.Logging
 {
     /// <summary>
     /// Logging related configuration

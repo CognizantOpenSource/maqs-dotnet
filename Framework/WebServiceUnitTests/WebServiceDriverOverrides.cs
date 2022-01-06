@@ -1,11 +1,11 @@
 ﻿//--------------------------------------------------
-// <copyright file="WebServiceDriverOverrides.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="WebServiceDriverOverrides.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Web service override unit tests</summary>
 //--------------------------------------------------
-using Magenic.Maqs.BaseWebServiceTest;
-using Magenic.Maqs.Utilities.Helper;
+using CognizantSoftvision.Maqs.BaseWebServiceTest;
+using CognizantSoftvision.Maqs.Utilities.Helper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Diagnostics.CodeAnalysis;
@@ -23,12 +23,12 @@ namespace WebServiceTesterUnitTesting
         /// <summary>
         /// Base test url
         /// </summary>
-        private const string BaseUrl = "https://github.com/Magenic";
+        private const string BaseUrl = "https://github.com/CognizantOpenSource";
 
         /// <summary>
         /// Expected updated url
         /// </summary>
-        private const string UpdatedUrl = "https://github.com/Magenic/MAQS";
+        private const string UpdatedUrl = "https://github.com/CognizantOpenSource/maqs-dotnet";
 
         /// <summary>
         /// Timeout override
@@ -77,7 +77,7 @@ namespace WebServiceTesterUnitTesting
         [TestCategory(TestCategories.Utilities)]
         public void OverrideWorksForFactory()
         {
-            HttpClient factoryClient = Magenic.Maqs.BaseWebServiceTest.HttpClientFactory.GetDefaultClient();
+            HttpClient factoryClient = CognizantSoftvision.Maqs.BaseWebServiceTest.HttpClientFactory.GetDefaultClient();
             Assert.AreEqual(WebServiceConfig.GetWebServiceUri() + "/", factoryClient.BaseAddress.ToString());
         }
 

@@ -1,13 +1,13 @@
 ﻿//--------------------------------------------------
-// <copyright file="StringProcessor.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="StringProcessor.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Help utilities for string processing</summary>
 //--------------------------------------------------
 using System;
 using System.Text;
 
-namespace Magenic.Maqs.Utilities.Data
+namespace CognizantSoftvision.Maqs.Utilities.Data
 {
     /// <summary>
     /// Initializes a new instance of the StringProcessor class

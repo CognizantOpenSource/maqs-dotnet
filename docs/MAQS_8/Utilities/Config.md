@@ -13,13 +13,13 @@ Config is class file granting access to properties in the App.config.
 
 
 ## GetGeneralValue
-This pulls configuration values from MagenicMaqs section of your app.config. It will return an emtpy string if the key is not found in the app.config.
+This pulls configuration values from GlobalMaqs section of your app.config. It will return an emtpy string if the key is not found in the app.config.
 
 ```csharp
 Config.GetGeneralValue("Key");  
 ```
 
-This pulls configuration values from MagenicMaqs section of your app.config. It will return the default value if the key is not found in the app.config.
+This pulls configuration values from GlobalMaqs section of your app.config. It will return the default value if the key is not found in the app.config.
 ```csharp
 Config.GetGeneralValue("Key", "DefaultValueToBeReturned");  
 ```
@@ -37,7 +37,7 @@ Config.GetValueForSection("SeleniumMaqs", "Key", "DefaultValueToBeReturned");
 ```
 
 ## DoesKeyExist
-Does a key exist in the MagenicMaqs section of the config file.
+Does a key exist in the GlobalMaqs section of the config file.
 
 ```csharp
 Config.DoesKeyExist("Key");
@@ -49,7 +49,7 @@ Config.DoesKeyExist("Key", "SeleniumMaqs");
 ```
 
 ## AddGeneralTestSettingValues
-Ability to Add or Override settings for MagenicMaqs section of the config.
+Ability to Add or Override settings for GlobalMaqs section of the config.
 
 ```csharp
 Dictionary<string, string> overrides = new Dictionary<string, string>();

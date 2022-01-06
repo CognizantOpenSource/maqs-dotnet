@@ -46,7 +46,7 @@ IDbConnection connection = ConnectionFactory.GetOpenConnection("SQLITE", $"Data 
 <configuration>
   <configSections>
     <section name="DatabaseMaqs" type="System.Configuration.NameValueSectionHandler" />
-    <section name="MagenicMaqs" type="System.Configuration.NameValueSectionHandler" />
+    <section name="GlobalMaqs" type="System.Configuration.NameValueSectionHandler" />
   </configSections>
   <DatabaseMaqs>
     <!--<add key="DataBaseProviderType" value="SQLSERVER" />
@@ -58,7 +58,7 @@ IDbConnection connection = ConnectionFactory.GetOpenConnection("SQLITE", $"Data 
     <add key="DataBaseProviderType" value="SQLSERVER" />
     <add key="DataBaseConnectionString" value="CONNECTION" />
   </DatabaseMaqs>
-  <MagenicMaqs>
+  <GlobalMaqs>
     <!-- Generic wait time in milliseconds - AKA how long do you wait for rechecking something -->
     <add key="WaitTime" value="1000" />
 
@@ -88,7 +88,7 @@ IDbConnection connection = ConnectionFactory.GetOpenConnection("SQLITE", $"Data 
 
     <!-- Log file path - Defaults to build location if no value is defined
     <add key="FileLoggerPath" value="C:\Frameworks\"/>-->
-  </MagenicMaqs>
+  </GlobalMaqs>
 </configuration>
 ```
 ## appsettings.json
@@ -98,7 +98,7 @@ IDbConnection connection = ConnectionFactory.GetOpenConnection("SQLITE", $"Data 
     "DataBaseProviderType": "SQLSERVER",
     "DataBaseConnectionString": "Data Source=DATABASE;Initial Catalog=TEST_DB;Persist Security Info=True;User ID=USER_ID;Password=USER_PASSWORD;Connection Timeout=30"
   },
-  "MagenicMaqs": {
+  "GlobalMaqs": {
     "WaitTime": "100",
     "Timeout": "10000",
     "Log": "OnFail",

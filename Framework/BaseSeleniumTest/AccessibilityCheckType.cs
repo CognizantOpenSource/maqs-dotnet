@@ -1,10 +1,10 @@
 ﻿//--------------------------------------------------
-// <copyright file="AccessibilityCheckType.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="AccessibilityCheckType.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Accessibility check types</summary>
 //--------------------------------------------------
-namespace Magenic.Maqs.BaseSeleniumTest
+namespace CognizantSoftvision.Maqs.BaseSeleniumTest
 {
     /// <summary>
     /// Known browser types

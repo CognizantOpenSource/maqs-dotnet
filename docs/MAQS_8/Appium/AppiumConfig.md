@@ -98,11 +98,11 @@ Dictionary<string, object> capabilitiesAsObjects= AppiumConfig.GetCapabilitiesAs
 <?xml version="1.0" encoding="utf-8"?>
 <configuration>
   <configSections>
-    <section name="MagenicMaqs" type="System.Configuration.NameValueSectionHandler" />
+    <section name="GlobalMaqs" type="System.Configuration.NameValueSectionHandler" />
     <section name="AppiumMaqs" type="System.Configuration.NameValueSectionHandler" />
     <section name="AppiumCapsMaqs" type="System.Configuration.NameValueSectionHandler" />
   </configSections>
-  <MagenicMaqs>
+  <GlobalMaqs>
     <!-- Do you want to create logs for your tests
     <add key="Log" value="YES"/>
     <add key="Log" value="NO"/>
@@ -130,7 +130,7 @@ Dictionary<string, object> capabilitiesAsObjects= AppiumConfig.GetCapabilitiesAs
     <!--Retry and overall timeout in milliseconds-->
     <add key="WaitTime" value="1000" />
     <add key="Timeout" value="10000" />
-  </MagenicMaqs>
+  </GlobalMaqs>
   <AppiumMaqs>
     <!-- Device settings -->
 
@@ -190,7 +190,7 @@ Dictionary<string, object> capabilitiesAsObjects= AppiumConfig.GetCapabilitiesAs
 ## appsettings.json
 ```json
 {
-  "MagenicMaqs": {
+  "GlobalMaqs": {
     "WaitTime": "100",
     "Timeout": "10000",
     "Log": "OnFail",

@@ -1,17 +1,17 @@
 ﻿//--------------------------------------------------
-// <copyright file="BaseAppiumPageModel.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="BaseAppiumPageModel.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>This is the base Appium page model class</summary>
 //--------------------------------------------------
-using Magenic.Maqs.Utilities.Logging;
-using Magenic.Maqs.Utilities.Performance;
+using CognizantSoftvision.Maqs.Utilities.Logging;
+using CognizantSoftvision.Maqs.Utilities.Performance;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Appium;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 
-namespace Magenic.Maqs.BaseAppiumTest
+namespace CognizantSoftvision.Maqs.BaseAppiumTest
 {
     /// <summary>
     /// Base Appium page model

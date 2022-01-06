@@ -1,13 +1,13 @@
 ﻿//-----------------------------------------------------
-// <copyright file="SeleniumPageModel.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="SeleniumPageModel.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>A test selenium page object model</summary>
 //-----------------------------------------------------
-using Magenic.Maqs.BaseSeleniumTest;
-using Magenic.Maqs.BaseSeleniumTest.Extensions;
-using Magenic.Maqs.Utilities.Logging;
-using Magenic.Maqs.Utilities.Performance;
+using CognizantSoftvision.Maqs.BaseSeleniumTest;
+using CognizantSoftvision.Maqs.BaseSeleniumTest.Extensions;
+using CognizantSoftvision.Maqs.Utilities.Logging;
+using CognizantSoftvision.Maqs.Utilities.Performance;
 using OpenQA.Selenium;
 using System.Diagnostics.CodeAnalysis;
 

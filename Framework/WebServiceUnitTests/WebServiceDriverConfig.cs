@@ -1,11 +1,11 @@
 ﻿//--------------------------------------------------
-// <copyright file="WebServiceDriverConfig.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="WebServiceDriverConfig.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Configuration override tests</summary>
 //--------------------------------------------------
-using Magenic.Maqs.BaseWebServiceTest;
-using Magenic.Maqs.Utilities.Helper;
+using CognizantSoftvision.Maqs.BaseWebServiceTest;
+using CognizantSoftvision.Maqs.Utilities.Helper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
@@ -26,9 +26,9 @@ namespace WebServiceTesterUnitTesting
         public void ATestSetup()
         {
             // Set property overrides
-            this.TestContext.Properties.Add("MagenicMaqs:SetupTest", "Setup");
-            this.TestContext.Properties.Add("Magenicmaqs:SetupTest2", "Setup2");
-            this.TestContext.Properties.Add("magenicmaqs:OverrideTest", "Overridden");
+            this.TestContext.Properties.Add("GlobalMaqs:SetupTest", "Setup");
+            this.TestContext.Properties.Add("Globalmaqs:SetupTest2", "Setup2");
+            this.TestContext.Properties.Add("globalmaqs:OverrideTest", "Overridden");
 
             Config.UpdateWithVSTestContext(this.TestContext);
         }

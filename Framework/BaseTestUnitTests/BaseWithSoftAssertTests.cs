@@ -1,12 +1,12 @@
 ﻿//--------------------------------------------------
-// <copyright file="BaseWithSoftAssertTests.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="BaseWithSoftAssertTests.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Tests soft assert interactions with base test</summary>
 //--------------------------------------------------
-using Magenic.Maqs.BaseTest;
-using Magenic.Maqs.Utilities.Helper;
-using Magenic.Maqs.Utilities.Logging;
+using CognizantSoftvision.Maqs.BaseTest;
+using CognizantSoftvision.Maqs.Utilities.Helper;
+using CognizantSoftvision.Maqs.Utilities.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NUnit.Framework;
 using System.Collections.Generic;
@@ -36,9 +36,9 @@ namespace BaseTestUnitTests
         public static void ClassInit(TestContext context)
 #pragma warning restore IDE0060 // Remove unused parameter
         {
-            general = Config.GetSectionDictionary(ConfigSection.MagenicMaqs);
-            Config.AddTestSettingValues("Log", "OnFail", "MagenicMaqs");
-            Config.AddTestSettingValues("LogType", "txt", "MagenicMaqs");
+            general = Config.GetSectionDictionary(ConfigSection.GlobalMaqs);
+            Config.AddTestSettingValues("Log", "OnFail", "GlobalMaqs");
+            Config.AddTestSettingValues("LogType", "txt", "GlobalMaqs");
         }
 
         /// <summary>
@@ -47,7 +47,7 @@ namespace BaseTestUnitTests
         [ClassCleanup]
         public static void ClassCleanup()
         {
-            Config.AddTestSettingValues(general, ConfigSection.MagenicMaqs);
+            Config.AddTestSettingValues(general, ConfigSection.GlobalMaqs);
         }
 
         /// <summary>

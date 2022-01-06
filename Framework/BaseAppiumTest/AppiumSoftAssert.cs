@@ -1,13 +1,13 @@
 ﻿//--------------------------------------------------
-// <copyright file="AppiumSoftAssert.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="AppiumSoftAssert.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>This is the Appium soft assert class</summary>
 //--------------------------------------------------
-using Magenic.Maqs.BaseTest;
+using CognizantSoftvision.Maqs.BaseTest;
 using System;
 
-namespace Magenic.Maqs.BaseAppiumTest
+namespace CognizantSoftvision.Maqs.BaseAppiumTest
 {
     /// <summary>
     /// Soft Assert override for appium tests

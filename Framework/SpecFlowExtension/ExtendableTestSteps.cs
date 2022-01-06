@@ -1,17 +1,17 @@
 ﻿//--------------------------------------------------
-// <copyright file="ExtendableTestSteps.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="ExtendableTestSteps.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Extendable class for defining a test steps class</summary>
 //--------------------------------------------------
-using Magenic.Maqs.BaseTest;
-using Magenic.Maqs.Utilities.Logging;
-using Magenic.Maqs.Utilities.Performance;
+using CognizantSoftvision.Maqs.BaseTest;
+using CognizantSoftvision.Maqs.Utilities.Logging;
+using CognizantSoftvision.Maqs.Utilities.Performance;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using TechTalk.SpecFlow;
 
-namespace Magenic.Maqs.SpecFlow
+namespace CognizantSoftvision.Maqs.SpecFlow
 {
     /// <summary>
     /// Abstract a TestSteps class

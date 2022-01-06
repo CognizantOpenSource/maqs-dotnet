@@ -1,15 +1,15 @@
 ﻿//--------------------------------------------------
-// <copyright file="MongoDriverManager.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="MongoDriverManager.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Mongo database driver</summary>
 //--------------------------------------------------
-using Magenic.Maqs.BaseTest;
-using Magenic.Maqs.Utilities.Logging;
+using CognizantSoftvision.Maqs.BaseTest;
+using CognizantSoftvision.Maqs.Utilities.Logging;
 using MongoDB.Driver;
 using System;
 
-namespace Magenic.Maqs.BaseMongoTest
+namespace CognizantSoftvision.Maqs.BaseMongoTest
 {
     /// <summary>
     /// Mongo database driver

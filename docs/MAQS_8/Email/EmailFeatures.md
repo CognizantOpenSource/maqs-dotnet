@@ -37,8 +37,8 @@ this.TestObject.Log.LogMessage("I am testing with MAQS");
 
 ## Sample code
 ```csharp
-using Magenic.Maqs.BaseEmailTest;
-using Magenic.Maqs.Utilities.Helper;
+using Cognizant.Maqs.BaseEmailTest;
+using Cognizant.Maqs.Utilities.Helper;
 using MailKit;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MimeKit;

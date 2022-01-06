@@ -145,7 +145,7 @@ Dictionary<string, object> capabilitiesAsObjects= SeleniumConfig.GetRemoteCapabi
   <configSections>
     <section name="SeleniumMaqs" type="System.Configuration.NameValueSectionHandler"/>
     <section name="RemoteSeleniumCapsMaqs" type="System.Configuration.NameValueSectionHandler"/>
-    <section name="MagenicMaqs" type="System.Configuration.NameValueSectionHandler" />
+    <section name="GlobalMaqs" type="System.Configuration.NameValueSectionHandler" />
   </configSections>
   <SeleniumMaqs>
     <!-- Root to website -->
@@ -220,7 +220,7 @@ Dictionary<string, object> capabilitiesAsObjects= SeleniumConfig.GetRemoteCapabi
       <add key="accessKey" value="S_KEY" />
     </add>
   </RemoteSeleniumCapsMaqs>
-  <MagenicMaqs>
+  <GlobalMaqs>
     <!-- Generic wait time in milliseconds - AKA how long do you wait for rechecking something -->
     <add key="WaitTime" value="1000" />
 
@@ -250,7 +250,7 @@ Dictionary<string, object> capabilitiesAsObjects= SeleniumConfig.GetRemoteCapabi
 
     <!-- Log file path - Defaults to build location if no value is defined
     <add key="FileLoggerPath" value="C:\Frameworks\"/>-->
-  </MagenicMaqs>
+  </GlobalMaqs>
 </configuration>
 ```
 ## appsettings.json
@@ -278,7 +278,7 @@ Dictionary<string, object> capabilitiesAsObjects= SeleniumConfig.GetRemoteCapabi
       "accessKey":'S_KEY',
      }
   },
-  "MagenicMaqs": {
+  "GlobalMaqs": {
     "WaitTime": "100",
     "Timeout": "10000",
     "Log": "OnFail",

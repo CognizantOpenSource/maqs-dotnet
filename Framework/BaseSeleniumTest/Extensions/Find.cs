@@ -1,6 +1,6 @@
 ﻿//--------------------------------------------------
-// <copyright file="Find.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="Find.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>This is the FindElements class</summary>
 //--------------------------------------------------
@@ -8,7 +8,7 @@ using OpenQA.Selenium;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Magenic.Maqs.BaseSeleniumTest.Extensions
+namespace CognizantSoftvision.Maqs.BaseSeleniumTest.Extensions
 {
     /// <summary>
     /// General Element functions for finding and returning Web Elements

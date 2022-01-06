@@ -1,15 +1,15 @@
 ﻿//--------------------------------------------------
-// <copyright file="BaseDatabaseTest.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="BaseDatabaseTest.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>This is the base database test class</summary>
 //--------------------------------------------------
 
-using Magenic.Maqs.BaseTest;
-using Magenic.Maqs.Utilities.Logging;
+using CognizantSoftvision.Maqs.BaseTest;
+using CognizantSoftvision.Maqs.Utilities.Logging;
 using System.Data;
 
-namespace Magenic.Maqs.BaseDatabaseTest
+namespace CognizantSoftvision.Maqs.BaseDatabaseTest
 {
     /// <summary>
     /// Generic base database test class

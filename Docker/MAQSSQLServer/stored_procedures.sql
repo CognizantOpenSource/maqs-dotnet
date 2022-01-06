@@ -1,4 +1,4 @@
-USE MagenicAutomation;
+USE GlobalAutomation;
 GO
 CREATE PROCEDURE [dbo].[getStateAbbrevMatch]
        @StateAbbreviation VARCHAR(2)

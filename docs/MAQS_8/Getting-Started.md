@@ -146,7 +146,7 @@ Test methods with multiple Category attributes will add that test case to each a
 
 2. In the VS Code terminal type the following to get the most recent version.
 
-```dotnet new --install Magenic.Maqs.Templates```
+```dotnet new --install Cognizant.Maqs.Templates```
 
 3. You should then see the MAQS templates available
 

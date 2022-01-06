@@ -1,10 +1,10 @@
 ﻿//--------------------------------------------------
-// <copyright file="PlatformType.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="PlatformType.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Known device types</summary>
 //--------------------------------------------------
-namespace Magenic.Maqs.BaseAppiumTest
+namespace CognizantSoftvision.Maqs.BaseAppiumTest
 {
     /// <summary>
     /// Known device types

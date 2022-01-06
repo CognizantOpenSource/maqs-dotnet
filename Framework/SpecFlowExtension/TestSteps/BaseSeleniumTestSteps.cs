@@ -1,15 +1,15 @@
 ﻿//--------------------------------------------------
-// <copyright file="BaseSeleniumTestSteps.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="BaseSeleniumTestSteps.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Base teststeps code for tests using selenium</summary>
 //--------------------------------------------------
-using Magenic.Maqs.BaseSeleniumTest;
+using CognizantSoftvision.Maqs.BaseSeleniumTest;
 using OpenQA.Selenium;
 using TechTalk.SpecFlow;
-using MaqsSelenium = Magenic.Maqs.BaseSeleniumTest.BaseSeleniumTest;
+using MaqsSelenium = CognizantSoftvision.Maqs.BaseSeleniumTest.BaseSeleniumTest;
 
-namespace Magenic.Maqs.SpecFlow.TestSteps
+namespace CognizantSoftvision.Maqs.SpecFlow.TestSteps
 {
     /// <summary>
     /// Base for selenium TestSteps classes

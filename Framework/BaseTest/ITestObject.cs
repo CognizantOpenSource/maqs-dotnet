@@ -1,15 +1,15 @@
 ﻿//--------------------------------------------------
-// <copyright file="ITestObject.cs" company="Magenic">
-//  Copyright 2021 Magenic, All rights Reserved
+// <copyright file="ITestObject.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Test object interface</summary>
 //--------------------------------------------------
-using Magenic.Maqs.Utilities.Logging;
-using Magenic.Maqs.Utilities.Performance;
+using CognizantSoftvision.Maqs.Utilities.Logging;
+using CognizantSoftvision.Maqs.Utilities.Performance;
 using System;
 using System.Collections.Generic;
 
-namespace Magenic.Maqs.BaseTest
+namespace CognizantSoftvision.Maqs.BaseTest
 {
     /// <summary>
     /// Test object interface

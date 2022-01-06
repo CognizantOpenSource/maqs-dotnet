@@ -1,5 +1,5 @@
-﻿using Magenic.Maqs.BaseSeleniumTest;
-using Magenic.Maqs.Utilities.Helper;
+﻿using CognizantSoftvision.Maqs.BaseSeleniumTest;
+using CognizantSoftvision.Maqs.Utilities.Helper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -47,7 +47,7 @@ namespace SeleniumUnitTests
         [TestCleanup]
         public void Cleanup()
         {
-            var passed = this.GetResultType() == Magenic.Maqs.Utilities.Logging.TestResultType.PASS;
+            var passed = this.GetResultType() == CognizantSoftvision.Maqs.Utilities.Logging.TestResultType.PASS;
 
             if (string.Equals(Config.GetValueForSection(ConfigSection.SeleniumMaqs, "RunOnSauceLabs"), "YES", StringComparison.OrdinalIgnoreCase))
             {
@@ -57,7 +57,7 @@ namespace SeleniumUnitTests
                 }
                 catch (Exception e)
                 {
-                    this.Log.LogMessage(Magenic.Maqs.Utilities.Logging.MessageType.WARNING, "Failed to set Sauce Result because: " + e.Message);
+                    this.Log.LogMessage(CognizantSoftvision.Maqs.Utilities.Logging.MessageType.WARNING, "Failed to set Sauce Result because: " + e.Message);
                 }
             }
             base.Teardown();
