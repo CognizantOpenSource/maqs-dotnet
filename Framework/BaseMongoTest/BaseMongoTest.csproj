@@ -12,6 +12,7 @@
 		<AssemblyName>CognizantSoftvision.Maqs.BaseMongoTest</AssemblyName>
 		<RootNamespace>CognizantSoftvision.Maqs.BaseMongoTest</RootNamespace>
 		<ApplicationIcon>MAQS.ico</ApplicationIcon>
+		<Title>Mongo Module</Title>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 		<Authors>CognizantSoftvision</Authors>
@@ -19,7 +20,8 @@
 		<Description>Mongo extension for Cognizant Softvision's modular automation quick start</Description>
 		<Copyright>Copyright © Cognizant $([System.DateTime]::Now.Year)</Copyright>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<PackageIcon>MAQS.jpg</PackageIcon>
+		<PackageIcon>MAQS.png</PackageIcon>
+		<PackageIconUrl>https://raw.githubusercontent.com/CognizantOpenSource/maqs-dotnet/main/Framework/MAQS.png</PackageIconUrl>
 		<PackageProjectUrl>https://github.com/CognizantOpenSource/maqs-dotnet</PackageProjectUrl>
 		<PackageTags>test mongo database automation NUnit MSTest TestFramework</PackageTags>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
@@ -58,7 +60,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<None Include="..\MAQS.jpg" Pack="true" PackagePath="" />
+		<None Include="..\MAQS.png" Pack="true" PackagePath="" />
 	</ItemGroup>
 
 	<ItemGroup>
