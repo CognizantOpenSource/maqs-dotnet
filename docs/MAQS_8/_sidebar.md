@@ -1,7 +1,7 @@
 - [Introduction to MAQS ](MAQS_8/Introduction.md)
 
 - [Getting Started](MAQS_8/Getting-Started.md)
-- [Upgrading to MAQS 7](MAQS_8/UpgradingFromMAQS7ToMAQS8.md)
+- [Upgrading to MAQS 8](MAQS_8/UpgradingFromMAQS7ToMAQS8.md)
 - [SourceLink](MAQS_8/SourceLink.md)
 - [Debugging Locally](MAQS_8/Debugging-Locally.md)
 - [Release Notes](MAQS_8/ReleaseNotes.md)
