@@ -17,11 +17,12 @@ MAQS stands for Modular automation quick start.
 
 It …
 
-- is a modular test automation framework
-- can be used as the base for your automation project or individual pieces can be used to enhance existing frameworks
-- is maintained/extended by Cognizant Softvision volunteers
+-	is a modular test automation framework 
+-	can be used as the base for your automation project or individual pieces can be used to enhance existing frameworks 
+-	is maintained/extended by Cognizant Softvision volunteers
 
-The main idea behind MAQS is to avoid **reinventing the wheel**. Most automation engagements have you doing the same basic steps to get a functioning framework implemented. Utilizing project templates, NuGet, and utility libraries we are able to have a functioning framework up and running in minutes, almost entirely removing on the initial time investment on implementating an automation solution.
+The main idea behind MAQS is to avoid **reinventing the wheel**. Most automation projects require the same basic set of features, and these features take a significant amount of time and effort to effectively implement.  MAQS streamlines automation efforts by providing a framework with these base features built in. This allows engineers to spend their time testing, rather than building and maintaining a one-off testing framework.
+
 
 ## Help files
 
