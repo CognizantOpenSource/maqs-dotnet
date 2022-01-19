@@ -111,6 +111,28 @@ namespace UtilitiesUnitTesting
         }
 
         /// <summary>
+        /// Checks if config falls back to old config section when using general
+        /// </summary>
+        [TestMethod]
+        [TestCategory(TestCategories.Utilities)]
+        public void OldConfigFallbackForGeneral()
+        {
+            string value = Config.GetGeneralValue("OldConfigOnly");
+            Assert.AreEqual("Old", value);
+        }
+
+        /// <summary>
+        /// Checks if config falls back to old config section when using global
+        /// </summary>
+        [TestMethod]
+        [TestCategory(TestCategories.Utilities)]
+        public void OldConfigFallbackWithSection()
+        {
+            string value = Config.GetValueForSection(ConfigSection.GlobalMaqs, "OldConfigOnly");
+            Assert.AreEqual("Old", value);
+        }
+
+        /// <summary>
         /// Checks if a key exists in a section
         /// </summary>
         [TestMethod]
