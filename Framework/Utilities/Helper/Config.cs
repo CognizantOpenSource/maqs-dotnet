@@ -354,7 +354,7 @@ namespace CognizantSoftvision.Maqs.Utilities.Helper
         [Browsable(false)]
         public static bool DoesGeneralKeyExist(string key)
         {
-            return DoesKeyExist(ConfigSection.GlobalMaqs.ToString(), key);
+            return DoesKeyExist(DEFAULTMAQSSECTION, key);
         }
 
         /// <summary>
@@ -521,6 +521,19 @@ namespace CognizantSoftvision.Maqs.Utilities.Helper
         {
             // Check for base config
             string value = compositeConfig.GetValue(path);
+
+            // Fall back to the old Magenic MAQS section if the newer global section is not found
+            if (string.IsNullOrEmpty(value) && path.Length > 0 && path[0].Equals(DEFAULTMAQSSECTION.ToString(), StringComparison.CurrentCultureIgnoreCase))
+            {
+                string[] newPath = (string[])path.Clone();
+
+#pragma warning disable CS0618 // Type or member is obsolete
+                newPath[0] = ConfigSection.MagenicMaqs.ToString().ToLower();
+#pragma warning restore CS0618 // Type or member is obsolete
+
+                value = compositeConfig.GetValue(newPath);
+            }    
+
             return (value != null, value);
         }
 

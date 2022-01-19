@@ -5,6 +5,8 @@
 // <summary>Configuration sections</summary>
 //--------------------------------------------------
 
+using System;
+
 namespace CognizantSoftvision.Maqs.Utilities.Helper
 {
     /// <summary>
@@ -12,6 +14,12 @@ namespace CognizantSoftvision.Maqs.Utilities.Helper
     /// </summary>
     public enum ConfigSection
     {
+        /// <summary>
+        /// General MAQS section
+        /// </summary>
+        [Obsolete("This section has been replaced with 'GlobalMaqs'.")]
+        MagenicMaqs,
+
         /// <summary>
         /// General MAQS section
         /// </summary>
