@@ -2,7 +2,7 @@
 // <copyright file="SeleniumPageModel.cs" company="Cognizant">
 //  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
-// <summary>A test selenium page object model</summary>
+// <summary>A test Selenium page object model</summary>
 //-----------------------------------------------------
 using CognizantSoftvision.Maqs.BaseSeleniumTest;
 using CognizantSoftvision.Maqs.BaseSeleniumTest.Extensions;
@@ -29,6 +29,14 @@ namespace SeleniumUnitTests
         }
 
         /// <summary>
+        /// Get page url
+        /// </summary>
+        public static string Url
+        {
+            get { return SeleniumConfig.GetWebSiteBase() + "Automation"; }
+        }
+
+        /// <summary>
         /// Gets a parent element
         /// </summary>
         public LazyElement FlowerTableLazyElement
@@ -42,6 +50,14 @@ namespace SeleniumUnitTests
         public LazyElement FlowerTableCaptionWithParent
         {
             get { return this.GetLazyElement(this.FlowerTableLazyElement, By.CssSelector("CAPTION > Strong"), "Flower table caption"); }
+        }
+
+        /// <summary>
+        /// Open the page
+        /// </summary>
+        public void OpenPage()
+        {
+            this.WebDriver.Navigate().GoToUrl(Url);
         }
 
         /// <summary>

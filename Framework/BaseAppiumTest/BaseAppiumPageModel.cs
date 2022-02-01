@@ -35,6 +35,18 @@ namespace CognizantSoftvision.Maqs.BaseAppiumTest
         }
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="BaseAppiumPageModel"/> class.
+        /// </summary>
+        /// <param name="testObject">The Appium test object</param>
+        /// <param name="appiumDriver">Appium driver to use</param>
+        protected BaseAppiumPageModel(IAppiumTestObject testObject, AppiumDriver appiumDriver)
+        {
+            this.TestObject = testObject;
+            this.AppiumDriver = appiumDriver;
+            this.lazyElementStore = new Dictionary<string, LazyMobileElement>();
+        }
+
+        /// <summary>
         /// Gets the webdriver from the test object
         /// </summary>
         protected AppiumDriver AppiumDriver { get; private set; }
@@ -67,6 +79,10 @@ namespace CognizantSoftvision.Maqs.BaseAppiumTest
         /// <param name="appiumDriver">The override driver</param>
         public void OverrideDriver(AppiumDriver appiumDriver)
         {
+            // Clear cached elements
+            this.lazyElementStore.Clear();
+
+            // Set new driver
             this.AppiumDriver = appiumDriver;
         }
 
@@ -89,7 +105,7 @@ namespace CognizantSoftvision.Maqs.BaseAppiumTest
 
             if (!this.lazyElementStore.ContainsKey(lazyElementStoreKey))
             {
-                this.lazyElementStore.Add(lazyElementStoreKey, new LazyMobileElement(this.TestObject, locator, userFriendlyName));
+                this.lazyElementStore.Add(lazyElementStoreKey, new LazyMobileElement(this.TestObject, this.AppiumDriver, locator, userFriendlyName));
             }
 
             return this.lazyElementStore[lazyElementStoreKey];

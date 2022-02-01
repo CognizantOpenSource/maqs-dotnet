@@ -8,7 +8,6 @@ using CognizantSoftvision.Maqs.BaseAppiumTest;
 using CognizantSoftvision.Maqs.Utilities.Helper;
 using CognizantSoftvision.Maqs.Utilities.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Newtonsoft.Json;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Appium;
 using System.Collections.Generic;
@@ -49,13 +48,15 @@ namespace AppiumUnitTests
             lazy.Click();
         }
 
+        /// <summary>
+        /// Assert function fail path
+        /// </summary>
         [TestMethod]
         [TestCategory(TestCategories.Appium)]
         public void AssertFuncFailPath()
         {
             Assert.IsNotNull(this.TestObject.AppiumDriver);
             this.AppiumDriver.Navigate().GoToUrl(Config.GetValueForSection(ConfigSection.AppiumMaqs, "WebSiteBase"));
-
 
             Log = new FileLogger(string.Empty, "AssertFuncFailPath.txt", MessageType.GENERIC, true);
             AppiumSoftAssert appiumSoftAssert = new AppiumSoftAssert(TestObject);
@@ -69,7 +70,6 @@ namespace AppiumUnitTests
 
             Assert.IsFalse(isFalse);
         }
-
 
         /// <summary>
         /// Sets capabilities for testing the iOS Driver creation
