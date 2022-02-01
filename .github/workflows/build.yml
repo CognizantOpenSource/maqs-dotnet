@@ -113,7 +113,7 @@ jobs:
   test-winapp:
     name: WinApp
     needs: waitOld
-    runs-on: windows-latest
+    runs-on: windows-2019
     steps:
       - uses: actions/checkout@v2
       - name: Install Appium
@@ -262,7 +262,7 @@ jobs:
   test-framework:
     name: Framework
     needs: waitOld
-    runs-on: windows-latest
+    runs-on: windows-2019
     steps:
       - name: Setup .NET Core
         uses: actions/setup-dotnet@v1
@@ -381,7 +381,7 @@ jobs:
   test-selenutil:
     name: Selenium Utils
     needs: waitOld
-    runs-on: windows-latest
+    runs-on: windows-2019
     steps:
       - uses: actions/checkout@v2
       - run: dotnet restore Framework/Base.sln
@@ -434,7 +434,7 @@ jobs:
     name: Sonar
     # Skip when dependabot PR - Dependabot PRs cannot access action secrets
     if: github.actor != 'dependabot[bot]'
-    runs-on: windows-latest
+    runs-on: windows-2019
     needs: [test-appium, test-winapp, test-untils, test-mongo, test-database, test-webservice, test-base, test-email, test-framework, test-specflow, test-specflownunit, test-composite, test-selenpomlazy, test-selenutil, test-selengen, getVersion]
     steps:
       - name: Set up JDK 11
@@ -532,7 +532,7 @@ jobs:
           
   createNugetPacakges:
     name: Create NuGet pacakges
-    runs-on: windows-latest
+    runs-on: windows-2019
     needs: [getVersion]
     steps:
       - uses: actions/checkout@v2
@@ -562,7 +562,7 @@ jobs:
     name: Publish NuGet - v${{ needs.getVersion.outputs.buildNumber }}
     if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') &&  github.event_name != 'schedule'
     needs: [getVersion, createNugetPacakges, sonar]
-    runs-on: windows-latest
+    runs-on: windows-2019
     environment: nuget 
     steps:
     - name: Setup .NET Core
