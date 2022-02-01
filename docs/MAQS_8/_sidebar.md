@@ -46,7 +46,8 @@
     - [xii. Element Handler](MAQS_8/Selenium/ElementHandler.md)
     - [xiii. Web Driver Factory](MAQS_8/Selenium/WebDriverFactory.md)
     - [xiv. Overriding the Driver](MAQS_8/Selenium/SeleniumOverride.md)
-    - [xv. FAQ](MAQS_8/Selenium/SeleniumFAQ.md)
+    - [xv. Base page model](MAQS_8/Selenium/BaseSeleniumPageModel.md)
+    - [xvi. FAQ](MAQS_8/Selenium/SeleniumFAQ.md)
 
   - v. WebServices
 
@@ -74,7 +75,8 @@
     - [viii. Lazy Mobile Element](MAQS_8/Appium/LazyMobileElement.md)
     - [ix. Soft Asserts](MAQS_8/Appium/AppiumSoftAssert.md)
     - [x. Overriding the Driver](MAQS_8/Appium/AppiumOverride.md)
-    - [xi. FAQ](MAQS_8/Appium/AppiumFAQ.md)
+    - [xi. Base page model](MAQS_8/Appium/BaseAppiumPageModel.md)
+    - [xii. FAQ](MAQS_8/Appium/AppiumFAQ.md)
 
   - vii. Database
 

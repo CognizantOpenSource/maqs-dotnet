@@ -35,6 +35,18 @@ namespace CognizantSoftvision.Maqs.BaseSeleniumTest
         }
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="BaseSeleniumPageModel"/> class.
+        /// </summary>
+        /// <param name="testObject">The Selenium test object</param>
+        /// <param name="customDriver">Driver to use instead of the default test object related driver</param>
+        protected BaseSeleniumPageModel(ISeleniumTestObject testObject, IWebDriver customDriver)
+        {
+            this.TestObject = testObject;
+            this.WebDriver = customDriver;
+            this.lazyElementStore = new Dictionary<string, LazyElement>();
+        }
+
+        /// <summary>
         /// Gets the webdriver from the test object
         /// </summary>
         protected IWebDriver WebDriver { get; private set; }
@@ -67,7 +79,11 @@ namespace CognizantSoftvision.Maqs.BaseSeleniumTest
         /// <param name="webDriver">The override webdriver</param>
         public void OverrideWebDriver(IWebDriver webDriver)
         {
+            // Override driver
             this.WebDriver = webDriver;
+
+            // Clear all cached
+            this.lazyElementStore.Clear();
         }
 
         /// <summary>
@@ -89,7 +105,7 @@ namespace CognizantSoftvision.Maqs.BaseSeleniumTest
 
             if (!this.lazyElementStore.ContainsKey(lazyElementStoreKey))
             {
-                this.lazyElementStore.Add(lazyElementStoreKey, new LazyElement(this.TestObject, locator, userFriendlyName));
+                this.lazyElementStore.Add(lazyElementStoreKey, new LazyElement(this.TestObject, this.WebDriver, locator, userFriendlyName));
             }
 
             return this.lazyElementStore[lazyElementStoreKey];
