@@ -9,6 +9,7 @@ using CognizantSoftvision.Maqs.Utilities.Helper;
 using CognizantSoftvision.Maqs.Utilities.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Appium;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.IO;
@@ -226,6 +227,32 @@ namespace AppiumUnitTests
             this.SoftAssert.Assert(() => Assert.AreEqual(overrideTimeSpan, parent.WaitDriver().Timeout), "Name1", "Parent wait override was not respected");
             this.SoftAssert.Assert(() => Assert.AreEqual(overrideTimeSpan, child.WaitDriver().Timeout), "Name2", "Child wait override was not respected");
             this.SoftAssert.FailTestIfAssertFailed();
+        }
+
+        /// <summary>
+        /// Test driver overrides work with page models
+        /// </summary>
+        [TestMethod]
+        public void OverrideDriverInModel()
+        {
+            AppiumPageModel model = new AppiumPageModel(this.TestObject);
+            Assert.IsFalse(model.TopLevel.ExistsNow);
+            model.OpenPage();
+            Assert.IsTrue(model.TopLevel.Exists);
+
+            // Define new named driver
+            this.ManagerStore.AddOrOverride("OtherDriver", new AppiumDriverManager(() =>
+                 AppiumDriverFactory.GetDefaultMobileDriver(), this.TestObject));
+            var otherDriver = this.ManagerStore.GetDriver<AppiumDriver>("OtherDriver");
+
+            AppiumPageModel modelOther = new AppiumPageModel(this.TestObject, otherDriver);
+            Assert.IsFalse(modelOther.TopLevel.ExistsNow);
+            modelOther.OpenPage();
+
+            Assert.IsTrue(modelOther.TopLevel.Exists);
+
+            otherDriver.Navigate().GoToUrl(Config.GetValueForSection(ConfigSection.AppiumMaqs, "WebSiteBase") + "/Automation");
+            Assert.IsFalse(modelOther.TopLevel.ExistsNow);
         }
     }
 }

@@ -2,12 +2,13 @@
 // <copyright file="SeleniumPageObjectUnitTests.cs" company="Cognizant">
 //  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
-// <summary>Test the base selenium page object model</summary>
+// <summary>Test the base Selenium page object model</summary>
 //-----------------------------------------------------
 using CognizantSoftvision.Maqs.BaseSeleniumTest;
 using CognizantSoftvision.Maqs.BaseSeleniumTest.Extensions;
 using CognizantSoftvision.Maqs.Utilities.Helper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OpenQA.Selenium;
 using System.Diagnostics.CodeAnalysis;
 
 namespace SeleniumUnitTests
@@ -25,7 +26,7 @@ namespace SeleniumUnitTests
         [TestInitialize]
         public void CreateSeleniumPageModel()
         {
-            this.WebDriver.Navigate().GoToUrl(SeleniumConfig.GetWebSiteBase() + "Automation");
+            this.WebDriver.Navigate().GoToUrl(SeleniumPageModel.Url);
             this.WebDriver.Wait().ForPageLoad();
             this.TestObject.SetObject("pom", new SeleniumPageModel(this.TestObject));
         }
@@ -112,6 +113,43 @@ namespace SeleniumUnitTests
             {
                 this.getPageModel().GetWebDriver()?.KillDriver();
             }
+        }
+
+        /// <summary>
+        /// Do lazy elements respect overrides
+        /// </summary>
+        [TestMethod]
+        [TestCategory(TestCategories.Selenium)]
+        public void LazyRespectOverride()
+        {
+            // Define new named driver
+            this.ManagerStore.AddOrOverride("OtherDriver", new SeleniumDriverManager(() =>
+                 WebDriverFactory.GetDefaultBrowser(), this.TestObject));
+            var otherDriver = this.ManagerStore.GetDriver<IWebDriver>("OtherDriver");
+
+            var model1 = this.getPageModel();
+            var model2 = new SeleniumPageModelOther(this.TestObject, otherDriver);
+            model2.OpenPage();
+
+            // Make sure the page are properly loading using the different web drivers
+            Assert.IsTrue(model1.FlowerTableLazyElement.Exists, "Model one may not be on the right page");
+            Assert.IsTrue(model2.LoadedLazyElement.Exists, "Model two may not be on the right page");
+
+            // Swap the drivers
+            model1.OverrideWebDriver(otherDriver);
+            model2.OverrideWebDriver(this.WebDriver);
+
+            // Make sure the page are properly loading using the different web drivers
+            Assert.IsFalse(model1.FlowerTableLazyElement.ExistsNow, "Model one should have changed pages");
+            Assert.IsFalse(model2.LoadedLazyElement.ExistsNow, "Model two should have changed pages");
+
+            // Now reload the pages
+            model1.OpenPage();
+            model2.OpenPage();
+
+            // Make sure the page are properly loading using the different web drivers
+            Assert.IsTrue(model1.FlowerTableLazyElement.Exists, "Model one may not be on the right page");
+            Assert.IsTrue(model2.LoadedLazyElement.Exists, "Model two may not be on the right page");
         }
 
         /// <summary>
