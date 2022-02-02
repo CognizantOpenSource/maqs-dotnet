@@ -181,6 +181,11 @@ jobs:
         run: |
           New-Item -Path .\.sonar\scanner -ItemType Directory
           dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
+          
+      - name: Run tests
+        shell: powershell
+        run: dotnet test Framework/UtilitiesUnitTests/UtilitiesUnitTests.csproj --results-directory "${{ github.workspace }}/artifactTests/coverage/testResults/" /p:CoverletOutput="${{ github.workspace }}/artifactTests/coverage/testResults/" /p:CollectCoverage=true /p:CoverletOutputFormat=opencover -c Release -v D
+      
       - name: Build and analyze
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
@@ -191,25 +196,6 @@ jobs:
           dotnet build Framework/Base.sln -p:Version=${{ needs.getVersion.outputs.buildNumber }}
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
  
-  report:
-    name: Report
-    runs-on: ubuntu-latest
-    needs: [test-untils]
-    if: always()  
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/download-artifact@v2
-        with:
-          path: ${{ github.workspace }}/Results
-      - name: Test Report    
-        # Skip because dependabot cannot access the associated resources
-        if: github.actor != 'dependabot[bot]'
-        uses: dorny/test-reporter@v1
-        with:
-          name: ReportResults
-          path: ${{ github.workspace }}/Results/**/*.trx    # Path to test results
-          reporter: dotnet-trx
-          
   createNugetPacakges:
     name: Create NuGet pacakges
     runs-on: windows-2019
