@@ -195,6 +195,28 @@ jobs:
         shell: powershell
         run: dotnet test Framework/UtilitiesUnitTests/UtilitiesUnitTests.csproj  --settings Framework/Parallel.RunSettings   --results-directory "${{ github.workspace }}/artifactTests/zz/coverage/testResults/" /p:CoverletOutput="${{ github.workspace }}/artifactTests/zz/coverage/testResults/" /p:CollectCoverage=true /p:CoverletOutputFormat=opencover -c Release -v D
       
+      - name: Get
+        shell: pwsh
+        run: |
+          $rootPath = "${{ github.workspace }}/artifactTests/zz"
+          $sourcePath = "${{ github.workspace }}"
+
+          $files = Get-ChildItem -Path $rootPath -Recurse -Include *.xml
+          foreach ($file in $files)
+          {
+              Write-Host "READ: " $file
+              get-content $file
+          }
+
+          $files = Get-ChildItem -Path $rootPath  -Recurse  -Include *.trx
+          foreach ($file in $files)
+          {
+              Write-Host "READ: " $file
+              get-content $file
+          }
+
+          Write-Host "Finished updating relative paths"
+      
       - name: Build and analyze
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
@@ -204,7 +226,7 @@ jobs:
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"CognizantOpenSource_maqs-dotnet" /o:"cognizantopensource" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:projectVersion="${{ needs.getVersion.outputs.buildNumber }}"  /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.opencover.reportsPaths=${{ github.workspace }}\Results\**\coverage*.opencover.xml  /d:sonar.cs.dotcover.reportsPaths=${{ github.workspace }}\Results\**\*.coverage
           dotnet build Framework/Base.sln -p:Version=${{ needs.getVersion.outputs.buildNumber }}
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
-          
+      
       - uses: actions/upload-artifact@v2
         if: always()
         name: "Upload test artifact"
@@ -215,75 +237,4 @@ jobs:
             artifactTests/zz/**/*.coverage
             artifactTests/zz/testResults/
  
-  createNugetPacakges:
-    name: Create NuGet pacakges
-    runs-on: windows-2019
-    needs: [getVersion]
-    steps:
-      - uses: actions/checkout@v2
-      
-      - name: Setup .NET Core
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: 3.1.101
-
-      - name: Install dependencies
-        run: dotnet restore Framework/Base.sln
-
-      - name: Build
-        run: |
-          dotnet build Framework/Base.sln --no-restore --configuration Release -p:Version=${{needs.getVersion.outputs.buildNumber}} -p:BaseOutputPath="${{github.workspace}}/artifactTests/packages/"
-
-      - uses: actions/upload-artifact@v2
-        if: always()
-        name: "Upload NuGet packages artifact"
-        with:
-          name: packages
-          path: |
-            artifactTests/packages/**/*.nupkg
-            artifactTests/packages/**/*.snupkg
             
-  publish:
-    name: Publish NuGet - v${{ needs.getVersion.outputs.buildNumber }}
-    if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') &&  github.event_name != 'schedule'
-    needs: [getVersion, createNugetPacakges, sonar]
-    runs-on: windows-2019
-    environment: nuget 
-    steps:
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 3.1.101
-
-    - uses: actions/download-artifact@v2
-      with:
-        name: 'packages'
-        path: ${{ github.workspace }}/packages
-        
-    - name: Deploy to nuget
-      run: dotnet nuget push ${{ github.workspace }}/packages/**/*.nupkg --api-key ${{ secrets.APIKEY }} --source https://api.nuget.org/v3/index.json
-    
-    - name: Publish GitHub release v${{ needs.getVersion.outputs.buildNumber }}
-      uses: actions/github-script@v4
-      with:
-        github-token: ${{secrets.GITHUB_TOKEN}}
-        script: |
-          const result = await github.repos.listReleases({
-            owner: context.repo.owner,
-            repo: context.repo.repo
-          })
-          
-          var id = "NA"
-          var data = result.data
-          for(var key in data){ 
-              if(data[key].tag_name == "v${{ needs.getVersion.outputs.buildNumber }}" && data[key].draft == true)
-              {
-                  github.repos.updateRelease({
-                  release_id: data[key].id,
-                  "draft": false,
-                  owner: context.repo.owner,
-                  repo: context.repo.repo });
-                  return;
-              }
-          }
-          console.error("Failed to find related draft release");
