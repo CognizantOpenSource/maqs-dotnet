@@ -145,19 +145,23 @@ jobs:
           $files = Get-ChildItem -Path $rootPath -Recurse -Include *.xml
           foreach ($file in $files)
           {
+              get-content $file
               Write-Host "Updating" $file
               Replace $file.FullName '(?<=fullPath=")(([\w\d\s/\\:]+)(?=[\\/][Ff]ramework))' $sourcePath 
               Replace $file.FullName '(?<=fullPath="[\w\d\s/.\\:]+)((/)(?=[\w\d\s/.]+"))' "\"
+              get-content $file
           }
 
           $files = Get-ChildItem -Path $rootPath  -Recurse  -Include *.trx
           foreach ($file in $files)
           {
+              get-content $file
               Write-Host "Updating" $file
               Replace $file.FullName '(?<=codeBase=")(([\w\d\s/\\:]+)(?=[\\/][Ff]ramework))' $sourcePath
               Replace $file.FullName '(?<=codeBase="[\w\d\s/.\\:]+)((/)(?=[\w\d\s/.]+"))' "\"
               Replace $file.FullName '(?<=storage=")(([\w\d\s/\\:]+)(?=[\\/][Ff]ramework))' $sourcePath.ToLower()
               Replace $file.FullName '(?<=storage="[\w\d\s/.\\:]+)((/)(?=[\w\d\s/.]+"))' "\"
+              get-content $file
           }
 
           Write-Host "Finished updating relative paths"
@@ -189,7 +193,7 @@ jobs:
           GlobalMaqs:ConfigJsonEnv: ENV
           GlobalMaqs:EnvOnly: ENV
         shell: powershell
-        run: dotnet test Framework/UtilitiesUnitTests/UtilitiesUnitTests.csproj  --settings Framework/Parallel.RunSettings   --results-directory "${{ github.workspace }}/artifactTests/coverage/testResults/" /p:CoverletOutput="${{ github.workspace }}/artifactTests/coverage/testResults/" /p:CollectCoverage=true /p:CoverletOutputFormat=opencover -c Release -v D
+        run: dotnet test Framework/UtilitiesUnitTests/UtilitiesUnitTests.csproj  --settings Framework/Parallel.RunSettings   --results-directory "${{ github.workspace }}/artifactTests/zz/coverage/testResults/" /p:CoverletOutput="${{ github.workspace }}/artifactTests/zz/coverage/testResults/" /p:CollectCoverage=true /p:CoverletOutputFormat=opencover -c Release -v D
       
       - name: Build and analyze
         env:
@@ -200,6 +204,16 @@ jobs:
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"CognizantOpenSource_maqs-dotnet" /o:"cognizantopensource" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:projectVersion="${{ needs.getVersion.outputs.buildNumber }}"  /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.opencover.reportsPaths=${{ github.workspace }}\Results\**\coverage*.opencover.xml  /d:sonar.cs.dotcover.reportsPaths=${{ github.workspace }}\Results\**\*.coverage
           dotnet build Framework/Base.sln -p:Version=${{ needs.getVersion.outputs.buildNumber }}
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
+          
+      - uses: actions/upload-artifact@v2
+        if: always()
+        name: "Upload test artifact"
+        with:
+          name: untilResults
+          path: |
+            artifactTests/zz/**/*.xml
+            artifactTests/zz/**/*.coverage
+            artifactTests/zz/testResults/
  
   createNugetPacakges:
     name: Create NuGet pacakges
