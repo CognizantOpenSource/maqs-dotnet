@@ -466,18 +466,18 @@ jobs:
           foreach ($file in $files)
           {
               Write-Host "Updating" $file
-              Replace $file.FullName '(?<=fullPath=")(([\w\d\s/\\:]+)(?=[\\/][Ff]ramework))' $sourcePath 
-              Replace $file.FullName '(?<=fullPath="[\w\d\s/.\\:]+)((/)(?=[\w\d\s/.]+"))' "\"
+              Replace $file.FullName '(?<=fullPath=")(([-\w\d\s/\\:]+)(?=[\\/][Ff]ramework))' $sourcePath 
+              Replace $file.FullName '(?<=fullPath="[-\w\d\s/.\\:]+)((/)(?=[-\w\d\s/.]+"))' "\"
           }
 
           $files = Get-ChildItem -Path $rootPath  -Recurse  -Include *.trx
           foreach ($file in $files)
           {
               Write-Host "Updating" $file
-              Replace $file.FullName '(?<=codeBase=")(([\w\d\s/\\:]+)(?=[\\/][Ff]ramework))' $sourcePath
-              Replace $file.FullName '(?<=codeBase="[\w\d\s/.\\:]+)((/)(?=[\w\d\s/.]+"))' "\"
-              Replace $file.FullName '(?<=storage=")(([\w\d\s/\\:]+)(?=[\\/][Ff]ramework))' $sourcePath.ToLower()
-              Replace $file.FullName '(?<=storage="[\w\d\s/.\\:]+)((/)(?=[\w\d\s/.]+"))' "\"
+              Replace $file.FullName '(?<=codeBase=")(([-\w\d\s/\\:]+)(?=[\\/][Ff]ramework))' $sourcePath
+              Replace $file.FullName '(?<=codeBase="[-\w\d\s/.\\:]+)((/)(?=[-\w\d\s/.]+"))' "\"
+              Replace $file.FullName '(?<=storage=")(([-\w\d\s/\\:]+)(?=[\\/][Ff]ramework))' $sourcePath.ToLower()
+              Replace $file.FullName '(?<=storage="[-\w\d\s/.\\:]+)((/)(?=[-\w\d\s/.]+"))' "\"
           }
 
           Write-Host "Finished updating relative paths"
