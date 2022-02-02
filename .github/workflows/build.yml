@@ -147,8 +147,8 @@ jobs:
           {
               get-content $file
               Write-Host "Updating" $file
-              Replace $file.FullName '(?<=fullPath=")(([\w\d\s/\\:]+)(?=[\\/][Ff]ramework))' $sourcePath 
-              Replace $file.FullName '(?<=fullPath="[\w\d\s/.\\:]+)((/)(?=[\w\d\s/.]+"))' "\"
+              Replace $file.FullName '(?<=fullPath=")(([-\w\d\s/\\:]+)(?=[\\/][Ff]ramework))' $sourcePath 
+              Replace $file.FullName '(?<=fullPath="[-\w\d\s/.\\:]+)((/)(?=[\w\d\s/.]+"))' "\"
               get-content $file
           }
 
@@ -157,10 +157,10 @@ jobs:
           {
               get-content $file
               Write-Host "Updating" $file
-              Replace $file.FullName '(?<=codeBase=")(([\w\d\s/\\:]+)(?=[\\/][Ff]ramework))' $sourcePath
-              Replace $file.FullName '(?<=codeBase="[\w\d\s/.\\:]+)((/)(?=[\w\d\s/.]+"))' "\"
-              Replace $file.FullName '(?<=storage=")(([\w\d\s/\\:]+)(?=[\\/][Ff]ramework))' $sourcePath.ToLower()
-              Replace $file.FullName '(?<=storage="[\w\d\s/.\\:]+)((/)(?=[\w\d\s/.]+"))' "\"
+              Replace $file.FullName '(?<=codeBase=")(([-\w\d\s/\\:]+)(?=[\\/][Ff]ramework))' $sourcePath
+              Replace $file.FullName '(?<=codeBase="[-\w\d\s/.\\:]+)((/)(?=[\w\d\s/.]+"))' "\"
+              Replace $file.FullName '(?<=storage=")(([-\w\d\s/\\:]+)(?=[\\/][Ff]ramework))' $sourcePath.ToLower()
+              Replace $file.FullName '(?<=storage="[-\w\d\s/.\\:]+)((/)(?=[\w\d\s/.]+"))' "\"
               get-content $file
           }
 
@@ -186,37 +186,6 @@ jobs:
           New-Item -Path .\.sonar\scanner -ItemType Directory
           dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
           
-      - name: Run tests
-        env:
-          GlobalMaqs:ConfigJsonEnvRunOverride: ENV
-          GlobalMaqs:ConfigJsonEnvRun: ENV
-          GlobalMaqs:ConfigJsonEnv: ENV
-          GlobalMaqs:EnvOnly: ENV
-        shell: powershell
-        run: dotnet test Framework/UtilitiesUnitTests/UtilitiesUnitTests.csproj  --settings Framework/Parallel.RunSettings   --results-directory "${{ github.workspace }}/artifactTests/zz/coverage/testResults/" /p:CoverletOutput="${{ github.workspace }}/artifactTests/zz/coverage/testResults/" /p:CollectCoverage=true /p:CoverletOutputFormat=opencover -c Release -v D
-      
-      - name: Get
-        shell: pwsh
-        run: |
-          $rootPath = "${{ github.workspace }}/artifactTests/zz"
-          $sourcePath = "${{ github.workspace }}"
-
-          $files = Get-ChildItem -Path $rootPath -Recurse -Include *.xml
-          foreach ($file in $files)
-          {
-              Write-Host "READ: " $file
-              get-content $file
-          }
-
-          $files = Get-ChildItem -Path $rootPath  -Recurse  -Include *.trx
-          foreach ($file in $files)
-          {
-              Write-Host "READ: " $file
-              get-content $file
-          }
-
-          Write-Host "Finished updating relative paths"
-      
       - name: Build and analyze
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
@@ -227,14 +196,5 @@ jobs:
           dotnet build Framework/Base.sln -p:Version=${{ needs.getVersion.outputs.buildNumber }}
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
       
-      - uses: actions/upload-artifact@v2
-        if: always()
-        name: "Upload test artifact"
-        with:
-          name: untilResults
-          path: |
-            artifactTests/zz/**/*.xml
-            artifactTests/zz/**/*.coverage
-            artifactTests/zz/testResults/
  
             
