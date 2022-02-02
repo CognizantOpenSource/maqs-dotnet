@@ -183,8 +183,13 @@ jobs:
           dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
           
       - name: Run tests
+        env:
+          GlobalMaqs:ConfigJsonEnvRunOverride: ENV
+          GlobalMaqs:ConfigJsonEnvRun: ENV
+          GlobalMaqs:ConfigJsonEnv: ENV
+          GlobalMaqs:EnvOnly: ENV
         shell: powershell
-        run: dotnet test Framework/UtilitiesUnitTests/UtilitiesUnitTests.csproj --results-directory "${{ github.workspace }}/artifactTests/coverage/testResults/" /p:CoverletOutput="${{ github.workspace }}/artifactTests/coverage/testResults/" /p:CollectCoverage=true /p:CoverletOutputFormat=opencover -c Release -v D
+        run: dotnet test Framework/UtilitiesUnitTests/UtilitiesUnitTests.csproj  --settings Framework/Parallel.RunSettings   --results-directory "${{ github.workspace }}/artifactTests/coverage/testResults/" /p:CoverletOutput="${{ github.workspace }}/artifactTests/coverage/testResults/" /p:CollectCoverage=true /p:CoverletOutputFormat=opencover -c Release -v D
       
       - name: Build and analyze
         env:
