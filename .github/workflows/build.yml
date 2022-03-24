@@ -183,7 +183,7 @@ jobs:
       
       - uses: actions/setup-dotnet@v1
         with:
-        dotnet-version: '6.x.x'
+          dotnet-version: '6.x.x'
 
       - name: Start test service
         run: invoke-expression 'cmd /c dotnet run Docker/MAQSService/MainTestService/MainTestService.csproj'
@@ -275,8 +275,10 @@ jobs:
     steps:
       - name: Setup .NET Core
         uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: 3.1.*
+          with:
+            dotnet-version: | 
+              3.1.x
+              6.x.x
       - uses: actions/checkout@v2
       - run: dotnet restore Framework/FrameworkUnitTests/FrameworkUnitTests.csproj
         shell: pwsh
