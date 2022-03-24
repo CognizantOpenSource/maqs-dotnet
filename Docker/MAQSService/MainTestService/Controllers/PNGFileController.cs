@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SkiaSharp;
+using System.Reflection;
 
 namespace AutomationTestSite.Controllers
 {
@@ -23,21 +23,20 @@ namespace AutomationTestSite.Controllers
 
             var color = image.ToUpper() switch
             {
-                "RED" => SKColors.Red,
-                "BLUE" => SKColors.Blue,
-                "YELLOW" => SKColors.Yellow,
-                "GREEN" => SKColors.Green,
-                "BLACK" => SKColors.Black,
-                "WHITE" => SKColors.White,
-                "GRAY" or "GREY" => SKColors.Gray,
+                "RED" => "red",
+                "BLUE" => "blue",
+                "YELLOW" => "yellow",
+                "GREEN" => "green",
+                "BLACK" => "black",
+                "WHITE" => "white",
+                "GRAY" or "GREY" => "gray",
                 _ => throw new NotSupportedException($"The color '{image}' is not available, please use a more common color."),
             };
 
-            SKBitmap sKBitmap = new(200, 200);
-            SKCanvas canvas = new(sKBitmap);
-            canvas.Clear(color);
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            string fileName = $"{assembly.GetName().Name}.Static.{color}.png";
 
-            return File(sKBitmap.Encode(SKEncodedImageFormat.Png, 100).ToArray(), "image/png");
+            return File(assembly.GetManifestResourceStream(fileName), "image/png");
         }
     }
 }
