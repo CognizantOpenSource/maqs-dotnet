@@ -245,7 +245,7 @@ namespace WebServiceTesterUnitTesting
         public void PutExpectStringError()
         {
             var result = this.WebServiceDriver.Put("/api/String/Put/1", "text/plain", null, false);
-            Assert.AreEqual("{\"Message\":\"No Product found for name = 1 \"}", result);
+            Assert.AreEqual("{\"message\":\"No product data provided for id = 1 \"}", result);
         }
     }
 }

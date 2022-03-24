@@ -33,7 +33,7 @@ namespace SeleniumUnitTests
         /// </summary>
         public static string Url
         {
-            get { return SeleniumConfig.GetWebSiteBase() + "Automation"; }
+            get { return SeleniumConfig.GetWebSiteBase() + "index.html"; }
         }
 
         /// <summary>
