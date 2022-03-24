@@ -35,12 +35,12 @@ namespace SeleniumUnitTests
         /// <summary>
         /// Unit testing site URL - Async page
         /// </summary>
-        private static readonly string TestSiteAsyncUrl = TestSiteUrl + "Automation/AsyncPage";
+        private static readonly string TestSiteAsyncUrl = TestSiteUrl + "async.html";
 
         /// <summary>
         /// Unit testing site URL - Automation page
         /// </summary>
-        private static readonly string TestSiteAutomationUrl = TestSiteUrl + "Automation/";
+        private static readonly string TestSiteAutomationUrl = TestSiteUrl + "index.html";
 
         /// <summary>
         /// Home button css selector
@@ -280,7 +280,7 @@ namespace SeleniumUnitTests
         public void TryWaitForAttributeTextEquals()
         {
             WebDriver.Navigate().GoToUrl(TestSiteAsyncUrl);
-            bool found = WebDriver.Wait().TryForAttributeTextEquals(AsyncLoadingTextDiv, "display: block;", "style", out IWebElement element);
+            bool found = WebDriver.Wait().TryForAttributeTextEquals(AsyncLoadingTextDiv, "", "style", out IWebElement element);
             Assert.IsTrue(found, "False was returned");
             Assert.IsNotNull(element, "Null element was returned");
         }
@@ -467,9 +467,8 @@ namespace SeleniumUnitTests
         {
             WebDriver.Navigate().GoToUrl(TestSiteAutomationUrl);
             var list = WebDriver.Find().Elements(DropdownToggleClassSelector);
-            Assert.AreEqual(3, list.Count, "There are 3 elements with dropdown classes");
+            Assert.AreEqual(2, list.Count, "There are 2 elements with dropdown classes");
 
-            Assert.IsTrue(list.FirstOrDefault(x => x.Text == "Manage").Displayed);
             Assert.IsTrue(list.FirstOrDefault(x => x.Text == "Automation").Displayed);
             Assert.IsTrue(list.FirstOrDefault(x => x.Text == "Training").Displayed);
         }
@@ -898,7 +897,7 @@ namespace SeleniumUnitTests
         public void WaitForAttributeContainsFound()
         {
             WebDriver.Navigate().GoToUrl(TestSiteAsyncUrl);
-            Assert.IsNotNull(WebDriver.Wait().ForAttributeTextContains(AsyncLoadingTextDiv, "block;", "style"));
+            Assert.IsNotNull(WebDriver.Wait().ForAttributeTextContains(AsyncLoadingLabel, "none;", "style"));
         }
 
         /// <summary>
@@ -910,7 +909,7 @@ namespace SeleniumUnitTests
         {
             WebDriver.Navigate().GoToUrl(TestSiteAsyncUrl);
 
-            Assert.IsNotNull(WebDriver.Wait().ForAttributeTextEquals(AsyncLoadingTextDiv, "display: block;", "style"));
+            Assert.IsNotNull(WebDriver.Wait().ForAttributeTextEquals(AsyncLoadingLabel, "display: none;", "style"));
         }
 
         /// <summary>

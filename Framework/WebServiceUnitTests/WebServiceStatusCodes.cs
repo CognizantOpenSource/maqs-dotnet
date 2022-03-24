@@ -198,15 +198,7 @@ namespace WebServiceTesterUnitTesting
         [TestCategory(TestCategories.WebService)]
         public void PutMoreParamsWithExpectedStatus()
         {
-            ProductJson p = new ProductJson
-            {
-                Category = "ff",
-                Id = 4,
-                Name = "ff",
-                Price = 3.25f
-            };
-            var req = WebServiceUtils.MakeStringContent<ProductJson>(p, Encoding.UTF8, "application/json");
-            var res = this.WebServiceDriver.Put("/api/XML_JSON/Put/1", "application/json", req.ToString(), Encoding.UTF8, "application/json", HttpStatusCode.Conflict, true);
+            var res = this.WebServiceDriver.Put("/api/XML_JSON/Put/1", "application/json", "", Encoding.UTF8, "application/json", HttpStatusCode.Conflict, true);
             Assert.IsNotNull(res);
         }
 
@@ -217,15 +209,7 @@ namespace WebServiceTesterUnitTesting
         [TestCategory(TestCategories.WebService)]
         public void PutMoreParamsWithResponseWithExpectedStatus()
         {
-            ProductJson p = new ProductJson
-            {
-                Category = "ff",
-                Id = 4,
-                Name = "ff",
-                Price = 3.25f
-            };
-            var req = WebServiceUtils.MakeStringContent<ProductJson>(p, Encoding.UTF8, "application/json");
-            var res = this.WebServiceDriver.PutWithResponse("/api/XML_JSON/Put/1", "application/json", req.ToString(), Encoding.UTF8, "application/json", HttpStatusCode.Conflict, true);
+            var res = this.WebServiceDriver.PutWithResponse("/api/XML_JSON/Put/1", "application/json", "", Encoding.UTF8, "application/json", HttpStatusCode.Conflict, true);
             Assert.IsNotNull(res);
         }
 
@@ -422,8 +406,7 @@ namespace WebServiceTesterUnitTesting
         [TestCategory(TestCategories.WebService)]
         public void CustomMoreParamsWithExpectedStatus()
         {
-            var content = WebServiceUtils.MakeStringContent("ZED?", Encoding.UTF8, "application/json");
-            var result = this.WebServiceDriver.Custom("ZED", "/api/ZED", "application/json", content.ToString(), Encoding.UTF8, "application/json", HttpStatusCode.UseProxy, true);
+            var result = this.WebServiceDriver.Custom("ZED", "/api/ZED", "application/json", "ZED?", Encoding.UTF8, "application/json", HttpStatusCode.UseProxy, true);
             Assert.IsNotNull(result);
         }
 
@@ -434,8 +417,7 @@ namespace WebServiceTesterUnitTesting
         [TestCategory(TestCategories.WebService)]
         public void CustomMoreParamsWithResponseWithExpectedStatus()
         {
-            var content = WebServiceUtils.MakeStringContent("ZED?", Encoding.UTF8, "application/json");
-            var result = this.WebServiceDriver.CustomWithResponse("ZED", "/api/ZED", "application/json", content.ToString(), Encoding.UTF8, "application/json", HttpStatusCode.UseProxy, true);
+            var result = this.WebServiceDriver.CustomWithResponse("ZED", "/api/ZED", "application/json", "ZED?", Encoding.UTF8, "application/json", HttpStatusCode.UseProxy, true);
             Assert.IsNotNull(result);
         }
     }

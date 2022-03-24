@@ -212,7 +212,7 @@ namespace WebServiceTesterUnitTesting
         public void PostExpectContentError()
         {
             var result = this.WebServiceDriver.PostWithResponse("/api/String", "text/plain", null, false);
-            Assert.AreEqual(HttpStatusCode.InternalServerError, result.StatusCode);
+            Assert.AreEqual(HttpStatusCode.BadRequest, result.StatusCode);
         }
 
         /// <summary>
@@ -223,7 +223,7 @@ namespace WebServiceTesterUnitTesting
         public void PostExpectStringError()
         {
             var result = this.WebServiceDriver.Post("/api/String", "text/plain", null, false);
-            Assert.AreEqual("{\"Message\":\"value is required\"}", result);
+            Assert.AreEqual("{\"message\":\"Value is required\"}", result);
         }
 
         /// <summary>
@@ -234,7 +234,7 @@ namespace WebServiceTesterUnitTesting
         public void PostExpectStringErrorEmptyHttpContent()
         {
             var result = this.WebServiceDriver.Post("/api/String", "text/plain", new StringContent(string.Empty, Encoding.UTF8), false);
-            Assert.AreEqual("{\"Message\":\"No data\"}", result);
+            Assert.AreEqual("{\"message\":\"Value is required\"}", result);
         }
     }
 }

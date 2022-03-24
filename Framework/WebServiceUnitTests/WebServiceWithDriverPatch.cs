@@ -231,7 +231,7 @@ namespace WebServiceTesterUnitTesting
         public void PatchExpectStringError()
         {
             var result = this.WebServiceDriver.Patch("/api/String/Patch/1", "text/plain", null, false);
-            var expected = "{\"Message\":\"Value is required\"}";
+            var expected = "{\"message\":\"Value is required\"}";
             Assert.IsTrue(result.Equals(expected), $"Assert Failed. Expected:{expected}, Actual:{result}");
         }
     }

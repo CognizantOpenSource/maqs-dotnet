@@ -58,8 +58,7 @@ namespace WebServiceTesterUnitTesting
         [TestCategory(TestCategories.WebService)]
         public void CustomStringWithoutContentStatusCode()
         {
-            var content = WebServiceUtils.MakeStringContent("ZED?", Encoding.UTF8, "application/json");
-            var result = this.WebServiceDriver.CustomWithResponse("ZED", "/api/ZED", "application/json", content.ToString(), Encoding.UTF8, "application/json", true, false);
+            var result = this.WebServiceDriver.CustomWithResponse("ZED", "/api/ZED", "application/json", "ZED?", Encoding.UTF8, "application/json", true, false);
             Assert.AreEqual(HttpStatusCode.UseProxy, result.StatusCode);
         }
 
@@ -73,9 +72,9 @@ namespace WebServiceTesterUnitTesting
             WebServiceDriver client = new WebServiceDriver(new Uri(url));
 
             var content = WebServiceUtils.MakeStringContent("ZEDTest", Encoding.UTF8, "text/plain");
-            var result = client.Custom<string>("ZED", "/api/ZED", "text/plain", content, true);
+            var result = client.Custom<string>("ZED", "/api/ZED", "application/json", content, true);
 
-            Assert.AreEqual("ZEDTest", result.ToString());
+            Assert.AreEqual("\"ZEDTest\"", result.ToString());
         }
 
         /// <summary>

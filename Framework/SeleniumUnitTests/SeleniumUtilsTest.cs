@@ -38,9 +38,14 @@ namespace SeleniumUnitTests
         private static readonly string TestSiteUrl = SeleniumConfig.GetWebSiteBase();
 
         /// <summary>
+        /// Unit testing accessibility site URL - Login page
+        /// </summary>
+        private static readonly string TestSiteAccessibilityUrl = TestSiteUrl + "../Training1/LoginPage.html";
+
+        /// <summary>
         /// Unit testing site URL - Automation page
         /// </summary>
-        private static readonly string TestSiteAutomationUrl = TestSiteUrl + "Automation/";
+        private static readonly string TestSiteAutomationUrl = TestSiteUrl + "index.html";
 
         /// <summary>
         /// First dialog button
@@ -404,17 +409,16 @@ namespace SeleniumUnitTests
         [TestCategory(TestCategories.Selenium)]
         public void AccessibilityCheckVerbose()
         {
-            WebDriver.Navigate().GoToUrl(TestSiteUrl);
+            WebDriver.Navigate().GoToUrl(TestSiteAccessibilityUrl);
             WebDriver.Wait().ForPageLoad();
 
             string filePath = ((IFileLogger)Log).FilePath;
 
             SeleniumUtilities.CheckAccessibility(this.TestObject);
-
             string logContent = File.ReadAllText(filePath);
 
-            SoftAssert.Assert(() => Assert.IsTrue(logContent.Contains("Found 20 items"), "Expected to find 20 pass matches."));
-            SoftAssert.Assert(() => Assert.IsTrue(logContent.Contains("Found 62 items"), "Expected to find 62 inapplicable matches."));
+            SoftAssert.Assert(() => Assert.IsTrue(logContent.Contains("Found 15 items"), "Expected to find 15 pass matches."));
+            SoftAssert.Assert(() => Assert.IsTrue(logContent.Contains("Found 66 items"), "Expected to find 66 inapplicable matches."));
             SoftAssert.Assert(() => Assert.IsTrue(logContent.Contains("Found 6 items"), "Expected to find 6 violations matches."));
             SoftAssert.Assert(() => Assert.IsTrue(logContent.Contains("Found 0 items"), "Expected to find 0 incomplete matches."));
             SoftAssert.FailTestIfAssertFailed();
@@ -427,7 +431,7 @@ namespace SeleniumUnitTests
         [TestCategory(TestCategories.Selenium)]
         public void AccessibilityCheckRespectsMessageLevel()
         {
-            WebDriver.Navigate().GoToUrl(TestSiteUrl);
+            WebDriver.Navigate().GoToUrl(TestSiteAccessibilityUrl);
             WebDriver.Wait().ForPageLoad();
 
             string filePath = Path.GetDirectoryName(((IFileLogger)Log).FilePath);
@@ -457,7 +461,7 @@ namespace SeleniumUnitTests
         [TestCategory(TestCategories.Selenium)]
         public void AccessibilityInapplicableCheckRespectsMessageLevel()
         {
-            WebDriver.Navigate().GoToUrl(TestSiteUrl);
+            WebDriver.Navigate().GoToUrl(TestSiteAccessibilityUrl);
             WebDriver.Wait().ForPageLoad();
 
             string filePath = Path.GetDirectoryName(((IFileLogger)Log).FilePath);
@@ -485,7 +489,7 @@ namespace SeleniumUnitTests
         [TestCategory(TestCategories.Selenium)]
         public void AccessibilityIncompleteCheckRespectsMessageLevel()
         {
-            WebDriver.Navigate().GoToUrl(TestSiteUrl);
+            WebDriver.Navigate().GoToUrl(TestSiteAccessibilityUrl);
             WebDriver.Wait().ForPageLoad();
 
             string filePath = Path.GetDirectoryName(((IFileLogger)Log).FilePath);
@@ -513,7 +517,7 @@ namespace SeleniumUnitTests
         [TestCategory(TestCategories.Selenium)]
         public void AccessibilityPassesCheckRespectsMessageLevel()
         {
-            WebDriver.Navigate().GoToUrl(TestSiteUrl);
+            WebDriver.Navigate().GoToUrl(TestSiteAccessibilityUrl);
             WebDriver.Wait().ForPageLoad();
 
             string filePath = Path.GetDirectoryName(((IFileLogger)Log).FilePath);
@@ -541,7 +545,7 @@ namespace SeleniumUnitTests
         [TestCategory(TestCategories.Selenium)]
         public void AccessibilityViolationsCheckRespectsMessageLevel()
         {
-            WebDriver.Navigate().GoToUrl(TestSiteUrl);
+            WebDriver.Navigate().GoToUrl(TestSiteAccessibilityUrl);
             WebDriver.Wait().ForPageLoad();
 
             string filePath = Path.GetDirectoryName(((IFileLogger)Log).FilePath);
@@ -571,7 +575,7 @@ namespace SeleniumUnitTests
         [ExpectedException(typeof(InvalidOperationException), "Expected an accessibility exception to be thrown")]
         public void AccessibilityCheckThrows()
         {
-            WebDriver.Navigate().GoToUrl(TestSiteUrl);
+            WebDriver.Navigate().GoToUrl(TestSiteAccessibilityUrl);
             WebDriver.Wait().ForPageLoad();
 
             SeleniumUtilities.CheckAccessibility(this.TestObject, true);
@@ -584,11 +588,11 @@ namespace SeleniumUnitTests
         [TestCategory(TestCategories.Selenium)]
         public void AccessibilityCheckNoThrowOnNoResults()
         {
-            WebDriver.Navigate().GoToUrl(TestSiteUrl);
+            WebDriver.Navigate().GoToUrl(TestSiteAccessibilityUrl);
             WebDriver.Wait().ForPageLoad();
 
             // There should be 0 incomplete items found
-            SeleniumUtilities.CheckAccessibilityIncomplete(TestObject.WebDriver, TestObject.Log, MessageType.WARNING, true);
+            SeleniumUtilities.CheckAccessibilityIncomplete(TestObject.WebDriver, TestObject.Log, MessageType.WARNING, false);
         }
 
         /// <summary>
@@ -598,7 +602,7 @@ namespace SeleniumUnitTests
         [TestCategory(TestCategories.Selenium)]
         public void AccessibilityReadableResults()
         {
-            WebDriver.Navigate().GoToUrl(TestSiteUrl);
+            WebDriver.Navigate().GoToUrl(TestSiteAccessibilityUrl);
             WebDriver.Wait().ForPageLoad();
 
             SeleniumUtilities.GetReadableAxeResults("TEST", this.WebDriver, this.WebDriver.Analyze().Violations, out string messages);
@@ -668,7 +672,7 @@ namespace SeleniumUnitTests
         [TestCategory(TestCategories.Selenium)]
         public void ElementAccessibilityHtmlWithFilter()
         {
-            WebDriver.Navigate().GoToUrl(TestSiteUrl);
+            WebDriver.Navigate().GoToUrl(TestSiteAccessibilityUrl);
             WebDriver.Wait().ForPageLoad();
 
             var report = File.ReadAllText(WebDriver.CreateAccessibilityHtmlReport(this.TestObject, WebDriver.FindElement(By.CssSelector("BODY")), false, ReportTypes.Incomplete));
@@ -686,7 +690,7 @@ namespace SeleniumUnitTests
         [TestCategory(TestCategories.Selenium)]
         public void AccessibilityHtmlReport()
         {
-            WebDriver.Navigate().GoToUrl(TestSiteUrl);
+            WebDriver.Navigate().GoToUrl(TestSiteAccessibilityUrl);
             WebDriver.Wait().ForPageLoad();
 
             WebDriver.CreateAccessibilityHtmlReport(this.TestObject);
@@ -702,7 +706,7 @@ namespace SeleniumUnitTests
         [TestCategory(TestCategories.Selenium)]
         public void AccessibilityMultipleHtmlReports()
         {
-            WebDriver.Navigate().GoToUrl(TestSiteUrl);
+            WebDriver.Navigate().GoToUrl(TestSiteAccessibilityUrl);
             WebDriver.Wait().ForPageLoad();
 
             // Create 3 reports
@@ -722,7 +726,7 @@ namespace SeleniumUnitTests
         [ExpectedException(typeof(InvalidOperationException))]
         public void AccessibilityHtmlReportWithError()
         {
-            WebDriver.Navigate().GoToUrl(TestSiteUrl);
+            WebDriver.Navigate().GoToUrl(TestSiteAccessibilityUrl);
             WebDriver.Wait().ForPageLoad();
 
             WebDriver.CreateAccessibilityHtmlReport(this.TestObject, () => new AxeResult(JObject.Parse(AxeResultWithError)));
@@ -739,7 +743,7 @@ namespace SeleniumUnitTests
         [ExpectedException(typeof(InvalidOperationException))]
         public void AccessibilityHtmlReportWithErrorFromLazyElement()
         {
-            WebDriver.Navigate().GoToUrl(TestSiteAutomationUrl);
+            WebDriver.Navigate().GoToUrl(TestSiteUrl);
             WebDriver.Wait().ForPageLoad();
 
             LazyElement foodTable = new LazyElement(this.TestObject, By.Id("FoodTable"));
@@ -758,7 +762,7 @@ namespace SeleniumUnitTests
         [ExpectedException(typeof(InvalidOperationException))]
         public void AccessibilityHtmlReportWithViolation()
         {
-            WebDriver.Navigate().GoToUrl(TestSiteUrl);
+            WebDriver.Navigate().GoToUrl(TestSiteAccessibilityUrl);
             WebDriver.Wait().ForPageLoad();
 
             WebDriver.CreateAccessibilityHtmlReport(this.TestObject, true);

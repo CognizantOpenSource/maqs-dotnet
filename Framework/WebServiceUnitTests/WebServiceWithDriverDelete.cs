@@ -56,7 +56,7 @@ namespace WebServiceTesterUnitTesting
         public void DeleteJSONSerializedVerifyStatusCodeWithAndWithoutHeaderOverride()
         {
             var result = this.WebServiceDriver.DeleteWithResponse("/api/XML_JSON/Delete/2", "application/json", false);
-            Assert.AreEqual(HttpStatusCode.Conflict, result.StatusCode);
+            Assert.AreEqual(HttpStatusCode.Unauthorized, result.StatusCode);
 
             this.WebServiceDriver.HttpClient.DefaultRequestHeaders.Add("pass", "word");
             result = this.WebServiceDriver.DeleteWithResponse("/api/XML_JSON/Delete/2", "application/json", true);
@@ -137,7 +137,7 @@ namespace WebServiceTesterUnitTesting
         public void DeleteExpectError()
         {
             var result = this.WebServiceDriver.Delete("/api/String/Delete/43", "text/plain", false);
-            Assert.AreEqual("{\"Message\":\"Resource was not found\"}", result);
+            Assert.AreEqual("{\"message\":\"Resource was not found\"}", result);
         }
     }
 }

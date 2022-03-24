@@ -212,7 +212,7 @@ namespace SeleniumUnitTests
         {
             string website = SeleniumConfig.GetWebSiteBase();
 
-            Assert.IsTrue(website.Equals("https://magenicautomation.azurewebsites.net/", StringComparison.InvariantCultureIgnoreCase));
+            Assert.IsTrue(website.Equals("https://cognizantopensource.github.io/maqs-dotnet-templates/Static/Automation/", StringComparison.InvariantCultureIgnoreCase));
         }
 
         /// <summary>
