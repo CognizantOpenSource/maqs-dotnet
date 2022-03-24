@@ -183,7 +183,9 @@ jobs:
       
       - uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: '6.x.x'
+          dotnet-version: | 
+            3.1.x
+            6.x.x
 
       - name: Start test service
         run: Start-Process -FilePath "dotnet" -ArgumentList "run --project Docker/MAQSService/MainTestService/MainTestService.csproj"
