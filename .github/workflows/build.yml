@@ -186,7 +186,7 @@ jobs:
           dotnet-version: '6.x.x'
 
       - name: Start test service
-        run: invoke-expression 'cmd /c dotnet run Docker/MAQSService/MainTestService/MainTestService.csproj'
+        run: Start-Process -FilePath "dotnet" -ArgumentList "run --project Docker/MAQSService/MainTestService/MainTestService.csproj"
         shell: pwsh
 
       - id: builder
