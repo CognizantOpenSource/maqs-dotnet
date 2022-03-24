@@ -275,10 +275,10 @@ jobs:
     steps:
       - name: Setup .NET Core
         uses: actions/setup-dotnet@v1
-          with:
-            dotnet-version: | 
-              3.1.x
-              6.x.x
+        with:
+          dotnet-version: | 
+            3.1.x
+            6.x.x
       - uses: actions/checkout@v2
       - run: dotnet restore Framework/FrameworkUnitTests/FrameworkUnitTests.csproj
         shell: pwsh
