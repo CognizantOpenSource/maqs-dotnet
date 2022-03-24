@@ -197,12 +197,12 @@ namespace AppiumUnitTests
         public void AppiumLazyParentTest()
         {
             this.AppiumDriver.Navigate().GoToUrl(Config.GetValueForSection(ConfigSection.AppiumMaqs, "WebSiteBase"));
-            LazyMobileElement parent = new LazyMobileElement(this.TestObject, By.XPath("//*[@class=\"jumbotron\"]"), "Parent");
+            LazyMobileElement parent = new LazyMobileElement(this.TestObject, By.XPath("//*[@id='body']"), "Parent");
             LazyMobileElement child = new LazyMobileElement(this.TestObject, By.XPath("//H2"), "Child");
             LazyMobileElement missingChild = new LazyMobileElement(this.TestObject, By.XPath("//Missing"), "Missing");
 
             this.SoftAssert.Assert(() => Assert.AreEqual(child.Text, parent.FindElement(child.By, "Child").Text));
-            this.SoftAssert.Assert(() => Assert.AreEqual(1, parent.FindElements(child.By, "Child").Count), "Name1");
+            this.SoftAssert.Assert(() => Assert.AreEqual(2, parent.FindElements(child.By, "Child").Count), "Name1");
             this.SoftAssert.Assert(() => Assert.IsTrue(child.Exists), "Expect exists now", "Name2");
 
             // Override the timeout
