@@ -14,8 +14,8 @@ namespace WebServiceTesterUnitTesting.Model
     /// </summary>
     [ExcludeFromCodeCoverage]
     [Serializable]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://schemas.datacontract.org/2004/07/AutomationTestSite.Models")]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://schemas.datacontract.org/2004/07/AutomationTestSite.Models", IsNullable = false)]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://schemas.datacontract.org/2004/07/MainTestService.Models")]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://schemas.datacontract.org/2004/07/MainTestService.Models", IsNullable = false)]
     public class Product
     {
         /// <summary>

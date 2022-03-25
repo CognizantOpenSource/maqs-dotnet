@@ -135,8 +135,11 @@ namespace WebServiceTesterUnitTesting
         [ExpectedException(typeof(InvalidOperationException))]
         public void WebServiceUtilsDeserializeResponseThrownException()
         {
-            StringContent content = WebServiceUtils.MakeStringContent<ProductJson>(Product, Encoding.UTF8, "application/json");
-            HttpResponseMessage response = this.WebServiceDriver.PutWithResponse("/api/XML_JSON/GetAnErrorPLZ", "application/json", content, false);
+            HttpResponseMessage response = new HttpResponseMessage
+            {
+                Content = new StringContent("BAD_FORMAT")
+            };
+
             WebServiceUtils.DeserializeResponse<ProductJson>(response, new List<MediaTypeFormatter> { new CustomXmlMediaTypeFormatter("image/gif", typeof(ProductJson)) });
         }
 

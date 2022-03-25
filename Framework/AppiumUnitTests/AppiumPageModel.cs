@@ -47,7 +47,7 @@ namespace AppiumUnitTests
         /// </summary>
         public LazyMobileElement TopLevel
         {
-            get { return this.GetLazyElement(MobileBy.XPath("//*[@class=\"jumbotron\"]"), "Top level"); }
+            get { return this.GetLazyElement(MobileBy.XPath("//*[@id='body']"), "Top level"); }
         }
 
         /// <summary>

@@ -28,22 +28,22 @@ namespace SeleniumUnitTests
         /// <summary>
         /// Url for the automation page
         /// </summary>
-        private static readonly string siteAutomationUrl = siteUrl + "Automation/";
+        private static readonly string siteAutomationUrl = siteUrl + "index.html";
 
         /// <summary>
-        /// Manage dropdown selector
+        /// Automation dropdown selector
         /// </summary>
-        private static readonly By manageDropdown = By.CssSelector("body > div.navbar.navbar-inverse.navbar-fixed-top > div > div.navbar-collapse.collapse > ul > li:nth-child(2) > a");
+        private static readonly By automationDropdown = By.CssSelector("#body > div.navbar.navbar-inverse.navbar-fixed-top > div > div.navbar-collapse.collapse > ul > li:nth-child(2) > a");
 
         /// <summary>
-        /// Employee link
+        /// Automation link
         /// </summary>
-        private static readonly By employeeButton = By.CssSelector("#EmployeeButton > a");
+        private static readonly By iFrameButton = By.CssSelector("#iFrameButton > a");
 
         /// <summary>
-        /// Automation page header
+        /// IFrame header selector
         /// </summary>
-        private static readonly By automationPageHeader = By.CssSelector("body > div.container.body-content > h2");
+        private static readonly By iFrameHeader = By.CssSelector("H2");
 
         /// <summary>
         /// Dialog button on automation page
@@ -51,19 +51,29 @@ namespace SeleniumUnitTests
         private static readonly By dialogButton2 = By.CssSelector("#showDialog2");
 
         /// <summary>
-        /// Employee page title
+        /// Html 5 title
         /// </summary>
-        private static readonly By employeePageTitle = By.CssSelector("body > div.container.body-content > h2");
+        private static readonly By html5Title = By.CssSelector("#html5Text");
+
+        /// <summary>
+        /// Double click label
+        /// </summary>
+        private static readonly By doubleClickLabel = By.CssSelector("LABEL[ondblclick='dblClicked()']");
+
+        /// <summary>
+        /// Double click paragraph
+        /// </summary>
+        private static readonly By doubleClickParagraph = By.CssSelector("#dblClicked");
 
         /// <summary>
         /// Date picker image
         /// </summary>
-        private static readonly By datePickerImage = By.CssSelector("#datepicker + img");
+        private static readonly By datePickerImage = By.CssSelector("#datepicker .glyphicon");
 
         /// <summary>
         /// Date picker calendar
         /// </summary>
-        private static readonly By datePickerCalendar = By.CssSelector("#ui-datepicker-div");
+        private static readonly By datePickerCalendar = By.CssSelector(".datepicker-daysv");
 
         /// <summary>
         /// Slider object
@@ -93,9 +103,9 @@ namespace SeleniumUnitTests
         public void HoverOverTest()
         {
             this.NavigateToUrl(siteUrl);
-            this.WebDriver.HoverOver(manageDropdown);
-            this.WebDriver.Wait().ForClickableElement(employeeButton).Click();
-            this.WebDriver.Wait().ForExactText(employeePageTitle, "Index");
+            this.WebDriver.HoverOver(automationDropdown);
+            this.WebDriver.Wait().ForClickableElement(iFrameButton).Click();
+            this.WebDriver.Wait().ForExactText(iFrameHeader, "iFrame Page");
         }
 
         /// <summary>
@@ -106,9 +116,9 @@ namespace SeleniumUnitTests
         public void HoverOverTestLazy()
         {
             this.NavigateToUrl(siteUrl);
-            new LazyElement(this.TestObject, manageDropdown).HoverOver();
-            this.WebDriver.Wait().ForClickableElement(employeeButton).Click();
-            this.WebDriver.Wait().ForExactText(employeePageTitle, "Index");
+            new LazyElement(this.TestObject, automationDropdown).HoverOver();
+            this.WebDriver.Wait().ForClickableElement(iFrameButton).Click();
+            this.WebDriver.Wait().ForExactText(iFrameHeader, "iFrame Page");
         }
 
         /// <summary>
@@ -120,16 +130,19 @@ namespace SeleniumUnitTests
         {
             this.NavigateToUrl(siteAutomationUrl);
 
-            var icon = new LazyElement(this.TestObject, datePickerImage);
-            var calendar = new LazyElement(this.TestObject, datePickerCalendar);
+            var label = new LazyElement(this.TestObject, doubleClickLabel);
+            var paragraph = new LazyElement(this.TestObject, doubleClickParagraph);
 
             // Make sure we can see the calendar if we need to take a screenshot
-            icon.ScrollIntoView(0, this.WebDriver.Manage().Window.Size.Height / 2);
+            label.ScrollIntoView(0, this.WebDriver.Manage().Window.Size.Height / 2);
+
+            // Make we start off without the element being double clicked
+            Assert.AreEqual("No", paragraph.Text, "Element acts like it was already double clicked");
 
             // Make sure another double click results in the calendar not being displayed
-            this.WebDriver.DoubleClick(datePickerImage);
+            this.WebDriver.DoubleClick(doubleClickLabel);
             this.WebDriver.Wait().ForPageLoad();
-            Assert.IsFalse(calendar.Displayed);
+            Assert.AreEqual("Yes", paragraph.Text);
         }
 
         /// <summary>
@@ -142,29 +155,19 @@ namespace SeleniumUnitTests
             this.NavigateToUrl(siteAutomationUrl);
 
             // Trigger a right click event
-            var icon = new LazyElement(this.TestObject, datePickerImage);
-            var calendar = new LazyElement(this.TestObject, datePickerCalendar);
+            var label = new LazyElement(this.TestObject, doubleClickLabel);
+            var paragraph = new LazyElement(this.TestObject, doubleClickParagraph);
 
             // Make sure we can see the calendar if we need to take a screenshot
-            icon.ScrollIntoView(0, this.WebDriver.Manage().Window.Size.Height / 2);
+            label.ScrollIntoView(0, this.WebDriver.Manage().Window.Size.Height / 2);
 
-            Assert.IsFalse(calendar.Displayed);
-
-            // Make sure single click displays the calendar
-            icon.Click();
-            this.WebDriver.Wait().ForPageLoad();
-            Assert.IsTrue(calendar.Displayed);
-
-            // Make sure another click makes the calendar go away
-            icon.Click();
-            this.WebDriver.Wait().ForPageLoad();
-            Assert.IsFalse(calendar.Displayed);
-
+            // Make we start off without the element being double clicked
+            Assert.AreEqual("No", paragraph.Text, "Element acts like it was already double clicked");
 
             // Make sure another double click results in the calendar not being displayed
-            icon.DoubleClick();
+            label.DoubleClick();
             this.WebDriver.Wait().ForPageLoad();
-            Assert.IsFalse(calendar.Displayed);
+            Assert.AreEqual("Yes", paragraph.Text);
         }
 
         /// <summary>
@@ -178,7 +181,7 @@ namespace SeleniumUnitTests
             this.WebDriver.PressModifierKey(Keys.End);
             this.WebDriver.Wait().ForVisibleElement(dialogButton2);
             this.WebDriver.PressModifierKey(Keys.Home);
-            Assert.AreEqual("Elements to be automated", this.WebDriver.Wait().ForVisibleElement(automationPageHeader).Text, "Elements are not the same");
+            Assert.AreEqual("HTML 5", this.WebDriver.Wait().ForVisibleElement(html5Title).Text, "HTML 5");
         }
 
         /// <summary>
@@ -267,6 +270,8 @@ namespace SeleniumUnitTests
             var draggable = new LazyElement(this.TestObject, By.Id("draggable"));
             var secondDrop = new LazyElement(this.TestObject, By.Id("droppable2"));
             var secondDroped = new LazyElement(secondDrop, By.Id("DROPPED"));
+
+            draggable.ScrollIntoView(0, this.WebDriver.Manage().Window.Size.Height / 2);
 
             // Make syure the drag and drop hasn't already happened 
             Assert.IsFalse(secondDroped.ExistsNow);

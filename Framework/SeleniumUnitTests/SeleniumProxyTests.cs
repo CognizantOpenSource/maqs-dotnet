@@ -75,10 +75,10 @@ namespace SeleniumUnitTests
             options.SetProxySettings(Config.GetValueForSection(ConfigSection.SeleniumMaqs, "ProxyAddress"));
             this.WebDriver = WebDriverFactory.GetChromeDriver(TimeSpan.FromMilliseconds(61000), (ChromeOptions)options);
 
-            string url = Path.Combine(SeleniumConfig.GetWebSiteBase().Replace("https://", "http://"), "Employees");
+            string url = Path.Combine(SeleniumConfig.GetWebSiteBase().Replace("https://", "http://"), "iFrame.html");
             this.WebDriver.Navigate().GoToUrl(url);
 
-            bool proxyUsed = RequestsHistory.Values.Any(r => r.RequestUri.ToString().Contains("magenicautomation.azurewebsites.net/Employees"));
+            bool proxyUsed = RequestsHistory.Values.Any(r => r.RequestUri.ToString().Contains("Static/Automation/iFrame.html"));
             Assert.IsTrue(proxyUsed, "Failed to assert the proxy was used by the web driver.");
         }
 
