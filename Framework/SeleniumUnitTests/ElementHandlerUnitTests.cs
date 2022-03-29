@@ -34,17 +34,12 @@ namespace SeleniumUnitTests
         /// <summary>
         /// Automation site url
         /// </summary>
-        private static readonly string siteAutomationUrl = siteUrl + "Automation/";
+        private static readonly string siteAutomationUrl = siteUrl + "index.html";
 
         /// <summary>
         /// Options for computer parts list
         /// </summary>
         private static readonly By computerPartsListOptions = By.CssSelector("#computerParts > option");
-
-        /// <summary>
-        /// Swagger link
-        /// </summary>
-        private static readonly By swaggerLinkBy = By.CssSelector("#SwaggerPageLink > a");
 
         /// <summary>
         /// First name textbox
@@ -72,14 +67,14 @@ namespace SeleniumUnitTests
         private static readonly By computerPartsList = By.CssSelector("#computerParts");
 
         /// <summary>
-        /// Employee link
+        /// Training 1 login link
         /// </summary>
-        private static readonly By employeeButton = By.CssSelector("#EmployeeButton > a");
+        private static readonly By trainingLink = By.CssSelector("A[href='../Training1/LoginPage.html']");
 
         /// <summary>
-        /// Employee page title
+        /// Traing login button
         /// </summary>
-        private static readonly By employeePageTitle = By.CssSelector("body > div.container.body-content > h2");
+        private static readonly By trainingLoginButton = By.CssSelector("BUTTON#Login");
 
         /// <summary>
         /// Show dialog button
@@ -209,10 +204,9 @@ namespace SeleniumUnitTests
         [TestCategory(TestCategories.Selenium)]
         public void GetElementAttributeTest()
         {
-            string expectedText = "https://magenicautomation.azurewebsites.net/Swagger";
             NavigateToUrl();
-            string actualText = WebDriver.GetElementAttribute(swaggerLinkBy, "href");
-            VerifyText(actualText, expectedText);
+            string actualText = WebDriver.GetElementAttribute(firstNameTextBox, "type");
+            VerifyText(actualText, "text");
         }
 
         /// <summary>
@@ -361,9 +355,9 @@ namespace SeleniumUnitTests
         public void ClickElementByJavascriptFromHoverDropdown()
         {
             NavigateToUrl();
-            WebDriver.ClickElementByJavaScript(employeeButton);
+            WebDriver.ClickElementByJavaScript(trainingLink);
             WebDriver.Wait().ForPageLoad();
-            WebDriver.Wait().ForExactText(employeePageTitle, "Index");
+            WebDriver.Wait().ForExactText(trainingLoginButton, "Login");
         }
 
         /// <summary>
@@ -374,10 +368,10 @@ namespace SeleniumUnitTests
         public void ClickElementByJavascriptFromHoverDropdownWithLazy()
         {
             NavigateToUrl();
-            LazyElement button = new LazyElement(this.TestObject, employeeButton);
+            LazyElement button = new LazyElement(this.TestObject, trainingLink);
             button.ClickElementByJavaScript();
             WebDriver.Wait().ForPageLoad();
-            WebDriver.Wait().ForExactText(employeePageTitle, "Index");
+            WebDriver.Wait().ForExactText(trainingLoginButton, "Login");
         }
 
         /// <summary>
