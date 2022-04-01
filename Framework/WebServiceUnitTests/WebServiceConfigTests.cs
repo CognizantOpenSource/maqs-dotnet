@@ -27,7 +27,7 @@ namespace WebServiceTesterUnitTesting
         public void GetWebServiceUrl()
         {
             string url = WebServiceConfig.GetWebServiceUri();
-            Assert.AreEqual("https://magenicautomation.azurewebsites.net", url);
+            Assert.AreEqual("http://localhost:5026", url);
         }
 
         /// <summary>

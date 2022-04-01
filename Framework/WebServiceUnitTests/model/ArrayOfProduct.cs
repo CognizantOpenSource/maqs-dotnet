@@ -22,8 +22,8 @@ namespace WebServiceTesterUnitTesting.Model
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://schemas.datacontract.org/2004/07/AutomationTestSite.Models")]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace="http://schemas.datacontract.org/2004/07/AutomationTestSite.Models", IsNullable=false)]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://schemas.datacontract.org/2004/07/MainTestService.Models")]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace="http://schemas.datacontract.org/2004/07/MainTestService.Models", IsNullable=false)]
     [ExcludeFromCodeCoverage]
     public partial class ArrayOfProduct : object, System.ComponentModel.INotifyPropertyChanged {
         
@@ -56,7 +56,7 @@ namespace WebServiceTesterUnitTesting.Model
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://schemas.datacontract.org/2004/07/AutomationTestSite.Models")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://schemas.datacontract.org/2004/07/MainTestService.Models")]
     public partial class ArrayOfProductProduct : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string categoryField;

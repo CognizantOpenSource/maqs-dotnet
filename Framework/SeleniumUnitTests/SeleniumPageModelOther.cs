@@ -40,7 +40,7 @@ namespace SeleniumUnitTests
         /// </summary>
         public static string Url
         {
-            get { return SeleniumConfig.GetWebSiteBase() + "Automation/AsyncPage"; }
+            get { return SeleniumConfig.GetWebSiteBase() + "async.html"; }
         }
 
         /// <summary>
@@ -48,7 +48,7 @@ namespace SeleniumUnitTests
         /// </summary>
         public LazyElement LoadedLazyElement
         {
-            get { return this.GetLazyElement(Body, By.CssSelector("#loading-div-text[style='display: block;']"), "Loaded label"); }
+            get { return this.GetLazyElement(Body, By.CssSelector("#loading-div-text[style='']"), "Loaded label"); }
         }
 
         /// <summary>

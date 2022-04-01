@@ -80,7 +80,7 @@ namespace WebServiceTesterUnitTesting
         public void WebServiceTimeout()
         {
             var httpClient = this.GetHttpClient();
-            httpClient.Timeout = TimeSpan.FromMilliseconds(1);
+            httpClient.Timeout = TimeSpan.FromTicks(1);
             this.WebServiceDriver = new WebServiceDriver(httpClient);
 
             this.WebServiceDriver.Get("/api/String/1", "text/plain");

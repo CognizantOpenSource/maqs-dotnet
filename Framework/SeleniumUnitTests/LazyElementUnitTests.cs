@@ -80,7 +80,23 @@ namespace SeleniumUnitTests
         /// </summary>
         private LazyElement SubmitButton
         {
-            get { return new LazyElement(this.TestObject, By.CssSelector("[class='btn btn-default'][type='submit']"), "Submit button"); }
+            get { return new LazyElement(this.TestObject, By.CssSelector("#submitButton"), "Submit button"); }
+        }
+
+        /// <summary>
+        /// Gets the submitable text box
+        /// </summary>
+        private LazyElement SubmitText
+        {
+            get { return new LazyElement(this.TestObject, By.CssSelector("#submitMe"), "Submit text box"); }
+        }
+
+        /// <summary>
+        /// Gets the submitted value
+        /// </summary>
+        private LazyElement SubmittedValue
+        {
+            get { return new LazyElement(this.TestObject, By.CssSelector("#submitVal"), "Submitted value"); }
         }
 
         /// <summary>
@@ -169,7 +185,7 @@ namespace SeleniumUnitTests
         [TestInitialize]
         public void NavigateToTestPage()
         {
-            this.WebDriver.Navigate().GoToUrl(SeleniumConfig.GetWebSiteBase() + "Automation");
+            this.WebDriver.Navigate().GoToUrl(SeleniumConfig.GetWebSiteBase());
             this.WebDriver.Wait().ForPageLoad();
         }
 
@@ -361,7 +377,7 @@ namespace SeleniumUnitTests
             footer.GetValue();
 
             // Go to another page so the old element will be stale, this will force us to get a new one
-            WebDriver.Navigate().GoToUrl(SeleniumConfig.GetWebSiteBase() + "Automation/AsyncPage");
+            WebDriver.Navigate().GoToUrl(SeleniumConfig.GetWebSiteBase() + "async.html");
 
             // Trigger a new find, this should be new because the cached element is stale
             footer.GetValue();
@@ -637,12 +653,14 @@ namespace SeleniumUnitTests
         [TestCategory(TestCategories.Selenium)]
         public void LazyElementSubmit()
         {
-            WebDriver.Navigate().GoToUrl(SeleniumConfig.GetWebSiteBase() + "Employees");
-            WebDriver.Wait().ForClickableElement(By.CssSelector("A[href^='/Employees/Edit/']")).Click();
-            WebDriver.Wait().ForPageLoad();
+            string newText = Guid.NewGuid().ToString();
+
+            SubmitText.SendKeys(newText);
+            Assert.AreNotEqual(newText, SubmittedValue.Text, "Should not be set yet");
 
             this.SubmitButton.Submit();
-            Assert.IsTrue(WebDriver.Wait().UntilAbsentElement(By.CssSelector("#[type='submit']")), "Submit did not go away");
+            this.WebDriver.Wait().ForPageLoad();
+            Assert.AreEqual(newText, SubmittedValue.Text);
         }
 
         /// <summary>
@@ -969,8 +987,8 @@ namespace SeleniumUnitTests
         [TestCategory(TestCategories.Selenium)]
         public void LazyElementExists()
         {
-            LazyElement slowLoad = new LazyElement(this.TestObject, By.CssSelector("#AsyncContent[style*='block']"));
-            WebDriver.Navigate().GoToUrl(SeleniumConfig.GetWebSiteBase() + "Automation/AsyncPage");
+            LazyElement slowLoad = new LazyElement(this.TestObject, By.CssSelector("#AsyncContent[style='']"));
+            WebDriver.Navigate().GoToUrl(SeleniumConfig.GetWebSiteBase() + "async.html");
 
             Assert.IsTrue(slowLoad.Exists, "Element should exist");
         }
@@ -982,7 +1000,7 @@ namespace SeleniumUnitTests
         [TestCategory(TestCategories.Selenium)]
         public void LazyElementDoesntExist()
         {
-            this.WebDriver.SetWaitDriver(new WebDriverWait(this.WebDriver, TimeSpan.FromSeconds(2)));
+            this.WebDriver.SetWaitDriver(new WebDriverWait(this.WebDriver, TimeSpan.FromSeconds(5)));
 
             DateTime start = DateTime.Now;
 
@@ -991,7 +1009,7 @@ namespace SeleniumUnitTests
 
             // Make sure the override wait time is respected
             TimeSpan duration = DateTime.Now - start;
-            Assert.IsTrue(duration < TimeSpan.FromSeconds(4), "The max wait time should be less than 4 seconds but was " + duration.TotalSeconds);
+            Assert.IsTrue(duration < TimeSpan.FromSeconds(9), "The max wait time should be less than 9 seconds but was " + duration.TotalSeconds);
         }
 
         /// <summary>
@@ -1001,7 +1019,7 @@ namespace SeleniumUnitTests
         [TestCategory(TestCategories.Selenium)]
         public void LazyChildElementDoesntExist()
         {
-            this.WebDriver.SetWaitDriver(new WebDriverWait(this.WebDriver, TimeSpan.FromSeconds(2)));
+            this.WebDriver.SetWaitDriver(new WebDriverWait(this.WebDriver, TimeSpan.FromSeconds(5)));
 
             DateTime start = DateTime.Now;
 
@@ -1010,7 +1028,7 @@ namespace SeleniumUnitTests
 
             // Make sure the override wait time is respected
             TimeSpan duration = DateTime.Now - start;
-            Assert.IsTrue(duration < TimeSpan.FromSeconds(4), "The max wait time should be less than 4 seconds but was " + duration.TotalSeconds);
+            Assert.IsTrue(duration < TimeSpan.FromSeconds(9), "The max wait time should be less than 9 seconds but was " + duration.TotalSeconds);
         }
 
         /// <summary>
@@ -1021,7 +1039,7 @@ namespace SeleniumUnitTests
         public void LazyElementExistsNow()
         {
             LazyElement slowLoad = new LazyElement(this.TestObject, By.CssSelector("#AsyncContent[style*='block']"));
-            WebDriver.Navigate().GoToUrl(SeleniumConfig.GetWebSiteBase() + "Automation/AsyncPage");
+            WebDriver.Navigate().GoToUrl(SeleniumConfig.GetWebSiteBase() + "async.html");
 
             Assert.IsFalse(slowLoad.ExistsNow, "Element should not exist yet");
         }
@@ -1099,9 +1117,9 @@ namespace SeleniumUnitTests
             IWebElement secondTable = lazyRoot.FindElements(By.CssSelector("TABLE"))[1];
             IWebElement lastTableHeader = ((LazyElement)secondTable).FindElements(By.CssSelector("THEAD TH"))[4];
 
-            this.WebDriver.Navigate().GoToUrl(SeleniumConfig.GetWebSiteBase());
             this.WebDriver.Navigate().GoToUrl(SeleniumConfig.GetWebSiteBase() + "Automation");
-
+            this.WebDriver.Navigate().GoToUrl(SeleniumConfig.GetWebSiteBase());
+            
             Assert.AreEqual("Color", lastTableHeader.Text);
         }
 
@@ -1129,9 +1147,9 @@ namespace SeleniumUnitTests
         public void LazyElementFindElementsRespectAction()
         {
             IWebElement firstElement = this.DivRoot.FindElements(this.DisabledItem.By)[0];
-
-            this.WebDriver.Navigate().GoToUrl(SeleniumConfig.GetWebSiteBase());
+            
             this.WebDriver.Navigate().GoToUrl(SeleniumConfig.GetWebSiteBase() + "Automation");
+            this.WebDriver.Navigate().GoToUrl(SeleniumConfig.GetWebSiteBase());
 
             this.WebDriver.SetWaitDriver(new OpenQA.Selenium.Support.UI.WebDriverWait(this.WebDriver, TimeSpan.FromSeconds(1)));
             firstElement.Click();
@@ -1215,8 +1233,8 @@ namespace SeleniumUnitTests
         /// <param name="driver">Current test web driver</param>
         private static void LeaveAndReturnToPage(IWebDriver driver)
         {
-            driver.Navigate().GoToUrl(SeleniumConfig.GetWebSiteBase());
             driver.Navigate().GoToUrl(SeleniumConfig.GetWebSiteBase() + "Automation");
+            driver.Navigate().GoToUrl(SeleniumConfig.GetWebSiteBase());
             driver.Wait().ForPageLoad();
         }
     }
