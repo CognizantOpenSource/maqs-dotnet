@@ -42,11 +42,11 @@ namespace AppiumUnitTests
         {
             BaseTest tester = this.GetBaseTest();
             tester.TestContext = this.TestContext;
-            tester.Setup();
+            tester.MaqsSetup();
             tester.Log = new ConsoleLogger();
 
             tester.SoftAssert.Assert(() => Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual("d", string.Empty));
-            tester.Teardown();
+            tester.MaqsTeardown();
         }
 
         /// <summary>

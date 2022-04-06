@@ -235,7 +235,7 @@ namespace CognizantSoftvision.Maqs.BaseTest
         /// </summary>
         [TestInitialize]
         [SetUp]
-        public void Setup()
+        public void MaqsSetup()
         {
             // Only create a test object if one doesn't exist
             if (!this.BaseTestObjects.ContainsKey(this.GetFullyQualifiedTestClassName()))
@@ -255,14 +255,14 @@ namespace CognizantSoftvision.Maqs.BaseTest
         /// </summary>
         [TestCleanup]
         [TearDown]
-        public void Teardown()
+        public void MaqsTeardown()
         {
-            // Get the Fully Qualified Test Name
             string fullyQualifiedTestName = this.GetFullyQualifiedTestClassName();
+            TestResultType resultType = TestResultType.OTHER;
 
             try
             {
-                TestResultType resultType = this.GetResultType();
+                resultType = this.GetResultType();
                 bool forceTestFailure = false;
 
                 // Switch the test to a failure if we have a soft assert failure
@@ -297,20 +297,6 @@ namespace CognizantSoftvision.Maqs.BaseTest
                 this.LogVerbose("Test outcome");
                 this.BeforeCleanup(resultType);
 
-                // Cleanup log files we don't want
-                try
-                {
-                    if (this.Log is IFileLogger logger && resultType == TestResultType.PASS
-                        && this.LoggingEnabledSetting == LoggingEnabled.ONFAIL)
-                    {
-                        File.Delete(logger.FilePath);
-                    }
-                }
-                catch (Exception e)
-                {
-                    this.TryToLog(MessageType.WARNING, "Failed to cleanup log files because: {0}", e.Message);
-                }
-
                 IPerfTimerCollection collection = this.TestObject.PerfTimerCollection;
                 this.PerfTimerCollection = collection;
 
@@ -334,13 +320,28 @@ namespace CognizantSoftvision.Maqs.BaseTest
                 }
             }
             finally
-            {
-                // Release log
-                this.Log?.Dispose();
-
+            {               
                 // Release the base test object
                 this.BaseTestObjects.TryRemove(fullyQualifiedTestName, out ITestObject baseTestObject);
                 baseTestObject.Dispose();
+
+                // Delete or dispose the logger
+                try
+                {
+                    if (baseTestObject.Log is IFileLogger logger && resultType == TestResultType.PASS
+                        && this.LoggingEnabledSetting == LoggingEnabled.ONFAIL)
+                    {
+                        File.Delete(logger.FilePath);
+                    }
+                    else
+                    {
+                        baseTestObject.Log.Dispose();
+                    }
+                }
+                catch (Exception e)
+                {
+                    this.TryToLog(MessageType.WARNING, "Failed to cleanup log files because: {0}", e.Message);
+                }
             }
         }
 

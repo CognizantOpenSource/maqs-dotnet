@@ -135,6 +135,18 @@ namespace CognizantSoftvision.Maqs.Utilities.Logging
         }
 
         /// <summary>
+        /// Dispose the class
+        /// </summary>
+        /// <param name="disposing">True if you want to release managed resources</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && File.Exists(this.FilePath))
+            {
+                this.LogMessage(MessageType.VERBOSE, "Disposing logger");
+            }
+        }
+
+        /// <summary>
         /// Take a name sting and make it a valid file name
         /// </summary>
         /// <param name="name">The string to cleanup</param>

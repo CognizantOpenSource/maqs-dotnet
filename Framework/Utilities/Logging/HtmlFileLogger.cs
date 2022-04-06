@@ -62,10 +62,10 @@ namespace CognizantSoftvision.Maqs.Utilities.Logging
             : base(logFolder, name, messageLevel, append)
         {
             StreamWriter writer = new StreamWriter(this.FilePath, true);
-            writer.Write(String.Format(DEFUALTCDNTAGS, Path.GetFileNameWithoutExtension(this.FilePath)));
-            writer.Write(SCRIPTANDCSSTAGS);
-            writer.Write(FILTERDROPDOWN);
-            writer.Write(CARDSTART);
+            writer.Write($"{Environment.NewLine}{String.Format(DEFUALTCDNTAGS, Path.GetFileNameWithoutExtension(this.FilePath))}");
+            writer.Write($"{Environment.NewLine}{SCRIPTANDCSSTAGS}");
+            writer.Write($"{Environment.NewLine}{FILTERDROPDOWN}");
+            writer.Write($"{Environment.NewLine}{CARDSTART}");
             writer.Flush();
             writer.Close();
         }
@@ -90,7 +90,6 @@ namespace CognizantSoftvision.Maqs.Utilities.Logging
             if (this.ShouldMessageBeLogged(messageType))
             {
                 InsertHtml($"<div class='collapse col-12 show' data-logtype='{messageType}'><div class='card'><div class='card-body {GetTextWithColorFlag(messageType)}'><h5 class='card-title mb-1'>{messageType}</h5><h6 class='card-subtitle mb-1'>{CurrentDateTime()}</h6><p class='card-text'>{HttpUtility.HtmlEncode(StringProcessor.SafeFormatter(message, args))}</p></div></div></div>");
-
             }
         }
 
@@ -107,7 +106,7 @@ namespace CognizantSoftvision.Maqs.Utilities.Logging
                 {
                     using (StreamWriter writer = new StreamWriter(this.FilePath, true))
                     {
-                        writer.Write(html);
+                        writer.Write($"{Environment.NewLine}{html}");
                     }
                 }
                 catch (Exception e)
@@ -134,17 +133,17 @@ namespace CognizantSoftvision.Maqs.Utilities.Logging
         /// <param name="disposing">True if you want to release managed resources</param>
         protected override void Dispose(bool disposing)
         {
+            base.Dispose(disposing);
+            
             if (disposing && File.Exists(this.FilePath))
             {
                 var writer = new StreamWriter(this.FilePath, true);
 
-                writer.Write(MODALDIV);
-                writer.Write("</div></body></html>");
+                writer.Write($"{Environment.NewLine}{MODALDIV}");
+                writer.Write($"{Environment.NewLine}</div></body></html>");
                 writer.Flush();
                 writer.Close();
             }
-
-            base.Dispose(disposing);
         }
 
         /// <summary>
