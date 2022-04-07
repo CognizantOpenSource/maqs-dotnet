@@ -246,7 +246,7 @@ namespace CognizantSoftvision.Maqs.Utilities.Helper
         {
             lock (ConfigLock)
             {
-                var configSection = compositeConfig.GetSection(section);
+                var configSection = overrideConfig.GetSection(section);
 
                 // Loop over all the configuration overrides
                 foreach (KeyValuePair<string, string> configuration in configurations)
