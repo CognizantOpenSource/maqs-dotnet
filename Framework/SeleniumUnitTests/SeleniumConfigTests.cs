@@ -101,6 +101,7 @@ namespace SeleniumUnitTests
             }
             finally
             {
+                Config.ClearOverrides();
                 driverManualSize?.KillDriver();
             }
         }
