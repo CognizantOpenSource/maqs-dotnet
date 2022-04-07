@@ -17,6 +17,9 @@ using System.Threading;
 
 namespace CognizantSoftvision.Maqs.BasePlaywrightTest
 {
+    /// <summary>
+    /// Factory for creating page drivers
+    /// </summary>
     public static class PageDriverFactory
     {
         /// <summary>
@@ -36,9 +39,6 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
         public static IBrowser GetBrowserWithDefaults(PlaywrightBrowser browser)
         {
             var playwright = Playwright.CreateAsync().Result;
-
-            // TODO
-            ///string size = PlaywrightConfig.GetBrowserSize();
 
             IBrowser? asyncBrowser = browser switch
             {
@@ -83,7 +83,6 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
                 return GetNewPageDriverFromBrowserContext(browser.Contexts[0]);
             }
 
-            // TODO: make better choices
             if (LoggingConfig.GetLoggingEnabledSetting() != LoggingEnabled.NO)
             {
                 if (PlaywrightConfig.GetCaptureVideo())

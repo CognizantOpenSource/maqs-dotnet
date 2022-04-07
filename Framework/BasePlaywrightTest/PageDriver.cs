@@ -1,4 +1,6 @@
-﻿using Microsoft.Playwright;
+﻿using CognizantSoftvision.Maqs.Utilities.Helper;
+using CognizantSoftvision.Maqs.Utilities.Logging;
+using Microsoft.Playwright;
 using System;
 using System.Collections.Generic;
 using System.Text.Json;
@@ -6,9 +8,15 @@ using System.Text.RegularExpressions;
 
 namespace CognizantSoftvision.Maqs.BasePlaywrightTest
 {
+    /// <summary>
+    /// Playwright page driver
+    /// </summary>
     public class PageDriver : IDisposable
     {
-
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PageDriver"/> class
+        /// </summary>
+        /// <param name="page">Base page object</param>
         public PageDriver(IPage page)
         {
             this.AsyncPage = page;
@@ -223,6 +231,52 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
             return this.AsyncPage.IsVisibleAsync(selector, options).Result;
         }
 
+        /// <summary>
+        /// Check that the element is eventually visible
+        /// </summary>
+        /// <param name="selector">Element selector</param>
+        /// <param name="options">Visible check options</param>
+        /// <returns>True if the element becomes visible within the page timeout</returns>
+        public bool IsEventualyVisible(string selector, PageIsVisibleOptions? options = null)
+        {
+            try
+            {
+                _ = this.AsyncPage.WaitForSelectorAsync(selector, new PageWaitForSelectorOptions
+                {
+                    State = WaitForSelectorState.Visible,
+                    Strict = options == null ?  false : options.Strict
+                }).Result;
+                return true;
+            }
+            catch
+            {
+                return false;
+            }    
+        }
+
+        /// <summary>
+        /// Check that the element stops being visible
+        /// </summary>
+        /// <param name="selector">Element selector</param>
+        /// <param name="options">Visible check options</param>
+        /// <returns>True if the element becomes is hidden or gone within the page timeout</returns>
+        public bool IsEventualyGone(string selector, PageIsVisibleOptions? options = null)
+        {
+            try
+            {
+                _ = this.AsyncPage.WaitForSelectorAsync(selector, new PageWaitForSelectorOptions
+                {
+                    State = WaitForSelectorState.Hidden,
+                    Strict = options == null ? false : options.Strict
+                }).Result;
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         /// <inheritdoc cref = "IPage.QuerySelectorAsync"  />
         public IElementHandle? QuerySelector(string selector, PageQuerySelectorOptions? options = null)
         {
@@ -290,19 +344,19 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
         }
 
         /// <inheritdoc cref = "IPage.EvalOnSelectorAllAsync"  />
-        public JsonElement? EvalOnSelectorAll(string selector, string expression, object arg = null)
+        public JsonElement? EvalOnSelectorAll(string selector, string expression, object? arg = null)
         {
             return this.AsyncPage.EvalOnSelectorAllAsync(selector, expression, arg).Result;
         }
 
         /// <inheritdoc cref = "IPage.EvalOnSelectorAsync"  />
-        public JsonElement? EvalOnSelector(string selector, string expression, object arg = null)
+        public JsonElement? EvalOnSelector(string selector, string expression, object? arg = null)
         {
             return this.AsyncPage.EvalOnSelectorAsync(selector, expression, arg).Result;
         }
 
         /// <inheritdoc cref = "IPage.EvaluateAsync"  />
-        public JsonElement? Evaluate(string expression, object arg = null)
+        public JsonElement? Evaluate(string expression, object? arg = null)
         {
             return this.AsyncPage.EvaluateAsync(expression, arg).Result;
         }

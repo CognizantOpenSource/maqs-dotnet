@@ -63,7 +63,7 @@ namespace PlaywrightTests
         /// <returns>True if the page was loaded</returns>
         public override bool IsPageLoaded()
         {
-            return LoadedPlaywrightElement.IsVisible();
+            return LoadedPlaywrightElement.IsEventualyVisible();
         }
     }
 }

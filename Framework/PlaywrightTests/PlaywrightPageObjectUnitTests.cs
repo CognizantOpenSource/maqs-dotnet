@@ -107,8 +107,7 @@ namespace PlaywrightTests
 
             // Make sure the page are properly loading using the different web drivers
             Assert.IsTrue(model1.FlowerTablePlaywrightElement.IsVisible(), "Model one may not be on the right page");
-            model2.LoadedPlaywrightElement.Focus();
-            Assert.IsTrue(model2.LoadedPlaywrightElement.IsVisible(), "Model two may not be on the right page");
+            Assert.IsTrue(model2.LoadedPlaywrightElement.IsEventualyVisible(), "Model two may not be on the right page");
 
             // Swap the drivers
             model1.OverridePageDriver(otherDriver);
@@ -124,8 +123,7 @@ namespace PlaywrightTests
 
             // Make sure the page are properly loading using the different web drivers
             Assert.IsTrue(model1.FlowerTablePlaywrightElement.IsVisible(), "Model one may not be on the right page");
-            model2.LoadedPlaywrightElement.Focus();
-            Assert.IsTrue(model2.LoadedPlaywrightElement.IsVisible(), "Model two may not be on the right page");
+            Assert.IsTrue(model2.LoadedPlaywrightElement.IsEventualyVisible(), "Model two may not be on the right page");
         }
 
         /// <summary>

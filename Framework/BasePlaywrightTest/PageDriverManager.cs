@@ -70,23 +70,25 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
         /// <returns>The page</returns>
         public PageDriver GetPageDriver()
         {
-            PageDriver tempDriver;
+            PageDriver? tempDriver;
 
             if (!this.IsDriverIntialized() && LoggingConfig.GetLoggingEnabledSetting() != LoggingEnabled.NO)
             {
                 tempDriver = GetDriver() as PageDriver;
-                // TODO: Maybe add event logging
-                //////////tempDriver = tempDriver.GetLowLevelDriver();
-                //////////tempDriver = new EventFiringPageDriver(tempDriver);
-                //////////this.MapEvents(tempDriver as EventFiringPageDriver);
-
                 this.BaseDriver = tempDriver;
 
                 // Log the setup
                 this.LoggingStartup(tempDriver);
             }
 
-            return GetBase() as PageDriver;
+            tempDriver = GetBase() as PageDriver;
+
+            if(tempDriver == null)
+            {
+                throw new NullReferenceException("Base driver is null");
+            }
+
+            return tempDriver;
         }
 
         /// <summary>
@@ -154,11 +156,11 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
         /// Log that the page setup
         /// </summary>
         /// <param name="pageDriver">The page</param>
-        private void LoggingStartup(PageDriver pageDriver)
+        private void LoggingStartup(PageDriver? pageDriver)
         {
             try
             {
-                Log.LogMessage(MessageType.INFORMATION, $"Driver: {pageDriver.ParentBrower}");
+                Log.LogMessage(MessageType.INFORMATION, $"Driver: {pageDriver?.ParentBrower}");
             }
             catch (Exception e)
             {
@@ -166,193 +168,5 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
                 Console.WriteLine($"Failed to start driver because: {e.Message}");
             }
         }
-
-        //// TODO
-        ///////// <summary>
-        ///////// Map Playwright events to log events
-        ///////// </summary>
-        ///////// <param name="eventFiringDriver">The event firing page that we want mapped</param>
-        //////private void MapEvents(EventFiringPageDriver eventFiringDriver)
-        //////{
-        //////    LoggingEnabled enbled = LoggingConfig.GetLoggingEnabledSetting();
-
-        //////    if (enbled == LoggingEnabled.YES || enbled == LoggingEnabled.ONFAIL)
-        //////    {
-        //////        eventFiringDriver.ElementClicked += this.PageDriver_ElementClicked;
-        //////        eventFiringDriver.ElementClicking += this.PageDriver_ElementClicking;
-        //////        eventFiringDriver.ElementValueChanged += this.PageDriver_ElementValueChanged;
-        //////        eventFiringDriver.ElementValueChanging += this.PageDriver_ElementValueChanging;
-        //////        eventFiringDriver.FindElementCompleted += this.PageDriver_FindElementCompleted;
-        //////        eventFiringDriver.FindingElement += this.PageDriver_FindingElement;
-        //////        eventFiringDriver.ScriptExecuted += this.PageDriver_ScriptExecuted;
-        //////        eventFiringDriver.ScriptExecuting += this.PageDriver_ScriptExecuting;
-        //////        eventFiringDriver.Navigated += this.PageDriver_Navigated;
-        //////        eventFiringDriver.Navigating += this.PageDriver_Navigating;
-        //////        eventFiringDriver.NavigatedBack += this.PageDriver_NavigatedBack;
-        //////        eventFiringDriver.NavigatedForward += this.PageDriver_NavigatedForward;
-        //////        eventFiringDriver.NavigatingBack += this.PageDriver_NavigatingBack;
-        //////        eventFiringDriver.NavigatingForward += this.PageDriver_NavigatingForward;
-        //////        eventFiringDriver.ExceptionThrown += this.PageDriver_ExceptionThrown;
-        //////    }
-        //////}
-
-        ///////// <summary>
-        ///////// Event for PageDriver that is navigating forward
-        ///////// </summary>
-        ///////// <param name="sender">Sender object</param>
-        ///////// <param name="e">Event object</param>
-        //////private void PageDriver_NavigatingForward(object sender, PageDriverNavigationEventArgs e)
-        //////{
-        //////    this.LogVerbose($"Navigating to: {e.Url}");
-        //////}
-
-        ///////// <summary>
-        ///////// Event for PageDriver that is navigating back
-        ///////// </summary>
-        ///////// <param name="sender">Sender object</param>
-        ///////// <param name="e">Event object</param>
-        //////private void PageDriver_NavigatingBack(object sender, PageDriverNavigationEventArgs e)
-        //////{
-        //////    this.LogVerbose($"Navigating back to: {e.Url}");
-        //////}
-
-        ///////// <summary>
-        ///////// Event for PageDriver that has navigated forward
-        ///////// </summary>
-        ///////// <param name="sender">Sender object</param>
-        ///////// <param name="e">Event object</param>
-        //////private void PageDriver_NavigatedForward(object sender, PageDriverNavigationEventArgs e)
-        //////{
-        //////    Log.LogMessage(MessageType.ACTION, $"Navigate Forward: {e.Url}");
-        //////}
-
-        ///////// <summary>
-        ///////// Event for PageDriver that is navigated back
-        ///////// </summary>
-        ///////// <param name="sender">Sender object</param>
-        ///////// <param name="e">Event object</param>
-        //////private void PageDriver_NavigatedBack(object sender, PageDriverNavigationEventArgs e)
-        //////{
-        //////    Log.LogMessage(MessageType.ACTION, $"Navigate back: {e.Url}");
-        //////}
-
-        ///////// <summary>
-        ///////// Event for PageDriver that is navigating
-        ///////// </summary>
-        ///////// <param name="sender">Sender object</param>
-        ///////// <param name="e">Event object</param>
-        //////private void PageDriver_Navigating(object sender, PageDriverNavigationEventArgs e)
-        //////{
-        //////    this.LogVerbose($"Navigating to: {e.Url}");
-        //////}
-
-        ///////// <summary>
-        ///////// Event for PageDriver that is script executing
-        ///////// </summary>
-        ///////// <param name="sender">Sender object</param>
-        ///////// <param name="e">Event object</param>
-        //////private void PageDriver_ScriptExecuting(object sender, PageDriverScriptEventArgs e)
-        //////{
-        //////    this.LogVerbose($"Script executing: {e.Script}");
-        //////}
-
-        ///////// <summary>
-        ///////// Event for PageDriver that is finding an element
-        ///////// </summary>
-        ///////// <param name="sender">Sender object</param>
-        ///////// <param name="e">Event object</param>
-        //////private void PageDriver_FindingElement(object sender, FindElementEventArgs e)
-        //////{
-        //////    this.LogVerbose($"Finding element: {e.FindMethod}");
-        //////}
-
-        ///////// <summary>
-        ///////// Event for PageDriver that is changing an element value
-        ///////// </summary>
-        ///////// <param name="sender">Sender object</param>
-        ///////// <param name="e">Event object</param>
-        //////private void PageDriver_ElementValueChanging(object sender, WebElementEventArgs e)
-        //////{
-        //////    this.LogVerbose($"Value of element changing: {e.Element}");
-        //////}
-
-        ///////// <summary>
-        ///////// Event for PageDriver that is clicking an element
-        ///////// </summary>
-        ///////// <param name="sender">Sender object</param>
-        ///////// <param name="e">Event object</param>
-        //////private void PageDriver_ElementClicking(object sender, WebElementEventArgs e)
-        //////{
-        //////    Log.LogMessage(MessageType.INFORMATION, $"Element clicking: {e.Element} Text:{e.Element.Text} Location: X:{e.Element.Location.X} Y:{e.Element.Location.Y}");
-        //////}
-
-        ///////// <summary>
-        ///////// Event for PageDriver when an exception is thrown
-        ///////// </summary>
-        ///////// <param name="sender">Sender object</param>
-        ///////// <param name="e">Event object</param>
-        //////private void PageDriver_ExceptionThrown(object sender, PageDriverExceptionEventArgs e)
-        //////{
-        //////    // First chance handler catches these when it is a real error - These are typically retry loops
-        //////    Log.LogMessage(MessageType.VERBOSE, $"Exception thrown: {e.ThrownException}");
-        //////}
-
-        ///////// <summary>
-        ///////// Event for PageDriver that has navigated
-        ///////// </summary>
-        ///////// <param name="sender">Sender object</param>
-        ///////// <param name="e">Event object</param>
-        //////private void PageDriver_Navigated(object sender, PageDriverNavigationEventArgs e)
-        //////{
-        //////    Log.LogMessage(MessageType.INFORMATION, $"Navigated to: {e.Url}");
-        //////}
-
-        ///////// <summary>
-        ///////// Event for PageDriver has executed a script
-        ///////// </summary>
-        ///////// <param name="sender">Sender object</param>
-        ///////// <param name="e">Event object</param>
-        //////private void PageDriver_ScriptExecuted(object sender, PageDriverScriptEventArgs e)
-        //////{
-        //////    Log.LogMessage(MessageType.INFORMATION, $"Script executed: {e.Script}");
-        //////}
-
-        ///////// <summary>
-        ///////// Event for PageDriver that is finished finding an element
-        ///////// </summary>
-        ///////// <param name="sender">Sender object</param>
-        ///////// <param name="e">Event object</param>
-        //////private void PageDriver_FindElementCompleted(object sender, FindElementEventArgs e)
-        //////{
-        //////    Log.LogMessage(MessageType.INFORMATION, $"Found element: {e.FindMethod}");
-        //////}
-
-        ///////// <summary>
-        ///////// Event for PageDriver that has changed an element value
-        ///////// </summary>
-        ///////// <param name="sender">Sender object</param>
-        ///////// <param name="e">Event object</param>
-        //////private void PageDriver_ElementValueChanged(object sender, WebElementEventArgs e)
-        //////{
-        //////    string element = e.Element.GetAttribute("value");
-        //////    Log.LogMessage(MessageType.INFORMATION, $"Element value changed: {element}");
-        //////}
-
-        ///////// <summary>
-        ///////// Event for PageDriver that has clicked an element
-        ///////// </summary>
-        ///////// <param name="sender">Sender object</param>
-        ///////// <param name="e">Event object</param>
-        //////private void PageDriver_ElementClicked(object sender, WebElementEventArgs e)
-        //////{
-        //////    try
-        //////    {
-        //////        this.LogVerbose($"Element clicked: {e.Element} Text:{e.Element.Text} Location: X:{e.Element.Location.X} Y:{e.Element.Location.Y}");
-        //////    }
-        //////    catch
-        //////    {
-        //////        this.LogVerbose("Element clicked");
-        //////    }
-        //////}
     }
 }

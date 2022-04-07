@@ -25,7 +25,7 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
         public PlaywrightTestObject(PageDriver PageDriver, ILogger logger, string fullyQualifiedTestName) : base(logger, fullyQualifiedTestName)
         {
             this.ManagerStore.Add(typeof(PlaywrightDriverManager).FullName, new PlaywrightDriverManager(() => PageDriver, this));
-            this.SoftAssert = new PlaywrightSoftAssert(this);
+            this.SoftAssert = new SoftAssert(this.Log);
         }
 
         /// <summary>
@@ -37,7 +37,7 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
         public PlaywrightTestObject(Func<PageDriver> getDriver, ILogger logger, string fullyQualifiedTestName) : base(logger, fullyQualifiedTestName)
         {
             this.ManagerStore.Add(typeof(PlaywrightDriverManager).FullName, new PlaywrightDriverManager(getDriver, this));
-            this.SoftAssert = new PlaywrightSoftAssert(this);
+            this.SoftAssert = new SoftAssert(this.Log);
         }
 
         /// <summary>

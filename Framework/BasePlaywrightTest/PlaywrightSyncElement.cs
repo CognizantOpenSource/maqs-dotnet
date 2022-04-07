@@ -237,6 +237,46 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
             return ElementLocator().IsVisibleAsync(options).Result;
         }
 
+        /// <summary>
+        /// Check that the element is eventually visible
+        /// </summary>
+        /// <returns>True if the element becomes visible within the page timeout</returns>
+        public bool IsEventualyVisible()
+        {
+            try
+            {
+                this.ElementLocator().WaitForAsync(new LocatorWaitForOptions
+                {
+                    State = WaitForSelectorState.Visible,
+                }).Wait();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Check that the element stops being visible
+        /// </summary>
+        /// <returns>True if the element becomes is hidden or gone within the page timeout</returns>
+        public bool IsEventualyGone()
+        {
+            try
+            {
+                this.ElementLocator().WaitForAsync(new LocatorWaitForOptions
+                {
+                    State = WaitForSelectorState.Hidden,
+                }).Wait();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         /// <inheritdoc cref = "ILocator.SelectOptionAsync(IElementHandle, LocatorSelectOptionOptions)"  />
         public IReadOnlyList<string> SelectOption(IElementHandle values, LocatorSelectOptionOptions? options = null)
         {

@@ -74,7 +74,7 @@ namespace FrameworkUnitTests
             this.TestObject.AddAssociatedFile(@"TeardownTest/FakeFileToAttach2.txt");
 
             // call the teardown to add associated files
-            this.Teardown();
+            this.MaqsTeardown();
 
             // test that no associated files are written to the log
             using (StreamReader sr = File.OpenText(logFilePath))
@@ -105,7 +105,7 @@ namespace FrameworkUnitTests
 
             string perfTimerLogPath = Path.Combine(LoggingConfig.GetLogDirectory(), this.PerfTimerCollection.FileName);
 
-            this.Teardown();
+            this.MaqsTeardown();
 
             // test that performance timer file path is written to the log
             using (StreamReader sr = File.OpenText(logFilePath))

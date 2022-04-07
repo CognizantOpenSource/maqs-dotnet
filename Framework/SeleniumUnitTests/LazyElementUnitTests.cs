@@ -805,7 +805,9 @@ namespace SeleniumUnitTests
         [TestCategory(TestCategories.Selenium)]
         public void LazyElementProperty()
         {
+#pragma warning disable CS0618 // Type or member is obsolete
             Assert.AreEqual("showDialog1", this.DialogOneButton.GetProperty("id"), "Expected ID to be 'showDialog1'");
+#pragma warning restore CS0618 // Type or member is obsolete
         }
 
         /// <summary>

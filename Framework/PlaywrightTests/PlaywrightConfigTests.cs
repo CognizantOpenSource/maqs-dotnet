@@ -32,33 +32,13 @@ namespace PlaywrightTests
         }
 
         /// <summary>
-        /// Clear all configuration overrides
-        /// </summary>
-        [TestCleanup]
-        public void Teardown()
-        {
-            Config.ClearOverrides();
-        }
-
-        /// <summary>
         /// Get expected WebBase configuration
         /// </summary>
         [TestMethod]
-        public void GetWebBase()
+        public void GetBrowser()
         {
-            Assert.AreEqual("https://cognizantopensource.github.io/maqs-dotnet-templates/Static/Automation/", PlaywrightConfig.GetWebBase());
+            Assert.AreEqual("Chrome", PlaywrightConfig.GetBrowserName());
         }
-
-        ///  TODO Fix config issue
-        ///// <summary>
-        ///// Get expected WebBase configuration
-        ///// </summary>
-        //[TestMethod]
-        //public void GetBrowser()
-        //{
-        //    Config.ClearOverrides();
-        //    Assert.AreEqual("Chrome", PlaywrightConfig.GetBrowserName());
-        //}
 
         [DataTestMethod]
         [DataRow("Chrome")]

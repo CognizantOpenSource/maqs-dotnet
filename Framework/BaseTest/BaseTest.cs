@@ -278,7 +278,7 @@ namespace CognizantSoftvision.Maqs.BaseTest
                 if (resultType == TestResultType.PASS)
                 {
                     this.TryToLog(MessageType.SUCCESS, "Test passed");
-                    this.WriteAssociatedFilesNamesToLog();
+                    this.WriteAssociatedFilesNamesToLog(this.TestObject);
                 }
                 else if (resultType == TestResultType.FAIL)
                 {
@@ -307,9 +307,6 @@ namespace CognizantSoftvision.Maqs.BaseTest
                     this.TestObject.AddAssociatedFile(LoggingConfig.GetLogDirectory() + "\\" + collection.FileName);
                 }
 
-                // Attach associated files if we can
-                this.AttachAssociatedFiles();
-
                 // Release the logged messages
                 this.LoggedExceptions.TryRemove(fullyQualifiedTestName, out List<string> loggedMessages);
 
@@ -329,14 +326,18 @@ namespace CognizantSoftvision.Maqs.BaseTest
                 try
                 {
                     if (baseTestObject.Log is IFileLogger logger && resultType == TestResultType.PASS
-                        && this.LoggingEnabledSetting == LoggingEnabled.ONFAIL)
+                        && this.LoggingEnabledSetting == LoggingEnabled.ONFAIL && File.Exists(logger.FilePath))
                     {
+                        baseTestObject.RemoveAssociatedFile(logger.FilePath);
                         File.Delete(logger.FilePath);
                     }
                     else
                     {
                         baseTestObject.Log.Dispose();
                     }
+
+                    // Attach associated files if we can
+                    this.AttachAssociatedFiles(baseTestObject);
                 }
                 catch (Exception e)
                 {
@@ -494,13 +495,25 @@ namespace CognizantSoftvision.Maqs.BaseTest
         /// <param name="args">String format arguments</param>
         protected void TryToLog(MessageType messageType, string message, params object[] args)
         {
+            this.TryToLog(this.TestObject, messageType, message, args);
+        }
+
+        /// <summary>
+        /// Try to log a message - Do not fail if the message is not logged
+        /// </summary>
+        /// <param name="testObject">Associated test object</param>
+        /// <param name="messageType">The type of message</param>
+        /// <param name="message">The message text</param>
+        /// <param name="args">String format arguments</param>
+        protected void TryToLog(ITestObject testObject, MessageType messageType, string message, params object[] args)
+        {
             // Get the formatted message
             string formattedMessage = StringProcessor.SafeFormatter(message, args);
 
             try
             {
                 // Write to the log
-                this.Log.LogMessage(messageType, formattedMessage);
+                testObject.Log.LogMessage(messageType, formattedMessage);
 
                 // If this was an error and written to a file, add it to the console output as well
                 if (messageType == MessageType.ERROR && !(this.Log is ConsoleLogger))
@@ -734,19 +747,19 @@ namespace CognizantSoftvision.Maqs.BaseTest
         /// <summary>
         /// Attach all of the files in the associated files that exist to the text context 
         /// </summary>
-        private void AttachAssociatedFiles()
+        private void AttachAssociatedFiles(ITestObject testObject)
         {
             try
             {
                 // See if we can add the log file
-                if (this.Log is IFileLogger logger && File.Exists(logger.FilePath))
+                if (testObject.Log is IFileLogger logger && File.Exists(logger.FilePath))
                 {
                     // Add the log file
                     AttachAssociatedFile(logger.FilePath);
                 }
 
                 // Attach all existing associated files
-                foreach (string path in this.TestObject.GetArrayOfAssociatedFiles())
+                foreach (string path in testObject.GetArrayOfAssociatedFiles())
                 {
                     if (File.Exists(path))
                     {
@@ -763,7 +776,7 @@ namespace CognizantSoftvision.Maqs.BaseTest
             }
 
             // Not all the files were attached so write them to the log instead
-            WriteAssociatedFilesNamesToLog();
+            WriteAssociatedFilesNamesToLog(testObject);
         }
 
         /// <summary>
@@ -785,10 +798,11 @@ namespace CognizantSoftvision.Maqs.BaseTest
         /// <summary>
         /// Write list of associated files to the log
         /// </summary>
-        private void WriteAssociatedFilesNamesToLog()
+        /// <param name="testObject">Assoicated test object</param>
+        private void WriteAssociatedFilesNamesToLog(ITestObject testObject)
         {
             // Not all the files were attached so write them to the log instead
-            string[] assocFiles = this.TestObject.GetArrayOfAssociatedFiles();
+            string[] assocFiles = testObject.GetArrayOfAssociatedFiles();
 
             if (assocFiles.Length > 0)
             {
