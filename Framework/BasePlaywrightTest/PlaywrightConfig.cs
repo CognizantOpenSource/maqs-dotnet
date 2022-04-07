@@ -69,21 +69,15 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
         /// <returns>The browser type</returns>
         public static PlaywrightBrowser GetBrowserType(string browserName)
         {
-            switch (browserName.ToUpper())
+            return browserName.ToUpper() switch
             {
-                case "CHROME":
-                    return PlaywrightBrowser.Chrome;
-                case "CHROMIUM":
-                    return PlaywrightBrowser.Chromium;
-                case "FIREFOX":
-                    return PlaywrightBrowser.Firefox;
-                case "EDGE":
-                    return PlaywrightBrowser.Edge;
-                case "WEBKIT":
-                    return PlaywrightBrowser.Webkit;
-                default:
-                    throw new ArgumentException($"Browser type '{browserName}' is not supported");
-            }
+                "CHROME" => PlaywrightBrowser.Chrome,
+                "CHROMIUM" => PlaywrightBrowser.Chromium,
+                "FIREFOX" => PlaywrightBrowser.Firefox,
+                "EDGE" => PlaywrightBrowser.Edge,
+                "WEBKIT" => PlaywrightBrowser.Webkit,
+                _ => throw new ArgumentException($"Browser type '{browserName}' is not supported"),
+            };
         }
 
         /// <summary>

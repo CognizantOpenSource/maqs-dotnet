@@ -1,5 +1,5 @@
 ﻿//-----------------------------------------------------
-// <copyright file="PlaywrightPageModel.cs" company="Cognizant">
+// <copyright file="PageModel.cs" company="Cognizant">
 //  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>A test Playwright page object model</summary>
@@ -15,13 +15,13 @@ namespace PlaywrightTests
     /// Playwright page model class for testing
     /// </summary>
     [ExcludeFromCodeCoverage]
-    public class PlaywrightPageModel : BasePlaywrightPageModel
+    public class PageModel : BasePlaywrightPageModel
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PlaywrightPageModel"/> class
+        /// Initializes a new instance of the <see cref="PageModel"/> class
         /// </summary>
         /// <param name="testObject">The base Playwright test object</param>
-        public PlaywrightPageModel(IPlaywrightTestObject testObject)
+        public PageModel(IPlaywrightTestObject testObject)
             : base(testObject)
         {
         }

@@ -1,5 +1,5 @@
 ﻿//-----------------------------------------------------
-// <copyright file="PlaywrightPageObjectUnitTests.cs" company="Cognizant">
+// <copyright file="PageObjectUnitTests.cs" company="Cognizant">
 //  Copyright 2022 Cognizant, All rights Reserved
 // </copyright>
 // <summary>Test the base Playwright page object model</summary>
@@ -17,7 +17,8 @@ namespace PlaywrightTests
     /// </summary>
     [TestClass]
     [ExcludeFromCodeCoverage]
-    public class PlaywrightPageObjectUnitTests : BasePlaywrightTest
+    [TestCategory(TestCategories.Playwright)]
+    public class PageObjectUnitTests : BasePlaywrightTest
     {
         /// <summary>
         /// Setup test Playwright page model
@@ -25,8 +26,8 @@ namespace PlaywrightTests
         [TestInitialize]
         public void CreatePlaywrightPageModel()
         {
-            this.PageDriver.Goto(PlaywrightPageModel.Url);
-            this.TestObject.SetObject("pom", new PlaywrightPageModel(this.TestObject));
+            this.PageDriver.Goto(PageModel.Url);
+            this.TestObject.SetObject("pom", new PageModel(this.TestObject));
         }
 
         /// <summary>
@@ -102,7 +103,7 @@ namespace PlaywrightTests
             var otherDriver = this.ManagerStore.GetDriver<PageDriver>("OtherDriver");
 
             var model1 = this.getPageModel();
-            var model2 = new PlaywrightPageModelOther(this.TestObject, otherDriver);
+            var model2 = new PageModelOther(this.TestObject, otherDriver);
             model2.OpenPage();
 
             // Make sure the page are properly loading using the different web drivers
@@ -130,9 +131,9 @@ namespace PlaywrightTests
         /// Get the Selenim page object
         /// </summary>
         /// <returns>The page model</returns>
-        private PlaywrightPageModel getPageModel()
+        private PageModel getPageModel()
         {
-            return this.TestObject.Objects["pom"] as PlaywrightPageModel;
+            return this.TestObject.Objects["pom"] as PageModel;
         }
     }
 }

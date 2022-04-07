@@ -759,12 +759,9 @@ namespace CognizantSoftvision.Maqs.BaseTest
                 }
 
                 // Attach all existing associated files
-                foreach (string path in testObject.GetArrayOfAssociatedFiles())
+                foreach (var path in testObject.GetArrayOfAssociatedFiles().Where(x => File.Exists(x)))
                 {
-                    if (File.Exists(path))
-                    {
-                        AttachAssociatedFile(path);
-                    }
+                    AttachAssociatedFile(path);
                 }
 
                 // All files were attached so nothing left to do

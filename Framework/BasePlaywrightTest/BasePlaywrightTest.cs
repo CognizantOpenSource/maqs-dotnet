@@ -128,7 +128,7 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
         /// Delete Playwright related video
         /// </summary>
         /// <param name="browser">Current test browser</param>
-        private void DeleteTestFiles(IBrowser browser)
+        private static void DeleteTestFiles(IBrowser browser)
         {
             foreach (var context in browser.Contexts)
             {

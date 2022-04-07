@@ -20,7 +20,7 @@ namespace PlaywrightTests
     [ExcludeFromCodeCoverage]
     [DoNotParallelize]
     [TestCategory(TestCategories.Playwright)]
-    public class PlaywrightConfigTests
+    public class ConfigTests
     {
         /// <summary>
         /// Clear all configuration overrides
