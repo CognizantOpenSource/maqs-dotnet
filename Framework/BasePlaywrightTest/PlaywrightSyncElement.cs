@@ -1,34 +1,70 @@
 ﻿using Microsoft.Playwright;
+using System;
 using System.Collections.Generic;
 using System.Text.Json;
 
 namespace CognizantSoftvision.Maqs.BasePlaywrightTest
 {
-    public class PlaywrightElement
+    /// <summary>
+    /// Playwright synchronous element
+    /// </summary>
+    public class PlaywrightSyncElement
     {
-        public PlaywrightElement(IPlaywrightTestObject testObject, string selector, PageLocatorOptions? options = null)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PlaywrightSyncElement" /> class
+        /// </summary>
+        /// <param name="page">The assoicated playwright page</param>
+        /// <param name="selector">Element selector</param>
+        /// <param name="options">Advanced locator options</param>
+        public PlaywrightSyncElement(IPage page, string selector, PageLocatorOptions? options = null)
         {
-            this.ParentPage = testObject.PageDriver.AsyncPage;
-            this.Locator = selector;
+            this.ParentPage = page;
+            this.Selector = selector;
             this.PageOptions = options;
         }
 
-        public PlaywrightElement(PlaywrightElement parent, string selector, LocatorLocatorOptions? options = null)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PlaywrightSyncElement" /> class
+        /// </summary>
+        /// <param name="parent">The parent playwright element</param>
+        /// <param name="selector">Sub element selector</param>
+        /// <param name="options">Advanced locator options</param>
+        public PlaywrightSyncElement(PlaywrightSyncElement parent, string selector, LocatorLocatorOptions? options = null)
         {
             this.ParentLocator = parent.ElementLocator();
-            this.Locator = selector;
+            this.Selector = selector;
             this.LocatorOptions = options;
         }
 
         /// <summary>
-        /// Gets the underlying async page object
+        /// Initializes a new instance of the <see cref="PlaywrightSyncElement" /> class
         /// </summary>
-        public IPage ParentPage { get; private set; }
+        /// <param name="testObject">The assoicated playwright test object</param>
+        /// <param name="selector">Element selector</param>
+        /// <param name="options">Advanced locator options</param>
+        public PlaywrightSyncElement(IPlaywrightTestObject testObject, string selector, PageLocatorOptions? options = null) : this(testObject.PageDriver.AsyncPage, selector, options)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PlaywrightSyncElement" /> class
+        /// </summary>
+        /// <param name="driver">The assoicated playwright page driver</param>
+        /// <param name="selector">Element selector</param>
+        /// <param name="options">Advanced locator options</param>
+        public PlaywrightSyncElement(PageDriver driver, string selector, PageLocatorOptions? options = null) : this(driver.AsyncPage, selector, options)
+        {
+        }
 
         /// <summary>
         /// Gets the underlying async page object
         /// </summary>
-        public ILocator ParentLocator { get; private set; }
+        public IPage? ParentPage { get; private set; }
+
+        /// <summary>
+        /// Gets the underlying async page object
+        /// </summary>
+        public ILocator? ParentLocator { get; private set; }
 
         /// <summary>
         /// Gets the page locator options
@@ -43,18 +79,24 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
         /// <summary>
         /// Gets the selector string
         /// </summary>
-        public string Locator { get; private set; }
+        public string Selector { get; private set; }
 
-
-        /// <inheritdoc cref = "ILocator.Locator(string, LocatorLocatorOptions?)" /> 
+        /// <summary>
+        /// ILocator for this element
+        /// </summary>
+        /// <returns></returns>
         public ILocator ElementLocator()
         {
-            if(ParentPage == null)
+            if(this.ParentPage != null)
             {
-                return this.ParentLocator.Locator(Locator, LocatorOptions);
+                return this.ParentPage.Locator(Selector, PageOptions);
+            }
+            else if(this.ParentLocator != null)
+            {
+                return this.ParentLocator.Locator(Selector, LocatorOptions);
             }
 
-            return this.ParentPage.Locator(Locator, PageOptions);
+            throw new NullReferenceException("Both parent IPage and PlaywrightElement are null");
         }
 
         /// <inheritdoc cref = "ILocator.CheckAsync" /> 

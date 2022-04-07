@@ -62,16 +62,28 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
             }
         }
 
+        /// <summary>
+        /// Override the the function for creating a new page
+        /// </summary>
+        /// <param name="getPage">New function for creating a page</param>
         public void OverridePageDriver(Func<IPage> getPage)
         {
             this.PageManager.OverrideDriver(getPage);
         }
 
+        /// <summary>
+        /// Override the the old page with a new page
+        /// </summary>
+        /// <param name="page">The new page</param>
         public void OverridePageDriver(IPage page)
         {
             this.PageManager.OverrideDriver(() => page);
         }
 
+        /// <summary>
+        /// Override the the old page driver with a new page
+        /// </summary>
+        /// <param name="pageDriver">The new page drive</param>
         public void OverridePageDriver(PageDriver pageDriver)
         {
             this.PageManager.OverrideDriver(pageDriver);
