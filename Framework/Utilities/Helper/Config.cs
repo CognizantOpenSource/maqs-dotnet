@@ -56,7 +56,15 @@ namespace CognizantSoftvision.Maqs.Utilities.Helper
         /// <summary>
         /// Active composite configuration
         /// </summary>
-        private static IConfigurationRoot compositeConfig = baseConfig;
+        private static IConfigurationRoot compositeConfig = null;
+
+        /// <summary>
+        /// Loads when class is loaded
+        /// </summary>
+        static Config()
+        {
+            UpdateCompositeConfig();
+        }
 
         /// <summary>
         /// Drop dynamic configuration overrides
