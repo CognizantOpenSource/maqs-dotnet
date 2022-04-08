@@ -37,7 +37,7 @@ namespace PlaywrightTests
         [TestMethod]
         public void GetBrowser()
         {
-            Assert.AreEqual("Chrome", PlaywrightConfig.GetBrowserName());
+            Assert.AreEqual("Chromium", PlaywrightConfig.GetBrowserName());
         }
 
         [DataTestMethod]
@@ -57,7 +57,7 @@ namespace PlaywrightTests
         [DataRow("Firefox", PlaywrightBrowser.Firefox)]
         [DataRow("Edge", PlaywrightBrowser.Edge)]
         [DataRow("Webkit", PlaywrightBrowser.Webkit)]
-        [DataRow(null, PlaywrightBrowser.Chrome)]
+        [DataRow(null, PlaywrightBrowser.Chromium)]
         [DataRow("Chrome", PlaywrightBrowser.Chrome)]
         public void ConfigBrowserEnum(string browser, PlaywrightBrowser browserEnum)
         {
