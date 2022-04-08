@@ -1,4 +1,10 @@
-﻿using Microsoft.Playwright;
+﻿//--------------------------------------------------
+// <copyright file="PlaywrightSyncElement.cs" company="Cognizant">
+//  Copyright 2022 Cognizant, All rights Reserved
+// </copyright>
+// <summary>Playwright synchronous element wrapper</summary>
+//--------------------------------------------------
+using Microsoft.Playwright;
 using System;
 using System.Collections.Generic;
 using System.Text.Json;
@@ -39,6 +45,17 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
         /// <summary>
         /// Initializes a new instance of the <see cref="PlaywrightSyncElement" /> class
         /// </summary>
+        /// <param name="frame">The assoicated playwright frame locator</param>
+        /// <param name="selector">Element selector</param>
+        public PlaywrightSyncElement(IFrameLocator frame, string selector)
+        {
+            this.ParentFrameLocator = frame;
+            this.Selector = selector;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PlaywrightSyncElement" /> class
+        /// </summary>
         /// <param name="testObject">The assoicated playwright test object</param>
         /// <param name="selector">Element selector</param>
         /// <param name="options">Advanced locator options</param>
@@ -57,14 +74,19 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
         }
 
         /// <summary>
-        /// Gets the underlying async page object
+        /// Gets the parent async page
         /// </summary>
         public IPage? ParentPage { get; private set; }
 
         /// <summary>
-        /// Gets the underlying async page object
+        /// Gets the parent locator
         /// </summary>
         public ILocator? ParentLocator { get; private set; }
+
+        /// <summary>
+        /// Gets the parent frame locator
+        /// </summary>
+        public IFrameLocator? ParentFrameLocator { get; private set; }
 
         /// <summary>
         /// Gets the page locator options
@@ -94,6 +116,10 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
             else if(this.ParentLocator != null)
             {
                 return this.ParentLocator.Locator(Selector, LocatorOptions);
+            }
+            else if (this.ParentFrameLocator != null)
+            {
+                return this.ParentFrameLocator.Locator(Selector);
             }
 
             throw new NullReferenceException("Both parent IPage and PlaywrightElement are null");

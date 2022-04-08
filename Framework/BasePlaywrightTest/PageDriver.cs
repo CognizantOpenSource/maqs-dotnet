@@ -27,6 +27,15 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
         /// </summary>
         public IPage AsyncPage { get; private set; }
 
+        /// <inheritdoc cref = "IBrowserContext.Browser"  />
+        public IBrowser? ParentBrower { get { return this.AsyncPage.Context.Browser; } }
+
+        /// <inheritdoc cref = "IPage.Url"  />
+        public string Url { get { return this.AsyncPage.Url; } }
+
+        /// <inheritdoc cref = "IPage.IsClosed"  />
+        public bool IsClosed { get { return this.AsyncPage.IsClosed; } }
+
         /// <inheritdoc cref = "IPage.AddInitScriptAsync" />  
         public void AddInitScript(string? script = null, string? scriptPath = null)
         {
@@ -426,11 +435,6 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
         {
             return this.AsyncPage.ReloadAsync(options).Result;
         }
-
-        /// <summary>
-        /// Gets the underlying async page object
-        /// </summary>
-        public IBrowser? ParentBrower { get { return this.AsyncPage.Context.Browser; } }
 
         /// <summary>
         /// Dispose of the database connection
