@@ -74,8 +74,8 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
             IBrowserContext context;
 
             // Get resolution
-            var (width, height) = PlaywrightConfig.GetBrowserSize();
-            ViewportSize size = new() { Height = height, Width = width };
+            var resolution = PlaywrightConfig.GetBrowserSize();
+            ViewportSize size = new() { Height = resolution.height, Width = resolution.width };
 
             // Default to the first context, if at least one context exists
             if (browser.Contexts.Count > 0)
