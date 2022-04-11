@@ -534,18 +534,6 @@ namespace PlaywrightTests
         }
 
         /// <summary>
-        /// Test set content works as expected
-        /// </summary>
-        [TestMethod]
-        public void SetContentTest()
-        {
-            string guid = Guid.NewGuid().ToString();
-            this.PageDriver.SetContent($"<html><body><div id='{guid}'>TEST</div></body></html>");
-            this.PageDriver.WaitForTimeout(1000);
-            Assert.IsTrue(this.PageDriver.IsEventualyVisible($"#{guid}"));
-        }
-
-        /// <summary>
         /// Test eval on select works as expected
         /// </summary>
         [TestMethod]

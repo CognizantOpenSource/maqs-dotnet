@@ -114,12 +114,6 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
             this.AsyncPage.SetCheckedAsync(selector, checkedState, options).Wait();
         }
 
-        /// <inheritdoc cref = "IPage.SetContentAsync" /> 
-        public void SetContent(string html, PageSetContentOptions? options = null)
-        {
-            this.AsyncPage.SetContentAsync(html, options).Wait();
-        }
-
         /// <inheritdoc cref = "IPage.SetExtraHTTPHeadersAsync" /> 
         public void SetExtraHTTPHeaders(IEnumerable<KeyValuePair<string, string>> headers)
         {
