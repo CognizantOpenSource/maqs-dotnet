@@ -138,7 +138,7 @@ namespace CognizantSoftvision.Maqs.Utilities.Logging
         /// Dispose the class
         /// </summary>
         /// <param name="disposing">True if you want to release managed resources</param>
-        protected override void Dispose(bool disposing)
+        protected virtual new void Dispose(bool disposing)
         {
             if (disposing && File.Exists(this.FilePath))
             {

@@ -448,7 +448,7 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
             // Make sure the connection exists and is open before trying to close it
             if (disposing && !this.AsyncPage.IsClosed)
             {
-                this.AsyncPage.CloseAsync();
+                this.AsyncPage.CloseAsync().Wait();
             }
         }
     }

@@ -137,7 +137,27 @@ namespace PlaywrightTests
         [TestMethod]
         public void DragAndDropTest()
         {
+            var startPosition = Models[this.TestObject].Html5Draggable.ElementLocator().BoundingBoxAsync().Result;
             Models[this.TestObject].Html5Draggable.DragTo(Models[this.TestObject].Html5Drop.ElementLocator());
+            var endPosition = Models[this.TestObject].Html5Draggable.ElementLocator().BoundingBoxAsync().Result;
+
+            Assert.AreNotEqual(startPosition.X, endPosition.X);
+        }
+
+        /// <summary>
+        /// Test page locator options work as expected
+        /// </summary>
+        [TestMethod]
+        public void PageLocatorOptionsTest()
+        {
+            PageLocatorOptions locator = new PageLocatorOptions
+            {
+                HasTextString = "Elements",
+                
+            };
+
+            var element = new PlaywrightSyncElement(this.TestObject, Models[this.TestObject].MainHeader.Selector, locator);
+            Assert.IsTrue(element.IsVisible());
         }
 
         /// <summary>
@@ -169,8 +189,6 @@ namespace PlaywrightTests
             Models[this.TestObject].ShowDialog1.Press("Enter");
             Assert.IsTrue(Models[this.TestObject].CloseButtonShowDialog.IsEnabled());
         }
-
-
 
         /// <summary>
         /// Test hover works as expected
@@ -320,6 +338,7 @@ namespace PlaywrightTests
         public void UncheckTest()
         {
             Models[this.TestObject].Checkbox2.Uncheck();
+            Assert.IsFalse(Models[this.TestObject].Checkbox2.IsChecked());
         }
 
 

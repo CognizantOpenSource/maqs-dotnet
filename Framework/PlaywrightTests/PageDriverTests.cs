@@ -11,6 +11,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Text.RegularExpressions;
 
 namespace PlaywrightTests
 {
@@ -137,6 +138,17 @@ namespace PlaywrightTests
         }
 
         /// <summary>
+        /// Test creating and disposing of page driver
+        /// </summary>
+        [TestMethod]
+        public void NewPageDriver()
+        {
+            Assert.IsFalse(this.PageDriver.AsyncPage.IsClosed);
+            this.PageDriver.Dispose();
+            Assert.IsTrue(this.PageDriver.AsyncPage.IsClosed);
+        }
+
+        /// <summary>
         /// Test check works as expected
         /// </summary>
         [TestMethod]
@@ -210,6 +222,11 @@ namespace PlaywrightTests
             Assert.AreEqual(2, multipleOptions.Count);
             Assert.AreEqual("two", multipleOptions[0]);
             Assert.AreEqual("four", multipleOptions[1]);
+
+            multipleOptions = this.PageDriver.SelectOption(ComputerPartsSelection, new[] { new SelectOptionValue { Value = "two" }, new SelectOptionValue { Value = "three" } });
+            Assert.AreEqual(2, multipleOptions.Count);
+            Assert.AreEqual("two", multipleOptions[0]);
+            Assert.AreEqual("three", multipleOptions[1]);
         }
 
         /// <summary>
@@ -248,7 +265,11 @@ namespace PlaywrightTests
         [TestMethod]
         public void DragAndDropTest()
         {
+            var startPosition = this.PageDriver.AsyncPage.Locator(Html5Draggable).BoundingBoxAsync().Result;
             this.PageDriver.DragAndDrop(Html5Draggable, Html5Drop);
+            var endPosition = this.PageDriver.AsyncPage.Locator(Html5Draggable).BoundingBoxAsync().Result;
+
+            Assert.AreNotEqual(startPosition.X, endPosition.X);
         }
 
         /// <summary>
@@ -466,6 +487,7 @@ namespace PlaywrightTests
         public void UncheckTest()
         {
             this.PageDriver.Uncheck(Checkbox2);
+            Assert.IsFalse(this.PageDriver.IsChecked(Checkbox2));
         }
 
         /// <summary>
@@ -509,13 +531,14 @@ namespace PlaywrightTests
         {
             this.PageDriver.Click(AsyncPageLink);
             this.PageDriver.WaitForURL("**/async.html");
+            Assert.AreEqual($"{ PageModel.Url}async.html", this.PageDriver.Url);
 
             this.PageDriver.GoBack();
-            this.PageDriver.WaitForURL("**/Static/Automation/");
+            this.PageDriver.WaitForURL(new Regex("/Automation/$"));
             Assert.AreEqual(PageModel.Url, this.PageDriver.Url);
 
             this.PageDriver.GoForward();
-            this.PageDriver.WaitForURL("**/async.html");
+            this.PageDriver.WaitForURL(x => x.EndsWith("/async.html"));
             Assert.AreEqual($"{ PageModel.Url}async.html", this.PageDriver.Url);
         }
 
@@ -655,9 +678,8 @@ namespace PlaywrightTests
             this.PageDriver.SetExtraHTTPHeaders(new Dictionary<string, string> { { "sample", "value" } });
             this.PageDriver.AsyncPage.RequestFinished += AsyncPage_RequestFinished;
 
-
             this.PageDriver.Click(AsyncPageLink);
-            this.PageDriver.IsEventualyVisible(AlwaysUpOnAsyncPage);
+            Assert.IsTrue(this.PageDriver.IsEventualyVisible(AlwaysUpOnAsyncPage));
         }
 
 

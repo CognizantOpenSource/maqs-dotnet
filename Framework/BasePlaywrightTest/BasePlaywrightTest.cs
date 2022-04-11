@@ -9,6 +9,7 @@ using CognizantSoftvision.Maqs.Utilities.Logging;
 using Microsoft.Playwright;
 using System;
 using System.IO;
+using System.Linq;
 
 namespace CognizantSoftvision.Maqs.BasePlaywrightTest
 {
@@ -112,14 +113,9 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
                     Path = $"{traceFilePath}",
                 }).Wait();
 
-                foreach (var page in context.Pages)
+                foreach (var video in context.Pages.Select(x => x?.Video).Where(v => v != null))
                 {
-                    if (page.Video != null)
-                    {
-                        this.TestObject.AddAssociatedFile(page.Video.PathAsync().Result);
-                    }
-
-                    this.TestObject.AddAssociatedFile(traceFilePath);
+                    this.TestObject.AddAssociatedFile(video?.PathAsync().Result);
                 }
             }
         }
@@ -132,12 +128,9 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
         {
             foreach (var context in browser.Contexts)
             {
-                foreach (var page in context.Pages)
+                foreach (var video in context.Pages.Select(x => x?.Video).Where(v => v != null))
                 {
-                    if (page.Video != null)
-                    {
-                        page.Video.DeleteAsync();
-                    }
+                    video?.DeleteAsync();
                 }
             }
         }

@@ -85,7 +85,7 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
 
             if(tempDriver == null)
             {
-                throw new NullReferenceException("Base driver is null");
+                throw new ArgumentNullException("Base driver is null");
             }
 
             return tempDriver;

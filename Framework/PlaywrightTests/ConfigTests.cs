@@ -25,8 +25,8 @@ namespace PlaywrightTests
         /// <summary>
         /// Clear all configuration overrides
         /// </summary>
-        [TestInitialize]
-        public void Setup()
+        [TestCleanup]
+        public void Cleanup()
         {
             Config.ClearOverrides();
         }
@@ -66,6 +66,18 @@ namespace PlaywrightTests
         }
 
         /// <summary>
+        /// Make sure error correct error is thrown if we use a bad command timeout
+        /// </summary>
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void ConfigBadCommandTimeout()
+        {
+            Config.AddTestSettingValue("CommandTimeout", "BAD", ConfigSection.PlaywrightMaqs);
+            var commandTimeout = PlaywrightConfig.GetCommandTimeout();
+            Assert.Fail($"CommandTimeout returned type: {commandTimeout}");
+        }
+
+        /// <summary>
         /// Make sure error correct error is thrown if we use a bad browser name
         /// </summary>
         [TestMethod]
@@ -75,6 +87,23 @@ namespace PlaywrightTests
             Config.AddTestSettingValue("Browser", "IE", ConfigSection.PlaywrightMaqs);
             var type = PlaywrightConfig.GetBrowserType();
             Assert.Fail($"IE returned type: {type}");
+        }
+
+        /// <summary>
+        /// Get expected browser size configuration
+        /// </summary>
+        [DataTestMethod]
+        [DataRow("100x200", 100, 200)]
+        [DataRow("200X100", 200, 100)]
+        [DataRow("1280 x 720", 1280, 720)]
+        [DataRow("DEFAULT", 1280, 720)]
+        public void GetBrowserSize(string sizeText, int width, int height) 
+        { 
+            Config.AddTestSettingValue("BrowserSize", sizeText, ConfigSection.PlaywrightMaqs);
+
+            var size = PlaywrightConfig.GetBrowserSize();
+            Assert.AreEqual(width, size.Width);
+            Assert.AreEqual(height, size.Height);
         }
 
         /// <summary>

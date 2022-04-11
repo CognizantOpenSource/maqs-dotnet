@@ -45,7 +45,7 @@ namespace PlaywrightTests
         /// </summary>
         [TestMethod]
         [TestCategory(TestCategories.Playwright)]
-        public void PageModelWebDriver()
+        public void PageModelPageDriver()
         {
             Assert.AreEqual(this.PageDriver, this.getPageModel().GetPageDriver());
         }
@@ -71,18 +71,50 @@ namespace PlaywrightTests
         }
 
         /// <summary>
-        /// Verify we can override the page object webdriver
+        /// Verify we can override the test object PageDriver
         /// </summary>
         [TestMethod]
         [TestCategory(TestCategories.Playwright)]
-        public void OverridePageObjectWebdriver()
+        public void OverrideTestObjectPageDriver()
+        {
+            var oldPageDriver = this.PageDriver;
+            
+            try
+            {
+                this.TestObject.OverridePageDriver(PageDriverFactory.GetDefaultPageDriver());
+
+                Assert.AreNotEqual(oldPageDriver, this.PageDriver, "The page driver was not updated");
+            }
+            finally
+            {
+                oldPageDriver?.Close();
+            }
+        }
+
+        /// <summary>
+        /// Verify we can create test object with page driver
+        /// </summary>
+        [TestMethod]
+        [TestCategory(TestCategories.Playwright)]
+        public void TestObjectWithExistingPageDriver()
+        {
+            var newTestObject = new PlaywrightTestObject(this.PageDriver, this.Log, "NA");
+            Assert.AreEqual(newTestObject.PageDriver, this.PageDriver);
+        }
+
+        /// <summary>
+        /// Verify we can override the page object PageDriver
+        /// </summary>
+        [TestMethod]
+        [TestCategory(TestCategories.Playwright)]
+        public void OverridePageObjectPageDriver()
         {
             try
             {
-                var oldWebDriver = this.getPageModel().GetPageDriver();
+                var oldPageDriver = this.getPageModel().GetPageDriver();
                 this.getPageModel().OverridePageDriver(PageDriverFactory.GetDefaultPageDriver());
 
-                Assert.AreNotEqual(oldWebDriver, this.getPageModel().GetPageDriver(), "The page driver was not updated");
+                Assert.AreNotEqual(oldPageDriver, this.getPageModel().GetPageDriver(), "The page driver was not updated");
             }
             finally
             {
