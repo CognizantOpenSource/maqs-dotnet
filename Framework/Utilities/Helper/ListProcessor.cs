@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace CognizantSoftvision.Maqs.Utilities.Data
+namespace CognizantSoftvision.Maqs.Utilities.Helper
 {
     /// <summary>
     /// Contains methods for processing lists

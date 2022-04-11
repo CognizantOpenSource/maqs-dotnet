@@ -4,7 +4,6 @@
 // </copyright>
 // <summary>Helper class for getting email specific configuration values</summary>
 //--------------------------------------------------
-using CognizantSoftvision.Maqs.Utilities.Data;
 using CognizantSoftvision.Maqs.Utilities.Helper;
 using System;
 using System.Collections.Generic;

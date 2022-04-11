@@ -7,6 +7,7 @@
 using CognizantSoftvision.Maqs.Utilities.Helper;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 
 namespace CognizantSoftvision.Maqs.BasePlaywrightTest
 {
@@ -154,17 +155,17 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
         /// get the browser size
         /// </summary>
         /// <returns></returns>
-        public static (int width, int height) GetBrowserSize()
+        public static Size GetBrowserSize()
         {
             string size = Config.GetValueForSection(PlaywrightSECTION, "BrowserSize", "DEFAULT").ToUpper();
 
             if (size.Equals("DEFAULT"))
             {
-                return (1280, 720);
+                return new Size(1280, 720);
             }
 
-            ExtractSizeFromString(size, out int width, out int height);
-            return (width, height);
+            StringProcessor.ExtractSizeFromString(size, out int width, out int height);
+            return new Size(width, height);
         }
 
         /// <summary>
@@ -183,27 +184,6 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
         public static string GetProxyAddress()
         {
             return Config.GetValueForSection(PlaywrightSECTION, "ProxyAddress");
-        }
-
-        /// <summary>
-        /// Get the window size as a string
-        /// </summary>
-        /// <param name="size">The size in a #X# format</param>
-        /// <param name="width">The browser width</param>
-        /// <param name="height">The browser height</param>
-        private static void ExtractSizeFromString(string size, out int width, out int height)
-        {
-            string[] sizes = size.Split('X');
-
-            if (!size.Contains("X") || sizes.Length != 2)
-            {
-                throw new ArgumentException("Browser size is expected to be in an expected format: 1280x720");
-            }
-
-            if (!int.TryParse(sizes[0], out width) || !int.TryParse(sizes[1], out height))
-            {
-                throw new InvalidCastException("Length and Width must be a string that is an integer value: 400x400");
-            }
         }
     }
 }

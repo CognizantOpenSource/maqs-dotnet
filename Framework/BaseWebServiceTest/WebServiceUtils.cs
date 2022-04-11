@@ -4,7 +4,7 @@
 // </copyright>
 // <summary>Web service utilities</summary>
 //--------------------------------------------------
-using CognizantSoftvision.Maqs.Utilities.Data;
+using CognizantSoftvision.Maqs.Utilities.Helper;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
