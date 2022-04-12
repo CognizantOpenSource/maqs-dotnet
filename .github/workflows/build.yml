@@ -213,7 +213,8 @@ jobs:
       - name: Install Playwright
         run: |
             npx playwright install --with-deps
-            npx playwright install chromium chrome msedge firefox webkit
+            dotnet build Framework/PlaywrightTests/PlaywrightTests.csproj -o Framework/PlaywrightTests/build
+            pwsh Framework/PlaywrightTests/build/playwright.ps1 install    
       - id: builder
         uses: ./.github/workflows/buildtest-action
         with:
