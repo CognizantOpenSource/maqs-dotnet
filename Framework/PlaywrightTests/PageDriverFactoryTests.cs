@@ -21,6 +21,7 @@ namespace PlaywrightTests
     {
         /// <summary>
         /// Check that we can connect to all browser types
+        /// *Hold off on Edge as it is not natively on build server
         /// </summary>
         /// <param name="browserType"></param>
         [DataTestMethod]
@@ -33,7 +34,6 @@ namespace PlaywrightTests
             var browser = PageDriverFactory.GetBrowserWithDefaults(browserType);
             Assert.IsTrue(browser.IsConnected);
         }
-
 
         /// <summary>
         /// Test set check works as expected
