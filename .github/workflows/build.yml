@@ -211,7 +211,9 @@ jobs:
         with:
           node-version: '14'
       - name: Install Playwright
-        run: npx playwright install --with-deps
+        run: |
+            npm install 
+            npx playwright install --with-deps
       - id: builder
         uses: ./.github/workflows/buildtest-action
         with:
