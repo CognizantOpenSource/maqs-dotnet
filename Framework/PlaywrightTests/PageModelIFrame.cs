@@ -31,7 +31,7 @@ namespace PlaywrightTests
         /// </summary>
         public static string Url
         {
-            get { return PlaywrightConfig.GetWebBase() + "iFrame.html"; }
+            get { return PlaywrightConfig.WebBase() + "iFrame.html"; }
         }
 
 

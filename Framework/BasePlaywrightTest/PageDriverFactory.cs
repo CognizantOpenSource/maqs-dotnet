@@ -28,7 +28,7 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
         /// <returns>A page</returns>
         public static PageDriver GetDefaultPageDriver()
         {
-            return GetPageDriverForBrowserWithDefaults(PlaywrightConfig.GetBrowserType());
+            return GetPageDriverForBrowserWithDefaults(PlaywrightConfig.BrowserType());
         }
 
         /// <summary>
@@ -74,7 +74,7 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
             IBrowserContext context;
 
             // Get resolution
-            var resolution = PlaywrightConfig.GetBrowserSize();
+            var resolution = PlaywrightConfig.BrowserSize();
             ViewportSize size = new ViewportSize() { Width = resolution.Width, Height = resolution.Height };
 
             // Default to the first context, if at least one context exists
@@ -85,7 +85,7 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
 
             if (LoggingConfig.GetLoggingEnabledSetting() != LoggingEnabled.NO)
             {
-                if (PlaywrightConfig.GetCaptureVideo())
+                if (PlaywrightConfig.CaptureVideo())
                 {
                     context = browser.NewContextAsync(new BrowserNewContextOptions
                     {
@@ -104,8 +104,8 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
                 // Start tracing before creating / navigating a page.
                 context.Tracing.StartAsync(new TracingStartOptions
                 {
-                    Screenshots = PlaywrightConfig.GetCaptureScreenshots(),
-                    Snapshots = PlaywrightConfig.GetCaptureSnapshots(),
+                    Screenshots = PlaywrightConfig.CaptureScreenshots(),
+                    Snapshots = PlaywrightConfig.CaptureSnapshots(),
                     Sources = true,
                 }).Wait();
             }
@@ -128,8 +128,8 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
         public static PageDriver GetNewPageDriverFromBrowserContext(IBrowserContext context)
         {
             IPage page = context.NewPageAsync().Result;
-            page.SetDefaultTimeout(PlaywrightConfig.GetTimeoutTime());
-            page.SetDefaultNavigationTimeout(PlaywrightConfig.GetTimeoutTime());
+            page.SetDefaultTimeout(PlaywrightConfig.TimeoutTime());
+            page.SetDefaultNavigationTimeout(PlaywrightConfig.TimeoutTime());
 
             return new PageDriver(page);
         }
@@ -199,13 +199,13 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
         public static BrowserTypeLaunchOptions GetDefaultOptions()
         {
             // Check if we should add proxy
-            if(PlaywrightConfig.GetUseProxy())
+            if(PlaywrightConfig.UseProxy())
             {
                 return new BrowserTypeLaunchOptions
                 {
-                    Proxy = new Proxy { Server = PlaywrightConfig.GetProxyAddress() },
-                    Headless = PlaywrightConfig.GetHeadless(),
-                    Timeout = PlaywrightConfig.GetCommandTimeout(),
+                    Proxy = new Proxy { Server = PlaywrightConfig.ProxyAddress() },
+                    Headless = PlaywrightConfig.Headless(),
+                    Timeout = PlaywrightConfig.CommandTimeout(),
                 };
 
             }
@@ -213,8 +213,8 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
             // Return options without proxy
             return new BrowserTypeLaunchOptions
             {
-                Headless = PlaywrightConfig.GetHeadless(),
-                Timeout = PlaywrightConfig.GetCommandTimeout(),
+                Headless = PlaywrightConfig.Headless(),
+                Timeout = PlaywrightConfig.CommandTimeout(),
             };
         }
     }

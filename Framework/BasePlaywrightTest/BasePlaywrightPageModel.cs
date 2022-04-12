@@ -39,12 +39,12 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
         /// <summary>
         /// Gets the PageDriver from the test object
         /// </summary>
-        protected PageDriver PageDriver { get; private set; }
+        public PageDriver PageDriver { get; private set; }
 
         /// <summary>
         /// Gets the log from the test object
         /// </summary>
-        protected ILogger Log
+        public ILogger Log
         {
             get { return this.TestObject.Log; }
         }
@@ -52,7 +52,7 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
         /// <summary>
         /// Gets the performance timer collection from the test object
         /// </summary>
-        protected IPerfTimerCollection PerfTimerCollection
+        public IPerfTimerCollection PerfTimerCollection
         {
             get { return this.TestObject.PerfTimerCollection; }
         }
@@ -60,7 +60,7 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
         /// <summary>
         /// Gets or sets the Playwright test object
         /// </summary>
-        protected IPlaywrightTestObject TestObject { get; set; }
+        public IPlaywrightTestObject TestObject { get; protected set; }
 
         /// <summary>
         /// Override the PageDriver 

@@ -134,7 +134,7 @@ namespace PlaywrightTests
         [TestInitialize]
         public void CreatePlaywrightPageModel()
         {
-            this.PageDriver.Goto(PageModel.Url);       
+            this.PageDriver.Goto(PageModel.Url);
         }
 
         /// <summary>

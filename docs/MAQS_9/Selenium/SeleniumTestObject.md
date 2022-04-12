@@ -6,7 +6,7 @@ Selenium test context data
 ## WebManager
 Gets the Selenium driver manager
 ```csharp
-SeleniumDriverManager manager = this.WebManager.GetWebDriver();
+SeleniumDriverManager manager = this.TestObject.WebManager.GetWebDriver();
 ```
 
 ## WebDriver
@@ -16,7 +16,7 @@ public IWebDriver WebDriver
 {
     get
     {
-        return this.WebManager.GetWebDriver();
+        return this.TestObject.WebManager.GetWebDriver();
     }
 }
 ```

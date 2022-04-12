@@ -30,7 +30,7 @@ namespace PlaywrightTests
         /// </summary>
         public static string Url
         {
-            get { return PlaywrightConfig.GetWebBase() + "async.html"; }
+            get { return PlaywrightConfig.WebBase() + "async.html"; }
         }
 
         /// <summary>

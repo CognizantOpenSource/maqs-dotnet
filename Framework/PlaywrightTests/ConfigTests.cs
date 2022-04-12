@@ -37,7 +37,7 @@ namespace PlaywrightTests
         [TestMethod]
         public void GetBrowser()
         {
-            Assert.AreEqual("Chromium", PlaywrightConfig.GetBrowserName());
+            Assert.AreEqual("Chromium", PlaywrightConfig.BrowserName());
         }
 
         [DataTestMethod]
@@ -49,7 +49,7 @@ namespace PlaywrightTests
         public void ConfigBrowserName(string browserName)
         {
             Config.AddTestSettingValue("Browser", browserName, ConfigSection.PlaywrightMaqs);
-            Assert.AreEqual(browserName, PlaywrightConfig.GetBrowserName());
+            Assert.AreEqual(browserName, PlaywrightConfig.BrowserName());
         }
 
         [DataTestMethod]
@@ -62,7 +62,7 @@ namespace PlaywrightTests
         public void ConfigBrowserEnum(string browser, PlaywrightBrowser browserEnum)
         {
             Config.AddTestSettingValue("Browser", browser, ConfigSection.PlaywrightMaqs);
-            Assert.AreEqual(browserEnum, PlaywrightConfig.GetBrowserType());
+            Assert.AreEqual(browserEnum, PlaywrightConfig.BrowserType());
         }
 
         /// <summary>
@@ -73,7 +73,7 @@ namespace PlaywrightTests
         public void ConfigBadCommandTimeout()
         {
             Config.AddTestSettingValue("CommandTimeout", "BAD", ConfigSection.PlaywrightMaqs);
-            var commandTimeout = PlaywrightConfig.GetCommandTimeout();
+            var commandTimeout = PlaywrightConfig.CommandTimeout();
             Assert.Fail($"CommandTimeout returned type: {commandTimeout}");
         }
 
@@ -85,7 +85,7 @@ namespace PlaywrightTests
         public void ConfigBadBrowserName()
         {
             Config.AddTestSettingValue("Browser", "IE", ConfigSection.PlaywrightMaqs);
-            var type = PlaywrightConfig.GetBrowserType();
+            var type = PlaywrightConfig.BrowserType();
             Assert.Fail($"IE returned type: {type}");
         }
 
@@ -101,7 +101,7 @@ namespace PlaywrightTests
         { 
             Config.AddTestSettingValue("BrowserSize", sizeText, ConfigSection.PlaywrightMaqs);
 
-            var size = PlaywrightConfig.GetBrowserSize();
+            var size = PlaywrightConfig.BrowserSize();
             Assert.AreEqual(width, size.Width);
             Assert.AreEqual(height, size.Height);
         }
@@ -112,7 +112,7 @@ namespace PlaywrightTests
         [TestMethod]
         public void GetUseProxy()
         {
-            Assert.IsFalse(PlaywrightConfig.GetUseProxy());
+            Assert.IsFalse(PlaywrightConfig.UseProxy());
         }
 
         /// <summary>
@@ -121,7 +121,7 @@ namespace PlaywrightTests
         [TestMethod]
         public void GetProxyAddress()
         {
-            Assert.AreEqual("http://localhost:8002", PlaywrightConfig.GetProxyAddress());
+            Assert.AreEqual("http://localhost:8002", PlaywrightConfig.ProxyAddress());
         }
     }
 }

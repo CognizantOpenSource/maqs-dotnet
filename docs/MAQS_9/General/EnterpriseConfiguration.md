@@ -246,7 +246,7 @@ Primarily uses with the .Net Framework implementation of MAQS.
   </EmailMaqs>
   <SeleniumMaqs>
     <!-- Root to website -->
-    <add key="WebSiteBase" value="http://magenicautomation.azurewebsites.net/" />
+    <add key="WebSiteBase" value="https://cognizantopensource.github.io/maqs-dotnet-templates/Static/Automation/" />
 
     <!--Local browser settings
     <add key="Browser" value="Chrome"/>
@@ -367,7 +367,7 @@ Primarily uses with the .Net Core implementation of MAQS.
     "EmailTimeout": "10000"
   },
   "SeleniumMaqs": {
-    "WebSiteBase": "http://magenicautomation.azurewebsites.net/",
+    "WebSiteBase": "https://cognizantopensource.github.io/maqs-dotnet-templates/Static/Automation/",
     "Browser": "Chrome",
 	"HubUrl": "http://localhost:4444/wd/hub",
 	"RemoteBrowser": "Chrome",

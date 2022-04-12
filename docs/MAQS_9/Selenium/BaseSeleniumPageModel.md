@@ -6,27 +6,27 @@ An abstract base page model class that makes creating and managing page models e
 ### TestObject
 Get the test object associated with the model 
 ```csharp
-ISeleniumTestObject pageObjectTestObject = pageModel.GetTestObject();
+ISeleniumTestObject pageObjectTestObject = pageModel.TestObject;
 ``` 
 
-### GetLogger
+### Log
 Get the logger assoicate with the page object
 
 ```csharp
-ILogger pageObjectLogger =  pageModel.GetLogger();
+ILogger pageObjectLogger =  pageModel.Log;
 ``` 
 
-### GetPerfTimerCollection
+### PerfTimerCollection
 Get the performance timer collation associated with the model 
 ```csharp
-IPerfTimerCollection pageObjectPerfTimer = pageModel.GetPerfTimerCollection();
+IPerfTimerCollection pageObjectPerfTimer = pageModel.PerfTimerCollection;
 ``` 
 
-### GetWebDriver
+### WebDriver
 Get the web driver associated with the model 
 
 ```csharp
-IWebDriver pageObjectWebDriver = pageModel.GetWebDriver();
+IWebDriver pageObjectWebDriver = pageModel.WebDriver;
 ``` 
 
 ### OverrideWebDriver

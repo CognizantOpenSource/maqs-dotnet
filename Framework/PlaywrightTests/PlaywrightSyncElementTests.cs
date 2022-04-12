@@ -348,7 +348,7 @@ namespace PlaywrightTests
         [TestMethod]
         public void EvalOnSelectorAllTest()
         {
-            var results  = Models[this.TestObject].ComputerPartsAllOptions.EvalOnSelectorAll<object>("nodes => nodes.map(n => n.innerText)") as List<object>;
+            var results  = Models[this.TestObject].ComputerPartsAllOptions.EvaluateAll<object>("nodes => nodes.map(n => n.innerText)") as List<object>;
             Assert.AreEqual(6, results.Count);
         }
 

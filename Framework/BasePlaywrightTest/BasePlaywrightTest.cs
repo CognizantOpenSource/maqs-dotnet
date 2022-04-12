@@ -46,7 +46,7 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
         /// The default get page function
         /// </summary>
         /// <returns>The page</returns>
-        protected virtual PageDriver GetBrowser()
+        protected virtual PageDriver GetPage()
         {
             return PageDriverFactory.GetDefaultPageDriver();
         }
@@ -58,7 +58,7 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
         /// <returns>The Playwright test object</returns>
         protected override IPlaywrightTestObject CreateSpecificTestObject(ILogger log)
         {
-            return new PlaywrightTestObject(() => this.GetBrowser(), log, this.GetFullyQualifiedTestClassName());
+            return new PlaywrightTestObject(() => this.GetPage(), log, this.GetFullyQualifiedTestClassName());
         }
 
         /// <summary>

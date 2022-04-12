@@ -31,7 +31,7 @@ namespace PlaywrightTests
         /// </summary>
         public static string Url
         {
-            get { return PlaywrightConfig.GetWebBase(); }
+            get { return PlaywrightConfig.WebBase(); }
         }
 
         /// <summary>
@@ -258,42 +258,6 @@ namespace PlaywrightTests
         public override bool IsPageLoaded()
         {
             return true;
-        }
-
-        /// <summary>
-        /// Get page driver
-        /// </summary>
-        /// <returns>The page driver</returns>
-        public PageDriver GetPageDriver()
-        {
-            return this.PageDriver;
-        }
-
-        /// <summary>
-        /// Get logger
-        /// </summary>
-        /// <returns>The logger</returns>
-        public ILogger GetLogger()
-        {
-            return this.Log;
-        }
-
-        /// <summary>
-        /// Get test object
-        /// </summary>
-        /// <returns>The test object</returns>
-        public IPlaywrightTestObject GetTestObject()
-        {
-            return this.TestObject;
-        }
-
-        /// <summary>
-        /// Get performance timer collection
-        /// </summary>
-        /// <returns>The performance timer collection</returns>
-        public IPerfTimerCollection GetPerfTimerCollection()
-        {
-            return this.PerfTimerCollection;
         }
     }
 }

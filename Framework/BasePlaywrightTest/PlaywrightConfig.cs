@@ -44,12 +44,11 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
         /// </summary>
         private const string PlaywrightSECTION = "PlaywrightMaqs";
 
-
         /// <summary>
         /// Get the web site base url
         /// </summary>
         /// <returns>The web site base url</returns>
-        public static string GetWebBase()
+        public static string WebBase()
         {
             return Config.GetValueForSection(PlaywrightSECTION, "WebBase");
         }
@@ -58,9 +57,9 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
         /// Get the browser type
         /// </summary>
         /// <returns>The browser type</returns>
-        public static PlaywrightBrowser GetBrowserType()
+        public static PlaywrightBrowser BrowserType()
         {
-            return GetBrowserType(GetBrowserName());
+            return BrowserType(BrowserName());
         }
 
         /// <summary>
@@ -68,7 +67,7 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
         /// </summary>
         /// <param name="browserName">Name of the browser</param>
         /// <returns>The browser type</returns>
-        public static PlaywrightBrowser GetBrowserType(string browserName)
+        public static PlaywrightBrowser BrowserType(string browserName)
         {
             return browserName.ToUpper() switch
             {
@@ -85,7 +84,7 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
         /// Get if we should run Playwright headless
         /// </summary>
         /// <returns>True if we want to run Playwright headless</returns>
-        public static bool GetHeadless()
+        public static bool Headless()
         {
             return Config.GetValueForSection(PlaywrightSECTION, "Headless").Equals("Yes", StringComparison.CurrentCultureIgnoreCase);
         }
@@ -94,7 +93,7 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
         /// Get the browser type name - Example: Chrome
         /// </summary>
         /// <returns>The browser type</returns>
-        public static string GetBrowserName()
+        public static string BrowserName()
         {
             return Config.GetValueForSection(PlaywrightSECTION, "Browser", "Chrome");
         }
@@ -103,7 +102,7 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
         /// Get the initialize Playwright timeout
         /// </summary>
         /// <returns>The initialize timeout</returns>
-        public static int GetCommandTimeout()
+        public static int CommandTimeout()
         {
             string value = Config.GetValueForSection(PlaywrightSECTION, "CommandTimeout", "60000");
 
@@ -119,7 +118,7 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
         /// Get the timeout in milliseconds
         /// </summary>
         /// <returns>The timeout in milliseconds</returns>
-        public static int GetTimeoutTime()
+        public static int TimeoutTime()
         {
             return Convert.ToInt32(Config.GetValueForSection(PlaywrightSECTION, "Timeout"));
         }
@@ -128,7 +127,7 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
         /// Get if we want to capture video - This may bloat your test result
         /// </summary>
         /// <returns>True if we want to capture video</returns>
-        public static bool GetCaptureVideo()
+        public static bool CaptureVideo()
         {
             return Config.GetValueForSection(PlaywrightSECTION, "CaptureVideo", "NO").Equals("Yes", StringComparison.CurrentCultureIgnoreCase);
         }
@@ -137,7 +136,7 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
         /// Get if we want to capture screenshots - This may bloat your test result
         /// </summary>
         /// <returns>True if we want to capture screenshots</returns>
-        public static bool GetCaptureScreenshots()
+        public static bool CaptureScreenshots()
         {
             return Config.GetValueForSection(PlaywrightSECTION, "CaptureScreenshots", "NO").Equals("Yes", StringComparison.CurrentCultureIgnoreCase);
         }
@@ -146,7 +145,7 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
         /// Get if we want to capture snapshots - This may bloat your test result
         /// </summary>
         /// <returns>True if we want to capture snapshots</returns>
-        public static bool GetCaptureSnapshots()
+        public static bool CaptureSnapshots()
         {
             return Config.GetValueForSection(PlaywrightSECTION, "CaptureSnapshots", "NO").Equals("Yes", StringComparison.CurrentCultureIgnoreCase);
         }
@@ -155,7 +154,7 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
         /// get the browser size
         /// </summary>
         /// <returns></returns>
-        public static Size GetBrowserSize()
+        public static Size BrowserSize()
         {
             string size = Config.GetValueForSection(PlaywrightSECTION, "BrowserSize", "DEFAULT").ToUpper();
 
@@ -172,7 +171,7 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
         /// Get if we want to use a proxy for the page traffic
         /// </summary>
         /// <returns>True if we want to use the proxy</returns>
-        public static bool GetUseProxy()
+        public static bool UseProxy()
         {
             return Config.GetValueForSection(PlaywrightSECTION, "UseProxy", "NO").Equals("Yes", StringComparison.CurrentCultureIgnoreCase);
         }
@@ -181,7 +180,7 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
         /// Get the proxy address to use
         /// </summary>
         /// <returns>The proxy address</returns>
-        public static string GetProxyAddress()
+        public static string ProxyAddress()
         {
             return Config.GetValueForSection(PlaywrightSECTION, "ProxyAddress");
         }

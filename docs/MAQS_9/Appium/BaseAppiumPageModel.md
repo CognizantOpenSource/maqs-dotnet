@@ -3,6 +3,34 @@
 ## Overview
 An abstract base page model class that makes creating and managing page models easy
 
+
+### TestObject
+Get the test object associated with the model 
+```csharp
+IAppiumTestObject pageObjectTestObject = pageModel.TestObject;
+``` 
+
+### Log
+Get the logger assoicate with the page object
+
+```csharp
+ILogger pageObjectLogger =  pageModel.Log;
+``` 
+
+### PerfTimerCollection
+Get the performance timer collation associated with the model 
+```csharp
+IPerfTimerCollection pageObjectPerfTimer = pageModel.PerfTimerCollection;
+``` 
+
+### WebDriver
+Get the Appium driver associated with the model 
+
+```csharp
+AppiumDriver pageObjectWebDriver = pageModel.AppiumDriver;
+``` 
+
+
 ### OverrideDriver
 Associate the model with a different Appium driver
 

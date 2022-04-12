@@ -4,7 +4,7 @@
 Wraps the basic database interactions
 
 ## The DatabaseDriver
-The DatabaseDrive object is included in the DatabaseTestObject. The driver sets and opens a connection to the database on instansitaiton. The driver wraps Dapper functionality. 
+The DatabaseDrive object is included in the DatabaseTestObject. The driver sets and opens a connection to the database on instantiation. The driver wraps Dapper functionality. 
 
 ### EventFiringDatabaseDriver
 Similar to the DatabaseDriver, except raises an event before a query. 

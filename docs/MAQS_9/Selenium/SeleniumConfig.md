@@ -149,7 +149,7 @@ Dictionary<string, object> capabilitiesAsObjects= SeleniumConfig.GetRemoteCapabi
   </configSections>
   <SeleniumMaqs>
     <!-- Root to website -->
-    <add key="WebSiteBase" value="http://magenicautomation.azurewebsites.net/" />
+    <add key="WebSiteBase" value="https://cognizantopensource.github.io/maqs-dotnet-templates/Static/Automation/" />
 
     <!--Local browser settings
     <add key="Browser" value="Chrome"/>
@@ -257,7 +257,7 @@ Dictionary<string, object> capabilitiesAsObjects= SeleniumConfig.GetRemoteCapabi
 ```json
 {
   "SeleniumMaqs": {
-    "WebSiteBase": "http://magenicautomation.azurewebsites.net/",
+    "WebSiteBase": "https://cognizantopensource.github.io/maqs-dotnet-templates/Static/Automation/",
     "Browser": "Chrome",
     "HubUrl": "http://localhost:4444/wd/hub",
     "RemoteBrowser": "Chrome",

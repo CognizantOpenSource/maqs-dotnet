@@ -7,6 +7,7 @@
 
 using CognizantSoftvision.Maqs.BasePlaywrightTest;
 using CognizantSoftvision.Maqs.Utilities.Helper;
+using Microsoft.Playwright;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Diagnostics.CodeAnalysis;
 
@@ -37,7 +38,7 @@ namespace PlaywrightTests
         [TestCategory(TestCategories.Playwright)]
         public void PageModelTestObject()
         {
-            Assert.AreEqual(this.TestObject, this.getPageModel().GetTestObject());
+            Assert.AreEqual(this.TestObject, this.getPageModel().TestObject);
         }
 
         /// <summary>
@@ -47,7 +48,7 @@ namespace PlaywrightTests
         [TestCategory(TestCategories.Playwright)]
         public void PageModelPageDriver()
         {
-            Assert.AreEqual(this.PageDriver, this.getPageModel().GetPageDriver());
+            Assert.AreEqual(this.PageDriver, this.getPageModel().PageDriver);
         }
 
         /// <summary>
@@ -57,7 +58,7 @@ namespace PlaywrightTests
         [TestCategory(TestCategories.Playwright)]
         public void PageModelLogger()
         {
-            Assert.AreEqual(this.Log, this.getPageModel().GetLogger());
+            Assert.AreEqual(this.Log, this.getPageModel().Log);
         }
 
         /// <summary>
@@ -67,7 +68,7 @@ namespace PlaywrightTests
         [TestCategory(TestCategories.Playwright)]
         public void PageModelPerfTimerCollection()
         {
-            Assert.AreEqual(this.PerfTimerCollection, this.getPageModel().GetPerfTimerCollection());
+            Assert.AreEqual(this.PerfTimerCollection, this.getPageModel().PerfTimerCollection);
         }
 
         /// <summary>
@@ -78,7 +79,7 @@ namespace PlaywrightTests
         public void OverrideTestObjectPageDriver()
         {
             var oldPageDriver = this.PageDriver;
-            
+
             try
             {
                 this.TestObject.OverridePageDriver(PageDriverFactory.GetDefaultPageDriver());
@@ -111,14 +112,14 @@ namespace PlaywrightTests
         {
             try
             {
-                var oldPageDriver = this.getPageModel().GetPageDriver();
+                var oldPageDriver = this.getPageModel().PageDriver;
                 this.getPageModel().OverridePageDriver(PageDriverFactory.GetDefaultPageDriver());
 
-                Assert.AreNotEqual(oldPageDriver, this.getPageModel().GetPageDriver(), "The page driver was not updated");
+                Assert.AreNotEqual(oldPageDriver, this.getPageModel().PageDriver, "The page driver was not updated");
             }
             finally
             {
-                this.getPageModel().GetPageDriver()?.Close();
+                this.getPageModel().PageDriver?.Close();
             }
         }
 

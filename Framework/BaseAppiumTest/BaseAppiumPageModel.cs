@@ -49,12 +49,12 @@ namespace CognizantSoftvision.Maqs.BaseAppiumTest
         /// <summary>
         /// Gets the webdriver from the test object
         /// </summary>
-        protected AppiumDriver AppiumDriver { get; private set; }
+        public AppiumDriver AppiumDriver { get; private set; }
 
         /// <summary>
         /// Gets the log from the test object
         /// </summary>
-        protected ILogger Log
+        public ILogger Log
         {
             get { return this.TestObject.Log; }
         }
@@ -62,7 +62,7 @@ namespace CognizantSoftvision.Maqs.BaseAppiumTest
         /// <summary>
         /// Gets the performance timer collection from the test object
         /// </summary>
-        protected IPerfTimerCollection PerfTimerCollection
+        public IPerfTimerCollection PerfTimerCollection
         {
             get { return this.TestObject.PerfTimerCollection; }
         }
@@ -70,7 +70,7 @@ namespace CognizantSoftvision.Maqs.BaseAppiumTest
         /// <summary>
         /// Gets or sets the Appium test object
         /// </summary>
-        protected IAppiumTestObject TestObject { get; set; }
+        public IAppiumTestObject TestObject { get; protected set; }
 
         /// <summary>
         /// Override the driver 

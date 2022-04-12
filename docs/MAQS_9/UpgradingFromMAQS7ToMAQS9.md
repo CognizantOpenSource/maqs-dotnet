@@ -1,4 +1,13 @@
-# Updating from MAQS 7 to MAQS 8
+# Updating from MAQS 8 to MAQS 9
+
+For the most part MAQS should be able to seamlessly update from 8 to 9.
+
+## Caveat  
+
+In this version of MAQS we are dropping Core 2.1 support for SpecFlow based tests, so you may need to update to Core 3.1 or above.
+
+
+# Updating from MAQS 7 to MAQS 9
 
 ## Namespace
 The name 'CognizantSoftvision' is replacing 'Magenic' in all namespaces. 

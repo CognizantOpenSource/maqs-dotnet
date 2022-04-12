@@ -340,7 +340,7 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
         }
 
         /// <inheritdoc cref = "ILocator.EvaluateAllAsync"  />
-        public T EvalOnSelectorAll<T>(string expression, object? arg = null)
+        public T EvaluateAll<T>(string expression, object? arg = null)
         {
             return ElementLocator().EvaluateAllAsync<T>(expression, arg).Result;
         }
