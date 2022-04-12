@@ -27,7 +27,6 @@ namespace PlaywrightTests
         [DataRow(PlaywrightBrowser.Chrome)]
         [DataRow(PlaywrightBrowser.Chromium)]
         [DataRow(PlaywrightBrowser.Firefox)]
-        [DataRow(PlaywrightBrowser.Edge)]
         [DataRow(PlaywrightBrowser.Webkit)]
         public void CanMakeAllBrowsers(PlaywrightBrowser browserType)
         {
