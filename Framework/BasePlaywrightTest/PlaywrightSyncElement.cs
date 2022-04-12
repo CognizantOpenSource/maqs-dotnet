@@ -122,7 +122,7 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
                 return this.ParentFrameLocator.Locator(Selector);
             }
 
-            throw new ArgumentNullException("Both parent IPage and PlaywrightElement are null");
+            throw new PlaywrightException("Both parent IPage and PlaywrightElement are null");
         }
 
         /// <inheritdoc cref = "ILocator.CheckAsync" /> 

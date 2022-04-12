@@ -85,7 +85,7 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
 
             if(tempDriver == null)
             {
-                throw new ArgumentNullException("Base driver is null");
+                throw new PlaywrightException("Base driver is null");
             }
 
             return tempDriver;
@@ -98,31 +98,6 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
         public override object Get()
         {
             return this.GetPageDriver();
-        }
-
-        /// <summary>
-        /// Log a verbose message and include the automation specific call stack data
-        /// </summary>
-        /// <param name="message">The message text</param>
-        /// <param name="args">String format arguments</param>
-        protected void LogVerbose(string message, params object[] args)
-        {
-            StringBuilder messages = new StringBuilder();
-            messages.AppendLine(StringProcessor.SafeFormatter(message, args));
-
-            var methodInfo = MethodBase.GetCurrentMethod();
-            var fullName = $"{methodInfo.DeclaringType.FullName}.{methodInfo.Name}";
-
-            foreach (string stackLevel in Environment.StackTrace.Split(new string[] { Environment.NewLine }, StringSplitOptions.None))
-            {
-                string trimmed = stackLevel.Trim();
-                if (!trimmed.StartsWith("at Microsoft.") && !trimmed.StartsWith("at System.") && !trimmed.StartsWith("at NUnit.") && !trimmed.StartsWith($"at {fullName}"))
-                {
-                    messages.AppendLine(stackLevel);
-                }
-            }
-
-            Log.LogMessage(MessageType.VERBOSE, messages.ToString());
         }
 
         /// <summary>
