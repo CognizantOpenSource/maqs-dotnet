@@ -51,7 +51,23 @@ UpgradingFromMAQS8ToMAQS9
     - [xv. Base page model](MAQS_9/Selenium/BaseSeleniumPageModel.md)
     - [xvi. FAQ](MAQS_9/Selenium/SeleniumFAQ.md)
 
-  - v. WebServices
+
+  - v. Playwright
+
+    - [i. Features](MAQS_9/Playwright/PlaywrightFeatures.md)
+    - [ii. Base Test](MAQS_9/Playwright/PlaywrightBaseTest.md)
+    - [iii. Test Object](MAQS_9/Playwright/PlaywrightTestObject.md)
+    - [iv. Driver](MAQS_9/Playwright/PageDriver.md)
+    - [v. Config](MAQS_9/Playwright/PlaywrightConfig.md)
+    - [vi. Driver Manager](MAQS_9/Playwright/PageDriverManager.md)
+    - [vii. Page Driver Factory](MAQS_9/Playwright/PageDriverFactory.md)
+    - [viii. Synchronous Element](MAQS_9/Playwright/PlaywrightSyncElement.md)
+    - [ix. Overriding the Driver](MAQS_9/Playwright/PageDriverOverride.md)
+    - [x. Base page model](MAQS_9/Playwright/BasePlaywrightPageModel.md)
+    - [xi. FAQ](MAQS_9/Playwright/PlaywrightFAQ.md)
+
+
+  - vi. WebServices
 
     - [i. Features](MAQS_9/WebService/WebServiceFeatures.md)
     - [ii. Base Test](MAQS_9/WebService/WebServiceBaseTest.md)
@@ -65,7 +81,7 @@ UpgradingFromMAQS8ToMAQS9
     - [x. Overriding the Driver](MAQS_9/WebService/WebServiceOverride.md)
     - [xi. FAQ](MAQS_9/WebService/WebServicesFAQ.md)
 
-  - vi. Appium
+  - vii. Appium
 
     - [i. Features](MAQS_9/Appium/AppiumFeatures.md)
     - [ii. Base Test](MAQS_9/Appium/AppiumBaseTest.md)
@@ -80,7 +96,7 @@ UpgradingFromMAQS8ToMAQS9
     - [xi. Base page model](MAQS_9/Appium/BaseAppiumPageModel.md)
     - [xii. FAQ](MAQS_9/Appium/AppiumFAQ.md)
 
-  - vii. Database
+  - viii. Database
 
     - [i. Features](MAQS_9/Database/DatabaseFeatures.md)
     - [ii. Base Test](MAQS_9/Database/DatabaseBaseTest.md)
@@ -95,7 +111,7 @@ UpgradingFromMAQS8ToMAQS9
     - [xi. Overriding the Driver](MAQS_9/Database/DatabaseDriverOverride.md)
     - [xii. FAQ](MAQS_9/Database/DatabaseFAQ.md)
 
-  - viii. MongoDB
+  - ix. MongoDB
 
     - [i. Features](MAQS_9/MongoDB/MongoDBFeatures.md)
     - [ii. Base Test](MAQS_9/MongoDB/MongoBaseTest.md)
@@ -107,7 +123,7 @@ UpgradingFromMAQS8ToMAQS9
     - [viii. Overriding the Driver](MAQS_9/MongoDB/MongoDriverOverride.md)
     - [ix. FAQ](MAQS_9/MongoDB/MongoFAQ.md)
 
-  - ix. Email
+  - x. Email
     - [i. Features](MAQS_9/Email/EmailFeatures.md)
     - [ii. Base Test](MAQS_9/Email/EmailBaseTest.md)
     - [iii. Test Object](MAQS_9/Email/EmailTestObject.md)

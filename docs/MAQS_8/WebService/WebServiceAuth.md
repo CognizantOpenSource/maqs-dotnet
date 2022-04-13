@@ -4,9 +4,9 @@
 Testing web services often requires your test to authenticate. There are many different authentication standards, such as form-based, NTML, SAML, OAuth 1, OAuth 2, etc. to name just a few. This is far more than we could realistically cover in this wiki.  Rather than trying to cover all the possible authentication types we will go over this topic from a high level.  
 
 # Available methods
-[Adding HTTP client authentication](##Adding-HTTP-client-authentication)  
-[Using custom HTTP client in a single test](##Using-custom-HTTP-client-in-a-single-test)  
-[Using custom HTTP client across inherited tests](##Using-custom-HTTP-client-across-inherited-tests)  
+[Adding HTTP client authentication](#Adding-HTTP-client-authentication)  
+[Using custom HTTP client in a single test](#Using-custom-HTTP-client-in-a-single-test)  
+[Using custom HTTP client across inherited tests](#Using-custom-HTTP-client-across-inherited-tests)  
 
 
 ## Adding HTTP client authentication
