@@ -517,10 +517,10 @@ namespace PlaywrightTests
         public void WaitForTimeoutTest()
         {
             var before = DateTime.Now;
-            this.PageDriver.WaitForTimeout(1000);
+            this.PageDriver.WaitForTimeout(5000);
             var afterWait = DateTime.Now;
 
-            Assert.IsTrue(afterWait > before.AddMilliseconds(999) && afterWait < before.AddMilliseconds(1900), $"Sleep should have been about 1 second but was {(before - afterWait).TotalSeconds} seconds");
+            Assert.IsTrue(afterWait > before.AddMilliseconds(4999) && afterWait < before.AddMilliseconds(8000), $"Sleep should have been about 1 second but was {(before - afterWait).TotalSeconds} seconds");
         }
 
         /// <summary>
