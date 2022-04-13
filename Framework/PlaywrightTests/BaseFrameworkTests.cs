@@ -4,7 +4,6 @@
 // </copyright>
 // <summary>Low level framework tests</summary>
 using CognizantSoftvision.Maqs.BasePlaywrightTest;
-using CognizantSoftvision.Maqs.BaseTest;
 using CognizantSoftvision.Maqs.Utilities.Helper;
 using CognizantSoftvision.Maqs.Utilities.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -22,17 +21,8 @@ namespace PlaywrightTests
     [ExcludeFromCodeCoverage]
     [DoNotParallelize]
     [TestCategory(TestCategories.Framework)]
-    public class BaseFrameworkTests : BaseTestUnitTests.BaseFrameworkTests
+    public class BaseFrameworkTests
     {
-        /// <summary>
-        ///  Base test does soft assert check
-        /// </summary>
-        [TestMethod]
-        public new void SoftAssertWithNoFailure()
-        {
-            base.SoftAssertWithNoFailure();
-        }
-
         /// <summary>
         ///  Assure artifacts exist
         /// </summary>
@@ -46,7 +36,7 @@ namespace PlaywrightTests
 
             try
             {
-                BasePlaywrightTest tester = this.GetBaseTest() as BasePlaywrightTest;
+                BasePlaywrightTest tester = new BasePlaywrightTest();
                 tester.MaqsSetup();
 
                 var logFilePath = (tester.Log as FileLogger).FilePath;
@@ -71,48 +61,6 @@ namespace PlaywrightTests
             {
                 Config.ClearOverrides();
             }
-        }
-
-        /// <summary>
-        ///  Base test does soft assert check
-        /// </summary>
-        [TestMethod]
-        [TestCategory(TestCategories.Framework)]
-        [ExpectedException(typeof(AssertFailedException))]
-        public new void SoftAssertWithFailure()
-        {
-            base.SoftAssertWithFailure();
-        }
-
-        /// <summary>
-        ///  Base test does soft assert check
-        /// </summary>
-        [Test]
-        [Category(TestCategories.Framework)]
-        [Category(TestCategories.NUnit)]
-        public new void SoftAssertNUnitWithNoFailure()
-        {
-            base.SoftAssertWithNoFailure();
-        }
-
-        /// <summary>
-        ///  Base test does soft assert check
-        /// </summary>
-        [Test]
-        [Category(TestCategories.Framework)]
-        [Category(TestCategories.NUnit)]
-        public new void SoftAssertNUnitWithFailure()
-        {
-            base.SoftAssertNUnitWithFailure();
-        }
-
-        /// <summary>
-        /// Override the base test object
-        /// </summary>
-        /// <returns>The base test as base web service</returns>
-        protected override BaseTest GetBaseTest()
-        {
-            return new BasePlaywrightTest();
         }
 
         /// <summary>
