@@ -553,8 +553,7 @@ namespace PlaywrightTests
             this.PageDriver.Click(AsyncPageLink);
             Assert.IsTrue(this.PageDriver.IsEventualyVisible(asyncItemSelector));
             this.PageDriver.Reload();
-            this.PageDriver.WaitForTimeout(500);
-            Assert.IsFalse(this.PageDriver.IsVisible(asyncItemSelector));
+            Assert.IsTrue(this.PageDriver.IsEventualyGone(asyncItemSelector));
         }
 
         /// <summary>
