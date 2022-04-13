@@ -307,6 +307,14 @@ jobs:
             3.1.x
             6.x.x
       - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: Install Playwright
+        run: |
+            npx playwright install --with-deps
+            dotnet build Framework/FrameworkUnitTests/FrameworkUnitTests.csproj -o Framework/FrameworkUnitTests/build
+            pwsh Framework/FrameworkUnitTests/build/playwright.ps1 install  
       - run: dotnet restore Framework/FrameworkUnitTests/FrameworkUnitTests.csproj
         shell: pwsh
       - id: browserupdate

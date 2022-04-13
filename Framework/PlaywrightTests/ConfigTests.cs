@@ -97,8 +97,8 @@ namespace PlaywrightTests
         [DataRow("200X100", 200, 100)]
         [DataRow("1280 x 720", 1280, 720)]
         [DataRow("DEFAULT", 1280, 720)]
-        public void GetBrowserSize(string sizeText, int width, int height) 
-        { 
+        public void GetBrowserSize(string sizeText, int width, int height)
+        {
             Config.AddTestSettingValue("BrowserSize", sizeText, ConfigSection.PlaywrightMaqs);
 
             var size = PlaywrightConfig.BrowserSize();

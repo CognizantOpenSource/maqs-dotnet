@@ -85,7 +85,7 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
                     AttachTestFiles(this.PageDriver.ParentBrower, fileNameWithoutExtension);
                     return;
                 }
-                
+
                 // We are not logging these results so delete the recordings
                 DeleteTestFiles(this.PageDriver.ParentBrower);
             }

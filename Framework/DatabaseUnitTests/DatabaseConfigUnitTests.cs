@@ -4,9 +4,9 @@
 // </copyright>
 // <summary>Unit test database configuration test</summary>
 //--------------------------------------------------
-using Dapper;
 using CognizantSoftvision.Maqs.BaseDatabaseTest;
 using CognizantSoftvision.Maqs.Utilities.Helper;
+using Dapper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;

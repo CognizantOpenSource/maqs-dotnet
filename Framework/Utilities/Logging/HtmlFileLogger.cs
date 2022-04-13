@@ -134,7 +134,7 @@ namespace CognizantSoftvision.Maqs.Utilities.Logging
         protected override void Dispose(bool disposing)
         {
             base.Dispose(disposing);
-            
+
             if (disposing && File.Exists(this.FilePath))
             {
                 var writer = new StreamWriter(this.FilePath, true);

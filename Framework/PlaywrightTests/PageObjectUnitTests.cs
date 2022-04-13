@@ -7,7 +7,6 @@
 
 using CognizantSoftvision.Maqs.BasePlaywrightTest;
 using CognizantSoftvision.Maqs.Utilities.Helper;
-using Microsoft.Playwright;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Diagnostics.CodeAnalysis;
 

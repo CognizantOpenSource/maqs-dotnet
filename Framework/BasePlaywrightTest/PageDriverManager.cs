@@ -5,12 +5,9 @@
 // <summary>Playwright driver</summary>
 //--------------------------------------------------
 using CognizantSoftvision.Maqs.BaseTest;
-using CognizantSoftvision.Maqs.Utilities.Helper;
 using CognizantSoftvision.Maqs.Utilities.Logging;
 using Microsoft.Playwright;
 using System;
-using System.Reflection;
-using System.Text;
 
 namespace CognizantSoftvision.Maqs.BasePlaywrightTest
 {
@@ -83,7 +80,7 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
 
             tempDriver = GetBase() as PageDriver;
 
-            if(tempDriver == null)
+            if (tempDriver == null)
             {
                 throw new PlaywrightException("Base driver is null");
             }

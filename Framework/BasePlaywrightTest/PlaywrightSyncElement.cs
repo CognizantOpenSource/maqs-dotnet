@@ -5,7 +5,6 @@
 // <summary>Playwright synchronous element wrapper</summary>
 //--------------------------------------------------
 using Microsoft.Playwright;
-using System;
 using System.Collections.Generic;
 using System.Text.Json;
 
@@ -109,11 +108,11 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
         /// <returns></returns>
         public ILocator ElementLocator()
         {
-            if(this.ParentPage != null)
+            if (this.ParentPage != null)
             {
                 return this.ParentPage.Locator(Selector, PageOptions);
             }
-            else if(this.ParentLocator != null)
+            else if (this.ParentLocator != null)
             {
                 return this.ParentLocator.Locator(Selector, LocatorOptions);
             }

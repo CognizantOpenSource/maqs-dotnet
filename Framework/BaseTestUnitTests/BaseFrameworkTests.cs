@@ -42,7 +42,7 @@ namespace BaseTestUnitTests
             tester.MaqsSetup();
 
             tester.Log = new FileLogger(string.Empty, $"{Guid.NewGuid()}.txt");
-            tester.SoftAssert.Assert(() => Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(string.Empty, string.Empty));
+            tester.SoftAssert.Assert(() => MicroAssert.AreEqual(string.Empty, string.Empty));
             tester.MaqsTeardown();
         }
 

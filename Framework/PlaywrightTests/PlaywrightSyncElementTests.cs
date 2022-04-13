@@ -8,7 +8,6 @@ using CognizantSoftvision.Maqs.BasePlaywrightTest;
 using CognizantSoftvision.Maqs.Utilities.Helper;
 using Microsoft.Playwright;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
@@ -33,7 +32,7 @@ namespace PlaywrightTests
         {
             var pageModel = new PageModel(this.TestObject);
             pageModel.OpenPage();
-            Models.TryAdd(this.TestObject, pageModel); 
+            Models.TryAdd(this.TestObject, pageModel);
         }
 
         /// <summary>
@@ -115,7 +114,7 @@ namespace PlaywrightTests
             var second = Models[this.TestObject].ComputerPartsSecond.ElementLocator().ElementHandleAsync().Result;
             var fourth = Models[this.TestObject].ComputerPartsFourth.ElementLocator().ElementHandleAsync().Result;
 
-            multipleOptions = Models[this.TestObject].ComputerPartsSelection.SelectOption( (new[] { fourth, second }));
+            multipleOptions = Models[this.TestObject].ComputerPartsSelection.SelectOption((new[] { fourth, second }));
             Assert.AreEqual(2, multipleOptions.Count);
             Assert.AreEqual("two", multipleOptions[0]);
             Assert.AreEqual("four", multipleOptions[1]);
@@ -153,7 +152,7 @@ namespace PlaywrightTests
             PageLocatorOptions locator = new PageLocatorOptions
             {
                 HasTextString = "Elements",
-                
+
             };
 
             var element = new PlaywrightSyncElement(this.TestObject, Models[this.TestObject].MainHeader.Selector, locator);
@@ -348,7 +347,7 @@ namespace PlaywrightTests
         [TestMethod]
         public void EvalOnSelectorAllTest()
         {
-            var results  = Models[this.TestObject].ComputerPartsAllOptions.EvaluateAll<object>("nodes => nodes.map(n => n.innerText)") as List<object>;
+            var results = Models[this.TestObject].ComputerPartsAllOptions.EvaluateAll<object>("nodes => nodes.map(n => n.innerText)") as List<object>;
             Assert.AreEqual(6, results.Count);
         }
 

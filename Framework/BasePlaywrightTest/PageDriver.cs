@@ -1,6 +1,4 @@
-﻿using CognizantSoftvision.Maqs.Utilities.Helper;
-using CognizantSoftvision.Maqs.Utilities.Logging;
-using Microsoft.Playwright;
+﻿using Microsoft.Playwright;
 using System;
 using System.Collections.Generic;
 using System.Text.Json;
@@ -247,14 +245,14 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
                 _ = this.AsyncPage.WaitForSelectorAsync(selector, new PageWaitForSelectorOptions
                 {
                     State = WaitForSelectorState.Visible,
-                    Strict = options == null ?  false : options.Strict
+                    Strict = options == null ? false : options.Strict
                 }).Result;
                 return true;
             }
             catch
             {
                 return false;
-            }    
+            }
         }
 
         /// <summary>
@@ -409,7 +407,7 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
         /// <inheritdoc cref = "IPage.GotoAsync"  />
         public IResponse? Goto(string url, PageGotoOptions? options = null)
         {
-            return this.AsyncPage.GotoAsync(url,options).Result;
+            return this.AsyncPage.GotoAsync(url, options).Result;
         }
 
         /// <inheritdoc cref = "IPage.GoBackAsync"  />

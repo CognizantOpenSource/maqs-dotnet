@@ -5,8 +5,6 @@
 // <summary>A test Playwright page object model</summary>
 //-----------------------------------------------------
 using CognizantSoftvision.Maqs.BasePlaywrightTest;
-using CognizantSoftvision.Maqs.Utilities.Logging;
-using CognizantSoftvision.Maqs.Utilities.Performance;
 using System.Diagnostics.CodeAnalysis;
 
 namespace PlaywrightTests

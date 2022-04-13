@@ -10,7 +10,7 @@ using Microsoft.Playwright;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Diagnostics.CodeAnalysis;
 
-namespace PlaywrightTests
+namespace FrameworkUnitTests
 {
     /// <summary>
     /// Test driver manager

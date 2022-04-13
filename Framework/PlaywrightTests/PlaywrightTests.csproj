@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BasePlaywrightTest\BasePlaywrightTest.csproj" />
+    <ProjectReference Include="..\BaseTestUnitTests\BaseTestUnitTests.csproj" />
   </ItemGroup>
 
   <ItemGroup>

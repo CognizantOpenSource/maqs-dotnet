@@ -144,6 +144,8 @@ namespace CognizantSoftvision.Maqs.Utilities.Logging
             {
                 this.LogMessage(MessageType.VERBOSE, "Disposing logger");
             }
+
+            base.Dispose(disposing);
         }
 
         /// <summary>

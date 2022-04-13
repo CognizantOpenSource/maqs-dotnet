@@ -7,12 +7,6 @@
 using CognizantSoftvision.Maqs.Utilities.Logging;
 using Microsoft.Playwright;
 using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading;
 
 
 namespace CognizantSoftvision.Maqs.BasePlaywrightTest
@@ -199,7 +193,7 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
         public static BrowserTypeLaunchOptions GetDefaultOptions()
         {
             // Check if we should add proxy
-            if(PlaywrightConfig.UseProxy())
+            if (PlaywrightConfig.UseProxy())
             {
                 return new BrowserTypeLaunchOptions
                 {

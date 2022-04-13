@@ -316,7 +316,7 @@ namespace CognizantSoftvision.Maqs.BaseTest
                 }
             }
             finally
-            {               
+            {
                 // Release the base test object
                 this.BaseTestObjects.TryRemove(fullyQualifiedTestName, out ITestObject baseTestObject);
                 baseTestObject.Dispose();
