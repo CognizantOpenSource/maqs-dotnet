@@ -1,7 +1,7 @@
 # <img src="resources/maqslogo.ico" height="32" width="32"> Overriding The Appium driver
 
 ## Overriding the Appium driver 
-By default, BaseAppiumTest will create a driver for you based on your [configuration](MAQS_7/Appium/AppiumConfig.md). This typically works for most instances, but there are times when the default driver implementation provide by MAQS does not suit your needs. This is why we provide several different ways for you to provide your own driver implementation.
+By default, BaseAppiumTest will create a driver for you based on your [configuration](MAQS_8/Appium/AppiumConfig.md). This typically works for most instances, but there are times when the default driver implementation provide by MAQS does not suit your needs. This is why we provide several different ways for you to provide your own driver implementation.
 
 There are three primary ways to override the driver.
 

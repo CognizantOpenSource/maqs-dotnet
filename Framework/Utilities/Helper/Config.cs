@@ -540,7 +540,7 @@ namespace CognizantSoftvision.Maqs.Utilities.Helper
 #pragma warning restore CS0618 // Type or member is obsolete
 
                 value = compositeConfig.GetValue(newPath);
-            }    
+            }
 
             return (value != null, value);
         }

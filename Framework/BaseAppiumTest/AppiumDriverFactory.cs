@@ -238,7 +238,7 @@ namespace CognizantSoftvision.Maqs.BaseAppiumTest
                         appiumOptions.AddAdditionalAppiumOption(keyValue.Key, jsonDictionary);
                     }
                     catch
-                    { 
+                    {
                         // Not Json string so add as a normal string
                         appiumOptions.AddAdditionalAppiumOption(keyValue.Key, keyValue.Value);
                     }

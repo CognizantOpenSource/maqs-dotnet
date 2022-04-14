@@ -28,6 +28,11 @@ namespace CognizantSoftvision.Maqs.Utilities.Helper
         public const string Selenium = "Selenium Unit Tests";
 
         /// <summary>
+        /// String for Playwright unit test category
+        /// </summary>
+        public const string Playwright = "Playwright Unit Tests";
+
+        /// <summary>
         /// String for utilities unit test category
         /// </summary>
         public const string Utilities = "Utilities Unit Tests";

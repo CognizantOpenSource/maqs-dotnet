@@ -18,6 +18,7 @@ namespace UtilitiesUnitTesting
     [TestClass]
     [ExcludeFromCodeCoverage]
     [DoNotParallelize]
+    [TestCategory(TestCategories.Utilities)]
     public class ConfigUnitTests
     {
         /// <summary>
@@ -81,7 +82,6 @@ namespace UtilitiesUnitTesting
         /// Gets a value from a string
         /// </summary>
         [TestMethod]
-        [TestCategory(TestCategories.Utilities)]
         public void GetValueWithString()
         {
             string value = Config.GetGeneralValue("WaitTime");
@@ -92,7 +92,6 @@ namespace UtilitiesUnitTesting
         /// Gets a value with a string or default
         /// </summary>
         [TestMethod]
-        [TestCategory(TestCategories.Utilities)]
         public void GetValueWithStringAndDefault()
         {
             string value = Config.GetGeneralValue("DoesNotExist", "Default");
@@ -103,7 +102,6 @@ namespace UtilitiesUnitTesting
         /// Checks if a key exists
         /// </summary>
         [TestMethod]
-        [TestCategory(TestCategories.Utilities)]
         public void DoesKeyExist()
         {
             bool value = Config.DoesGeneralKeyExist("DoesNotExist");
@@ -114,7 +112,6 @@ namespace UtilitiesUnitTesting
         /// Checks if config falls back to old config section when using general
         /// </summary>
         [TestMethod]
-        [TestCategory(TestCategories.Utilities)]
         public void OldConfigFallbackForGeneral()
         {
             string value = Config.GetGeneralValue("OldConfigOnly");
@@ -125,7 +122,6 @@ namespace UtilitiesUnitTesting
         /// Checks if config falls back to old config section when using global
         /// </summary>
         [TestMethod]
-        [TestCategory(TestCategories.Utilities)]
         public void OldConfigFallbackWithSection()
         {
             string value = Config.GetValueForSection(ConfigSection.GlobalMaqs, "OldConfigOnly");
@@ -136,7 +132,6 @@ namespace UtilitiesUnitTesting
         /// Checks if a key exists in a section
         /// </summary>
         [TestMethod]
-        [TestCategory(TestCategories.Utilities)]
         public void DoesKeyExistInSection()
         {
             bool value = Config.DoesKeyExist(ConfigSection.GlobalMaqs, "Log");
@@ -147,7 +142,6 @@ namespace UtilitiesUnitTesting
         ///  Verify simple override of an existing configuration
         /// </summary>
         [TestMethod]
-        [TestCategory(TestCategories.Utilities)]
         public void SimpleOverrideConfig()
         {
             // Simple override data
@@ -171,7 +165,6 @@ namespace UtilitiesUnitTesting
         ///  Verify simple override of a single configuration
         /// </summary>
         [TestMethod]
-        [TestCategory(TestCategories.Utilities)]
         public void SimpleSingleConfig()
         {
             // Simple override data
@@ -190,7 +183,6 @@ namespace UtilitiesUnitTesting
         ///  Verify simple override of a single general configuration
         /// </summary>
         [TestMethod]
-        [TestCategory(TestCategories.Utilities)]
         public void SimpleSingleGeneralConfig()
         {
             // Simple override data
@@ -209,7 +201,6 @@ namespace UtilitiesUnitTesting
         ///  Verify simple override of a single configuration for a specific section
         /// </summary>
         [TestMethod]
-        [TestCategory(TestCategories.Utilities)]
         public void SimpleSingleForConfigSection()
         {
             // Simple override data
@@ -228,7 +219,6 @@ namespace UtilitiesUnitTesting
         ///  Verify simple override of a single configuration for a specific section
         /// </summary>
         [TestMethod]
-        [TestCategory(TestCategories.Utilities)]
         public void SimpleSingleForConfigSectionString()
         {
             // Simple override data
@@ -247,7 +237,6 @@ namespace UtilitiesUnitTesting
         ///  Verify simple override of a new configuration
         /// </summary>
         [TestMethod]
-        [TestCategory(TestCategories.Utilities)]
         public void OverrideNewConfig()
         {
             string key = "AddNewKey";
@@ -272,7 +261,6 @@ namespace UtilitiesUnitTesting
         ///  Verify complex configuration overrides
         /// </summary>
         [TestMethod]
-        [TestCategory(TestCategories.Utilities)]
         public void ComplexOverrideConfig()
         {
             // Define keys
@@ -320,7 +308,6 @@ namespace UtilitiesUnitTesting
         /// Tests that the config is validated when there are no required fields
         /// </summary>
         [TestMethod]
-        [TestCategory(TestCategories.Utilities)]
         public void ConfigNoRequiredFields()
         {
             ConfigValidation configValidation = new ConfigValidation()
@@ -335,7 +322,6 @@ namespace UtilitiesUnitTesting
         /// Tests that an exception is thrown when a field is not present
         /// </summary>
         [TestMethod]
-        [TestCategory(TestCategories.Utilities)]
         [ExpectedException(typeof(MaqsConfigException))]
         public void ConfigFieldsMissing()
         {
@@ -354,7 +340,6 @@ namespace UtilitiesUnitTesting
         /// Tests that we can use the inner exception
         /// </summary>
         [TestMethod]
-        [TestCategory(TestCategories.Utilities)]
         [ExpectedException(typeof(MaqsConfigException))]
         public void MaqsConfigInnerException()
         {
@@ -365,8 +350,6 @@ namespace UtilitiesUnitTesting
         /// Tests that we can skip the validation 
         /// </summary>
         [TestMethod]
-        [TestCategory(TestCategories.Utilities)]
-        [DoNotParallelize]
         public void ConfigFieldsMissingButValidationSkipped()
         {
             try
@@ -403,7 +386,6 @@ namespace UtilitiesUnitTesting
         /// Tests that an exception is thrown when the fields to validate is null
         /// </summary>
         [TestMethod]
-        [TestCategory(TestCategories.Utilities)]
         [ExpectedException(typeof(MaqsConfigException))]
         public void ConfigFieldsNull()
         {
@@ -452,7 +434,6 @@ namespace UtilitiesUnitTesting
         /// Multilevel configuration hierarchy is respected even if they have deeped then standard layouts
         /// </summary>
         [TestMethod]
-        [TestCategory(TestCategories.Utilities)]
         public void MultilevelSectionStructureBeyondStandard()
         {
             var value = Config.GetMultilevelDictionary(ConfigSection.RemoteSeleniumCapsMaqs);

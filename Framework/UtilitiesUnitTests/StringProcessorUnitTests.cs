@@ -4,7 +4,6 @@
 // </copyright>
 // <summary>Unit tests for the string processor</summary>
 //--------------------------------------------------
-using CognizantSoftvision.Maqs.Utilities.Data;
 using CognizantSoftvision.Maqs.Utilities.Helper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
@@ -16,6 +15,7 @@ namespace UtilitiesUnitTesting
     /// Initializes a new instance of the StringProcessorUnitTests class
     /// </summary>
     [TestClass]
+    [TestCategory(TestCategories.Utilities)]
     [ExcludeFromCodeCoverage]
     public class StringProcessorUnitTests
     {
@@ -24,7 +24,6 @@ namespace UtilitiesUnitTesting
         /// </summary>
 
         [TestMethod]
-        [TestCategory(TestCategories.Utilities)]
         public void StringFormatterCheckForJson()
         {
             string message = StringProcessor.SafeFormatter("{This is a test for JSON}");
@@ -35,7 +34,6 @@ namespace UtilitiesUnitTesting
         /// Test method for checking string format
         /// </summary>
         [TestMethod]
-        [TestCategory(TestCategories.Utilities)]
         public void StringFormatterCheckForStringFormat()
         {
             string message = StringProcessor.SafeFormatter("This {0} should return {1}", "Test", "Test");
@@ -46,7 +44,6 @@ namespace UtilitiesUnitTesting
         /// Verify that StringProcessor.SafeFormatter handles errors in the message as expected
         /// </summary>
         [TestMethod]
-        [TestCategory(TestCategories.Utilities)]
         public void StringFormatterThrowException()
         {
             string message = StringProcessor.SafeFormatter("This {0} should return {5}", "Test", "Test", "Test");
@@ -57,7 +54,6 @@ namespace UtilitiesUnitTesting
         /// Single nested exception to test with aggregation
         /// </summary>
         [TestMethod]
-        [TestCategory(TestCategories.Utilities)]
         public void NestedExceptionSafeFormatter()
         {
             FormatException fe = new FormatException("Format Exception");
@@ -73,7 +69,6 @@ namespace UtilitiesUnitTesting
         /// Nested aggregation exceptions to validate string data
         /// </summary>
         [TestMethod]
-        [TestCategory(TestCategories.Utilities)]
         public void DoubleNestedExceptionSafeFormatter()
         {
             FormatException fe = new FormatException("Format Exception");
@@ -90,7 +85,6 @@ namespace UtilitiesUnitTesting
         /// Single exception to validate string data
         /// </summary>
         [TestMethod]
-        [TestCategory(TestCategories.Utilities)]
         public void SingleExceptionSafeFormatter()
         {
             FormatException fe = new FormatException("Format Exception");
@@ -102,7 +96,6 @@ namespace UtilitiesUnitTesting
         /// Tests the stack trace is formatted and included in the string
         /// </summary>
         [TestMethod]
-        [TestCategory(TestCategories.Utilities)]
         public void ThrowSingleExceptionSafeFormatter()
         {
             FormatException fe = new FormatException("Format Exception");
@@ -122,7 +115,6 @@ namespace UtilitiesUnitTesting
         /// Nested aggregation exceptions to validate stack trace is included
         /// </summary>
         [TestMethod]
-        [TestCategory(TestCategories.Utilities)]
         public void ThrowDoubleNestedExceptionSafeFormatter()
         {
             FormatException fe = new FormatException("Format Exception");
@@ -143,6 +135,27 @@ namespace UtilitiesUnitTesting
             Assert.IsTrue(formattedException.Contains("Format Exception"));
             Assert.IsTrue(formattedException.Contains("Invalid Operation Exception"));
             Assert.IsTrue(formattedException.Contains("One or more errors occurred"));
+        }
+
+        /// <summary>
+        /// Tests that extract size throws the correct error 
+        /// </summary>
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void ExtractSizeFromStringBadFormatNoX()
+        {
+            StringProcessor.ExtractSizeFromString("BAD", out _, out _);
+            Assert.Fail("Bad format should throw error");
+        }
+        /// <summary>
+        /// Tests that extract size throws the correct error 
+        /// </summary>
+        [TestMethod]
+        [ExpectedException(typeof(InvalidCastException))]
+        public void ExtractSizeFromStringBadFormatNotInt()
+        {
+            StringProcessor.ExtractSizeFromString("1XBAD", out _, out _);
+            Assert.Fail("Bad format should throw error");
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<VersionPrefix>8.0.0</VersionPrefix>
+		<VersionPrefix>9.0.0</VersionPrefix>
 		<VersionSuffix>alpha.1</VersionSuffix>
 	</PropertyGroup>
 
@@ -23,7 +23,7 @@
 		<PackageIcon>MAQS.png</PackageIcon>
 		<PackageIconUrl>https://raw.githubusercontent.com/CognizantOpenSource/maqs-dotnet/main/Framework/MAQS.png</PackageIconUrl>
 		<PackageProjectUrl>https://github.com/CognizantOpenSource/maqs-dotnet</PackageProjectUrl>
-		<PackageTags>test selenium appium automation NUnit MSTest TestFramework</PackageTags>
+		<PackageTags>test automation NUnit MSTest TestFramework</PackageTags>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<RepositoryUrl>https://github.com/CognizantOpenSource/maqs-dotnet</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>

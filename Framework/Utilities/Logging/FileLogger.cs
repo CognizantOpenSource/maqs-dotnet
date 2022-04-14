@@ -4,7 +4,7 @@
 // </copyright>
 // <summary>Writes event logs to plain text file</summary>
 //--------------------------------------------------
-using CognizantSoftvision.Maqs.Utilities.Data;
+using CognizantSoftvision.Maqs.Utilities.Helper;
 using System;
 using System.Globalization;
 using System.IO;
@@ -132,6 +132,20 @@ namespace CognizantSoftvision.Maqs.Utilities.Logging
                     }
                 }
             }
+        }
+
+        /// <summary>
+        /// Dispose the class
+        /// </summary>
+        /// <param name="disposing">True if you want to release managed resources</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && File.Exists(this.FilePath))
+            {
+                this.LogMessage(MessageType.VERBOSE, "Disposing logger");
+            }
+
+            base.Dispose(disposing);
         }
 
         /// <summary>

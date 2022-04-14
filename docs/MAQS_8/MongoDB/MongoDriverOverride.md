@@ -3,7 +3,7 @@ The BaseMongoTest class provides access to the TestObject and MongoDBDriver.
 
 
 ## Overriding the Database 
-By default, the BaseMongoTest will use the configuration settings from [MAQS config](MAQS_6/MongoDB/MongoDBConfig.md) to create the Mongo connection.
+By default, the BaseMongoTest will use the configuration settings from [MAQS config](MAQS_8/MongoDB/MongoDBConfig.md) to create the Mongo connection.
 
 There are three primary ways to override the Mongo connection.
 

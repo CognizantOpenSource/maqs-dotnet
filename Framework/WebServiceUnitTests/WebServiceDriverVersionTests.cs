@@ -1,9 +1,7 @@
 ﻿using CognizantSoftvision.Maqs.BaseWebServiceTest;
 using CognizantSoftvision.Maqs.Utilities.Helper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using WebServiceTesterUnitTesting.Model;
 
 namespace WebServiceUnitTests

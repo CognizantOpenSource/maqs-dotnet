@@ -56,6 +56,11 @@ namespace CognizantSoftvision.Maqs.Utilities.Helper
         RemoteSeleniumCapsMaqs,
 
         /// <summary>
+        /// Playwright section
+        /// </summary>
+        PlaywrightMaqs,
+
+        /// <summary>
         /// Web service section
         /// </summary>
         WebServiceMaqs,

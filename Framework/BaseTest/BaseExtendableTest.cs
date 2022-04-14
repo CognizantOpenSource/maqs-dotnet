@@ -45,10 +45,10 @@ namespace CognizantSoftvision.Maqs.BaseTest
         /// </summary>
         [TestInitialize]
         [SetUp]
-        public new void Setup()
+        public new void MaqsSetup()
         {
             // Do base generic setup
-            base.Setup();
+            base.MaqsSetup();
         }
 
         /// <summary>

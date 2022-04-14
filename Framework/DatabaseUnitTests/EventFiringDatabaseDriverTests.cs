@@ -16,7 +16,6 @@ using System.Diagnostics.CodeAnalysis;
 namespace DatabaseUnitTests
 {
     using global::DatabaseUnitTests.Models;
-    using CognizantSoftvision.Maqs.Utilities.Data;
     using System.Linq;
 
     /// <summary>

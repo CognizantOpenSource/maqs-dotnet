@@ -4,7 +4,6 @@
 // </copyright>
 // <summary>This is the SoftAssert class</summary>
 //--------------------------------------------------
-using CognizantSoftvision.Maqs.Utilities.Data;
 using CognizantSoftvision.Maqs.Utilities.Helper;
 using CognizantSoftvision.Maqs.Utilities.Logging;
 using System;
