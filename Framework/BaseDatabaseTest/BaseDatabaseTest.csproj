@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<VersionPrefix>8.0.0</VersionPrefix>
+		<VersionPrefix>9.0.0</VersionPrefix>
 		<VersionSuffix>alpha.1</VersionSuffix>
 	</PropertyGroup>
 
@@ -49,12 +49,12 @@
 	<ItemGroup>
 		<PackageReference Include="Dapper" Version="2.0.123" />
 		<PackageReference Include="Dapper.Contrib" Version="2.0.78" />
-		<PackageReference Include="Microsoft.Data.Sqlite.Core" Version="5.0.12" />
+		<PackageReference Include="Microsoft.Data.Sqlite.Core" Version="6.0.3" />
 		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="Npgsql" Version="5.0.11" />
+		<PackageReference Include="Npgsql" Version="6.0.3" />
 		<PackageReference Include="SQLitePCLRaw.bundle_e_sqlite3" Version="2.0.7" />
 		<PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
 	</ItemGroup>

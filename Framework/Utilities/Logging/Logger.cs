@@ -129,7 +129,6 @@ namespace CognizantSoftvision.Maqs.Utilities.Logging
         {
             this.Dispose(true);
             GC.SuppressFinalize(this);
-
         }
 
         /// <summary>

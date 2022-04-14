@@ -77,7 +77,7 @@ namespace CognizantSoftvision.Maqs.SpecFlow
                 // do nothing on this error (will occur if NUnit is being used)
             }
 
-            basetest.Setup();
+            basetest.MaqsSetup();
 
             // Save the base test
             this.LocalScenarioContext.Set(basetest, $"MAQSBASETEST");
@@ -91,7 +91,7 @@ namespace CognizantSoftvision.Maqs.SpecFlow
         /// </summary>
         internal override void TeardownBaseTest()
         {
-            this.LocalScenarioContext.Get<T>($"MAQSBASETEST").Teardown();
+            this.LocalScenarioContext.Get<T>($"MAQSBASETEST").MaqsTeardown();
         }
     }
 }

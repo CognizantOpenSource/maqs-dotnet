@@ -22,6 +22,7 @@
     <ProjectReference Include="..\BaseDatabaseTest\BaseDatabaseTest.csproj" />
     <ProjectReference Include="..\BaseEmailTest\BaseEmailTest.csproj" />
     <ProjectReference Include="..\BaseMongoTest\BaseMongoTest.csproj" />
+    <ProjectReference Include="..\BasePlaywrightTest\BasePlaywrightTest.csproj" />
     <ProjectReference Include="..\BaseSeleniumTest\BaseSeleniumTest.csproj" />
     <ProjectReference Include="..\BaseTest\BaseTest.csproj" />
     <ProjectReference Include="..\BaseWebServiceTest\BaseWebServiceTest.csproj" />

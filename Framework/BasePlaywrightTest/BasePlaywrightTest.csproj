@@ -1,0 +1,67 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	
+	<PropertyGroup>
+		<VersionPrefix>9.0.0</VersionPrefix>
+		<VersionSuffix>alpha.1</VersionSuffix>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<TargetFrameworks>net471;netstandard2.0;netstandard2.1</TargetFrameworks>
+		<Nullable>enable</Nullable>
+		<PackageId>CognizantSoftvision.Maqs.Playwright</PackageId>
+		<Product>CognizantSoftvision.Maqs.Playwright</Product>
+		<AssemblyName>CognizantSoftvision.Maqs.BasePlaywrightTest</AssemblyName>
+		<RootNamespace>CognizantSoftvision.Maqs.BasePlaywrightTest</RootNamespace>
+		<ApplicationIcon>MAQS.ico</ApplicationIcon>
+		<Title>Playwright Module</Title>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+		<Authors>CognizantSoftvision</Authors>
+		<Company>CognizantSoftvision</Company>
+		<Description>Playwright extension for Cognizant Softvision's modular automation quick start</Description>
+		<Copyright>Copyright © Cognizant $([System.DateTime]::Now.Year)</Copyright>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageIcon>MAQS.png</PackageIcon>
+		<PackageIconUrl>https://raw.githubusercontent.com/CognizantOpenSource/maqs-dotnet/main/Framework/MAQS.png</PackageIconUrl>
+		<PackageProjectUrl>https://github.com/CognizantOpenSource/maqs-dotnet</PackageProjectUrl>
+		<PackageTags>test playwright automation NUnit MSTest TestFramework</PackageTags>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<RepositoryUrl>https://github.com/CognizantOpenSource/maqs-dotnet</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageReleaseNotes>
+			Release Notes can be found at https://github.com/CognizantOpenSource/maqs-dotnet/releases
+		</PackageReleaseNotes>
+		<DebugSymbols>true</DebugSymbols>
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<LangVersion>latest</LangVersion>
+		<EnableNETAnalyzers>true</EnableNETAnalyzers>
+		<AnalysisLevel>latest</AnalysisLevel>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<DebugType>full</DebugType>
+		<DebugSymbols>true</DebugSymbols>
+		<SonarQubeTestProject>false</SonarQubeTestProject>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.Playwright" Version="1.20.2" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\MAQS.png" Pack="true" PackagePath="" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\BaseTest\BaseTest.csproj" />
+	</ItemGroup>
+</Project>

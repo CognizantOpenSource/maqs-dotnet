@@ -39,11 +39,11 @@ namespace BaseTestUnitTests
         {
             BaseTest tester = this.GetBaseTest();
             tester.TestContext = this.TestContext;
-            tester.Setup();
+            tester.MaqsSetup();
 
             tester.Log = new FileLogger(string.Empty, $"{Guid.NewGuid()}.txt");
-            tester.SoftAssert.Assert(() => Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(string.Empty, string.Empty));
-            tester.Teardown();
+            tester.SoftAssert.Assert(() => MicroAssert.AreEqual(string.Empty, string.Empty));
+            tester.MaqsTeardown();
         }
 
         /// <summary>
@@ -100,8 +100,8 @@ namespace BaseTestUnitTests
         {
             var tester = GetBaseTest();
             tester.TestContext = this.TestContext;
-            tester.Setup();
-            tester.Teardown();
+            tester.MaqsSetup();
+            tester.MaqsTeardown();
         }
 
         /// <summary>
@@ -159,7 +159,7 @@ namespace BaseTestUnitTests
         {
             var tester = GetBaseTest();
             tester.TestContext = this.TestContext;
-            tester.Setup();
+            tester.MaqsSetup();
 
             tester.SoftAssert.FailTestIfAssertFailed();
         }
@@ -173,11 +173,11 @@ namespace BaseTestUnitTests
         public void SoftAssertNUnitWithNoFailure()
         {
             BaseTest tester = this.GetBaseTest();
-            tester.Setup();
+            tester.MaqsSetup();
 
             tester.Log = new FileLogger(string.Empty, $"{Guid.NewGuid()}.txt");
             tester.SoftAssert.Assert(() => MicroAssert.AreEqual(string.Empty, string.Empty));
-            tester.Teardown();
+            tester.MaqsTeardown();
         }
 
         /// <summary>
@@ -191,11 +191,11 @@ namespace BaseTestUnitTests
             try
             {
                 BaseTest tester = this.GetBaseTest();
-                tester.Setup();
+                tester.MaqsSetup();
 
                 tester.Log = new FileLogger(string.Empty, $"{Guid.NewGuid()}.txt");
                 tester.SoftAssert.Assert(() => MicroAssert.AreEqual("d", string.Empty));
-                tester.Teardown();
+                tester.MaqsTeardown();
                 NUnit.Framework.Assert.Fail("Teardown should have thrown exception");
             }
             catch (Exception e)
@@ -214,7 +214,7 @@ namespace BaseTestUnitTests
         public void TeardownDoesNotWriteAssociatedFiles()
         {
             BaseTest tester = this.GetBaseTest();
-            tester.Setup();
+            tester.MaqsSetup();
 
             tester.Log = new FileLogger(string.Empty, $"{Guid.NewGuid()}.txt");
 
@@ -235,7 +235,7 @@ namespace BaseTestUnitTests
             tester.TestObject.AddAssociatedFile(@"TeardownTest/AssocFileToAttach2.txt");
 
             // call the teardown to add associated files
-            tester.Teardown();
+            tester.MaqsTeardown();
 
             // test the list of associated files is written to the log
             bool messageIsWritten = false;
@@ -268,11 +268,11 @@ namespace BaseTestUnitTests
         public void SoftAssertAssertSuccess()
         {
             var tester = GetBaseTest();
-            tester.Setup();
+            tester.MaqsSetup();
 
             tester.Log = new FileLogger(string.Empty, $"{Guid.NewGuid()}.txt");
             tester.SoftAssert.Assert(() => { }, "one");
-            tester.Teardown();
+            tester.MaqsTeardown();
             MicroAssert.IsFalse(tester.SoftAssert.DidSoftAssertsFail());
             NUnit.Framework.Assert.IsFalse(tester.SoftAssert.DidSoftAssertsFail());
         }
@@ -283,7 +283,7 @@ namespace BaseTestUnitTests
         public void SoftAssertAssertFailed()
         {
             var tester = GetBaseTest();
-            tester.Setup();
+            tester.MaqsSetup();
 
             tester.Log = new FileLogger(string.Empty, $"{Guid.NewGuid()}.txt");
             tester.SoftAssert.Assert(() => throw new Exception("broke"), "Name1");
@@ -313,11 +313,11 @@ namespace BaseTestUnitTests
         public void SoftAssertAssertFails()
         {
             var tester = GetBaseTest();
-            tester.Setup();
+            tester.MaqsSetup();
 
             tester.Log = new FileLogger(string.Empty, $"{Guid.NewGuid()}.txt");
             tester.SoftAssert.AssertFails(() => throw new Exception("broke"), typeof(Exception), "one");
-            tester.Teardown();
+            tester.MaqsTeardown();
         }
 
         [TestMethod]
@@ -326,7 +326,7 @@ namespace BaseTestUnitTests
         public void SoftAssertAssertFailsFailed()
         {
             var tester = GetBaseTest();
-            tester.Setup();
+            tester.MaqsSetup();
 
             tester.Log = new FileLogger(string.Empty, $"{Guid.NewGuid()}.txt");
             tester.SoftAssert.AssertFails(() => throw new Exception("broke"), typeof(AggregateException), "one");
@@ -364,10 +364,10 @@ namespace BaseTestUnitTests
         {
             BaseTest tester = this.GetBaseTest();
             tester.TestContext = this.TestContext;
-            tester.Setup();
+            tester.MaqsSetup();
             tester.Log = new FileLogger(string.Empty, $"{Guid.NewGuid()}.txt");
             tester.SoftAssert.Assert(() => MicroAssert.AreEqual("d", string.Empty));
-            tester.Teardown();
+            tester.MaqsTeardown();
         }
     }
 }

@@ -200,7 +200,35 @@ jobs:
           path: |
             artifactTests/webservice/**/*.xml
             artifactTests/webservice/testResults/
-   
+
+  test-playwright:
+    name: Playwright
+    needs: waitOld
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: Install Playwright
+        run: |
+            npx playwright install --with-deps
+            dotnet build Framework/PlaywrightTests/PlaywrightTests.csproj -o Framework/PlaywrightTests/build
+            pwsh Framework/PlaywrightTests/build/playwright.ps1 install    
+      - id: builder
+        uses: ./.github/workflows/buildtest-action
+        with:
+          bt-param: 'Framework/PlaywrightTests/PlaywrightTests.csproj  --settings Framework/Parallel.RunSettings   --logger trx --results-directory "${{github.workspace}}/artifactTests/Playwright/testResults/" /p:CoverletOutput="${{github.workspace}}/artifactTests/Playwright/"  /p:CollectCoverage=true /p:CoverletOutputFormat=opencover' 
+          artifact-name: 'playwright'
+      - uses: actions/upload-artifact@v2
+        if: always()
+        name: "Upload test artifact"
+        with:
+          name: playwrightResults
+          path: |
+            artifactTests/Playwright/**/*.xml
+            artifactTests/Playwright/testResults/ 
+
   test-mongo:
     name: Mongo
     needs: waitOld
@@ -213,7 +241,7 @@ jobs:
         uses: ./.github/workflows/buildtest-action
         with:
           bt-param: 'Framework/MongoDBUnitTests/MongoDBUnitTests.csproj  --settings Framework/Parallel.RunSettings   --logger trx --results-directory "${{github.workspace}}/artifactTests/mongo/testResults/" /p:CoverletOutput="${{github.workspace}}/artifactTests/mongo/"  /p:CollectCoverage=true /p:CoverletOutputFormat=opencover' 
-          artifact-name: 'utils'
+          artifact-name: 'mongo'
       - uses: actions/upload-artifact@v2
         if: always()
         name: "Upload test artifact"
@@ -235,7 +263,7 @@ jobs:
         uses: ./.github/workflows/buildtest-action
         with:
           bt-param: 'Framework/DatabaseUnitTests/DatabaseUnitTests.csproj  --settings Framework/Parallel.RunSettings   --logger trx --results-directory "${{github.workspace}}/artifactTests/database/testResults/" /p:CoverletOutput="${{github.workspace}}/artifactTests/database/"  /p:CollectCoverage=true /p:CoverletOutputFormat=opencover' 
-          artifact-name: 'utils'
+          artifact-name: 'database'
       - uses: actions/upload-artifact@v2
         if: always()
         name: "Upload test artifact"
@@ -279,6 +307,14 @@ jobs:
             3.1.x
             6.x.x
       - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: Install Playwright
+        run: |
+            npx playwright install --with-deps
+            dotnet build Framework/FrameworkUnitTests/FrameworkUnitTests.csproj -o Framework/FrameworkUnitTests/build
+            pwsh Framework/FrameworkUnitTests/build/playwright.ps1 install  
       - run: dotnet restore Framework/FrameworkUnitTests/FrameworkUnitTests.csproj
         shell: pwsh
       - id: browserupdate
@@ -445,7 +481,7 @@ jobs:
     # Skip when dependabot PR - Dependabot PRs cannot access action secrets
     if: github.actor != 'dependabot[bot]'
     runs-on: windows-2019
-    needs: [test-appium, test-winapp, test-untils, test-mongo, test-database, test-webservice, test-base, test-email, test-framework, test-specflow, test-specflownunit, test-composite, test-selenpomlazy, test-selenutil, test-selengen, getVersion]
+    needs: [test-appium, test-winapp, test-untils, test-mongo, test-database, test-webservice, test-base, test-playwright, test-email, test-framework, test-specflow, test-specflownunit, test-composite, test-selenpomlazy, test-selenutil, test-selengen, getVersion]
     steps:
       - name: Set up JDK 11
         uses: actions/setup-java@v1
@@ -524,7 +560,7 @@ jobs:
   report:
     name: Report
     runs-on: ubuntu-latest
-    needs: [test-appium, test-winapp, test-untils, test-mongo, test-database, test-webservice, test-base, test-email, test-framework, test-specflow, test-specflownunit, test-composite, test-selenpomlazy, test-selenutil, test-selengen]
+    needs: [test-appium, test-winapp, test-untils, test-mongo, test-database, test-webservice, test-base, test-email, test-playwright, test-framework, test-specflow, test-specflownunit, test-composite, test-selenpomlazy, test-selenutil, test-selengen]
     if: always()  
     steps:
       - uses: actions/checkout@v2

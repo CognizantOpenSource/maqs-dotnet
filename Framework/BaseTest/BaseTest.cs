@@ -4,7 +4,6 @@
 // </copyright>
 // <summary>Base code for tests without a system under test object like web drivers or database connections</summary>
 //--------------------------------------------------
-using CognizantSoftvision.Maqs.Utilities.Data;
 using CognizantSoftvision.Maqs.Utilities.Helper;
 using CognizantSoftvision.Maqs.Utilities.Logging;
 using CognizantSoftvision.Maqs.Utilities.Performance;
@@ -235,7 +234,7 @@ namespace CognizantSoftvision.Maqs.BaseTest
         /// </summary>
         [TestInitialize]
         [SetUp]
-        public void Setup()
+        public void MaqsSetup()
         {
             // Only create a test object if one doesn't exist
             if (!this.BaseTestObjects.ContainsKey(this.GetFullyQualifiedTestClassName()))
@@ -255,7 +254,7 @@ namespace CognizantSoftvision.Maqs.BaseTest
         /// </summary>
         [TestCleanup]
         [TearDown]
-        public void Teardown()
+        public void MaqsTeardown()
         {
             string fullyQualifiedTestName = this.GetFullyQualifiedTestClassName();
             TestResultType resultType = TestResultType.OTHER;
