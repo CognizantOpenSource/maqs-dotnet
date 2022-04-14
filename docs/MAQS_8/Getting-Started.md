@@ -224,4 +224,4 @@ string testCategory = "Login Tests"
  - learn more about dotnet test --filter at [docs.microsoft.com](https://docs.microsoft.com/en-us/dotnet/core/testing/selective-unit-tests)
 
 ## Configurations
-There are a number of configurations included with MAQS.  Checkout the [MAQS Configurations](MAQS_6/General/EnterpriseConfiguration.md) guide.
+There are a number of configurations included with MAQS.  Checkout the [MAQS Configurations](MAQS_8/General/EnterpriseConfiguration.md) guide.

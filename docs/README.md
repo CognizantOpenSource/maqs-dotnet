@@ -2,6 +2,7 @@
 
 ### Version - Select the Version of MAQS
 
+* [MAQS 9](MAQS_9/Introduction.md)
 * [MAQS 8](MAQS_8/Introduction.md)
 * [MAQS 7](https://magenic.github.io/MAQS/#/MAQS_7/Introduction) 
   *Version 7 will no longer get feature updates

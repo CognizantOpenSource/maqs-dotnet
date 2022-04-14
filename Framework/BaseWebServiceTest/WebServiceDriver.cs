@@ -5,7 +5,7 @@
 // <summary>The basic http client interactions</summary>
 //--------------------------------------------------
 
-using CognizantSoftvision.Maqs.Utilities.Data;
+using CognizantSoftvision.Maqs.Utilities.Helper;
 using System;
 using System.Collections.Generic;
 using System.Net;

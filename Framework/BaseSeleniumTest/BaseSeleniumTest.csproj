@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<VersionPrefix>8.0.0</VersionPrefix>
+		<VersionPrefix>9.0.0</VersionPrefix>
 		<VersionSuffix>alpha.1</VersionSuffix>
 	</PropertyGroup>
 
@@ -56,8 +56,9 @@
 		<PackageReference Include="Selenium.Axe" Version="3.1.5" />
 		<PackageReference Include="Selenium.Support" Version="4.1.0" />
 		<PackageReference Include="Selenium.WebDriver" Version="4.1.0" />
-		<PackageReference Include="System.Text.Encoding.CodePages" Version="5.0.0" />
+		<PackageReference Include="System.Text.Encoding.CodePages" Version="6.0.0" />
 		<PackageReference Include="WebDriverManager" Version="2.12.3" />
+		<PackageReference Include="WebDriverManager" Version="2.12.4" />
 	</ItemGroup>
 
 	<ItemGroup>

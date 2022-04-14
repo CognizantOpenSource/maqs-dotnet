@@ -4,7 +4,7 @@
 // </copyright>
 // <summary>Helper class for console logging</summary>
 //--------------------------------------------------
-using CognizantSoftvision.Maqs.Utilities.Data;
+using CognizantSoftvision.Maqs.Utilities.Helper;
 using System;
 
 namespace CognizantSoftvision.Maqs.Utilities.Logging

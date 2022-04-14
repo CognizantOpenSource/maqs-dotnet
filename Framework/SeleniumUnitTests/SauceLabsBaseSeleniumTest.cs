@@ -60,7 +60,7 @@ namespace SeleniumUnitTests
                     this.Log.LogMessage(CognizantSoftvision.Maqs.Utilities.Logging.MessageType.WARNING, "Failed to set Sauce Result because: " + e.Message);
                 }
             }
-            base.Teardown();
+            base.MaqsTeardown();
         }
     }
 }

@@ -4,7 +4,6 @@
 // </copyright>
 // <summary>The basic email interactions</summary>
 //--------------------------------------------------
-using CognizantSoftvision.Maqs.Utilities.Data;
 using CognizantSoftvision.Maqs.Utilities.Helper;
 using MailKit;
 using MailKit.Net.Imap;

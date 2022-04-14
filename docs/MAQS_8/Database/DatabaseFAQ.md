@@ -6,9 +6,9 @@
 ## How do use a provider besides SQL, SQLite and PostgreSql
 There are multiple ways to use a custom provider. 
 
-* [Override the GetDataBaseConnection method](MAQS_6/Database/DatabaseBaseTest.md)
-* [Create your own DatabaseDriver](MAQS_6/Database/DatabaseDriver.md)
-* [Implement the IProvider Class](MAQS_6/Database/DatabaseProviders.md)
+* [Override the GetDataBaseConnection method](MAQS_8/Database/DatabaseBaseTest.md)
+* [Create your own DatabaseDriver](MAQS_8/Database/DatabaseDriver.md)
+* [Implement the IProvider Class](MAQS_8/Database/DatabaseProviders.md)
 
 ## Why doesn't MAQS directly support Oracle SQL anymore
 The Oracle SQL library has a non-standard license and we are not confident it adheres to most user licensing standards.

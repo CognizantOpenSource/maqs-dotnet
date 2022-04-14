@@ -5,10 +5,10 @@
 // <summary>Unit tests for SQLITE provider</summary>
 //--------------------------------------------------
 
-using Dapper;
-using DatabaseUnitTests.Models;
 using CognizantSoftvision.Maqs.BaseDatabaseTest;
 using CognizantSoftvision.Maqs.Utilities.Helper;
+using Dapper;
+using DatabaseUnitTests.Models;
 using Microsoft.Data.Sqlite;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;

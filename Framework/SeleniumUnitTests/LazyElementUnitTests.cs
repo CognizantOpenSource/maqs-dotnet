@@ -805,7 +805,9 @@ namespace SeleniumUnitTests
         [TestCategory(TestCategories.Selenium)]
         public void LazyElementProperty()
         {
+#pragma warning disable CS0618 // Type or member is obsolete
             Assert.AreEqual("showDialog1", this.DialogOneButton.GetProperty("id"), "Expected ID to be 'showDialog1'");
+#pragma warning restore CS0618 // Type or member is obsolete
         }
 
         /// <summary>
@@ -1119,7 +1121,7 @@ namespace SeleniumUnitTests
 
             this.WebDriver.Navigate().GoToUrl(SeleniumConfig.GetWebSiteBase() + "Automation");
             this.WebDriver.Navigate().GoToUrl(SeleniumConfig.GetWebSiteBase());
-            
+
             Assert.AreEqual("Color", lastTableHeader.Text);
         }
 
@@ -1147,7 +1149,7 @@ namespace SeleniumUnitTests
         public void LazyElementFindElementsRespectAction()
         {
             IWebElement firstElement = this.DivRoot.FindElements(this.DisabledItem.By)[0];
-            
+
             this.WebDriver.Navigate().GoToUrl(SeleniumConfig.GetWebSiteBase() + "Automation");
             this.WebDriver.Navigate().GoToUrl(SeleniumConfig.GetWebSiteBase());
 
@@ -1223,7 +1225,7 @@ namespace SeleniumUnitTests
         {
             // Create lazy element without event firing 
             var lazy = new LazyElement(this.TestObject, this.WebDriver.GetLowLevelDriver(), this.InputBox.By);
-            
+
             Assert.IsFalse(lazy.WrappedElement is IWrapsElement, "Element should not be wrapped");
         }
 

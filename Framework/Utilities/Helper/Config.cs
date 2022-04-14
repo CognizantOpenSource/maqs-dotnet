@@ -56,7 +56,15 @@ namespace CognizantSoftvision.Maqs.Utilities.Helper
         /// <summary>
         /// Active composite configuration
         /// </summary>
-        private static IConfigurationRoot compositeConfig = baseConfig;
+        private static IConfigurationRoot compositeConfig = null;
+
+        /// <summary>
+        /// Loads when class is loaded
+        /// </summary>
+        static Config()
+        {
+            UpdateCompositeConfig();
+        }
 
         /// <summary>
         /// Drop dynamic configuration overrides
@@ -246,7 +254,7 @@ namespace CognizantSoftvision.Maqs.Utilities.Helper
         {
             lock (ConfigLock)
             {
-                var configSection = compositeConfig.GetSection(section);
+                var configSection = overrideConfig.GetSection(section);
 
                 // Loop over all the configuration overrides
                 foreach (KeyValuePair<string, string> configuration in configurations)
@@ -532,7 +540,7 @@ namespace CognizantSoftvision.Maqs.Utilities.Helper
 #pragma warning restore CS0618 // Type or member is obsolete
 
                 value = compositeConfig.GetValue(newPath);
-            }    
+            }
 
             return (value != null, value);
         }

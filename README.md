@@ -1,5 +1,5 @@
 ### Builds:  
-[![Build Status](https://github.com/CognizantOpenSource/maqs-dotnet/actions/workflows/build.yml/badge.svg?event=schedule)](https://github.com/CognizantOpenSource/maqs-dotnet/actions/workflows/build.yml)
+[![Build Status](https://img.shields.io/github/workflow/status/CognizantOpenSource/maqs-dotnet/Build?event=schedule&logo=github)](https://github.com/CognizantOpenSource/maqs-dotnet/actions/workflows/build.yml)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=CognizantOpenSource_maqs-dotnet&metric=alert_status)](https://sonarcloud.io/dashboard?id=CognizantOpenSource_maqs-dotnet) [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=CognizantOpenSource_maqs-dotnet&metric=coverage)](https://sonarcloud.io/dashboard?id=CognizantOpenSource_maqs-dotnet) [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=CognizantOpenSource_maqs-dotnet&metric=bugs)](https://sonarcloud.io/dashboard?id=CognizantOpenSource_maqs-dotnet) [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=CognizantOpenSource_maqs-dotnet&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=CognizantOpenSource_maqs-dotnet)  
 
 ### Releases:  

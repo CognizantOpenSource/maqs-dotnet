@@ -49,12 +49,12 @@ namespace CognizantSoftvision.Maqs.BaseSeleniumTest
         /// <summary>
         /// Gets the webdriver from the test object
         /// </summary>
-        protected IWebDriver WebDriver { get; private set; }
+        public IWebDriver WebDriver { get; private set; }
 
         /// <summary>
         /// Gets the log from the test object
         /// </summary>
-        protected ILogger Log
+        public ILogger Log
         {
             get { return this.TestObject.Log; }
         }
@@ -62,7 +62,7 @@ namespace CognizantSoftvision.Maqs.BaseSeleniumTest
         /// <summary>
         /// Gets the performance timer collection from the test object
         /// </summary>
-        protected IPerfTimerCollection PerfTimerCollection
+        public IPerfTimerCollection PerfTimerCollection
         {
             get { return this.TestObject.PerfTimerCollection; }
         }
@@ -70,7 +70,7 @@ namespace CognizantSoftvision.Maqs.BaseSeleniumTest
         /// <summary>
         /// Gets or sets the Selenium test object
         /// </summary>
-        protected ISeleniumTestObject TestObject { get; set; }
+        public ISeleniumTestObject TestObject { get; protected set; }
 
         /// <summary>
         /// Override the webdriver 

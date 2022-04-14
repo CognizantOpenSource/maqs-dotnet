@@ -4,6 +4,7 @@
 // </copyright>
 // <summary>Web driver factory</summary>
 //--------------------------------------------------
+using CognizantSoftvision.Maqs.Utilities.Helper;
 using Newtonsoft.Json;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -578,7 +579,7 @@ namespace CognizantSoftvision.Maqs.BaseSeleniumTest
             }
             else if (size != "DEFAULT")
             {
-                ExtractSizeFromString(size, out int width, out int height);
+                StringProcessor.ExtractSizeFromString(size, out int width, out int height);
                 webDriver.Manage().Window.Size = new Size(width, height);
             }
         }
@@ -597,29 +598,8 @@ namespace CognizantSoftvision.Maqs.BaseSeleniumTest
             }
             else
             {
-                ExtractSizeFromString(size, out int width, out int height);
+                StringProcessor.ExtractSizeFromString(size, out int width, out int height);
                 return string.Format("window-size={0},{1}", width, height);
-            }
-        }
-
-        /// <summary>
-        /// Get the window size as a string
-        /// </summary>
-        /// <param name="size">The size in a #X# format</param>
-        /// <param name="width">The browser width</param>
-        /// <param name="height">The browser height</param>
-        private static void ExtractSizeFromString(string size, out int width, out int height)
-        {
-            string[] sizes = size.Split('X');
-
-            if (!size.Contains("X") || sizes.Length != 2)
-            {
-                throw new ArgumentException("Browser size is expected to be in an expected format: 1920x1080");
-            }
-
-            if (!int.TryParse(sizes[0], out width) || !int.TryParse(sizes[1], out height))
-            {
-                throw new InvalidCastException("Length and Width must be a string that is an integer value: 400x400");
             }
         }
     }
