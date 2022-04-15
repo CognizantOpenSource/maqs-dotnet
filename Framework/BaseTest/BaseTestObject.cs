@@ -20,7 +20,6 @@ namespace CognizantSoftvision.Maqs.BaseTest
         /// <summary>
         /// Initializes a new instance of the <see cref="BaseTestObject" /> class
         /// </summary>
-        /// <param name="baseTestObject">An existing base test object</param>
         public BaseTestObject(ITestObject baseTestObject)
         {
             this.Log = baseTestObject.Log;
@@ -63,46 +62,28 @@ namespace CognizantSoftvision.Maqs.BaseTest
             logger.LogMessage(MessageType.INFORMATION, "Setup test object for " + fullyQualifiedTestName);
         }
 
-        /// <summary>
-        /// Gets or sets the logger
-        /// </summary>
+        /// <inheritdoc /> 
         public ILogger Log { get; set; }
 
-        /// <summary>
-        /// Gets or sets the performance timer collection
-        /// </summary>
+        /// <inheritdoc /> 
         public IPerfTimerCollection PerfTimerCollection { get; set; }
 
-        /// <summary>
-        /// Gets or sets soft assert
-        /// </summary>
+        /// <inheritdoc /> 
         public ISoftAssert SoftAssert { get; set; }
 
-        /// <summary>
-        /// Gets a dictionary of string key value pairs
-        /// </summary>
+        /// <inheritdoc /> 
         public Dictionary<string, string> Values { get; private set; }
 
-        /// <summary>
-        /// Gets assocated files
-        /// </summary>
+        /// <inheritdoc /> 
         public HashSet<string> AssociatedFiles { get; private set; }
 
-        /// <summary>
-        /// Gets a dictionary of string key and object value pairs
-        /// </summary>
+        /// <inheritdoc /> 
         public Dictionary<string, object> Objects { get; private set; }
 
-        /// <summary>
-        /// Gets the manager store
-        /// </summary>
+        /// <inheritdoc /> 
         public IManagerStore ManagerStore { get; private set; }
 
-        /// <summary>
-        /// Sets a string value, will replace if the key already exists
-        /// </summary>
-        /// <param name="key">The key</param>
-        /// <param name="value">The value to associate with the key</param>
+        /// <inheritdoc /> 
         public void SetValue(string key, string value)
         {
             if (this.Values.ContainsKey(key))
@@ -115,11 +96,7 @@ namespace CognizantSoftvision.Maqs.BaseTest
             }
         }
 
-        /// <summary>
-        /// Sets an object value, will replace if the key already exists
-        /// </summary>
-        /// <param name="key">The key</param>
-        /// <param name="value">The value to associate with the key</param>
+        /// <inheritdoc /> 
         public void SetObject(string key, object value)
         {
             if (this.Objects.ContainsKey(key))
@@ -132,22 +109,13 @@ namespace CognizantSoftvision.Maqs.BaseTest
             }
         }
 
-        /// <summary>
-        /// Get a driver manager of the specific type
-        /// </summary>
-        /// <typeparam name="T">The type of driver manager</typeparam>
-        /// <returns>The driver manager</returns>
+        /// <inheritdoc /> 
         public T GetDriverManager<T>() where T : IDriverManager
         {
             return this.ManagerStore.GetManager<T>();
         }
 
-        /// <summary>
-        /// Add a new driver
-        /// </summary>
-        /// <typeparam name="T">The driver type</typeparam>
-        /// <param name="manager">The new driver manager</param>
-        /// <param name="overrideIfExists">Should we override if this driver exists.  If it exists and we don't override than an error will be thrown.</param>
+        /// <inheritdoc /> 
         public void AddDriverManager<T>(T manager, bool overrideIfExists = false) where T : IDriverManager
         {
             if (overrideIfExists)
@@ -160,21 +128,13 @@ namespace CognizantSoftvision.Maqs.BaseTest
             }
         }
 
-        /// <summary>
-        /// Add a new driver
-        /// </summary>
-        /// <param name="key">Key for the new driver</param>
-        /// <param name="manager">The new driver manager</param>
+        /// <inheritdoc /> 
         public void AddDriverManager(string key, IDriverManager manager)
         {
             this.ManagerStore.Add(key, manager);
         }
 
-        /// <summary>
-        /// Checks if the file exists and if so attempts to add it to the associated files set
-        /// </summary>
-        /// <param name="path">path of the file</param>
-        /// <returns>True if the file exists and was successfully added, false if the file doesn't exist or was already added</returns>
+        /// <inheritdoc /> 
         public bool AddAssociatedFile(string path)
         {
             if (File.Exists(path))
@@ -185,20 +145,13 @@ namespace CognizantSoftvision.Maqs.BaseTest
             return false;
         }
 
-        /// <summary>
-        /// Removes the file path from the associated file set
-        /// </summary>
-        /// <param name="path">path of the file</param>
-        /// <returns>True if the file path was successfully removed, false if the file wasn't in the set</returns>
+        /// <inheritdoc /> 
         public bool RemoveAssociatedFile(string path)
         {
             return this.AssociatedFiles.Remove(path);
         }
 
-        /// <summary>
-        /// Returns an array of the file paths associated with the test object
-        /// </summary>
-        /// <returns>An array of the associated files</returns>
+        /// <inheritdoc /> 
         public string[] GetArrayOfAssociatedFiles()
         {
             string[] associatedFiles = new string[this.AssociatedFiles.Count];
@@ -206,20 +159,13 @@ namespace CognizantSoftvision.Maqs.BaseTest
             return associatedFiles;
         }
 
-        /// <summary>
-        /// Returns an array of the file paths associated with the test object
-        /// </summary>
-        /// <param name="path">The file path to search for</param>
-        /// <returns>Whether the exact file path is contained in the set</returns>
+        /// <inheritdoc /> 
         public bool ContainsAssociatedFile(string path)
         {
             return this.AssociatedFiles.Contains(path);
         }
 
-        /// <summary>
-        /// Override a driver manager
-        /// </summary>
-        /// <param name="manager">The new driver manager</param>
+        /// <inheritdoc /> 
         public void OverrideDriverManager<T>(T manager) where T : IDriverManager
         {
             this.ManagerStore.AddOrOverride(manager);

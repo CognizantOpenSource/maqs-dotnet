@@ -63,61 +63,6 @@ SoftAssert.Assert(() =>
 
 Assert can also combine multiple asserts together. If a single assertion exception is thrown it will store that assert as a failure. On the first failure the method will no invoke any more lines of code, so be sure to use multiple Assert methods if certain items must be checked.  If no assertion exception is thrown it will store that result as a success.
 
-### IsTrue(conditional) - ***DEPRECATED (will remove in version 6)***
-IsTrue will evaluate the condition. If the condition is true it will store that assert as a success. If the condition is false it will store that result as a failure.
-
-#### Written as
-```csharp
-SoftAssert.IsTrue(bool conditional, string softAssertName);
-```
-#### Examples
-```csharp
-// Results in a true assertion
-SoftAssert.IsTrue(true, "True assertion");
-
-// Results in a false assertion
-SoftAssert.IsTrue(false, "False assertion");
-``` 
-IsTrue will evaluate the condition.  If the condition is false it will store that assert as a success.  If the condition is true it will store that result as a failure.
-### IsFalse(conditional) - ***DEPRECATED (will remove in version 6)***
-IsFalse will evaluate the condition.  If the condition is true it will store that assert as a failure.  If the condition is false it will store that result as a success.
-
-#### Written as
-```csharp
-SoftAssert.IsFalse(bool conditional, string softAssertName);
-```
-#### Examples
-```csharp
-            
-// Results in a true assertion
-SoftAssert.IsFalse(false, "True assertion");
-
-// Results in a false assertion
-SoftAssert.IsFalse(true, "False assertion");
-``` 
-
-### AreEqual(string 1, string 2) - ***DEPRECATED (will remove in version 6)***
-AreEqual will evaluate if both inputs are equal.  If they are not equal it will store that assert as a failure.  If they are equal it will store that assert as a success.
-
-#### Written as
-```csharp
-SoftAssert.AreEqual(string expectedResult, string actualResult, string softAssertName);
-```
-#### Examples
-```csharp
-// Results in a true assertion
-SoftAssert.AreEqual("1", "1", "True assertion");
-
-// Results in a false assertion
-SoftAssert.AreEqual("2", "1", "False assertion");
-``` 
-#### Example Output
-```
-Soft Assert 'True assertion' passed. Expected Value = '1', Actual Value = '1'.
-
-Soft Assert 'False assertion' failed. Expected Value = '2', Actual Value = '1'
-```
-
 ## Expected Soft Asserts
 Expected soft asserts allow you to include a list of soft asserts which must be run in order for a test to pass. This helps assure that all expected soft asserts are run.
 
@@ -141,7 +86,6 @@ public void TEST()
     this.SoftAssert.FailTestIfAssertFailed();
 }
 ``` 
-
 
 ### AddExpectedAsserts(Action)
 The AddExpectedAsserts function allows you to add the expected asserts within your tests code.

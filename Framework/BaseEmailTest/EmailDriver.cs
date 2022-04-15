@@ -248,13 +248,10 @@ namespace CognizantSoftvision.Maqs.BaseEmailTest
         {
             var folder = this.GetCurrentFolder();
             var items = folder.Fetch(0, -1, MessageSummaryItems.UniqueId | MessageSummaryItems.Flags);
-            foreach (var item in items)
-            {
-                if (uid.Equals(item.UniqueId.Id.ToString()))
-                {
-                    folder.AddFlags(item.UniqueId, MessageFlags.Deleted, true);
-                }
 
+            foreach (var uniqueId in items.Select(x => x.UniqueId).Where(y => uid.Equals(y.Id.ToString())))
+            {
+                folder.AddFlags(uniqueId, MessageFlags.Deleted, true);
                 folder.Expunge();
             }
         }
@@ -432,14 +429,13 @@ namespace CognizantSoftvision.Maqs.BaseEmailTest
         /// <returns>The message body that matches the content type</returns>
         public virtual string GetBodyByContentTypes(MimeMessage message, string contentType)
         {
-            foreach (MimeEntity bodyPart in message.BodyParts)
+            var bodyPart = message.BodyParts.FirstOrDefault(x => x.ContentType.MimeType.Equals(contentType, StringComparison.CurrentCultureIgnoreCase));
+
+            if (bodyPart != null)
             {
-                if (bodyPart.ContentType.MimeType.Equals(contentType, StringComparison.CurrentCultureIgnoreCase))
-                {
-                    MemoryStream stream = new MemoryStream();
-                    bodyPart.WriteTo(stream, true);
-                    return Encoding.ASCII.GetString(stream.ToArray());
-                }
+                MemoryStream stream = new MemoryStream();
+                bodyPart.WriteTo(stream, true);
+                return Encoding.ASCII.GetString(stream.ToArray());
             }
 
             throw new KeyNotFoundException(StringProcessor.SafeFormatter("Failed to find content type '{0}'", contentType));
@@ -465,12 +461,11 @@ namespace CognizantSoftvision.Maqs.BaseEmailTest
         {
             var folder = this.GetCurrentFolder();
             var items = folder.Fetch(0, -1, MessageSummaryItems.UniqueId | MessageSummaryItems.Flags);
-            foreach (var item in items)
+            var item = items.FirstOrDefault(x => message.MessageId.Equals(folder.GetMessage(x.UniqueId).MessageId));
+
+            if (item != null)
             {
-                if (message.MessageId.Equals(folder.GetMessage(item.UniqueId).MessageId))
-                {
-                    return item.UniqueId.Id.ToString();
-                }
+                return item.UniqueId.Id.ToString();
             }
 
             return string.Empty;
@@ -549,14 +544,12 @@ namespace CognizantSoftvision.Maqs.BaseEmailTest
         private void DefaultToInboxIfExists()
         {
             List<IMailFolder> mailboxes = this.EmailConnection.GetFolders(this.BaseNamespace()).ToList();
+            var mailbox = mailboxes.FirstOrDefault(x => x.Name.Equals("Inbox", StringComparison.CurrentCultureIgnoreCase));
 
-            foreach (IMailFolder mailbox in mailboxes)
+            if (mailbox != null)
             {
-                if (mailbox.Name.Equals("Inbox", StringComparison.CurrentCultureIgnoreCase))
-                {
-                    this.SelectMailbox(mailbox.Name);
-                    return;
-                }
+                this.SelectMailbox(mailbox.Name);
+                return;
             }
 
             this.SelectMailbox(mailboxes[0].Name);

@@ -83,9 +83,7 @@ namespace CognizantSoftvision.Maqs.BaseDatabaseTest
             return this.GetDatabaseDriver();
         }
 
-        /// <summary>
-        /// Have the driver cleanup after itself
-        /// </summary>
+        /// <inheritdoc /> 
         protected override void DriverDispose()
         {
             if (this.driver != null)
