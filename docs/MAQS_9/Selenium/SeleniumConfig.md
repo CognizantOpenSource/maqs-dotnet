@@ -8,12 +8,8 @@ The SeleniumConfig class is used to get values from the SeleniumMaqs section of 
 The SeleniumMaqs configuration section contains the following Keys:  
 **Items are only respected when using the REMOTE browser*
 * ***WebSiteBase*** : The base website url
-* ***Browser*** : Which browser to use.   - *Deprecated, use WebDriverFactory.GetDefaultBrowser or WebDriverFactory.GetBrowserWithDefaultConfiguration instead*
+* ***Browser*** : Which browser to use.
     * If Browser value is "REMOTE" then RemoteBrowser, HubUrl are required
-* ***GetBrowserType***
-* ***GetRemoteBrowserType***
-
-
 * ***BrowserSize*** : The browser resolution
 * ***WebDriverHintPath*** : First place to look for the web drive EXE
 * ***RemoteBrowser**** : The type of browser to use when executing remotely which something like Grid or SauceLabs
@@ -46,15 +42,6 @@ These are key value pairs that get added to the remote web driver's desired capa
 Get the browser name:
 ```csharp
 string driverName = SeleniumConfig.GetBrowserName();
-```
-
-Get a web driver based on your configuration:
-```csharp
-IWebDriver driver = SeleniumConfig.Browser();
-```
-Get a web driver for the specified browser:
-```csharp
-IWebDriver driver = SeleniumConfig.Browser("Chrome");
 ```
 
 Get a web driver type based on your configuration:
