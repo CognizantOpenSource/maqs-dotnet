@@ -429,7 +429,9 @@ namespace CognizantSoftvision.Maqs.BaseEmailTest
         /// <returns>The message body that matches the content type</returns>
         public virtual string GetBodyByContentTypes(MimeMessage message, string contentType)
         {
-            foreach (MimeEntity bodyPart in message.BodyParts.Where(x => x.ContentType.MimeType.Equals(contentType, StringComparison.CurrentCultureIgnoreCase)))
+            var bodyPart = message.BodyParts.FirstOrDefault(x => x.ContentType.MimeType.Equals(contentType, StringComparison.CurrentCultureIgnoreCase));
+
+            if (bodyPart != null)
             {
                 MemoryStream stream = new MemoryStream();
                 bodyPart.WriteTo(stream, true);
@@ -459,8 +461,9 @@ namespace CognizantSoftvision.Maqs.BaseEmailTest
         {
             var folder = this.GetCurrentFolder();
             var items = folder.Fetch(0, -1, MessageSummaryItems.UniqueId | MessageSummaryItems.Flags);
+            var item = items.FirstOrDefault(x => message.MessageId.Equals(folder.GetMessage(x.UniqueId).MessageId));
 
-            foreach (var item in items.Where(x => message.MessageId.Equals(folder.GetMessage(x.UniqueId).MessageId)))
+            if (item != null)
             {
                 return item.UniqueId.Id.ToString();
             }
@@ -541,8 +544,9 @@ namespace CognizantSoftvision.Maqs.BaseEmailTest
         private void DefaultToInboxIfExists()
         {
             List<IMailFolder> mailboxes = this.EmailConnection.GetFolders(this.BaseNamespace()).ToList();
+            var mailbox = mailboxes.FirstOrDefault(x => x.Name.Equals("Inbox", StringComparison.CurrentCultureIgnoreCase));
 
-            foreach (var mailbox in mailboxes.Where(x => x.Name.Equals("Inbox", StringComparison.CurrentCultureIgnoreCase)))
+            if (mailbox != null)
             {
                 this.SelectMailbox(mailbox.Name);
                 return;
