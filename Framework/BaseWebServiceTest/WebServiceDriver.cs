@@ -1075,7 +1075,7 @@ namespace CognizantSoftvision.Maqs.BaseWebServiceTest
             {
                 return;
             }
-            
+
             // Add the type
             this.HttpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(mediaType));
         }

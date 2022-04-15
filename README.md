@@ -27,7 +27,7 @@ The main idea behind MAQS is to avoid **reinventing the wheel**. Most automation
 
 ## Help files
 
-- [MAQS 9](https://cognizantopensource.github.io/maqs-dotnet/#/MAQS_9/Introduction)
+- [MAQS 9 (Alpha)](https://cognizantopensource.github.io/maqs-dotnet/#/MAQS_9/Introduction)
 - [MAQS 8](https://cognizantopensource.github.io/maqs-dotnet/#/MAQS_8/Introduction)
 - [MAQS 7](https://magenic.github.io/MAQS/#/MAQS_7/Introduction) 
   *Version 7 will no longer get feature updates
