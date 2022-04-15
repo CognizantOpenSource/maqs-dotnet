@@ -1073,9 +1073,11 @@ namespace CognizantSoftvision.Maqs.BaseWebServiceTest
             // Add type if it is not already added
             if (this.HttpClient.DefaultRequestHeaders.Accept.Any(x => x.MediaType.Equals(mediaType, StringComparison.CurrentCultureIgnoreCase)))
             {
-                // Add the type
-                this.HttpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(mediaType));
+                return;
             }
+            
+            // Add the type
+            this.HttpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(mediaType));
         }
     }
 }

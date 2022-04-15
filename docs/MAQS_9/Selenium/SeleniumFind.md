@@ -49,5 +49,5 @@ Assert.AreEqual(this.WebDriver.Find().IndexOfElementWithText(By.CssSelector("#Fl
 ```csharp
 this.WebDriver.Navigate().GoToUrl(TestSiteAutomationUrl);
 ICollection<IWebElement> elemList = this.WebDriver.FindElements(By.CssSelector("#FlowerTable TD"));
-Assert.AreEqual(this.WebDriver.Find().IndexOfElementWithText(elemList, "Red"), 3);
+Assert.AreEqual(Find.IndexOfElementWithText(elemList, "Red"), 3);
 ```
