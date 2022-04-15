@@ -7,6 +7,7 @@
 using CognizantSoftvision.Maqs.BaseSeleniumTest;
 using CognizantSoftvision.Maqs.Utilities.Helper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
@@ -111,6 +112,38 @@ namespace SeleniumUnitTests
             Dictionary<string, string> test = null;
             var result = WebDriverFactory.GetRemoteOptions(RemoteBrowserType.Safari, string.Empty, string.Empty, test);
             Assert.IsNotNull(result);
+        }
+
+        /// <summary>
+        /// Check that retry works and will not get stuck in an infinite loop
+        /// </summary>
+        [TestMethod]
+        [DynamicData(nameof(BrowserOptions), DynamicDataSourceType.Property)]
+        public void AddOptionsToChromeDriver(DriverOptions options)
+        {
+            Dictionary<string, object> addOptions = new Dictionary<string, object>();
+            addOptions.Add("TEST:COLON", "TEST");
+            addOptions.Add("NoCOLON", "TEST");
+            addOptions.Add("TESTJSON:COLON", "{\"KEY\":\"VALUE\"}'");
+            addOptions.Add("NoCOLONJson", "{\"KEY\":\"VALUE\"}'");
+
+            options.SetDriverOptions(addOptions);
+            Assert.IsNotNull(options);
+        }
+
+        /// <summary>
+        /// Gen options for each browser type
+        /// </summary>
+        public static IEnumerable<object[]> BrowserOptions
+        {
+            get
+            {
+                yield return new object[] { WebDriverFactory.GetDefaultChromeOptions() };
+                yield return new object[] { WebDriverFactory.GetDefaultEdgeOptions() };
+                yield return new object[] { WebDriverFactory.GetDefaultFirefoxOptions() };
+                yield return new object[] { WebDriverFactory.GetDefaultIEOptions() };
+                yield return new object[] { WebDriverFactory.GetDefaultRemoteOptions() };
+            }
         }
     }
 }
