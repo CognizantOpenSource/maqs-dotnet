@@ -447,39 +447,11 @@ namespace CognizantSoftvision.Maqs.BaseSeleniumTest
                     // Handle W3C complient keys
                     if (keyValue.Key.Contains(":"))
                     {
-                        try
-                        {
-                            // Check if this is a Json string
-                            var jsonDictionary = JsonConvert.DeserializeObject<Dictionary<string, object>>(keyValue.Value as string);
-                            driverOptions.AddAdditionalOption(keyValue.Key, jsonDictionary);
-                        }
-                        catch
-                        {
-                            // Not Json string so add as a normal string
-                            driverOptions.AddAdditionalOption(keyValue.Key, keyValue.Value);
-                        }
+                        SetSingleComplexOption(driverOptions, keyValue.Key, keyValue.Value);
                     }
                     else
                     {
-                        switch (driverOptions)
-                        {
-                            case ChromeOptions chromeOptions:
-                                chromeOptions.AddAdditionalChromeOption(keyValue.Key, keyValue.Value);
-                                break;
-                            case FirefoxOptions firefoxOptions:
-                                firefoxOptions.AddAdditionalFirefoxOption(keyValue.Key, keyValue.Value);
-                                break;
-                            case InternetExplorerOptions ieOptions:
-                                ieOptions.AddAdditionalInternetExplorerOption(keyValue.Key, keyValue.Value);
-                                break;
-                            case EdgeOptions ieOptions:
-                                ieOptions.AddAdditionalEdgeOption(keyValue.Key, keyValue.Value);
-                                break;
-                            default:
-                                // Not one of our 4 main types
-                                driverOptions.AddAdditionalOption(keyValue.Key, keyValue.Value);
-                                break;
-                        }
+                        SetSingleSimpleOption(driverOptions, keyValue.Key, keyValue.Value);
                     }
                 }
             }
@@ -600,6 +572,56 @@ namespace CognizantSoftvision.Maqs.BaseSeleniumTest
             {
                 StringProcessor.ExtractSizeFromString(size, out int width, out int height);
                 return string.Format("window-size={0},{1}", width, height);
+            }
+        }
+
+        /// <summary>
+        /// Add single complex (AKA with colon) option
+        /// </summary>
+        /// <param name="driverOptions">Driver to add the option to</param>
+        /// <param name="key">Option key</param>
+        /// <param name="value">Option value</param>
+        private static void SetSingleComplexOption(this DriverOptions driverOptions, string key, object value)
+        {
+            try
+            {
+                // Check if this is a Json string
+                var jsonDictionary = JsonConvert.DeserializeObject<Dictionary<string, object>>(value as string);
+                driverOptions.AddAdditionalOption(key, jsonDictionary);
+            }
+            catch
+            {
+                // Not Json string so add as a normal string
+                driverOptions.AddAdditionalOption(key, value);
+            }
+        }
+
+        /// <summary>
+        /// Add single simple (AKA has no colon) option
+        /// </summary>
+        /// <param name="driverOptions">Driver to add the option to</param>
+        /// <param name="key">Option key</param>
+        /// <param name="value">Option value</param>
+        private static void SetSingleSimpleOption(this DriverOptions driverOptions, string key, object value)
+        {
+            switch (driverOptions)
+            {
+                case ChromeOptions chromeOptions:
+                    chromeOptions.AddAdditionalChromeOption(key, value);
+                    break;
+                case FirefoxOptions firefoxOptions:
+                    firefoxOptions.AddAdditionalFirefoxOption(key, value);
+                    break;
+                case InternetExplorerOptions ieOptions:
+                    ieOptions.AddAdditionalInternetExplorerOption(key, value);
+                    break;
+                case EdgeOptions ieOptions:
+                    ieOptions.AddAdditionalEdgeOption(key, value);
+                    break;
+                default:
+                    // Not one of our 4 main types
+                    driverOptions.AddAdditionalOption(key, value);
+                    break;
             }
         }
     }
