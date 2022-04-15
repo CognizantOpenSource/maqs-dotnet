@@ -205,7 +205,7 @@ namespace CognizantSoftvision.Maqs.BaseWebServiceTest
         /// </summary>
         /// <param name="message">String builder for building the message</param>
         /// <param name="content">The content we are building a message for</param>
-        private void BuildContentMessage(StringBuilder message, HttpContent content)
+        private static void BuildContentMessage(StringBuilder message, HttpContent content)
         {
             message.AppendLine("Content:");
 

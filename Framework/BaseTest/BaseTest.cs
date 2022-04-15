@@ -292,7 +292,7 @@ namespace CognizantSoftvision.Maqs.BaseTest
                     this.TryToLog(MessageType.WARNING, "Test had an unexpected result of {0}", this.GetResultText());
                 }
 
-                this.GetResultTextNunit();
+                GetResultTextNunit();
                 this.LogVerbose("Test outcome");
                 this.BeforeCleanup(resultType);
 
@@ -303,7 +303,7 @@ namespace CognizantSoftvision.Maqs.BaseTest
                 collection.Write(this.Log);
                 if (collection.FileName != null)
                 {
-                    this.TestObject.AddAssociatedFile(LoggingConfig.GetLogDirectory() + "\\" + collection.FileName);
+                    this.TestObject.AddAssociatedFile(Path.Combine(LoggingConfig.GetLogDirectory(), collection.FileName));
                 }
 
                 // Release the logged messages
@@ -469,7 +469,7 @@ namespace CognizantSoftvision.Maqs.BaseTest
                 return this.GetResultTypeVS();
             }
 
-            return this.GetResultTypeNunit();
+            return GetResultTypeNunit();
         }
 
         /// <summary>
@@ -483,7 +483,7 @@ namespace CognizantSoftvision.Maqs.BaseTest
                 return this.GetResultTextVS();
             }
 
-            return this.GetResultTextNunit();
+            return GetResultTextNunit();
         }
 
         /// <summary>
@@ -673,7 +673,7 @@ namespace CognizantSoftvision.Maqs.BaseTest
                     if (classType != null)
                     {
                         // Get methods and see if soft assert expects are used
-                        var methods = this.GetMethods(classType, testName).ToList();
+                        var methods = GetMethods(classType, testName).ToList();
                         var hasSoftAssertExpectedAssertsAttribute = methods.Any(m => m.GetCustomAttributes<SoftAssertExpectedAssertsAttribute>(false).Any());
 
                         if (!hasSoftAssertExpectedAssertsAttribute)
@@ -710,14 +710,14 @@ namespace CognizantSoftvision.Maqs.BaseTest
         /// <param name="classType">The test class</param>
         /// <param name="testName">The test name</param>
         /// <returns>List of method information for method that match the class and test name</returns>
-        private IEnumerable<MethodInfo> GetMethods(Type classType, string testName) =>
+        private static IEnumerable<MethodInfo> GetMethods(Type classType, string testName) =>
             classType.GetMethods().Where(m => m.Name.Equals(testName));
 
         /// <summary>
         /// Get the type of test result
         /// </summary>
         /// <returns>The test result type</returns>
-        private TestResultType GetResultTypeNunit()
+        private static TestResultType GetResultTypeNunit()
         {
             switch (NUnitTestContext.CurrentContext.Result.Outcome.Status)
             {
@@ -738,7 +738,7 @@ namespace CognizantSoftvision.Maqs.BaseTest
         /// Get the test result type as text
         /// </summary>
         /// <returns>The result type as text</returns>
-        private string GetResultTextNunit()
+        private static string GetResultTextNunit()
         {
             return NUnitTestContext.CurrentContext.Result.Outcome.Status.ToString();
         }
@@ -805,12 +805,9 @@ namespace CognizantSoftvision.Maqs.BaseTest
                 StringBuilder listOfFilesMessage = new StringBuilder();
                 listOfFilesMessage.AppendLine("List of Associated Files: ");
 
-                foreach (string assocPath in assocFiles)
+                foreach (var assocPath in assocFiles.Where(x => File.Exists(x)))
                 {
-                    if (File.Exists(assocPath))
-                    {
-                        listOfFilesMessage.AppendLine(assocPath);
-                    }
+                    listOfFilesMessage.AppendLine(assocPath);
                 }
 
                 this.TryToLog(MessageType.GENERIC, listOfFilesMessage.ToString());

@@ -19,7 +19,7 @@ namespace CognizantSoftvision.Maqs.BaseMongoTest
         /// <summary>
         /// Initializes a new instance of the <see cref="EventFiringMongoDBDriver{T}" /> class
         /// </summary>
-        /// <param name="collection">The collection object</param>
+        /// <inheritdoc select="param" />
         public EventFiringMongoDBDriver(IMongoCollection<T> collection) : base(collection)
         {
         }
@@ -27,9 +27,7 @@ namespace CognizantSoftvision.Maqs.BaseMongoTest
         /// <summary>
         /// Initializes a new instance of the <see cref="EventFiringMongoDBDriver{T}" /> class
         /// </summary>
-        /// <param name="connectionString">The mongoDB client connection string</param>
-        /// <param name="databaseName">the mongo database name string</param>
-        /// <param name="collectionString">the mongo database collection string</param>
+        /// <inheritdoc select="param" />
         public EventFiringMongoDBDriver(string connectionString, string databaseName, string collectionString)
             : base(connectionString, databaseName, collectionString)
         {
@@ -38,7 +36,7 @@ namespace CognizantSoftvision.Maqs.BaseMongoTest
         /// <summary>
         /// Initializes a new instance of the <see cref="EventFiringMongoDBDriver{T}" /> class
         /// </summary>
-        /// <param name="collectionString">Name of the collection</param>
+        /// <inheritdoc select="param" />
         public EventFiringMongoDBDriver(string collectionString)
              : base(collectionString)
         {
@@ -66,10 +64,7 @@ namespace CognizantSoftvision.Maqs.BaseMongoTest
         /// </summary>
         public event EventHandler<string> DatabaseErrorEvent;
 
-        /// <summary>
-        /// List all of the items in the collection
-        /// </summary>
-        /// <returns>List of the items in the collection</returns>
+        /// <inheritdoc /> 
         public override List<T> ListAllCollectionItems()
         {
             try
@@ -84,10 +79,7 @@ namespace CognizantSoftvision.Maqs.BaseMongoTest
             }
         }
 
-        /// <summary>
-        /// Checks if the collection contains any records
-        /// </summary>
-        /// <returns>True if the collection is empty, false otherwise</returns>
+        /// <inheritdoc /> 
         public override bool IsCollectionEmpty()
         {
             try
@@ -102,10 +94,7 @@ namespace CognizantSoftvision.Maqs.BaseMongoTest
             }
         }
 
-        /// <summary>
-        /// Counts all of the items in the collection
-        /// </summary>
-        /// <returns>Number of items in the collection</returns>
+        /// <inheritdoc /> 
         public override int CountAllItemsInCollection()
         {
             try

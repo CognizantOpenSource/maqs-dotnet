@@ -59,23 +59,13 @@ namespace CognizantSoftvision.Maqs.BaseSeleniumTest.Extensions
         {
         }
 
-        /// <summary>
-        /// Finds the first IWebElement using the given method.
-        /// </summary>
-        /// <param name="by">The locating mechanism to use</param>
-        /// <param name="userFriendlyName">A user friendly name, for logging purposes</param>
-        /// <returns>The first matching OpenQA.Selenium.IWebElement on the current context</returns>
+        /// <inheritdoc /> 
         public override IWebElement FindElement(By by, string userFriendlyName)
         {
             return new LazyElement(this, by, $"{userFriendlyName}");
         }
 
-        /// <summary>
-        /// Finds all IWebElements within the current context using the given mechanism.
-        /// </summary>
-        /// <param name="by">The locating mechanism to use</param>
-        /// <param name="userFriendlyName">A user friendly name, for logging purposes</param>
-        /// <returns>All web elements matching the current criteria, or an empty list if nothing matches</returns>
+        /// <inheritdoc /> 
         public override ReadOnlyCollection<IWebElement> FindElements(By by, string userFriendlyName)
         {
             int index = 0;

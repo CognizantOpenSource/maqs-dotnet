@@ -49,11 +49,7 @@ namespace CognizantSoftvision.Maqs.BaseDatabaseTest
             return DatabaseConfig.GetOpenConnection();
         }
 
-        /// <summary>
-        /// Create a test object
-        /// </summary>
-        /// <param name="log">Assocatied logger</param>
-        /// <returns>The database test object</returns>
+        /// <inheritdoc /> 
         protected override DatabaseTestObject CreateSpecificTestObject(ILogger log)
         {
             return new DatabaseTestObject(() => this.GetDataBaseConnection(), log, this.GetFullyQualifiedTestClassName());

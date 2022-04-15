@@ -40,9 +40,7 @@ namespace CognizantSoftvision.Maqs.BaseSeleniumTest
             this.SoftAssert = new SeleniumSoftAssert(this);
         }
 
-        /// <summary>
-        /// Gets the Selenium driver manager
-        /// </summary>
+        /// <inheritdoc /> 
         public SeleniumDriverManager WebManager
         {
             get
@@ -51,9 +49,7 @@ namespace CognizantSoftvision.Maqs.BaseSeleniumTest
             }
         }
 
-        /// <summary>
-        /// Gets the Selenium web driver
-        /// </summary>
+        /// <inheritdoc /> 
         public IWebDriver WebDriver
         {
             get
@@ -62,19 +58,13 @@ namespace CognizantSoftvision.Maqs.BaseSeleniumTest
             }
         }
 
-        /// <summary>
-        /// Override the Selenium web driver
-        /// </summary>
-        /// <param name="webDriver">New web driver</param>
+        /// <inheritdoc /> 
         public void OverrideWebDriver(IWebDriver webDriver)
         {
             this.WebManager.OverrideDriver(webDriver);
         }
 
-        /// <summary>
-        /// Override the function for creating a Selenium web driver
-        /// </summary>
-        /// <param name="getDriver">Function for creating a web driver</param>
+        /// <inheritdoc /> 
         public void OverrideWebDriver(Func<IWebDriver> getDriver)
         {
             this.WebManager.OverrideDriver(getDriver);

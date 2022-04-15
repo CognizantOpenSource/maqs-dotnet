@@ -814,18 +814,18 @@ namespace CognizantSoftvision.Maqs.BaseSeleniumTest.Extensions
         }
 
         /// <summary>
-        /// Finds the first OpenQA.Selenium.IWebElement using the given method.
+        /// Finds the first element using the given method.
         /// </summary>
         /// <param name="by">The locating mechanism to use</param>
         /// <param name="userFriendlyName">A user friendly name, for logging purposes</param>
-        /// <returns>The first matching OpenQA.Selenium.IWebElement on the current context</returns>
+        /// <returns>The first matching element on the current context</returns>
         public abstract IWebElement FindElement(By by, string userFriendlyName);
 
         /// <summary>
-        /// Finds all OpenQA.Selenium.IWebElement within the current context using the given mechanism.
+        /// Finds all elements within the current context using the given mechanism.
         /// </summary>
         /// <param name="by">The locating mechanism to use</param>
-        /// <returns>All web elements matching the current criteria, or an empty list if nothing matches</returns>
+        /// <returns>All elements matching the current criteria, or an empty list if nothing matches</returns>
         public ReadOnlyCollection<IWebElement> FindRawElements(By by)
         {
             return this.GetRawExistingElement().FindElements(by);

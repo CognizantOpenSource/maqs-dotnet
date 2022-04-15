@@ -27,9 +27,7 @@ namespace CognizantSoftvision.Maqs.BaseEmailTest
             this.ManagerStore.Add(typeof(EmailDriverManager).FullName, new EmailDriverManager(emailConnection, this));
         }
 
-        /// <summary>
-        /// Gets the email driver manager
-        /// </summary>
+        /// <inheritdoc /> 
         public EmailDriverManager EmailManager
         {
             get
@@ -38,9 +36,7 @@ namespace CognizantSoftvision.Maqs.BaseEmailTest
             }
         }
 
-        /// <summary>
-        /// Gets the email driver
-        /// </summary>
+        /// <inheritdoc /> 
         public EmailDriver EmailDriver
         {
             get
@@ -49,19 +45,13 @@ namespace CognizantSoftvision.Maqs.BaseEmailTest
             }
         }
 
-        /// <summary>
-        /// Override the email driver
-        /// </summary>
-        /// <param name="emailConnection">Function for getting an email connection</param>
+        /// <inheritdoc /> 
         public void OverrideEmailClient(Func<ImapClient> emailConnection)
         {
             this.EmailManager.OverrideDriver(emailConnection);
         }
 
-        /// <summary>
-        /// Override the email driver
-        /// </summary>
-        /// <param name="emailDriver">The new email driver</param>
+        /// <inheritdoc /> 
         public void OverrideEmailClient(EmailDriver emailDriver)
         {
             this.EmailManager.OverrideDriver(emailDriver);

@@ -61,9 +61,7 @@ namespace CognizantSoftvision.Maqs.BaseAppiumTest
             return this.GetAppiumDriver();
         }
 
-        /// <summary>
-        /// Cleanup the Appium driver
-        /// </summary>
+        /// <inheritdoc /> 
         protected override void DriverDispose()
         {
             // If we never created the driver we don't have any cleanup to do

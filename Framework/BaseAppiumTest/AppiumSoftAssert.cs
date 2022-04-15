@@ -29,13 +29,7 @@ namespace CognizantSoftvision.Maqs.BaseAppiumTest
             this.appiumTestObject = appiumTestObject;
         }
 
-        /// <summary>
-        /// Soft assert method to check if the Action is false
-        /// </summary>
-        /// <param name="assertFunction">Function to use</param>
-        /// <param name="failureMessage">Message to log</param>
-        /// <param name="assertName">Soft assert name or name of expected assert being called.</param>
-        /// <returns>Boolean of the assert</returns>
+        /// <inheritdoc /> 
         public override bool Assert(Action assertFunction, string assertName, string failureMessage = "")
         {
             bool didPass = base.Assert(assertFunction, assertName, failureMessage);

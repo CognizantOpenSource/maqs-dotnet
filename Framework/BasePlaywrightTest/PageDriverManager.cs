@@ -88,18 +88,13 @@ namespace CognizantSoftvision.Maqs.BasePlaywrightTest
             return tempDriver;
         }
 
-        /// <summary>
-        /// Get the page
-        /// </summary>
-        /// <returns>The page</returns>
+        /// <inheritdoc /> 
         public override object Get()
         {
             return this.GetPageDriver();
         }
 
-        /// <summary>
-        /// Have the driver cleanup after itself
-        /// </summary>
+        /// <inheritdoc /> 
         protected override void DriverDispose()
         {
             Log.LogMessage(MessageType.VERBOSE, "Start dispose driver");
