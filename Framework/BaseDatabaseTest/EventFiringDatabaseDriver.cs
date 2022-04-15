@@ -19,8 +19,7 @@ namespace CognizantSoftvision.Maqs.BaseDatabaseTest
         /// <summary>
         /// Initializes a new instance of the <see cref="EventFiringDatabaseDriver"/> class
         /// </summary>
-        /// <param name="connectionType"> The connection Type. </param>
-        /// <param name="connectionString"> The database connection string </param>
+        /// <inheritdoc select="param" />
         public EventFiringDatabaseDriver(string connectionType, string connectionString)
             : base(connectionType, connectionString)
         {
@@ -29,7 +28,7 @@ namespace CognizantSoftvision.Maqs.BaseDatabaseTest
         /// <summary>
         /// Initializes a new instance of the <see cref="EventFiringDatabaseDriver" /> class
         /// </summary>
-        /// <param name="dataBaseConnectionOverride">The database connection override</param>
+        /// <inheritdoc select="param" />
         public EventFiringDatabaseDriver(IDbConnection dataBaseConnectionOverride)
             : base(dataBaseConnectionOverride)
         {
@@ -57,15 +56,7 @@ namespace CognizantSoftvision.Maqs.BaseDatabaseTest
         /// </summary>
         public event EventHandler<string> DatabaseErrorEvent;
 
-        /// <summary>
-        /// Execute parameterized SQL.
-        /// </summary>
-        /// <param name="sql">The SQL to execute for the query.</param>
-        /// <param name="param">The parameters to pass, if any.</param>
-        /// <param name="transaction">The transaction to use, if any.</param>
-        /// <param name="commandTimeout">The command timeout (in seconds).</param>
-        /// <param name="commandType">The type of command to execute.</param>
-        /// <returns>The number of rows affected.</returns>
+        /// <inheritdoc /> 
         public override int Execute(
             string sql,
             object param = null,
@@ -85,16 +76,7 @@ namespace CognizantSoftvision.Maqs.BaseDatabaseTest
             }
         }
 
-        /// <summary>
-        /// Submits a query to the database
-        /// </summary>
-        /// <param name="sql">The SQL to execute in the query.</param>
-        /// <param name="param">The parameters to pass.</param>
-        /// <param name="transaction">The transaction to use.</param>
-        /// <param name="buffered">Whether to buffer results in memory.</param>
-        /// <param name="commandTimeout">The command timeout (in seconds).</param>
-        /// <param name="commandType">The type of command to execute.</param>
-        /// <returns>Return a sequence of dynamic objects with properties matching the columns.</returns>
+        /// <inheritdoc /> 
         public override IEnumerable<dynamic> Query(
             string sql,
             object param = null,
@@ -115,20 +97,7 @@ namespace CognizantSoftvision.Maqs.BaseDatabaseTest
             }
         }
 
-        /// <summary>
-        /// Executes a query, returning the data typed as T.
-        /// </summary>
-        /// <typeparam name="T">The type to return</typeparam>
-        /// <param name="sql">The SQL to execute for the query.</param>
-        /// <param name="param">The parameters to pass, if any.</param>
-        /// <param name="transaction">The transaction to use, if any.</param>
-        /// <param name="buffered">Whether to buffer results in memory.</param>
-        /// <param name="commandTimeout">The command timeout (in seconds).</param>
-        /// <param name="commandType">The type of command to execute.</param>
-        /// <returns> A sequence of data of the supplied type; if a basic type (integer, string, etc) is
-        ///     queried then the data from the first column in assumed, otherwise an instance
-        ///    is created per row, and a direct column-name===member-name mapping is assumed
-        /// (case insensitive).</returns>
+        /// <inheritdoc /> 
         public override IEnumerable<T> Query<T>(
             string sql,
             object param = null,
@@ -149,13 +118,7 @@ namespace CognizantSoftvision.Maqs.BaseDatabaseTest
             }
         }
 
-
-        /// <summary>
-        /// Custom query that uses a Func to allow for utilizing dapper multi-mapping
-        /// </summary>
-        /// <typeparam name="T">Type to return</typeparam>
-        /// <param name="actionToPerform">Action to perform</param>
-        /// <returns>An IEnumerable list of type</returns>
+        /// <inheritdoc /> 
         public override IEnumerable<T> Query<T>(Func<IDbConnection, IEnumerable<T>> actionToPerform)
         {
             try
@@ -172,15 +135,7 @@ namespace CognizantSoftvision.Maqs.BaseDatabaseTest
             }
         }
 
-        /// <summary>
-        ///  Inserts an entity into table "T" and returns identity id or number of inserted rows if inserting a list.
-        /// </summary>
-        /// <typeparam name="T">The table to insert into</typeparam>
-        /// <param name="entityToInsert">Entity to insert, can be list of entities</param>
-        /// <param name="transaction">The transaction to run under, null (the default) if none</param>
-        /// <param name="commandTimeout">Number of seconds before command execution timeout</param>
-        /// <param name="items">Any items to log</param>
-        /// <returns>Identity of inserted entity, or number of inserted rows if inserting a lists</returns>
+        /// <inheritdoc /> 
         public override long Insert<T>(
             T entityToInsert,
             IDbTransaction transaction = null,
@@ -199,15 +154,7 @@ namespace CognizantSoftvision.Maqs.BaseDatabaseTest
             }
         }
 
-        /// <summary>
-        /// Delete entity in table "T".
-        /// </summary>
-        /// <typeparam name="T">The table</typeparam>
-        /// <param name="entityToDelete">Entity to delete</param>
-        /// <param name="transaction">The transaction to run under, null (the default) if none</param>
-        /// <param name="commandTimeout">Number of seconds before command execution timeout</param>
-        /// <param name="items">Any items to log</param>
-        /// <returns>true if deleted, false if not found</returns>
+        /// <inheritdoc /> 
         public override bool Delete<T>(
             T entityToDelete,
             IDbTransaction transaction = null,
@@ -226,15 +173,7 @@ namespace CognizantSoftvision.Maqs.BaseDatabaseTest
             }
         }
 
-        /// <summary>
-        ///  Updates entity in table "T", checks if the entity is modified if the entity is tracked by the Get() extension.
-        /// </summary>
-        /// <typeparam name="T">The table to update</typeparam>
-        /// <param name="entityToUpdate">Entity to be updated</param>
-        /// <param name="transaction">The transaction to run under, null (the default) if none</param>
-        /// <param name="commandTimeout">Number of seconds before command execution timeout</param>
-        /// <param name="items">Any items to log</param>
-        /// <returns>true if updated, false if not found or not modified (tracked entities)</returns>
+        /// <inheritdoc /> 
         public override bool Update<T>(
             T entityToUpdate,
             IDbTransaction transaction = null,
@@ -253,10 +192,7 @@ namespace CognizantSoftvision.Maqs.BaseDatabaseTest
             }
         }
 
-        /// <summary>
-        /// Dispose of the database connection
-        /// </summary>
-        /// <param name="disposing">True if you want to release managed resources</param>
+        /// <inheritdoc /> 
         protected override void Dispose(bool disposing)
         {
             try

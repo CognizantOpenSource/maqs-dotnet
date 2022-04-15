@@ -30,9 +30,8 @@ namespace CognizantSoftvision.Maqs.BaseTest
             this.testObject = testObject;
         }
 
-        /// <summary>
-        /// Gets the testing object
-        /// </summary>
+
+        /// <inheritdoc />
         public ILogger Log
         {
             get
@@ -62,16 +61,10 @@ namespace CognizantSoftvision.Maqs.BaseTest
             this.GetDriver = driverGet;
         }
 
-        /// <summary>
-        /// Check if the underlying driver has been initialized
-        /// </summary>
-        /// <returns>True if the underlying driver has already been initialized</returns>
+        /// <inheritdoc />
         public bool IsDriverIntialized() => this.BaseDriver != null;
 
-        /// <summary>
-        /// Get the driver
-        /// </summary>
-        /// <returns>The driver</returns>
+        /// <inheritdoc />
         public abstract object Get();
 
         /// <summary>

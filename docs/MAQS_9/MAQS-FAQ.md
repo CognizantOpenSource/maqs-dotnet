@@ -1,9 +1,5 @@
 # <img src="resources/maqslogo.ico" height="32" width="32"> FAQ
 
-# Open source VS enterprise version
-As of July 2019, MAQS became fully open source.  
-There are no longer separate open source and enterprise versions.
-
 # Templates: Out of the box templates
 Templates can be found in the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=vs-publisher-1465771.MAQSOpenFramework) or  Visual Studio Tools -> Extensions and Updates.
 
@@ -15,6 +11,7 @@ Templates can be found in the [Visual Studio Marketplace](https://marketplace.vi
    - Database 
    - Email (IMAP only)  
    - Selenium (with tests and page object models) 
+   - Playwright (with tests and page object models) 
    - Web Service (with tests, json models and xml models)  
 - DotNet Framework item templates  
    - Appium tests (Visual Studio and NUnit versions)
@@ -24,6 +21,8 @@ Templates can be found in the [Visual Studio Marketplace](https://marketplace.vi
    - Email tests (Visual Studio and NUnit versions) 
    - Selenium tests (Visual Studio and NUnit versions)
    - Selenium page object model
+   - Playwright tests (Visual Studio and NUnit versions)
+   - Playwright page object model
    - Web Service tests (Visual Studio and NUnit versions)
 - DotNet Core project templates - https://www.nuget.org/packages/Cognizant.Maqs.Templates 
    - Appium (with tests and page object models) 
@@ -32,8 +31,8 @@ Templates can be found in the [Visual Studio Marketplace](https://marketplace.vi
    - Database 
    - Email (IMAP only)  
    - Selenium (with tests and page object models) 
+   - Playwright (with tests and page object models) 
    - Web Service (with tests, json models and xml models) 
-
 
 # Base features
 ## Logging
@@ -67,28 +66,14 @@ Suspended mode will result in no information written to the log.
 ## Customizations
 - Utilizes the app.config which is Globally used information, avoids hard-coded code and you can add Key|Value custom pairs such as UserName =YOU PassWord=ABC   We also allow you to use 'default' 
 
-# Old Features
-## Faker Data
-- All data faking functionality has been removed from MAQS.
-- We strongly encourage you to leverage the [Faker.Data](https://www.nuget.org/packages/Faker.Data/) NuGet package in it's place.
-
-## PhantomJS
-- The PhantomJS project has been archived and Selenium support has been deprecated.
-- Headless Chrome is the primary replacement for PhantomJS  
-
 # Test Run Settings - MSTest 
-There are two types of file for configuring tests. *.runsettings are used for unit tests. And *.testsettings for lab environment tests, web performance and load tests, and for customizing some types of diagnostic data adapters such as IntelliTrace and event log adapters.  
-https://docs.microsoft.com/en-us/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2017.  
-Both test settings files are written in XML (eXtensible Markup Language).  
-*_**TestSettings files have been deprecated and should no longer be used!**_  
-
 
 ## Run Settings Configurations
 A .runsettings file can be added as a test setting to add additional configurations when running unit tests. This allows tests to be run on additional cores on a single machine, to run on different versions of the unit test framework, or to specify where the results of the test should be output.
 ### Adding Run Settings
 To add a .runsettings file to a test solution, go to the top toolbar and under Test → Test Settings, choose the "Select Test Settings File" option, and finally add a .runsettings file.  
 ![Remote Browser Settings](resources/AddNewTestSettings.png)  
-Since there is no way to have Visual Studio generate a template of a .runsettings file, you can instead add an example .runsettings file to your solution such as this one found on Microsoft's MSDN website: https://docs.microsoft.com/en-us/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2017
+Since there is no way to have Visual Studio generate a template of a .runsettings file, you can instead add an example .runsettings file to your solution such as this one found on Microsoft's MSDN website: https://docs.microsoft.com/en-us/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2022
 
 # MSTest V2 documentation
 

@@ -1,9 +1,12 @@
-﻿namespace CognizantSoftvision.Maqs.BaseTest
+﻿using System;
+
+namespace CognizantSoftvision.Maqs.BaseTest
 {
     /// <summary>
     /// Expected assert keys for a <see cref="SoftAssert"/> instance.
     /// </summary>
-    public class SoftAssertExpectedAssertsAttribute : System.Attribute
+    [AttributeUsage(AttributeTargets.Method)]
+    public class SoftAssertExpectedAssertsAttribute : Attribute
     {
         /// <summary>
         /// Collection of Expected Assert key strings from this attribute.

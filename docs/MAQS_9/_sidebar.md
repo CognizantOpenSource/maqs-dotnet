@@ -1,9 +1,6 @@
 - [Introduction to MAQS ](MAQS_9/Introduction.md)
-
 - [Getting Started](MAQS_9/Getting-Started.md)
 - [Upgrading to MAQS 9](MAQS_9/UpgradingFromMAQS7ToMAQS9.md)
-UpgradingFromMAQS8ToMAQS9
-
 - [SourceLink](MAQS_9/SourceLink.md)
 - [Debugging Locally](MAQS_9/Debugging-Locally.md)
 - [Release Notes](MAQS_9/ReleaseNotes.md)
@@ -11,18 +8,15 @@ UpgradingFromMAQS8ToMAQS9
 - Features
 
   - i. General
-
     - [i. Configurations](MAQS_9/General/EnterpriseConfiguration.md)
     - [ii. Manager Store](MAQS_9/General/ManagerStore.md)
 
   - ii. Utilities
-
     - [i. Generic Wait](MAQS_9/Utilities/Generic-Waits.md)
     - [ii. Logger](MAQS_9/Utilities/Logger.md)
     - [iii. Config](MAQS_9/Utilities/Config.md)
 
   - iii. BaseTest
-
     - [i. Features](MAQS_9/Base/BaseFeatures.md)
     - [ii. Base Test](MAQS_9/Base/BaseTest.md)
     - [iii. Test Object](MAQS_9/Base/BaseTestObject.md)
@@ -33,7 +27,6 @@ UpgradingFromMAQS8ToMAQS9
     - [viii. FAQ](MAQS_9/Base/BaseFAQ.md)
 
   - iv. Selenium
-
     - [i. Features](MAQS_9/Selenium/SeleniumFeatures.md)
     - [ii. Base Test](MAQS_9/Selenium/SeleniumBaseTest.md)
     - [iii. Test Object](MAQS_9/Selenium/SeleniumTestObject.md)
@@ -53,7 +46,6 @@ UpgradingFromMAQS8ToMAQS9
 
 
   - v. Playwright
-
     - [i. Features](MAQS_9/Playwright/PlaywrightFeatures.md)
     - [ii. Base Test](MAQS_9/Playwright/PlaywrightBaseTest.md)
     - [iii. Test Object](MAQS_9/Playwright/PlaywrightTestObject.md)
@@ -68,7 +60,6 @@ UpgradingFromMAQS8ToMAQS9
 
 
   - vi. WebServices
-
     - [i. Features](MAQS_9/WebService/WebServiceFeatures.md)
     - [ii. Base Test](MAQS_9/WebService/WebServiceBaseTest.md)
     - [iii. Test Object](MAQS_9/WebService/WebServiceTestObject.md)
@@ -82,7 +73,6 @@ UpgradingFromMAQS8ToMAQS9
     - [xi. FAQ](MAQS_9/WebService/WebServicesFAQ.md)
 
   - vii. Appium
-
     - [i. Features](MAQS_9/Appium/AppiumFeatures.md)
     - [ii. Base Test](MAQS_9/Appium/AppiumBaseTest.md)
     - [iii. Test Object](MAQS_9/Appium/AppiumTestObject.md)
@@ -97,7 +87,6 @@ UpgradingFromMAQS8ToMAQS9
     - [xii. FAQ](MAQS_9/Appium/AppiumFAQ.md)
 
   - viii. Database
-
     - [i. Features](MAQS_9/Database/DatabaseFeatures.md)
     - [ii. Base Test](MAQS_9/Database/DatabaseBaseTest.md)
     - [iii. Test Object](MAQS_9/Database/DatabaseTestObject.md)
@@ -112,7 +101,6 @@ UpgradingFromMAQS8ToMAQS9
     - [xii. FAQ](MAQS_9/Database/DatabaseFAQ.md)
 
   - ix. MongoDB
-
     - [i. Features](MAQS_9/MongoDB/MongoDBFeatures.md)
     - [ii. Base Test](MAQS_9/MongoDB/MongoBaseTest.md)
     - [iii. Test Object](MAQS_9/MongoDB/MongoTestObject.md)

@@ -8,6 +8,7 @@
 using CognizantSoftvision.Maqs.Utilities.Helper;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Formatting;
@@ -88,7 +89,7 @@ namespace CognizantSoftvision.Maqs.BaseWebServiceTest
         /// <returns>The response deserialized as - <typeparamref name="T"/></returns>
         public T Get<T>(string requestUri, string expectedMediaType, bool expectSuccess = true)
         {
-            return Send<T>(this.CreateRequest(WebServiceVerb.Get, requestUri), expectedMediaType, expectSuccess);
+            return Send<T>(CreateRequest(WebServiceVerb.Get, requestUri), expectedMediaType, expectSuccess);
         }
 
         /// <summary>
@@ -101,7 +102,7 @@ namespace CognizantSoftvision.Maqs.BaseWebServiceTest
         /// <returns>The response deserialized as - <typeparamref name="T"/></returns>
         public T Get<T>(string requestUri, string expectedMediaType, HttpStatusCode expectedStatus)
         {
-            return Send<T>(this.CreateRequest(WebServiceVerb.Get, requestUri), expectedMediaType, expectedStatus);
+            return Send<T>(CreateRequest(WebServiceVerb.Get, requestUri), expectedMediaType, expectedStatus);
         }
 
         /// <summary>
@@ -113,7 +114,7 @@ namespace CognizantSoftvision.Maqs.BaseWebServiceTest
         /// <returns>The response content as a string</returns>
         public string Get(string requestUri, string expectedMediaType, bool expectSuccess = true)
         {
-            return Send(this.CreateRequest(WebServiceVerb.Get, requestUri), expectedMediaType, expectSuccess);
+            return Send(CreateRequest(WebServiceVerb.Get, requestUri), expectedMediaType, expectSuccess);
         }
 
         /// <summary>
@@ -125,7 +126,7 @@ namespace CognizantSoftvision.Maqs.BaseWebServiceTest
         /// <returns>The response content as a string</returns>
         public string Get(string requestUri, string expectedMediaType, HttpStatusCode expectedStatus)
         {
-            return Send(this.CreateRequest(WebServiceVerb.Get, requestUri), expectedMediaType, expectedStatus);
+            return Send(CreateRequest(WebServiceVerb.Get, requestUri), expectedMediaType, expectedStatus);
         }
 
         /// <summary>
@@ -137,7 +138,7 @@ namespace CognizantSoftvision.Maqs.BaseWebServiceTest
         /// <returns>The http response message</returns>
         public HttpResponseMessage GetWithResponse(string requestUri, string expectedMediaType, bool expectSuccess = true)
         {
-            return SendWithResponse(this.CreateRequest(WebServiceVerb.Get, requestUri), expectedMediaType, expectSuccess);
+            return SendWithResponse(CreateRequest(WebServiceVerb.Get, requestUri), expectedMediaType, expectSuccess);
         }
 
         /// <summary>
@@ -149,7 +150,7 @@ namespace CognizantSoftvision.Maqs.BaseWebServiceTest
         /// <returns>The http response message</returns>
         public HttpResponseMessage GetWithResponse(string requestUri, string expectedMediaType, HttpStatusCode expectedStatus)
         {
-            return SendWithResponse(this.CreateRequest(WebServiceVerb.Get, requestUri), expectedMediaType, expectedStatus);
+            return SendWithResponse(CreateRequest(WebServiceVerb.Get, requestUri), expectedMediaType, expectedStatus);
         }
 
         /// <summary>
@@ -163,7 +164,7 @@ namespace CognizantSoftvision.Maqs.BaseWebServiceTest
         /// <returns>The response deserialized as - <typeparamref name="T"/></returns>
         public T Post<T>(string requestUri, string expectedMediaType, HttpContent content, bool expectSuccess = true)
         {
-            return Send<T>(this.CreateRequest(WebServiceVerb.Post, requestUri, content), expectedMediaType, expectSuccess);
+            return Send<T>(CreateRequest(WebServiceVerb.Post, requestUri, content), expectedMediaType, expectSuccess);
         }
 
         /// <summary>
@@ -177,7 +178,7 @@ namespace CognizantSoftvision.Maqs.BaseWebServiceTest
         /// <returns>The response deserialized as - <typeparamref name="T"/></returns>
         public T Post<T>(string requestUri, string expectedMediaType, HttpContent content, HttpStatusCode expectedStatus)
         {
-            return Send<T>(this.CreateRequest(WebServiceVerb.Post, requestUri, content), expectedMediaType, expectedStatus);
+            return Send<T>(CreateRequest(WebServiceVerb.Post, requestUri, content), expectedMediaType, expectedStatus);
         }
 
         /// <summary>
@@ -190,7 +191,7 @@ namespace CognizantSoftvision.Maqs.BaseWebServiceTest
         /// <returns>The response body as a string</returns>
         public string Post(string requestUri, string expectedMediaType, HttpContent content, bool expectSuccess = true)
         {
-            return Send(this.CreateRequest(WebServiceVerb.Post, requestUri, content), expectedMediaType, expectSuccess);
+            return Send(CreateRequest(WebServiceVerb.Post, requestUri, content), expectedMediaType, expectSuccess);
         }
 
         /// <summary>
@@ -203,7 +204,7 @@ namespace CognizantSoftvision.Maqs.BaseWebServiceTest
         /// <returns>The response body as a string</returns>
         public string Post(string requestUri, string expectedMediaType, HttpContent content, HttpStatusCode expectedStatus)
         {
-            return Send(this.CreateRequest(WebServiceVerb.Post, requestUri, content), expectedMediaType, expectedStatus);
+            return Send(CreateRequest(WebServiceVerb.Post, requestUri, content), expectedMediaType, expectedStatus);
         }
 
         /// <summary>
@@ -220,7 +221,7 @@ namespace CognizantSoftvision.Maqs.BaseWebServiceTest
         public string Post(string requestUri, string expectedMediaType, string content, Encoding contentEncoding, string postMediaType, bool contentAsString = true, bool expectSuccess = true)
         {
             HttpContent httpContent = CreateContent(content, contentEncoding, postMediaType, contentAsString);
-            return Send(this.CreateRequest(WebServiceVerb.Post, requestUri, httpContent), expectedMediaType, expectSuccess);
+            return Send(CreateRequest(WebServiceVerb.Post, requestUri, httpContent), expectedMediaType, expectSuccess);
         }
 
         /// <summary>
@@ -237,7 +238,7 @@ namespace CognizantSoftvision.Maqs.BaseWebServiceTest
         public string Post(string requestUri, string expectedMediaType, string content, Encoding contentEncoding, string postMediaType, HttpStatusCode expectedStatus, bool contentAsString = true)
         {
             HttpContent httpContent = CreateContent(content, contentEncoding, postMediaType, contentAsString);
-            return Send(this.CreateRequest(WebServiceVerb.Post, requestUri, httpContent), expectedMediaType, expectedStatus);
+            return Send(CreateRequest(WebServiceVerb.Post, requestUri, httpContent), expectedMediaType, expectedStatus);
         }
 
         /// <summary>
@@ -254,7 +255,7 @@ namespace CognizantSoftvision.Maqs.BaseWebServiceTest
         public HttpResponseMessage PostWithResponse(string requestUri, string expectedMediaType, string content, Encoding contentEncoding, string postMediaType, bool contentAsString = true, bool expectSuccess = true)
         {
             HttpContent httpContent = CreateContent(content, contentEncoding, postMediaType, contentAsString);
-            return SendWithResponse(this.CreateRequest(WebServiceVerb.Post, requestUri, httpContent), expectedMediaType, expectSuccess);
+            return SendWithResponse(CreateRequest(WebServiceVerb.Post, requestUri, httpContent), expectedMediaType, expectSuccess);
         }
 
         /// <summary>
@@ -271,7 +272,7 @@ namespace CognizantSoftvision.Maqs.BaseWebServiceTest
         public HttpResponseMessage PostWithResponse(string requestUri, string expectedMediaType, string content, Encoding contentEncoding, string postMediaType, HttpStatusCode expectedStatus, bool contentAsString = true)
         {
             HttpContent httpContent = CreateContent(content, contentEncoding, postMediaType, contentAsString);
-            return SendWithResponse(this.CreateRequest(WebServiceVerb.Post, requestUri, httpContent), expectedMediaType, expectedStatus);
+            return SendWithResponse(CreateRequest(WebServiceVerb.Post, requestUri, httpContent), expectedMediaType, expectedStatus);
         }
 
         /// <summary>
@@ -284,7 +285,7 @@ namespace CognizantSoftvision.Maqs.BaseWebServiceTest
         /// <returns>The http response message</returns>
         public HttpResponseMessage PostWithResponse(string requestUri, string expectedMediaType, HttpContent content, bool expectSuccess = true)
         {
-            return SendWithResponse(this.CreateRequest(WebServiceVerb.Post, requestUri, content), expectedMediaType, expectSuccess);
+            return SendWithResponse(CreateRequest(WebServiceVerb.Post, requestUri, content), expectedMediaType, expectSuccess);
         }
 
         /// <summary>
@@ -297,7 +298,7 @@ namespace CognizantSoftvision.Maqs.BaseWebServiceTest
         /// <returns>The http response message</returns>
         public HttpResponseMessage PostWithResponse(string requestUri, string expectedMediaType, HttpContent content, HttpStatusCode expectedStatus)
         {
-            return SendWithResponse(this.CreateRequest(WebServiceVerb.Post, requestUri, content), expectedMediaType, expectedStatus);
+            return SendWithResponse(CreateRequest(WebServiceVerb.Post, requestUri, content), expectedMediaType, expectedStatus);
         }
 
         /// <summary>
@@ -311,7 +312,7 @@ namespace CognizantSoftvision.Maqs.BaseWebServiceTest
         /// <returns>The response deserialized as - <typeparamref name="T"/></returns>
         public T Put<T>(string requestUri, string expectedMediaType, HttpContent content, bool expectSuccess = true)
         {
-            return Send<T>(this.CreateRequest(WebServiceVerb.Put, requestUri, content), expectedMediaType, expectSuccess);
+            return Send<T>(CreateRequest(WebServiceVerb.Put, requestUri, content), expectedMediaType, expectSuccess);
         }
 
         /// <summary>
@@ -325,7 +326,7 @@ namespace CognizantSoftvision.Maqs.BaseWebServiceTest
         /// <returns>The response deserialized as - <typeparamref name="T"/></returns>
         public T Put<T>(string requestUri, string expectedMediaType, HttpContent content, HttpStatusCode expectedStatus)
         {
-            return Send<T>(this.CreateRequest(WebServiceVerb.Put, requestUri, content), expectedMediaType, expectedStatus);
+            return Send<T>(CreateRequest(WebServiceVerb.Put, requestUri, content), expectedMediaType, expectedStatus);
         }
 
         /// <summary>
@@ -338,7 +339,7 @@ namespace CognizantSoftvision.Maqs.BaseWebServiceTest
         /// <returns>The response body as a string</returns>
         public string Put(string requestUri, string expectedMediaType, HttpContent content, bool expectSuccess = true)
         {
-            return Send(this.CreateRequest(WebServiceVerb.Put, requestUri, content), expectedMediaType, expectSuccess);
+            return Send(CreateRequest(WebServiceVerb.Put, requestUri, content), expectedMediaType, expectSuccess);
         }
 
         /// <summary>
@@ -351,7 +352,7 @@ namespace CognizantSoftvision.Maqs.BaseWebServiceTest
         /// <returns>The response body as a string</returns>
         public string Put(string requestUri, string expectedMediaType, HttpContent content, HttpStatusCode expectedStatus)
         {
-            return Send(this.CreateRequest(WebServiceVerb.Put, requestUri, content), expectedMediaType, expectedStatus);
+            return Send(CreateRequest(WebServiceVerb.Put, requestUri, content), expectedMediaType, expectedStatus);
         }
 
         /// <summary>
@@ -400,7 +401,7 @@ namespace CognizantSoftvision.Maqs.BaseWebServiceTest
         public HttpResponseMessage PutWithResponse(string requestUri, string expectedMediaType, string content, Encoding contentEncoding, string postMediaType, bool contentAsString = true, bool expectSuccess = true)
         {
             HttpContent httpContent = CreateContent(content, contentEncoding, postMediaType, contentAsString);
-            return SendWithResponse(this.CreateRequest(WebServiceVerb.Put, requestUri, httpContent), expectedMediaType, expectSuccess);
+            return SendWithResponse(CreateRequest(WebServiceVerb.Put, requestUri, httpContent), expectedMediaType, expectSuccess);
         }
 
         /// <summary>
@@ -417,7 +418,7 @@ namespace CognizantSoftvision.Maqs.BaseWebServiceTest
         public HttpResponseMessage PutWithResponse(string requestUri, string expectedMediaType, string content, Encoding contentEncoding, string postMediaType, HttpStatusCode expectedStatus, bool contentAsString = true)
         {
             HttpContent httpContent = CreateContent(content, contentEncoding, postMediaType, contentAsString);
-            return SendWithResponse(this.CreateRequest(WebServiceVerb.Put, requestUri, httpContent), expectedMediaType, expectedStatus);
+            return SendWithResponse(CreateRequest(WebServiceVerb.Put, requestUri, httpContent), expectedMediaType, expectedStatus);
         }
 
         /// <summary>
@@ -430,7 +431,7 @@ namespace CognizantSoftvision.Maqs.BaseWebServiceTest
         /// <returns>The http response message</returns>
         public HttpResponseMessage PutWithResponse(string requestUri, string expectedMediaType, HttpContent content, bool expectSuccess = true)
         {
-            return SendWithResponse(this.CreateRequest(WebServiceVerb.Put, requestUri, content), expectedMediaType, expectSuccess);
+            return SendWithResponse(CreateRequest(WebServiceVerb.Put, requestUri, content), expectedMediaType, expectSuccess);
         }
 
         /// <summary>
@@ -443,7 +444,7 @@ namespace CognizantSoftvision.Maqs.BaseWebServiceTest
         /// <returns>The http response message</returns>
         public HttpResponseMessage PutWithResponse(string requestUri, string expectedMediaType, HttpContent content, HttpStatusCode expectedStatus)
         {
-            return SendWithResponse(this.CreateRequest(WebServiceVerb.Put, requestUri, content), expectedMediaType, expectedStatus);
+            return SendWithResponse(CreateRequest(WebServiceVerb.Put, requestUri, content), expectedMediaType, expectedStatus);
         }
 
         /// <summary>
@@ -457,7 +458,7 @@ namespace CognizantSoftvision.Maqs.BaseWebServiceTest
         /// <returns>The response deserialized as - <typeparamref name="T"/></returns>
         public T Patch<T>(string requestUri, string expectedMediaType, HttpContent content, bool expectSuccess = true)
         {
-            return Send<T>(this.CreateRequest(WebServiceVerb.Patch, requestUri, content), expectedMediaType, expectSuccess);
+            return Send<T>(CreateRequest(WebServiceVerb.Patch, requestUri, content), expectedMediaType, expectSuccess);
         }
 
         /// <summary>
@@ -471,7 +472,7 @@ namespace CognizantSoftvision.Maqs.BaseWebServiceTest
         /// <returns>The response deserialized as - <typeparamref name="T"/></returns>
         public T Patch<T>(string requestUri, string expectedMediaType, HttpContent content, HttpStatusCode expectedStatus)
         {
-            return Send<T>(this.CreateRequest(WebServiceVerb.Patch, requestUri, content), expectedMediaType, expectedStatus);
+            return Send<T>(CreateRequest(WebServiceVerb.Patch, requestUri, content), expectedMediaType, expectedStatus);
         }
 
         /// <summary>
@@ -484,7 +485,7 @@ namespace CognizantSoftvision.Maqs.BaseWebServiceTest
         /// <returns>The response body as a string</returns>
         public string Patch(string requestUri, string expectedMediaType, HttpContent content, bool expectSuccess = true)
         {
-            return Send(this.CreateRequest(WebServiceVerb.Patch, requestUri, content), expectedMediaType, expectSuccess);
+            return Send(CreateRequest(WebServiceVerb.Patch, requestUri, content), expectedMediaType, expectSuccess);
         }
 
         /// <summary>
@@ -497,7 +498,7 @@ namespace CognizantSoftvision.Maqs.BaseWebServiceTest
         /// <returns>The response body as a string</returns>
         public string Patch(string requestUri, string expectedMediaType, HttpContent content, HttpStatusCode expectedStatus)
         {
-            return Send(this.CreateRequest(WebServiceVerb.Patch, requestUri, content), expectedMediaType, expectedStatus);
+            return Send(CreateRequest(WebServiceVerb.Patch, requestUri, content), expectedMediaType, expectedStatus);
         }
 
         /// <summary>
@@ -546,7 +547,7 @@ namespace CognizantSoftvision.Maqs.BaseWebServiceTest
         public HttpResponseMessage PatchWithResponse(string requestUri, string expectedMediaType, string content, Encoding contentEncoding, string postMediaType, bool contentAsString = true, bool expectSuccess = true)
         {
             HttpContent httpContent = CreateContent(content, contentEncoding, postMediaType, contentAsString);
-            return SendWithResponse(this.CreateRequest(WebServiceVerb.Patch, requestUri, httpContent), expectedMediaType, expectSuccess);
+            return SendWithResponse(CreateRequest(WebServiceVerb.Patch, requestUri, httpContent), expectedMediaType, expectSuccess);
         }
 
         /// <summary>
@@ -563,7 +564,7 @@ namespace CognizantSoftvision.Maqs.BaseWebServiceTest
         public HttpResponseMessage PatchWithResponse(string requestUri, string expectedMediaType, string content, Encoding contentEncoding, string postMediaType, HttpStatusCode expectedStatus, bool contentAsString = true)
         {
             HttpContent httpContent = CreateContent(content, contentEncoding, postMediaType, contentAsString);
-            return SendWithResponse(this.CreateRequest(WebServiceVerb.Patch, requestUri, httpContent), expectedMediaType, expectedStatus);
+            return SendWithResponse(CreateRequest(WebServiceVerb.Patch, requestUri, httpContent), expectedMediaType, expectedStatus);
         }
 
         /// <summary>
@@ -576,7 +577,7 @@ namespace CognizantSoftvision.Maqs.BaseWebServiceTest
         /// <returns>The http response message</returns>
         public HttpResponseMessage PatchWithResponse(string requestUri, string expectedMediaType, HttpContent content, bool expectSuccess = true)
         {
-            return SendWithResponse(this.CreateRequest(WebServiceVerb.Patch, requestUri, content), expectedMediaType, expectSuccess);
+            return SendWithResponse(CreateRequest(WebServiceVerb.Patch, requestUri, content), expectedMediaType, expectSuccess);
         }
 
         /// <summary>
@@ -589,7 +590,7 @@ namespace CognizantSoftvision.Maqs.BaseWebServiceTest
         /// <returns>The http response message</returns>
         public HttpResponseMessage PatchWithResponse(string requestUri, string expectedMediaType, HttpContent content, HttpStatusCode expectedStatus)
         {
-            return SendWithResponse(this.CreateRequest(WebServiceVerb.Patch, requestUri, content), expectedMediaType, expectedStatus);
+            return SendWithResponse(CreateRequest(WebServiceVerb.Patch, requestUri, content), expectedMediaType, expectedStatus);
         }
 
         /// <summary>
@@ -602,7 +603,7 @@ namespace CognizantSoftvision.Maqs.BaseWebServiceTest
         /// <returns>The response by deserialized as the <typeparamref name="T"/></returns>
         public T Delete<T>(string requestUri, string expectedMediaType, bool expectSuccess = true)
         {
-            return Send<T>(this.CreateRequest(WebServiceVerb.Delete, requestUri), expectedMediaType, expectSuccess);
+            return Send<T>(CreateRequest(WebServiceVerb.Delete, requestUri), expectedMediaType, expectSuccess);
         }
 
         /// <summary>
@@ -615,7 +616,7 @@ namespace CognizantSoftvision.Maqs.BaseWebServiceTest
         /// <returns>The response by deserialized as the <typeparamref name="T"/></returns>
         public T Delete<T>(string requestUri, string expectedMediaType, HttpStatusCode expectedStatus)
         {
-            return Send<T>(this.CreateRequest(WebServiceVerb.Delete, requestUri), expectedMediaType, expectedStatus);
+            return Send<T>(CreateRequest(WebServiceVerb.Delete, requestUri), expectedMediaType, expectedStatus);
         }
 
         /// <summary>
@@ -627,7 +628,7 @@ namespace CognizantSoftvision.Maqs.BaseWebServiceTest
         /// <returns>The response as a string</returns>
         public string Delete(string requestUri, string expectedMediaType, bool expectSuccess = true)
         {
-            return Send(this.CreateRequest(WebServiceVerb.Delete, requestUri), expectedMediaType, expectSuccess);
+            return Send(CreateRequest(WebServiceVerb.Delete, requestUri), expectedMediaType, expectSuccess);
         }
 
         /// <summary>
@@ -639,7 +640,7 @@ namespace CognizantSoftvision.Maqs.BaseWebServiceTest
         /// <returns>The response as a string</returns>
         public string Delete(string requestUri, string expectedMediaType, HttpStatusCode expectedStatus)
         {
-            return Send(this.CreateRequest(WebServiceVerb.Delete, requestUri), expectedMediaType, expectedStatus);
+            return Send(CreateRequest(WebServiceVerb.Delete, requestUri), expectedMediaType, expectedStatus);
         }
 
         /// <summary>
@@ -651,7 +652,7 @@ namespace CognizantSoftvision.Maqs.BaseWebServiceTest
         /// <returns>The http response message</returns>
         public HttpResponseMessage DeleteWithResponse(string requestUri, string expectedMediaType, bool expectSuccess = true)
         {
-            return SendWithResponse(this.CreateRequest(WebServiceVerb.Delete, requestUri), expectedMediaType, expectSuccess);
+            return SendWithResponse(CreateRequest(WebServiceVerb.Delete, requestUri), expectedMediaType, expectSuccess);
         }
 
         /// <summary>
@@ -663,7 +664,7 @@ namespace CognizantSoftvision.Maqs.BaseWebServiceTest
         /// <returns>The http response message</returns>
         public HttpResponseMessage DeleteWithResponse(string requestUri, string expectedMediaType, HttpStatusCode expectedStatus)
         {
-            return SendWithResponse(this.CreateRequest(WebServiceVerb.Delete, requestUri), expectedMediaType, expectedStatus);
+            return SendWithResponse(CreateRequest(WebServiceVerb.Delete, requestUri), expectedMediaType, expectedStatus);
         }
 
         /// <summary>
@@ -678,7 +679,7 @@ namespace CognizantSoftvision.Maqs.BaseWebServiceTest
         /// <returns>HTTP response message</returns>
         public T Custom<T>(string customType, string requestUri, string expectedMediaType, HttpContent content, bool expectSuccess = true)
         {
-            return Send<T>(this.CreateRequest(customType, requestUri, content), expectedMediaType, expectSuccess);
+            return Send<T>(CreateRequest(customType, requestUri, content), expectedMediaType, expectSuccess);
         }
 
         /// <summary>
@@ -693,7 +694,7 @@ namespace CognizantSoftvision.Maqs.BaseWebServiceTest
         /// <returns>HTTP response message</returns>
         public T Custom<T>(string customType, string requestUri, string expectedMediaType, HttpContent content, HttpStatusCode expectedStatus)
         {
-            return Send<T>(this.CreateRequest(customType, requestUri, content), expectedMediaType, expectedStatus);
+            return Send<T>(CreateRequest(customType, requestUri, content), expectedMediaType, expectedStatus);
         }
 
         /// <summary>
@@ -707,7 +708,7 @@ namespace CognizantSoftvision.Maqs.BaseWebServiceTest
         /// <returns>The HTTP response message</returns>
         public string Custom(string customType, string requestUri, string expectedMediaType, HttpContent content, bool expectSuccess = true)
         {
-            return Send(this.CreateRequest(customType, requestUri, content), expectedMediaType, expectSuccess);
+            return Send(CreateRequest(customType, requestUri, content), expectedMediaType, expectSuccess);
         }
 
         /// <summary>
@@ -721,7 +722,7 @@ namespace CognizantSoftvision.Maqs.BaseWebServiceTest
         /// <returns>The HTTP response message</returns>
         public string Custom(string customType, string requestUri, string expectedMediaType, HttpContent content, HttpStatusCode expectedStatus)
         {
-            return Send(this.CreateRequest(customType, requestUri, content), expectedMediaType, expectedStatus);
+            return Send(CreateRequest(customType, requestUri, content), expectedMediaType, expectedStatus);
         }
 
         /// <summary>
@@ -775,7 +776,7 @@ namespace CognizantSoftvision.Maqs.BaseWebServiceTest
         public HttpResponseMessage CustomWithResponse(string customType, string requestUri, string expectedMediaType, string content, Encoding contentEncoding, string postMediaType, bool contentAsString = true, bool expectSuccess = true)
         {
             HttpContent httpContent = CreateContent(content, contentEncoding, postMediaType, contentAsString);
-            return SendWithResponse(this.CreateRequest(customType, requestUri, httpContent), expectedMediaType, expectSuccess);
+            return SendWithResponse(CreateRequest(customType, requestUri, httpContent), expectedMediaType, expectSuccess);
         }
 
         /// <summary>
@@ -793,7 +794,7 @@ namespace CognizantSoftvision.Maqs.BaseWebServiceTest
         public HttpResponseMessage CustomWithResponse(string customType, string requestUri, string expectedMediaType, string content, Encoding contentEncoding, string postMediaType, HttpStatusCode expectedStatus, bool contentAsString = true)
         {
             HttpContent httpContent = CreateContent(content, contentEncoding, postMediaType, contentAsString);
-            return SendWithResponse(this.CreateRequest(customType, requestUri, httpContent), expectedMediaType, expectedStatus);
+            return SendWithResponse(CreateRequest(customType, requestUri, httpContent), expectedMediaType, expectedStatus);
         }
 
         /// <summary>
@@ -807,7 +808,7 @@ namespace CognizantSoftvision.Maqs.BaseWebServiceTest
         /// <returns>The HTTP response message</returns>
         public HttpResponseMessage CustomWithResponse(string customType, string requestUri, string expectedMediaType, HttpContent content, bool expectSuccess = true)
         {
-            return SendWithResponse(this.CreateRequest(customType, requestUri, content), expectedMediaType, expectSuccess);
+            return SendWithResponse(CreateRequest(customType, requestUri, content), expectedMediaType, expectSuccess);
         }
 
         /// <summary>
@@ -821,7 +822,7 @@ namespace CognizantSoftvision.Maqs.BaseWebServiceTest
         /// <returns>The HTTP response message</returns>
         public HttpResponseMessage CustomWithResponse(string customType, string requestUri, string expectedMediaType, HttpContent content, HttpStatusCode expectedStatus)
         {
-            return SendWithResponse(this.CreateRequest(customType, requestUri, content), expectedMediaType, expectedStatus);
+            return SendWithResponse(CreateRequest(customType, requestUri, content), expectedMediaType, expectedStatus);
         }
 
         /// <summary>
@@ -954,7 +955,7 @@ namespace CognizantSoftvision.Maqs.BaseWebServiceTest
         /// <param name="methodVerb">The HTTP request verb</param>
         /// <param name="requestUri">The requested URI</param>
         /// <returns>A http request message</returns>
-        private HttpRequestMessage CreateRequest(string methodVerb, string requestUri)
+        private static HttpRequestMessage CreateRequest(string methodVerb, string requestUri)
         {
             HttpMethod method = new HttpMethod(methodVerb);
             HttpRequestMessage message = new HttpRequestMessage(method, requestUri);
@@ -969,7 +970,7 @@ namespace CognizantSoftvision.Maqs.BaseWebServiceTest
         /// <param name="requestUri">The requested URI</param>
         /// <param name="content">The content</param>
         /// <returns>A http request message</returns>
-        private HttpRequestMessage CreateRequest(string methodVerb, string requestUri, HttpContent content)
+        private static HttpRequestMessage CreateRequest(string methodVerb, string requestUri, HttpContent content)
         {
             HttpRequestMessage message = CreateRequest(methodVerb, requestUri);
             message.Content = content;
@@ -1069,16 +1070,12 @@ namespace CognizantSoftvision.Maqs.BaseWebServiceTest
                 return;
             }
 
-            // Look for the media type
-            foreach (MediaTypeWithQualityHeaderValue header in this.HttpClient.DefaultRequestHeaders.Accept)
+            // Check if the type was already added
+            if (this.HttpClient.DefaultRequestHeaders.Accept.Any(x => x.MediaType.Equals(mediaType, StringComparison.CurrentCultureIgnoreCase)))
             {
-                if (header.MediaType.Equals(mediaType, StringComparison.CurrentCultureIgnoreCase))
-                {
-                    // Type was found so return
-                    return;
-                }
+                return;
             }
-
+            
             // Add the type
             this.HttpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(mediaType));
         }

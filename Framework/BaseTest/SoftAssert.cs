@@ -77,19 +77,13 @@ namespace CognizantSoftvision.Maqs.BaseTest
         /// </summary>
         protected ILogger Log { get; private set; }
 
-        /// <summary>
-        /// Override the logger
-        /// </summary>
-        /// <param name="log">The new logger</param>
+        /// <inheritdoc /> 
         public void OverrideLogger(ILogger log)
         {
             this.Log = log;
         }
 
-        /// <summary>
-        /// Gets a value indicating whether the boolean if the user checks for failures at the end of the test.
-        /// </summary>
-        /// <returns>If the user checked for failures.  If the number of asserts is 0, it returns true.</returns>
+        /// <inheritdoc /> 
         public virtual bool DidUserCheck()
         {
             if (this.NumberOfAsserts > 0)
@@ -102,18 +96,13 @@ namespace CognizantSoftvision.Maqs.BaseTest
             }
         }
 
-        /// <summary>
-        /// Check if there are any failed soft asserts.
-        /// </summary>
-        /// <returns>True if there are failed soft asserts</returns>
+        /// <inheritdoc /> 
         public virtual bool DidSoftAssertsFail()
         {
             return this.NumberOfFailedAsserts > 0;
         }
 
-        /// <summary>
-        /// Log final assert count summary
-        /// </summary>
+        /// <inheritdoc /> 
         public virtual void LogFinalAssertData()
         {
             StringBuilder message = new StringBuilder();
@@ -147,19 +136,14 @@ namespace CognizantSoftvision.Maqs.BaseTest
             this.Log.LogMessage(type, message.ToString().TrimEnd());
         }
 
-        /// <summary>
-        /// Fail test if there were one or more failures
-        /// </summary>
+        /// <inheritdoc /> 
         [AssertionMethod]
         public void FailTestIfAssertFailed()
         {
             this.FailTestIfAssertFailed("*See log for more details");
         }
 
-        /// <summary>
-        /// Fail test if there were one or more failures
-        /// </summary>
-        /// <param name="message">Customer error message</param>
+        /// <inheritdoc /> 
         [AssertionMethod]
         public void FailTestIfAssertFailed(string message)
         {
@@ -176,9 +160,7 @@ namespace CognizantSoftvision.Maqs.BaseTest
             }
         }
 
-        /// <summary>
-        /// Check that expceted assertion were run
-        /// </summary>
+        /// <inheritdoc /> 
         public void CheckForExpectedAsserts()
         {
             foreach (var expectedAssert in _expectedAssertNames)
@@ -192,23 +174,13 @@ namespace CognizantSoftvision.Maqs.BaseTest
             }
         }
 
-        /// <summary>
-        /// Wrap an assert inside a soft assert
-        /// </summary>
-        /// <param name="assertFunction">The assert function</param>
-        /// <returns>True if the asset passed</returns>
+        /// <inheritdoc /> 
         public bool Assert(Action assertFunction)
         {
             return this.Assert(assertFunction, assertFunction.Method.DeclaringType.FullName, string.Empty);
         }
 
-        /// <summary>
-        /// Wrap an assert inside a soft assert
-        /// </summary>
-        /// <param name="assertFunction">The assert function</param>
-        /// <param name="failureMessage">Message to log</param>
-        /// <param name="assertName">Soft assert name or name of expected assert being called.</param>
-        /// <returns>True if the asset passed</returns>
+        /// <inheritdoc /> 
         public virtual bool Assert(Action assertFunction, string assertName, string failureMessage = "")
         {
             if (!string.IsNullOrEmpty(assertName) && _expectedAssertNames.Any())
@@ -244,14 +216,7 @@ namespace CognizantSoftvision.Maqs.BaseTest
             return result;
         }
 
-        /// <summary>
-        /// Wrap an assert that is expected to fail and the expected failure
-        /// </summary>
-        /// <param name="assertFunction">The assert function</param>
-        /// <param name="expectedException">The type of expected exception</param>
-        /// <param name="assertName">soft assert name</param>
-        /// <param name="failureMessage">Failure message</param>
-        /// <returns>True if the assert failed</returns>
+        /// <inheritdoc /> 
         public bool AssertFails(Action assertFunction, Type expectedException, string assertName, string failureMessage = "")
         {
             // Resetting every time we invoke a test to verify the user checked for failures
@@ -289,6 +254,24 @@ namespace CognizantSoftvision.Maqs.BaseTest
             return result;
         }
 
+        /// <inheritdoc /> 
+        public void AddExpectedAsserts(params string[] expectedAsserts)
+        {
+            foreach (var expectedAssert in expectedAsserts)
+            {
+                _expectedAssertNames.Add(expectedAssert);
+            }
+        }
+
+        /// <inheritdoc /> 
+        public void CaptureTestMethodAttributes(MethodInfo testMethod)
+        {
+            foreach (var attr in Attribute.GetCustomAttributes(testMethod).Where(a => a is SoftAssertExpectedAssertsAttribute))
+            {
+                var expectedAssertAttribute = attr as SoftAssertExpectedAssertsAttribute;
+                AddExpectedAsserts(expectedAssertAttribute.ExpectedAssertKeys);
+            }
+        }
 
         /// <summary>
         /// Log a failed soft assert message
@@ -307,31 +290,6 @@ namespace CognizantSoftvision.Maqs.BaseTest
             else
             {
                 this.Log.LogMessage(MessageType.WARNING, $"SoftAssert '{assertName}' failed {failureMessage}{Environment.NewLine}Exception: {formattedException}");
-            }
-        }
-
-        /// <summary>
-        /// Add expected assertions to be called by this soft assert instance.
-        /// </summary>
-        /// <param name="expectedAsserts">Expected Assertions to be called.</param>
-        public void AddExpectedAsserts(params string[] expectedAsserts)
-        {
-            foreach (var expectedAssert in expectedAsserts)
-            {
-                _expectedAssertNames.Add(expectedAssert);
-            }
-        }
-
-        /// <summary>
-        /// Look for SoftAssertExpectedAssert attribute on the test method.
-        /// </summary>
-        /// <param name="testMethod">The Method information of the currently running test.</param>
-        public void CaptureTestMethodAttributes(MethodInfo testMethod)
-        {
-            foreach (var attr in Attribute.GetCustomAttributes(testMethod).Where(a => a is SoftAssertExpectedAssertsAttribute))
-            {
-                var expectedAssertAttribute = attr as SoftAssertExpectedAssertsAttribute;
-                AddExpectedAsserts(expectedAssertAttribute.ExpectedAssertKeys);
             }
         }
     }

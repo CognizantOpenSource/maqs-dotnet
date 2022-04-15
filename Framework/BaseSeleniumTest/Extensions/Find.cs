@@ -125,7 +125,7 @@ namespace CognizantSoftvision.Maqs.BaseSeleniumTest.Extensions
         /// <param name="text">Text to search the Web Element Collection</param>
         /// <param name="assert">optional assert parameter</param>
         /// <returns>Returns the index of the Web Element in the inputted Web Element Collection </returns>
-        public int IndexOfElementWithText(ICollection<IWebElement> list, string text, bool assert = true)
+        public static int IndexOfElementWithText(ICollection<IWebElement> list, string text, bool assert = true)
         {
             // if list size was null or empty and assert was true
             if (!list.Any() && assert)

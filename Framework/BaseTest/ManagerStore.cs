@@ -19,48 +19,28 @@ namespace CognizantSoftvision.Maqs.BaseTest
         /// </summary>
         private readonly Dictionary<string, IDriverManager> managerDictionary = new Dictionary<string, IDriverManager>();
 
-        /// <summary>
-        /// Gets the count of managed drivers
-        /// </summary>
+        /// <inheritdoc /> 
         public int Count => managerDictionary.Count;
 
-        /// <summary>
-        /// Get the driver for the associated keyed driver manager
-        /// </summary>
-        /// <typeparam name="T">Type of driver</typeparam>
-        /// <param name="key">Key for the manager</param>
-        /// <returns>The managed driver</returns>
+        /// <inheritdoc /> 
         public T GetDriver<T>(string key)
         {
             return (T)managerDictionary[key].Get();
         }
 
-        /// <summary>
-        /// Get a driver of type 'T' from manager of type 'U'
-        /// </summary>
-        /// <typeparam name="T">The type of driver</typeparam>
-        /// <typeparam name="U">The type of driver manager</typeparam>
-        /// <returns>The driver</returns>
+        /// <inheritdoc /> 
         public T GetDriver<T, U>() where U : IDriverManager
         {
             return (T)GetManager<U>().Get();
         }
 
-        /// <summary>
-        /// Get keyed manager
-        /// </summary>
-        /// <param name="key">Key for the manager</param>
-        /// <returns>Keyed manager</returns>
+        /// <inheritdoc /> 
         public IDriverManager GetManager(string key)
         {
             return GetManager<IDriverManager>(key);
         }
 
-        /// <summary>
-        /// Get unkeyed manager of type 'T'
-        /// </summary>
-        /// <typeparam name="T">The type of driver manager</typeparam>
-        /// <returns>Unkeyed manager as type 'T'</returns>
+        /// <inheritdoc /> 
         public T GetManager<T>() where T : IDriverManager
         {
             return (T)managerDictionary[typeof(T).FullName];
@@ -76,50 +56,32 @@ namespace CognizantSoftvision.Maqs.BaseTest
             return (T)managerDictionary[key];
         }
 
-        /// <summary>
-        /// Add a manager
-        /// </summary>
-        /// <param name="manager">The manager</param>
+        /// <inheritdoc /> 
         public void Add(IDriverManager manager)
         {
             managerDictionary.Add(manager.GetType().FullName, manager);
         }
 
-        /// <summary>
-        /// Add a manager
-        /// </summary>
-        /// <param name="key">Key for storing the manager</param>
-        /// <param name="manager">The manager</param>
+        /// <inheritdoc /> 
         public void Add(string key, IDriverManager manager)
         {
             managerDictionary.Add(key, manager);
         }
 
-        /// <summary>
-        /// Add or replace a manager
-        /// </summary>
-        /// <param name="manager">The manager</param>
+        /// <inheritdoc /> 
         public void AddOrOverride(IDriverManager manager)
         {
             this.AddOrOverride(manager.GetType().FullName, manager);
         }
 
-        /// <summary>
-        /// Add or replace a manager
-        /// </summary>
-        /// <param name="key">Key for storing the manager</param>
-        /// <param name="manager">The manager</param>
+        /// <inheritdoc /> 
         public void AddOrOverride(string key, IDriverManager manager)
         {
             this.Remove(key);
             managerDictionary.Add(key, manager);
         }
 
-        /// <summary>
-        /// Remove keyed manager
-        /// </summary>
-        /// <param name="key">Key of the manager to remove</param>
-        /// <returns>True if the manager was removed</returns>
+        /// <inheritdoc /> 
         public bool Remove(string key)
         {
             if (managerDictionary.ContainsKey(key) && managerDictionary[key] != null)
@@ -130,11 +92,7 @@ namespace CognizantSoftvision.Maqs.BaseTest
             return managerDictionary.Remove(key);
         }
 
-        /// <summary>
-        /// Remove unkeyed manager
-        /// </summary>
-        /// <typeparam name="T">Type of unkeyed manager</typeparam>
-        /// <returns>True if the manager was removed</returns>
+        /// <inheritdoc /> 
         public bool Remove<T>() where T : IDriverManager
         {
             return this.Remove(typeof(T).FullName);

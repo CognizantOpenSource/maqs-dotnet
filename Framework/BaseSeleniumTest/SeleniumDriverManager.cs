@@ -73,10 +73,7 @@ namespace CognizantSoftvision.Maqs.BaseSeleniumTest
             return GetBase() as IWebDriver;
         }
 
-        /// <summary>
-        /// Get the web driver
-        /// </summary>
-        /// <returns>The web driver</returns>
+        /// <inheritdoc /> 
         public override object Get()
         {
             return this.GetWebDriver();

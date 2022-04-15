@@ -21,27 +21,21 @@ namespace CognizantSoftvision.Maqs.BaseEmailTest
         /// <summary>
         /// Initializes a new instance of the <see cref="EventFiringEmailDriver" /> class
         /// </summary>
-        /// <param name="host">The email server host</param>
-        /// <param name="username">Email user name</param>
-        /// <param name="password">Email user password</param>
-        /// <param name="port">Email server port</param>
-        /// <param name="serverTimeout">Timeout for the email server</param>
-        /// <param name="isSSL">Should SSL be used</param>
-        /// <param name="skipSslCheck">Skip the SSL check</param>
+        /// <inheritdoc select="param" />
         public EventFiringEmailDriver(string host, string username, string password, int port, int serverTimeout = 10000, bool isSSL = true, bool skipSslCheck = false)
             : base(host, username, password, port, serverTimeout, isSSL, skipSslCheck)
         {
-            this.OnActionEvent($"Connect to email with user '{username}' on host '{host}', port '{port}'");
+            this.EmailActionEvent?.Invoke(this, $"Connect to email with user '{username}' on host '{host}', port '{port}'");
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="EventFiringEmailDriver" /> class
         /// </summary>
-        /// <param name="setupEmailBaseConnectionOverride">A function that returns the email connection</param>
+        /// <inheritdoc select="param" />
         public EventFiringEmailDriver(Func<ImapClient> setupEmailBaseConnectionOverride)
             : base(setupEmailBaseConnectionOverride)
         {
-            this.OnActionEvent($"Connect to email with function '{setupEmailBaseConnectionOverride.Method.Name}'");
+            this.EmailActionEvent?.Invoke(this, $"Connect to email with function '{setupEmailBaseConnectionOverride.Method.Name}'");
         }
 
         /// <summary>
@@ -59,10 +53,7 @@ namespace CognizantSoftvision.Maqs.BaseEmailTest
         /// </summary>
         public event EventHandler<string> EmailErrorEvent;
 
-        /// <summary>
-        /// Check if the account is accessible
-        /// </summary>
-        /// <returns>True if the email account is accessible</returns>
+        /// <inheritdoc /> 
         public override bool CanAccessEmailAccount()
         {
             try
@@ -78,10 +69,7 @@ namespace CognizantSoftvision.Maqs.BaseEmailTest
             }
         }
 
-        /// <summary>
-        /// Get the list of mailbox names
-        /// </summary>
-        /// <returns>A list of mailbox names</returns>
+        /// <inheritdoc /> 
         public override List<string> GetMailBoxNames()
         {
             try
@@ -96,11 +84,7 @@ namespace CognizantSoftvision.Maqs.BaseEmailTest
             }
         }
 
-        /// <summary>
-        /// Get a mailbox by name
-        /// </summary>
-        /// <param name="mailbox">The mailbox name</param>
-        /// <returns>The mailbox</returns>
+        /// <inheritdoc /> 
         public override IMailFolder GetMailbox(string mailbox)
         {
             try
@@ -115,10 +99,7 @@ namespace CognizantSoftvision.Maqs.BaseEmailTest
             }
         }
 
-        /// <summary>
-        /// Select a mailbox by name
-        /// </summary>
-        /// <param name="mailbox">The name of the mailbox</param>
+        /// <inheritdoc /> 
         public override void SelectMailbox(string mailbox)
         {
             try
@@ -133,10 +114,7 @@ namespace CognizantSoftvision.Maqs.BaseEmailTest
             }
         }
 
-        /// <summary>
-        /// Create a mailbox
-        /// </summary>
-        /// <param name="newMailBox">The name of the new mailbox</param>
+        /// <inheritdoc /> 
         public override void CreateMailbox(string newMailBox)
         {
             try
@@ -151,13 +129,7 @@ namespace CognizantSoftvision.Maqs.BaseEmailTest
             }
         }
 
-        /// <summary>
-        /// Get an email message from the current mailbox
-        /// </summary>
-        /// <param name="uid">The unique identifier for the email</param>
-        /// <param name="headerOnly">Only get header data</param>
-        /// <param name="markRead">Mark the email as read</param>
-        /// <returns>The message</returns>
+        /// <inheritdoc /> 
         public override MimeMessage GetMessage(string uid, bool headerOnly = false, bool markRead = false)
         {
             try
@@ -172,11 +144,7 @@ namespace CognizantSoftvision.Maqs.BaseEmailTest
             }
         }
 
-        /// <summary>
-        /// Get a list of email messages from the given mailbox
-        /// </summary>
-        /// <param name="mailBox">The mailbox in which to find the messages</param>
-        /// <returns>A list of email messages</returns>  
+        /// <inheritdoc />  
         public override List<MimeMessage> GetAllMessageHeaders(string mailBox)
         {
             try
@@ -191,10 +159,7 @@ namespace CognizantSoftvision.Maqs.BaseEmailTest
             }
         }
 
-        /// <summary>
-        /// Delete the given email
-        /// </summary>
-        /// <param name="message">The email with to delete</param>
+        /// <inheritdoc /> 
         public override void DeleteMessage(MimeMessage message)
         {
             try
@@ -209,10 +174,7 @@ namespace CognizantSoftvision.Maqs.BaseEmailTest
             }
         }
 
-        /// <summary>
-        /// Delete the email with the given unique identifier
-        /// </summary>
-        /// <param name="uid">The unique identifier for the email</param>
+        /// <inheritdoc /> 
         public override void DeleteMessage(string uid)
         {
             try
@@ -227,11 +189,7 @@ namespace CognizantSoftvision.Maqs.BaseEmailTest
             }
         }
 
-        /// <summary>
-        /// Move the given email to the destination mailbox
-        /// </summary>
-        /// <param name="message">The email</param>
-        /// <param name="destinationMailbox">The destination mailbox</param>
+        /// <inheritdoc /> 
         public override void MoveMailMessage(MimeMessage message, string destinationMailbox)
         {
             try
@@ -246,11 +204,7 @@ namespace CognizantSoftvision.Maqs.BaseEmailTest
             }
         }
 
-        /// <summary>
-        /// Move the email with the given unique identifier to the destination mailbox
-        /// </summary>
-        /// <param name="uid">The unique identifier for the email</param>
-        /// <param name="destinationMailbox">The destination mailbox</param>
+        /// <inheritdoc /> 
         public override void MoveMailMessage(string uid, string destinationMailbox)
         {
             try
@@ -265,11 +219,7 @@ namespace CognizantSoftvision.Maqs.BaseEmailTest
             }
         }
 
-        /// <summary>
-        /// Get the list of attachments for the email with the given unique identifier
-        /// </summary>
-        /// <param name="uid">The unique identifier for the email</param>
-        /// <returns>The list of </returns>
+        /// <inheritdoc /> 
         public override List<MimeEntity> GetAttachments(string uid)
         {
             try
@@ -284,11 +234,7 @@ namespace CognizantSoftvision.Maqs.BaseEmailTest
             }
         }
 
-        /// <summary>
-        /// Get the list of attachments for the email with the given message
-        /// </summary>
-        /// <param name="message">The message</param>
-        /// <returns>The list of attachments</returns>
+        /// <inheritdoc /> 
         public override List<MimeEntity> GetAttachments(MimeMessage message)
         {
             try
@@ -304,12 +250,7 @@ namespace CognizantSoftvision.Maqs.BaseEmailTest
             }
         }
 
-        /// <summary>
-        /// Download all the attachments for the given message
-        /// </summary>
-        /// <param name="message">The email</param>
-        /// <param name="downloadFolder">The download folder</param>
-        /// <returns>List of file paths for the downloaded files</returns>
+        /// <inheritdoc /> 
         public override List<string> DownloadAttachments(MimeMessage message, string downloadFolder)
         {
             try
@@ -325,13 +266,7 @@ namespace CognizantSoftvision.Maqs.BaseEmailTest
             }
         }
 
-        /// <summary>
-        /// Get a list of messaged that meet the search criteria
-        /// </summary>
-        /// <param name="condition">The search condition</param>
-        /// <param name="headersOnly">Only get header data</param>
-        /// <param name="markRead">Mark the email as read</param>
-        /// <returns>The list of messages that match the search criteria</returns>
+        /// <inheritdoc /> 
         public override List<MimeMessage> SearchMessages(SearchQuery condition, bool headersOnly = true, bool markRead = false)
         {
             try
@@ -347,11 +282,7 @@ namespace CognizantSoftvision.Maqs.BaseEmailTest
             }
         }
 
-        /// <summary>
-        /// Get the list of content types for the given message
-        /// </summary>
-        /// <param name="message">The message</param>
-        /// <returns>List of content types</returns>
+        /// <inheritdoc /> 
         public override List<string> GetContentTypes(MimeMessage message)
         {
             try
@@ -366,12 +297,7 @@ namespace CognizantSoftvision.Maqs.BaseEmailTest
             }
         }
 
-        /// <summary>
-        /// Get the email body for the given message that matches the content type
-        /// </summary>
-        /// <param name="message">The message</param>
-        /// <param name="contentType">The content type</param>
-        /// <returns>The message body that matches the content type</returns>
+        /// <inheritdoc /> 
         public override string GetBodyByContentTypes(MimeMessage message, string contentType)
         {
             try

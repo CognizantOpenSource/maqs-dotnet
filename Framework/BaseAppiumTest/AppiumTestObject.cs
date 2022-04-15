@@ -40,9 +40,7 @@ namespace CognizantSoftvision.Maqs.BaseAppiumTest
             this.SoftAssert = new AppiumSoftAssert(this);
         }
 
-        /// <summary>
-        /// Gets the Appium driver
-        /// </summary>
+        /// <inheritdoc /> 
         public AppiumDriver AppiumDriver
         {
             get
@@ -51,9 +49,7 @@ namespace CognizantSoftvision.Maqs.BaseAppiumTest
             }
         }
 
-        /// <summary>
-        /// Gets the Appium driver manager
-        /// </summary>
+        /// <inheritdoc /> 
         public AppiumDriverManager AppiumManager
         {
             get
@@ -62,19 +58,13 @@ namespace CognizantSoftvision.Maqs.BaseAppiumTest
             }
         }
 
-        /// <summary>
-        /// Override the Appium driver
-        /// </summary>
-        /// <param name="appiumDriver">New Appium driver</param>
+        /// <inheritdoc /> 
         public void OverrideAppiumDriver(AppiumDriver appiumDriver)
         {
             this.AppiumManager.OverrideDriver(appiumDriver);
         }
 
-        /// <summary>
-        /// Override the Appium driver
-        /// </summary>
-        /// <param name="appiumDriver">New function for initializing a Appium driver</param>
+        /// <inheritdoc /> 
         public void OverrideAppiumDriver(Func<AppiumDriver> appiumDriver)
         {
             this.AppiumManager.OverrideDriver(appiumDriver);

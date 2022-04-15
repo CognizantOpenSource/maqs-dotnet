@@ -74,7 +74,6 @@ namespace CognizantSoftvision.Maqs.BaseMongoTest
             this.OverrideDriverGet(overrideCollectionConnection);
         }
 
-
         /// <summary>
         /// Get the Mongo driver
         /// </summary>
@@ -101,18 +100,13 @@ namespace CognizantSoftvision.Maqs.BaseMongoTest
             return this.driver;
         }
 
-        /// <summary>
-        /// Get the Mongo driver
-        /// </summary>
-        /// <returns>The Mongo driver</returns>
+        /// <inheritdoc /> 
         public override object Get()
         {
             return this.GetMongoDriver();
         }
 
-        /// <summary>
-        /// Dispose of the driver
-        /// </summary>
+        /// <inheritdoc /> 
         protected override void DriverDispose()
         {
             this.BaseDriver = null;

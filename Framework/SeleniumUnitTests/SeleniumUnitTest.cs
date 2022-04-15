@@ -574,7 +574,7 @@ namespace SeleniumUnitTests
         public void FindIndexofElementInCollection()
         {
             WebDriver.Navigate().GoToUrl(TestSiteAutomationUrl);
-            Assert.AreEqual(0, WebDriver.Find().IndexOfElementWithText(WebDriver.FindElements(FlowerTable), "10 in"));
+            Assert.AreEqual(0, Find.IndexOfElementWithText(WebDriver.FindElements(FlowerTable), "10 in"));
         }
 
         /// <summary>
@@ -585,7 +585,7 @@ namespace SeleniumUnitTests
         public void FindIndexOfElementInCollectionNotFound()
         {
             WebDriver.Navigate().GoToUrl(TestSiteAutomationUrl);
-            Assert.AreEqual(WebDriver.Find().IndexOfElementWithText(WebDriver.FindElements(FlowerTable), "#notfound", false), -1);
+            Assert.AreEqual(Find.IndexOfElementWithText(WebDriver.FindElements(FlowerTable), "#notfound", false), -1);
         }
 
         /// <summary>
@@ -597,7 +597,7 @@ namespace SeleniumUnitTests
         public void FindIndexOfElementInCollectionEmptyInputList()
         {
             WebDriver.Navigate().GoToUrl(TestSiteAutomationUrl);
-            WebDriver.Find().IndexOfElementWithText(new List<IWebElement>(), "#notfound", true);
+            Find.IndexOfElementWithText(new List<IWebElement>(), "#notfound", true);
         }
 
         /// <summary>
@@ -609,7 +609,7 @@ namespace SeleniumUnitTests
         public void FindIndexOfElementInCollectionTextNotFoundAssertIsTrue()
         {
             WebDriver.Navigate().GoToUrl(TestSiteAutomationUrl);
-            WebDriver.Find().IndexOfElementWithText(WebDriver.FindElements(FlowerTable), "#notfound", true);
+            Find.IndexOfElementWithText(WebDriver.FindElements(FlowerTable), "#notfound", true);
         }
 
         /// <summary>
