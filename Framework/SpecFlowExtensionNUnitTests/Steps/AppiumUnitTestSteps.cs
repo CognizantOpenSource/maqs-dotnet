@@ -7,7 +7,6 @@
 using CognizantSoftvision.Maqs.BaseAppiumTest;
 using CognizantSoftvision.Maqs.SpecFlow.TestSteps;
 using NUnit.Framework;
-using OpenQA.Selenium.Appium;
 using TechTalk.SpecFlow;
 
 namespace SpecFlowExtensionNUnitTests.Steps
@@ -69,24 +68,6 @@ namespace SpecFlowExtensionNUnitTests.Steps
         public void AndScenarioContextIsTypeScenarioContext()
         {
             Assert.IsTrue(this.LocalScenarioContext.GetType().Equals(typeof(ScenarioContext)), $"LocalScenarioContext for BaseAppiumTestSteps class is the wrong type : {this.LocalScenarioContext.GetType()}.");
-        }
-
-        /// <summary>
-        /// AppiumDriver exists
-        /// </summary>
-        [Then(@"AppiumDriver is not null")]
-        public void ThenAppiumDriverIsNotNull()
-        {
-            Assert.IsNotNull(this.AppiumDriver, "AppiumDriver for BaseAppiumTestSteps class is null.");
-        }
-
-        /// <summary>
-        /// AppiumDriver exists
-        /// </summary>
-        [Then(@"AppiumDriver is type AppiumDriver")]
-        public void AndAppiumDriverIsTypeEventFiringAppiumDriver()
-        {
-            Assert.IsTrue(this.AppiumDriver.GetType().Equals(typeof(AppiumDriver)), $"AppiumDriver for BaseAppiumTestSteps class is the wrong type : {this.TestObject.AppiumDriver.GetType()}.");
         }
     }
 }

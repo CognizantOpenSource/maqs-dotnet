@@ -7,8 +7,6 @@
 using CognizantSoftvision.Maqs.BaseAppiumTest;
 using CognizantSoftvision.Maqs.SpecFlow.TestSteps;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Appium;
 using TechTalk.SpecFlow;
 
 [assembly: DoNotParallelize]
@@ -72,34 +70,6 @@ namespace SpecFlowExtUnitTests.Steps
         public void AndScenarioContextIsTypeScenarioContext()
         {
             Assert.IsTrue(this.LocalScenarioContext.GetType().Equals(typeof(ScenarioContext)), $"LocalScenarioContext for BaseAppiumTestSteps class is the wrong type : {this.LocalScenarioContext.GetType()}.");
-        }
-
-        /// <summary>
-        /// AppiumDriver exists
-        /// </summary>
-        [Then(@"AppiumDriver is not null")]
-        public void ThenAppiumDriverIsNotNull()
-        {
-            Assert.IsNotNull(this.TestObject.AppiumDriver, "AppiumDriver for BaseAppiumTestSteps class is null.");
-        }
-
-        /// <summary>
-        /// AppiumDriver exists
-        /// </summary>
-        [Then(@"AppiumDriver is type AppiumDriver")]
-        public void AndAppiumDriverIsTypeEventFiringAppiumDriver()
-        {
-            Assert.IsTrue(this.TestObject.AppiumDriver.GetType().Equals(typeof(AppiumDriver)), $"AppiumDriver for BaseAppiumTestSteps class is the wrong type : {this.TestObject.AppiumDriver.GetType()}.");
-        }
-
-        /// <summary>
-        /// Finds the element with the given by
-        /// </summary>
-        /// <param name="by">THe by to search with</param>
-        /// <returns>The AppiumWebElement found</returns>
-        private AppiumElement FindElement(By by)
-        {
-            return (AppiumElement)this.TestObject.AppiumDriver.FindElement(by);
         }
     }
 }

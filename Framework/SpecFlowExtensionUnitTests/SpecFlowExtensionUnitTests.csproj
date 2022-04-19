@@ -39,10 +39,26 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Features\AppiumFeature.feature.cs">
+      <DependentUpon>AppiumFeature.feature</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
     <SpecFlowFeatureFiles Update="Features\DatabaseFeature.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
     </SpecFlowFeatureFiles>
+    <SpecFlowFeatureFiles Update="Features\AppiumFeature.feature">
+      <Visible>$(UsingMicrosoftNETSdk)</Visible>
+      <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+    </SpecFlowFeatureFiles>
     <SpecFlowFeatureFiles Update="Features\EmailFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+    </SpecFlowFeatureFiles>
+    <SpecFlowFeatureFiles Update="Features\PlaywrightFeature.feature">
+      <Visible>$(UsingMicrosoftNETSdk)</Visible>
+      <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
       <Generator>SpecFlowSingleFileGenerator</Generator>
     </SpecFlowFeatureFiles>
     <SpecFlowFeatureFiles Update="Features\ScenarioContextFeature.feature">
