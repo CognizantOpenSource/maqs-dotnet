@@ -107,6 +107,9 @@ this.ScenarioInitialize(scenarioInfo);
 #line 10
  testRunner.And("BasePlaywrightTestSteps ScenarioContext is type ScenarioContext", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
+#line 11
+ testRunner.And("BasePlaywrightTestSteps Null driver is null", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
             }
             this.ScenarioCleanup();
         }

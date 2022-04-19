@@ -8,3 +8,4 @@ Scenario: Driver in BasePlaywrightTestSteps
 	And TestObject is type PlaywrightTestObject
 	And BasePlaywrightTestSteps ScenarioContext is not null
 	And BasePlaywrightTestSteps ScenarioContext is type ScenarioContext
+	And BasePlaywrightTestSteps Null driver is null

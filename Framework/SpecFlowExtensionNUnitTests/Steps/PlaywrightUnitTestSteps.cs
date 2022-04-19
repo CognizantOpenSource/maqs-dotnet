@@ -7,6 +7,7 @@
 using CognizantSoftvision.Maqs.BasePlaywrightTest;
 using CognizantSoftvision.Maqs.SpecFlow.TestSteps;
 using NUnit.Framework;
+using System;
 using TechTalk.SpecFlow;
 
 namespace SpecFlowExtensionNUnitTests.Steps
@@ -68,6 +69,16 @@ namespace SpecFlowExtensionNUnitTests.Steps
         public void AndScenarioContextIsTypeScenarioContext()
         {
             Assert.IsTrue(this.LocalScenarioContext.GetType().Equals(typeof(ScenarioContext)), $"LocalScenarioContext for BasePlaywrightTestSteps class is the wrong type : {this.LocalScenarioContext.GetType()}.");
+        }
+
+        /// <summary>
+        /// ScenarioContext is valid
+        /// </summary>
+        [Then(@"BasePlaywrightTestSteps Null driver is null")]
+        public void AndNullDriverIsNull()
+        {
+            this.TestObject.OverridePageDriver(() => null);
+            Assert.IsNull(this.PageDriver.AsyncPage);
         }
     }
 }
