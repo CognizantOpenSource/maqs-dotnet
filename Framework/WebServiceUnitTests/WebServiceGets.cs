@@ -7,10 +7,10 @@
 using CognizantSoftvision.Maqs.BaseWebServiceTest;
 using CognizantSoftvision.Maqs.Utilities.Helper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using SixLabors.ImageSharp;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Drawing;
 using System.Net.Http;
 using WebServiceTesterUnitTesting.Model;
 
@@ -100,8 +100,7 @@ namespace WebServiceTesterUnitTesting
             WebServiceDriver client = new WebServiceDriver(new Uri(url));
             HttpResponseMessage result = client.GetWithResponse("/api/PNGFile/GetImage?image=Red", "image/png", false);
 
-            // Get the image
-            Image image = Image.FromStream(result.Content.ReadAsStreamAsync().Result);
+            using var image = Image.Load(result.Content.ReadAsByteArrayAsync().Result);
 
             Assert.AreEqual(200, image.Width, "Image width should be 200");
             Assert.AreEqual(200, image.Height, "Image hight should be 200");
