@@ -783,17 +783,6 @@ namespace CognizantSoftvision.Maqs.BaseSeleniumTest.Extensions
         }
 
         /// <summary>
-        /// Gets the value of a JavaScript property of this element
-        /// </summary>
-        /// <param name="propertyName">The name JavaScript the JavaScript property to get the value of</param>
-        /// <returns> The JavaScript property's current value. Returns a null if the value is not set or the property does not exist</returns>
-        [Obsolete("Use the GetDomProperty method instead.")]
-        public string GetProperty(string propertyName)
-        {
-            return this.GetRawExistingElement().GetProperty(propertyName);
-        }
-
-        /// <summary>
         /// Finds the first OpenQA.Selenium.IWebElement using the given method.
         /// </summary>
         /// <param name="by">The locating mechanism to use</param>
