@@ -122,12 +122,7 @@ namespace CognizantSoftvision.Maqs.BaseSeleniumTest
         public static void DragAndDropToOffset(IWebElement source, IWebElement destination, int pixelsXOffset, int pixelsYOffset)
         {
             Actions builder = new Actions(SeleniumUtilities.SearchContextToWebDriver(source));
-
-            // Move to element goes to the top left corner so compensate for that 
-            int horizontalOffset = (destination.Size.Width / 2) + pixelsXOffset;
-            int verticalOffset = (destination.Size.Height / 2) + pixelsYOffset;
-
-            builder.ClickAndHold(source).MoveToElement(destination, horizontalOffset, verticalOffset).Release().Build().Perform();
+            builder.ClickAndHold(source).MoveToElement(destination, pixelsXOffset, pixelsYOffset).Release().Build().Perform();
         }
 
         /// <summary>
