@@ -799,18 +799,6 @@ namespace SeleniumUnitTests
         }
 
         /// <summary>
-        /// Verify Lazy Element property
-        /// </summary>
-        [TestMethod]
-        [TestCategory(TestCategories.Selenium)]
-        public void LazyElementProperty()
-        {
-#pragma warning disable CS0618 // Type or member is obsolete
-            Assert.AreEqual("showDialog1", this.DialogOneButton.GetProperty("id"), "Expected ID to be 'showDialog1'");
-#pragma warning restore CS0618 // Type or member is obsolete
-        }
-
-        /// <summary>
         /// Verify Lazy Element DOM property
         /// </summary>
         [TestMethod]
@@ -1185,7 +1173,6 @@ namespace SeleniumUnitTests
             a1.SendKeys(rawElement, "Hello").Build().Perform();
             a1.MoveToElement(rawElement).Build().Perform();
             a1.MoveToElement(rawElement, 0, 0).Build().Perform();
-            a1.MoveToElement(rawElement, 0, 0, MoveToElementOffsetOrigin.Center).Build().Perform();
         }
 
         /// <summary>
@@ -1196,14 +1183,12 @@ namespace SeleniumUnitTests
         public void LazyElementFindRawElementsWorksWithActions()
         {
             IWebElement rawElement = this.DivRoot.FindRawElements(this.DisabledItem.By)[0];
-
             Actions a1 = new Actions(this.WebDriver);
             a1.KeyDown(rawElement, Keys.Shift).Build().Perform();
             a1.KeyUp(rawElement, Keys.Shift).Build().Perform();
             a1.SendKeys(rawElement, "Hello").Build().Perform();
             a1.MoveToElement(rawElement).Build().Perform();
             a1.MoveToElement(rawElement, 0, 0).Build().Perform();
-            a1.MoveToElement(rawElement, 0, 0, MoveToElementOffsetOrigin.Center).Build().Perform();
         }
 
         /// <summary>
