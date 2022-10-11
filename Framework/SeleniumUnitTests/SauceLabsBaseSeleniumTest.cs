@@ -29,7 +29,6 @@ namespace SeleniumUnitTests
 
                 var browserOptions = new ChromeOptions
                 {
-                    UseSpecCompliantProtocol = true,
                     PlatformName = "Windows 10",
                     BrowserVersion = "latest"
                 };
