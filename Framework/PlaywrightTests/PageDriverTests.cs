@@ -553,7 +553,7 @@ namespace PlaywrightTests
             this.PageDriver.Click(AsyncPageLink);
             Assert.IsTrue(this.PageDriver.IsEventualyVisible(asyncItemSelector));
             this.PageDriver.Reload();
-            this.PageDriver.WaitForTimeout(1000);
+            this.PageDriver.WaitForTimeout(2000);
             var body = System.Text.Encoding.Default.GetString(this.PageDriver.Reload().BodyAsync().Result);
             Assert.IsTrue(this.PageDriver.IsEventualyGone(asyncItemSelector), $"Element failed to go away, got body: {Environment.NewLine}{body}");
         }
