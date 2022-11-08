@@ -22,7 +22,7 @@
     <PackageReference Include="System.Buffers" Version="4.5.1" />
     <PackageReference Include="System.Memory" Version="4.5.5" />
     <PackageReference Include="System.Numerics.Vectors" Version="4.5.0" />
-    <PackageReference Include="Titanium.Web.Proxy" Version="3.1.1450" />
+    <PackageReference Include="Titanium.Web.Proxy" Version="3.2.0" />
   </ItemGroup>
 
   <ItemGroup>
