@@ -5,6 +5,7 @@
 // <summary>This is the base Selenium page model class</summary>
 //--------------------------------------------------
 using CognizantSoftvision.Maqs.BaseSeleniumTest.Extensions;
+using CognizantSoftvision.Maqs.BaseTest;
 using CognizantSoftvision.Maqs.Utilities.Logging;
 using CognizantSoftvision.Maqs.Utilities.Performance;
 using OpenQA.Selenium;
@@ -65,6 +66,14 @@ namespace CognizantSoftvision.Maqs.BaseSeleniumTest
         public IPerfTimerCollection PerfTimerCollection
         {
             get { return this.TestObject.PerfTimerCollection; }
+        }
+
+        /// <summary>
+        /// Gets the SoftAssert from the test object
+        /// </summary>
+        public ISoftAssert SoftAssert
+        {
+            get { return this.TestObject.SoftAssert; }
         }
 
         /// <summary>
