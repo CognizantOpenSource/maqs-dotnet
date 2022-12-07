@@ -5,7 +5,7 @@
 // <summary>SQLServerProvider class</summary>
 //--------------------------------------------------
 
-using Microsoft.System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 
 namespace CognizantSoftvision.Maqs.BaseDatabaseTest.Providers
 {
