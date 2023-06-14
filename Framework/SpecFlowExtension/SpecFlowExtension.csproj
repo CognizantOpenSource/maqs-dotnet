@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <VersionPrefix>9.0.0</VersionPrefix>
@@ -44,7 +44,7 @@
 
   <ItemGroup>
     <PackageReference Include="Appium.WebDriver" version="5.0.0-beta01" />
-    <PackageReference Include="Dapper" version="2.0.123" />
+    <PackageReference Include="Dapper" version="2.0.138" />
     <PackageReference Include="Gherkin" version="23.0.1" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
       <PrivateAssets>all</PrivateAssets>
