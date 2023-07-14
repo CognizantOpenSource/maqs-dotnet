@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <VersionPrefix>9.0.0</VersionPrefix>
@@ -50,7 +50,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="MSTest.TestFramework" version="2.2.10" />
+    <PackageReference Include="MSTest.TestFramework" version="3.1.1" />
     <PackageReference Include="NUnit" version="3.13.3" />
     <PackageReference Include="SpecFlow" version="3.9.74" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="6.0.1" />
